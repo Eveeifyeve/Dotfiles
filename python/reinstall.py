@@ -45,3 +45,4 @@ for formula_name in apps:
         # Skip casting if the app is a cask
         if not is_cask(formula_name):
             # print(f"\033[31mCasting is not supported for {formula_name}.\033[0m")
+            continue

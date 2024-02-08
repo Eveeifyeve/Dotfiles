@@ -1,3 +1,11 @@
+cmake
+bun
+gh
+gradle
+jenv
+neovide
+neovim
 raycast
 spicetify-cli
-neovim
+tmux
+wezterm
