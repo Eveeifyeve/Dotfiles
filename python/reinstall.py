@@ -21,13 +21,13 @@ def install_app(formula_name):
         
         # Check if the app is already installed
         if "already installed" in result.stdout:
-            print(f"{formula_name} is already installed.")
+            # print(f"{formula_name} is already installed.")
             return True
         else:
-            print(f"{formula_name} has been installed.")
+            # print(f"{formula_name} has been installed.")
             return True
     except subprocess.CalledProcessError as e:
-        print(f"Failed to install {formula_name}: {str(e)}")
+        # print(f"Failed to install {formula_name}: {str(e)}")
         return False
 
 # Function to check if an app is a cask
@@ -44,4 +44,4 @@ for formula_name in apps:
     if install_app(formula_name):
         # Skip casting if the app is a cask
         if not is_cask(formula_name):
-            print(f"\033[31mCasting is not supported for {formula_name}.\033[0m")
+            # print(f"\033[31mCasting is not supported for {formula_name}.\033[0m")
