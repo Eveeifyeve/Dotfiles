@@ -1,2 +1,7 @@
+### Gernerated Folders ###
 /raycast
 /spicetify
+/zed/embeddings
+
+### Gernerated Files ###
+.tmp*
