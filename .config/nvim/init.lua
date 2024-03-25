@@ -1,5 +1,6 @@
-require("core")
-
+require("core.keymaps") 
+require("core.settings")
+require("core.commands")
 
 -- -Init Lazy.nvim-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -16,7 +17,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- -Plugins Setup-
-require("lazy").setup(require("plugins.init"))
+require("lazy").setup(require("plugins"))
 
 
 -- if vim.g.neovide then vim.cmd[[cd $HOME]] require("notify")("Neovide is set to ~ directory") end
