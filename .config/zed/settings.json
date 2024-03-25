@@ -7,7 +7,13 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Andromeda",
+  "features": {
+    "copilot": false
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "theme": "Catppuccin Mocha",
   "ui_font_size": 16,
   "buffer_font_size": 16
 }

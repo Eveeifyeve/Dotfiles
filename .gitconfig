@@ -7,3 +7,9 @@
 	autoStash = true
 [push]
 	autoSetupRemote = true
+[diff "lockb"]
+	binary = true
+	textconv = bun
+
+[credential "https://codeberg.org"]
+	helper = !/Users/eveeify/.cargo/bin/fjo auth git-credential

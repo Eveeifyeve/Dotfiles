@@ -2,6 +2,13 @@
 /raycast
 /spicetify
 /zed/embeddings
+/containers
 
 ### Gernerated Files ###
 .tmp*
+
+
+
+### Additional Ignored Directories ###
+/NAP Locked down browser
+/GameMakerStudio2
