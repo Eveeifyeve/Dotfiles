@@ -17,3 +17,8 @@ TAGS
 *.aux
 *.elc
 .zshrc.local
+
+
+
+## NVIM ###
+.config/nvim/**/**/luac.out
