@@ -63,10 +63,18 @@
             mru-spaces = false;
             show-recents = false;
             orientation = "bottom";
+            minimize-to-application = true;
             tilesize = 48;
           };
-          finder.AppleShowAllExtensions = true;
+          finder = {
+            CreateDesktop = false;
+            AppleShowAllExtensions = true;
+            FXDefaultSearchScope = "SCcf";
+            ShowPathbar = true;
+          };
           screencapture.location = "~/Pictures/screencapture";
+          screencapture.type = "png";
+          screencapture.disable-shadow = true;
           screensaver.askForPasswordDelay = 10;
         };
 
