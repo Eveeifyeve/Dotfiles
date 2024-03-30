@@ -17,13 +17,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    getchoo = {
-      url = "github:getchoo/nix-exprs";
-    };
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, homebrew-core, homebrew-cask
-    , nix-homebrew, getchoo }:
+    , nix-homebrew }:
     let
       user = "eveeifyeve";
       macbook = "eveeifyeve-macbook";
@@ -41,9 +38,6 @@
           pkgs.git
           pkgs.devenv
           pkgs.nil
-          (with getchoo.packages.${system}; [
-          modrinth-app
-          ])
         ];
         services.nix-daemon.enable = true;
         system.configurationRevision = self.rev or self.dirtyRev or null;
