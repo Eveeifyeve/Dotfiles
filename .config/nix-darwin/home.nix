@@ -8,6 +8,7 @@
     home.packages = with pkgs; [
       neovim
       discord
+      git
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
   ];
