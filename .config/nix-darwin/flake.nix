@@ -102,7 +102,7 @@
               taps = {
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
-                "homebrew/cask-versions" = homebrew-cask-versions;
+                "homebrew/homebrew-cask-versions" = homebrew-cask-versions;
               };
             };
           } 
