@@ -42,7 +42,7 @@
           pkgs.devenv
           pkgs.nil
           (with getchoo.packages.${system}; [
-          modrinth-app-unwrapped
+          modrinth-app
           ])
         ];
         services.nix-daemon.enable = true;
