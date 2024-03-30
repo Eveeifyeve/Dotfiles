@@ -53,8 +53,13 @@
         # System settings
         security.pam.enableSudoTouchIdAuth = true;
         system.defaults = {
-          dock.autohide = true;
-          dock.mru-spaces = false;
+          dock = {
+            autohide = true;
+            mru-spaces = false;
+            show-recents = false;
+            orientation = "bottom";
+            tilesize = 48;
+          };
           finder.AppleShowAllExtensions = true;
           screencapture.location = "~/Pictures/screencapture";
           screensaver.askForPasswordDelay = 10;
