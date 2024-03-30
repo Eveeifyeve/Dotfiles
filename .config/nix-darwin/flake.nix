@@ -47,7 +47,7 @@
         programs.zsh = {
           enable = true;
           interactiveShellInit = ''
-            alias rebuildflake='darwin-rebuild switch --flake ~/.config/nix-darwin'
+            alias rebuildNix='darwin-rebuild switch --flake ~/.config/nix-darwin'
           '';
         };
         # System settings
