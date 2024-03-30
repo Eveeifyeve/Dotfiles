@@ -18,6 +18,11 @@
       flake = false;
     };
 
+    homebrew-cask-versions = {
+      url = "github:homebrew/homebrew-cask-versions";
+      flake = false;
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +30,7 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, homebrew-core, homebrew-cask
-    , nix-homebrew, home-manager }:
+    , homebrew-cask-versions, nix-homebrew, home-manager }:
     let
       user = "eveeifyeve";
       macbook = "eveeifyeve-macbook";
@@ -97,6 +102,7 @@
               taps = {
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
+                "homebrew/cask-versions" = homebrew-cask-versions;
               };
             };
           } 
