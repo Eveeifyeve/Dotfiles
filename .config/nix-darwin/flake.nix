@@ -17,10 +17,15 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, homebrew-core, homebrew-cask
-    , nix-homebrew }:
+    , nix-homebrew, home-manager }:
     let
       user = "eveeifyeve";
       macbook = "eveeifyeve-macbook";
@@ -86,7 +91,7 @@
                 "homebrew/homebrew-cask" = homebrew-cask;
               };
             };
-          }
+          } 
         ];
       };
       darwinPackages = self.darwinConfigurations.pkgs;
