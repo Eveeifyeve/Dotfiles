@@ -23,7 +23,7 @@ A Configuration for Each Distro/OS
 
 3. Build the configuration using:
 ```bash
-nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.dotfiles/.config/nix-darwin
 ```
 
 
@@ -33,5 +33,5 @@ nix run nix-darwin -- switch --flake ~/.config/nix-darwin
 
 ## Macos
 ```bash
-nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+nix run nix-darwin -- switch --flake ~/.dotfiles/.config/nix-darwin
 ```
