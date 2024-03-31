@@ -1,11 +1,37 @@
-# dotfiles
-all of my dotfiles stored
+# Dotfiles 
+A Configuration for Each Distro/OS
+
+# Features
+- MacOS Nix and NixOs config
+- Neovim config
 
 
 
 
-### RayCast Extensions and List of Settings.
 
 
 
-### Spicetify Extensions and List of Settings.
+# Installing 
+
+
+## Macos 
+
+
+1. Download this folder and move it to .dotfiles
+
+2. Download Nix | https://nixos.org/download/
+
+3. Build the configuration using:
+```bash
+nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+```
+
+
+
+
+# Rebuilding 
+
+## Macos
+```bash
+nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+```
