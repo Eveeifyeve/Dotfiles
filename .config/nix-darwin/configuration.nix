@@ -1,6 +1,5 @@
 {pkgs, ...}: {
 # Nix-Darwin Config
-envir
 services.nix-daemon.enable = true;
 users.users.eveeifyeve.home = "/Users/eveeifyeve";
   nix.settings.experimental-features = "nix-command flakes";
