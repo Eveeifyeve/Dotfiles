@@ -10,6 +10,7 @@
       discord
       git
       vscode
+      nil
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
   ];
