@@ -9,6 +9,7 @@
       neovim
       discord
       git
+      vscode
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
   ];
