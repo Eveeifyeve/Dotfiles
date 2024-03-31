@@ -1,2 +1,4 @@
 .DS_Store
 .devenv.lock
+
+.config/direnv/direnvrc
