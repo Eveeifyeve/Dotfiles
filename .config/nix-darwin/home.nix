@@ -11,6 +11,8 @@
       git
       vscode
       nil
+      raycast
+
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
   ];
