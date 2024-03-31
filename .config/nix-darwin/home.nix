@@ -12,6 +12,7 @@
       vscode
       nil
       raycast
+      spotify
 
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
