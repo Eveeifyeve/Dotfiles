@@ -12,7 +12,7 @@
       vscode
       nil
       spotify
-
+      direnv
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
   ];
