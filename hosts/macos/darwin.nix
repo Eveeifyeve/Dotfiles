@@ -1,10 +1,5 @@
 {config, pkgs, ...}: {
 # Nix-Darwin Config
-environment.systemPackages = with pkgs; [
-    neovim
-    git
-];
-
   homebrew = {
     enable = true;
     casks = [
