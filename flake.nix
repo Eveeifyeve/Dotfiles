@@ -2,6 +2,7 @@
   description = "Eveeifyeve Nix/NixOS Configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -10,9 +11,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-cask-versions = {
+      url = "github:homebrew/homebrew-cask-versions";
+      flake = false;
+    };
+
   };
 
-  outputs = inputs@{self, nixpkgs, home-manager, nix-darwin, ... }: {
+  outputs = inputs@{self, nixpkgs, home-manager, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-cask-versions, ... }: {
     # Macos Config
     darwinConfigurations = {
       "eveeifyeve-macbook" = let 
@@ -36,6 +51,20 @@
              imports = [./hosts/macos/home.nix];
               };
             };
+          }
+          nix-homebrew.darwinModules.nix-homebrew {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = false;
+              user = "${username}";
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+                "homebrew/homebrew-cask-versions" = homebrew-cask-versions;
+                };
+                mutableTaps = false;
+                autoMigrate = false; # Already have homebrew use this to migrate to the nix version.
+            }; 
           }
         ];
       };
