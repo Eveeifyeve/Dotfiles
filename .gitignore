@@ -2,3 +2,5 @@
 .devenv.lock
 
 .config/direnv/direnvrc
+**/*.devenv
+**/*.envrc

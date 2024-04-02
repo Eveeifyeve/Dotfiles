@@ -1,10 +1,12 @@
 {config, pkgs, lib, ...}: {
+  inputs = [
+    ./home-manager/git.nix
+        ./home-manager/nvim.nix
+  ];
+
   # Home-Manager Config
   home.stateVersion = "22.05";
-
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-
+  programs.home-manager.enable = true;
     home.packages = with pkgs; [
       neovim
       discord
@@ -16,4 +18,12 @@
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
   ];
+  
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    warn-dirty = false;
+    allowUnfree = true;
+  };
+
+  
 }

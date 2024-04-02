@@ -2,8 +2,9 @@
 A Configuration for Each Distro/OS
 
 # Features
-- MacOS Nix and NixOs config
-- Neovim config
+- Rust & Node Flake Templates to get you started
+- Editor Configurations for VsCode and Nvim
+
 
 
 
@@ -23,7 +24,7 @@ A Configuration for Each Distro/OS
 
 3. Build the configuration using:
 ```bash
-nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.dotfiles/.config/nix-darwin
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.dotfiles/
 ```
 
 
@@ -33,5 +34,11 @@ nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch 
 
 ## Macos
 ```bash
-nix run nix-darwin -- switch --flake ~/.dotfiles/.config/nix-darwin
+nix run nix-darwin -- switch --flake ~/.dotfiles/
 ```
+
+
+
+
+
+Took insperation off: https://github.com/Aylur/dotfiles
