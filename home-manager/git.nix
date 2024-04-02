@@ -10,7 +10,7 @@ in {
     github.user = name;
     push.autoSetupRemote = true;
    };
-  };
   userEmail = email;
   userName = name;
+  };
 }
