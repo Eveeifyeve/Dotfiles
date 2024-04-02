@@ -1,7 +1,7 @@
 {config, pkgs, lib, ...}: {
-  inputs = [
-    ./home-manager/git.nix
-        ./home-manager/nvim.nix
+  imports = [
+    ../../home-manager/git.nix
+    ../../home-manager/nvim.nix
   ];
 
   # Home-Manager Config
