@@ -24,5 +24,8 @@
     warn-dirty = false;
   };
 
+   home.sessionVariables = {
+    PATH = "${config.home.profileDirectory}/bin:/run/current-system/sw/bin:${config.environment.systemPath}";
+ };
   
 }
