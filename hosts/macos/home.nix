@@ -25,7 +25,4 @@
     warn-dirty = false;
   };
 
-  programs.zsh = {
-    enable = true;
-  };
 }
