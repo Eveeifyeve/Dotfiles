@@ -14,6 +14,7 @@
       vscode
       nil
       spotify
+      raycast
       direnv
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
@@ -24,8 +25,7 @@
     warn-dirty = false;
   };
 
-   home.sessionVariables = {
-    PATH = "${config.home.profileDirectory}/bin:/run/current-system/sw/bin:${config.environment.systemPath}";
- };
-  
+  programs.zsh = {
+    enable = true;
+  };
 }
