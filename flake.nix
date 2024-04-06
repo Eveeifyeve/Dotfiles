@@ -53,20 +53,10 @@
             };
           }
           nix-homebrew.darwinModules.nix-homebrew {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = false;
-              user = "${username}";
-              taps = {
-                "homebrew/homebrew-core" = homebrew-core;
-                "homebrew/homebrew-cask" = homebrew-cask;
-                "homebrew/homebrew-cask-versions" = homebrew-cask-versions;
-                };
-                mutableTaps = false;
-                autoMigrate = false; # Already have homebrew use this to migrate to the nix version.
-            }; 
+            imports = [./modules/homebrew.nix]; 
           }
         ];
+        specialArgs = { inherit username homebrew-cask homebrew-cask-versions homebrew-core; };
       };
     };
   };
