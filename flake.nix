@@ -34,6 +34,7 @@
       username = "eveeifyeve";
       in
       nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit username homebrew-cask homebrew-cask-versions homebrew-core; };
         modules = [
           ./hosts/macos/darwin.nix
           home-manager.darwinModules.home-manager
@@ -56,7 +57,6 @@
             imports = [./modules/homebrew.nix]; 
           }
         ];
-        specialArgs = { inherit username homebrew-cask homebrew-cask-versions homebrew-core; };
       };
     };
   };
