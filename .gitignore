@@ -4,3 +4,4 @@
 .config/direnv/direnvrc
 **/*.devenv
 **/*.envrc
+flake.lock
