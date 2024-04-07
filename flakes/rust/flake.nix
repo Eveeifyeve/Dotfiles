@@ -75,11 +75,6 @@
             yamllint.enable = true;
           };
 
-          # Plugin configuration
-          pre-commit.settings = {
-            yamllint.relaxed = true;
-          };
-
           # https://devenv.sh/integrations/dotenv/
           dotenv.enable = true;
         };
