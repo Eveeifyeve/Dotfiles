@@ -15,7 +15,7 @@
       spotify
       raycast
       direnv
-      nil
+      nixd
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
   ];
