@@ -25,13 +25,7 @@
       ];
       systems = [ "x86_64-linux" "i686-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
 
-      perSystem = { config, self', inputs', lib, pkgs, system, ... }:
-        let
-          cargoBuildInputs = lib.optionals pkgs.stdenv.isDarwin (with pkgs.darwin.apple_sdk; [
-            frameworks.Security
-            frameworks.CoreServices
-          ]);
-        in {
+      perSystem = { config, self', inputs', lib, pkgs, system, ... }: {
         devenv.shells.default = {
           name = "Project Name"; #TODO: Change Project Name
           difftastic.enable = true;
