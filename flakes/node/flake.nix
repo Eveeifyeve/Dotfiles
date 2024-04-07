@@ -22,7 +22,6 @@
             nodejs-packages = with pkgs.nodePackages; [
               vscode-langservers-extracted
               typescript-language-server
-              yarn
             ];
           in
           {
