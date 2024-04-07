@@ -69,6 +69,7 @@
 
           # https://devenv.sh/pre-commit-hooks/
           pre-commit.hooks = {
+            hooks.nixfmt.package = pkgs.nixfmt-rfc-style;
             nixfmt.enable = true;
             clippy.enable = true;
             yamllint.enable = true;
