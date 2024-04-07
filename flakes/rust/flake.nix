@@ -33,12 +33,13 @@
           # https://devenv.sh/reference/options/
           packages = [ 
             config.packages.default 
-            languages.rust {
+          ];
+
+          languages.rust = {
               enable = true;
               channel = "stable"; # Your Rust Channel Deafult Is Stable
               rust.components = ["rustc" "cargo" "clippy" "rustfmt" "rust-analyzer"]; # Tools
-            }
-          ];
+            };
         };
 
       };

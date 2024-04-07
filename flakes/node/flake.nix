@@ -32,8 +32,11 @@
 
           # https://devenv.sh/reference/options/
           packages = [ 
-            config.packages.default 
-            languages.javascript {
+            config.packages.default
+          ];
+
+          languages.javascript = {
+              enable = true;
               bun = {
                 enable = true;
                 install.enable = true;
@@ -43,8 +46,7 @@
                 enable = false;
                 install.enable = false;
               };
-            }
-          ];
+            };
         };
 
       };
