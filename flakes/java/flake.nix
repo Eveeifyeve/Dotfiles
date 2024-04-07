@@ -55,16 +55,11 @@
           # '';
 
           # https://devenv.sh/languages/
-          languages.rust = {
+          lanaguages.java = {
             enable = true;
-            channel = "stable";
-            components = [
-              "rustc"
-              "cargo"
-              "clippy"
-              "rustfmt"
-              "rust-analyzer"
-            ];
+            languages.java.jdk.package = pkgs.jdk8; # Java Version/Package
+            gradle.enable = true; # Disable if not using gradle
+            maven.enable = true; # Disable if not using maven
           };
 
           # https://devenv.sh/pre-commit-hooks/

@@ -58,8 +58,6 @@
                   pre-commit.hooks = {
                     nixfmt.package = pkgs.nixfmt-rfc-style;
                     nixfmt.enable = true;
-                    yamllint.enable = true;
-                    editorconfig-checker.enable = true;
                     rome.enable = true;
                   };
 

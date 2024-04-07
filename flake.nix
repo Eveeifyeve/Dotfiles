@@ -70,6 +70,10 @@
         path = ./flakes/rust;
         description = "Rust development environment";
       };
+      java = {
+        path = ./flakes/java;
+        description = "Java development environment";
+      };
     };
   };
 }
