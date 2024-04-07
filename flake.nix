@@ -59,5 +59,17 @@
         ];
       };
     };
+
+
+    templates = {
+      node = {
+        path = ./flakes/node;
+        description = "NodeJS development environment";
+      };
+      rust = {
+        path = ./flakes/rust;
+        description = "Rust development environment";
+      };
+    };
   };
 }

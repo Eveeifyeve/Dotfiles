@@ -1,12 +1,8 @@
 {
-  description = "Node-Project Flake";
-
   inputs = {
-    nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    systems.url = "github:nix-systems/default";
     devenv.url = "github:cachix/devenv";
-    nix2container.url = "github:nlewo/nix2container";
-    nix2container.inputs.nixpkgs.follows = "nixpkgs";
-    mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
   };
 
   nixConfig = {
@@ -14,47 +10,70 @@
     extra-substituters = "https://devenv.cachix.org";
   };
 
-  outputs = inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        inputs.devenv.flakeModule
-      ];
-      systems = [ "x86_64-linux" "i686-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-      packages.devenv-up = self'.devShells.default.config.procfileScript;
+  outputs = { self, nixpkgs, devenv, systems, ... } @ inputs:
+    let
+      forEachSystem = nixpkgs.lib.genAttrs (import systems);
+    in
+    {
+      devShells = forEachSystem
+        (system:
+          let
+            pkgs = nixpkgs.legacyPackages.${system};
+            nodejs-packages = with pkgs.nodePackages; [
+              vscode-langservers-extracted
+              typescript-language-server
+              yarn
+            ];
+          in
+          {
+            default = devenv.lib.mkShell {
+              inherit inputs pkgs;
+              modules = [
+                {
+                  difftastic.enable = true;
 
-        devenv.shells.default = {
-          name = "Node-Project";
+                  # Enviroment Virables
+                  env = {
+                  };
 
-          # https://devenv.sh/guides/using-with-flake-parts/#import-a-devenv-module
-          imports = [
-          ];
+                  # https://devenv.sh/reference/options/
+                  packages = with pkgs;
+                    [] ++ nodejs-packages;
 
-          # https://devenv.sh/reference/options/
-          packages = [ 
-            config.packages.default
-          ];
+                  # https://devenv.sh/scripts/
+                  # scripts.hello.exec = "";
 
-          languages.javascript = {
-              enable = true;
-              bun = {
-                enable = true;
-                install.enable = true;
-              };
-              # PNPM If package needs PNPM but you should always try to use bun.
-              pnpm = {
-                enable = false;
-                install.enable = false;
-              };
+                  # enterShell = ''
+                  # '';
+
+                  # https://devenv.sh/languages/
+                  languages.javascript = {
+                    enable = true;
+                  };
+
+                  languages.typescript = {
+                    enable = true;
+                  };
+
+                  # https://devenv.sh/pre-commit-hooks/
+                  pre-commit.hooks = {
+                    nixfmt.enable = true;
+                    yamllint.enable = true;
+                    editorconfig-checker.enable = true;
+                    rome.enable = true;
+                  };
+
+                  # Plugin configuration
+                  pre-commit.settings = {
+                    yamllint.relaxed = true;
+                  };
+
+                  # https://devenv.sh/integrations/dotenv/
+                  dotenv.enable = true;
+
+                }
+              ];
             };
-        };
-
-      };
-      flake = {
-        # The usual flake attributes can be defined here, including system-
-        # agnostic ones like nixosModule and system-enumerating ones, although
-        # those are more easily expressed in perSystem.
-
-      };
+          });
     };
 }

@@ -16,6 +16,7 @@
       raycast
       direnv
       nixd
+      devenv
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
   ];

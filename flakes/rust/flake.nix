@@ -1,12 +1,16 @@
 {
-  description = "Node-Project Flake";
+  description = "Project Description"; #TODO: Project Description
 
   inputs = {
-    nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     devenv.url = "github:cachix/devenv";
     nix2container.url = "github:nlewo/nix2container";
     nix2container.inputs.nixpkgs.follows = "nixpkgs";
     mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -14,40 +18,73 @@
     extra-substituters = "https://devenv.cachix.org";
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.devenv.flakeModule
       ];
       systems = [ "x86_64-linux" "i686-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-      packages.devenv-up = self'.devShells.default.config.procfileScript;
 
+      perSystem = { config, self', inputs', lib, pkgs, system, ... }:
+        let
+          cargoBuildInputs = lib.optionals pkgs.stdenv.isDarwin (with pkgs.darwin.apple_sdk; [
+            frameworks.Security
+            frameworks.CoreServices
+          ]);
+        in {
         devenv.shells.default = {
-          name = "Node-Project";
-
-          # https://devenv.sh/guides/using-with-flake-parts/#import-a-devenv-module
-          imports = [
-          ];
+          name = "Project Name"; #TODO: Change Project Name
+          difftastic.enable = true;
+          imports = [];
 
           # https://devenv.sh/reference/options/
-          packages = [ 
-            config.packages.default 
+          packages = with pkgs; [
+
           ];
 
+          # Define Enviroment Virables
+          env = {
+            
+          };
+
+          # https://devenv.sh/scripts/
+          # scripts.hello.exec = "";
+
+          # enterShell = ''
+
+          # '';
+
+          # https://devenv.sh/languages/
           languages.rust = {
-              enable = true;
-              channel = "stable"; # Your Rust Channel Deafult Is Stable
-              rust.components = ["rustc" "cargo" "clippy" "rustfmt" "rust-analyzer"]; # Tools
-            };
+            enable = true;
+            channel = "stable";
+            components = [
+              "rustc"
+              "cargo"
+              "clippy"
+              "rustfmt"
+              "rust-analyzer"
+            ];
+          };
+
+          # https://devenv.sh/pre-commit-hooks/
+          pre-commit.hooks = {
+            nixfmt.enable = true;
+            clippy.enable = true;
+            yamllint.enable = true;
+          };
+
+          # Plugin configuration
+          pre-commit.settings = {
+            yamllint.relaxed = true;
+          };
+
+          # https://devenv.sh/integrations/dotenv/
+          dotenv.enable = true;
         };
 
       };
       flake = {
-        # The usual flake attributes can be defined here, including system-
-        # agnostic ones like nixosModule and system-enumerating ones, although
-        # those are more easily expressed in perSystem.
-
       };
     };
 }
