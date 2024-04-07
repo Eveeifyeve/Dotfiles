@@ -34,7 +34,7 @@ nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch 
 
 ## Macos
 ```bash
-nix run nix-darwin -- switch --flake ~/.dotfiles/
+darwin-rebuild switch --flake ~/.dotfiles/   
 ```
 
 
