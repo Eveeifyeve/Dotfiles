@@ -59,7 +59,7 @@
             enable = true;
             languages.java.jdk.package = pkgs.jdk8; # Java Version/Package
             gradle.enable = true; # Disable if not using gradle
-            maven.enable = true; # Disable if not using maven
+            maven.enable = false; # Disable if not using maven
           };
 
           # https://devenv.sh/pre-commit-hooks/
