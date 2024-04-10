@@ -2,9 +2,12 @@
 A Configuration for Each Distro/OS
 
 # Features
-- Rust & Node Flake Templates to get you started
-- Editor Configurations for VsCode and Nvim
-
+- Nix Flake Templates with Devenv.
+- Editor Configurations for VsCode and Nvim.
+- HomeBrew installed for MacOS Applications that are not on Nix.
+- Modularly like setup with ability to disable a program easily \.
+- Support for Diffrent Hosts Easily
+And [More](./doc/features.md).
 
 
 
