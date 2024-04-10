@@ -74,6 +74,14 @@
         path = ./flakes/java;
         description = "Java development environment";
       };
+      python = {
+        path = ./flakes/python;
+        description = "Python development environment";
+      };
+      tauri = {
+        path = ./flakes/tauri;
+        description = "Tauri development environment";
+      };
     };
   };
 }
