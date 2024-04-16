@@ -70,6 +70,7 @@
               gradle.enable = true; # Disable if not using gradle
               maven.enable = false; # Disable if not using maven
             };
+            languages.kotlin.enable = true;
 
             # https://devenv.sh/pre-commit-hooks/
             pre-commit.hooks = {
