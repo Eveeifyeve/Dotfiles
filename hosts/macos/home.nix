@@ -17,6 +17,7 @@
       direnv
       nixd
       devenv
+      jetbrains.idea-community # Intellij for kotlin development.
     ] ++ lib.optionals stdenv.isDarwin [
       # Optional MACOS Stuff
   ];
