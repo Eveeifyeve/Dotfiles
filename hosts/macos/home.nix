@@ -24,6 +24,7 @@
   
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
+    allowed-users = [ "eveeifyeve" "root" ];
     warn-dirty = false;
   };
 
