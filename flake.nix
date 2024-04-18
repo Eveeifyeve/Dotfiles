@@ -82,6 +82,10 @@
         path = ./flakes/tauri;
         description = "Tauri development environment";
       };
+      kotlin = {
+        path = ./flakes/kotlin;
+        description = "Kotlin Dev Enviroment";
+      };
     };
   };
 }
