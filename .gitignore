@@ -3,6 +3,4 @@
 
 .config/direnv/direnvrc
 **/*.devenv
-**/*.envrc
-!.envrc
 flake.lock
