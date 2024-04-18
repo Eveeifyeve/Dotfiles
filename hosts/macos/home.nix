@@ -9,6 +9,9 @@
     home.packages = with pkgs; [
       neovim
       discord
+      discord.override {
+        withVencord = true;
+      }
       git
       vscode
       nil
