@@ -24,68 +24,90 @@
       url = "github:homebrew/homebrew-cask-versions";
       flake = false;
     };
-
   };
 
-  outputs = inputs@{self, nixpkgs, home-manager, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-cask-versions, ... }: {
-    # Macos Config
-    darwinConfigurations = {
-      "eveeifyeve-macbook" = let 
-      username = "eveeifyeve";
-      in
-      nix-darwin.lib.darwinSystem {
-        specialArgs = { inherit username homebrew-cask homebrew-cask-versions homebrew-core; };
-        modules = [
-          ./hosts/macos/darwin.nix
-          home-manager.darwinModules.home-manager
-          {
-            users.users.${username} = {
-              name = username;
-              home = "/Users/${username}";
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      nix-darwin,
+      nix-homebrew,
+      homebrew-core,
+      homebrew-cask,
+      homebrew-cask-versions,
+      ...
+    }:
+    {
+      # Macos Config
+
+      formatter = {
+        aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      };
+
+      darwinConfigurations = {
+        "eveeifyeve-macbook" =
+          let
+            username = "eveeifyeve";
+          in
+          nix-darwin.lib.darwinSystem {
+            specialArgs = {
+              inherit
+                username
+                homebrew-cask
+                homebrew-cask-versions
+                homebrew-core
+                ;
             };
-            home-manager = {
-             useGlobalPkgs = true;
-             useUserPackages = true;
-             users."${username}" = {
-             home.username = username;
-             home.homeDirectory = "/Users/${username}";
-             imports = [./hosts/macos/home.nix];
-              };
-            };
-          }
-          nix-homebrew.darwinModules.nix-homebrew {
-            imports = [./modules/homebrew.nix]; 
-          }
-        ];
+            modules = [
+              ./hosts/macos/darwin.nix
+              home-manager.darwinModules.home-manager
+              {
+                users.users.${username} = {
+                  name = username;
+                  home = "/Users/${username}";
+                };
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users."${username}" = {
+                    home.username = username;
+                    home.homeDirectory = "/Users/${username}";
+                    imports = [ ./hosts/macos/home.nix ];
+                  };
+                };
+              }
+              nix-homebrew.darwinModules.nix-homebrew
+              { imports = [ ./modules/homebrew.nix ]; }
+            ];
+          };
+      };
+
+      templates = {
+        node = {
+          path = ./flakes/node;
+          description = "NodeJS development environment";
+        };
+        rust = {
+          path = ./flakes/rust;
+          description = "Rust development environment";
+        };
+        java = {
+          path = ./flakes/java;
+          description = "Java development environment";
+        };
+        python = {
+          path = ./flakes/python;
+          description = "Python development environment";
+        };
+        tauri = {
+          path = ./flakes/tauri;
+          description = "Tauri development environment";
+        };
+        kotlin = {
+          path = ./flakes/kotlin;
+          description = "Kotlin Dev Enviroment";
+        };
       };
     };
-
-
-    templates = {
-      node = {
-        path = ./flakes/node;
-        description = "NodeJS development environment";
-      };
-      rust = {
-        path = ./flakes/rust;
-        description = "Rust development environment";
-      };
-      java = {
-        path = ./flakes/java;
-        description = "Java development environment";
-      };
-      python = {
-        path = ./flakes/python;
-        description = "Python development environment";
-      };
-      tauri = {
-        path = ./flakes/tauri;
-        description = "Tauri development environment";
-      };
-      kotlin = {
-        path = ./flakes/kotlin;
-        description = "Kotlin Dev Enviroment";
-      };
-    };
-  };
 }
