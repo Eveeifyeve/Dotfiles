@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [ ../../modules/git.nix ../../modules/direnv.nix  ];
+  imports = [ ../../modules/git.nix ../../modules/nixvim.nix  ];
 
   # Home-Manager Config
   home.stateVersion = "22.05";
