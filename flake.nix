@@ -7,6 +7,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,6 +37,7 @@
       home-manager,
       nix-darwin,
       nix-homebrew,
+      nixvim,
       homebrew-core,
       homebrew-cask,
       homebrew-cask-versions,
@@ -79,6 +84,8 @@
               }
               nix-homebrew.darwinModules.nix-homebrew
               { imports = [ ./modules/homebrew.nix ]; }
+              nixvim.nixDarwinModules.nixvim
+              { imports = [ ./modules/nixvim.nix ]; }
             ];
           };
       };

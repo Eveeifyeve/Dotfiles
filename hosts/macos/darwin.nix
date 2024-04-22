@@ -6,4 +6,5 @@
   services.nix-daemon.enable = true;
   system.stateVersion = 4;
   programs.zsh.enable = true;
+  programs.nixvim.enable = true;
 }

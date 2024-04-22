@@ -11,7 +11,6 @@
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
-    neovim
     (discord.override { withVencord = true; })
     git
     vscode
