@@ -12,7 +12,6 @@
   programs.home-manager.enable = true;
    home.file.".tmux.conf".source = ../../tmux.conf;
   home.packages = with pkgs; [
-    (discord.override { withVencord = true; })
     git
     vscode
     nil
