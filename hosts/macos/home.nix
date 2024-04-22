@@ -10,6 +10,7 @@
   # Home-Manager Config
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
+   home.file.".tmux.conf".source = ../../tmux.conf;
   home.packages = with pkgs; [
     (discord.override { withVencord = true; })
     git
@@ -21,6 +22,7 @@
     nixd
     devenv
     jetbrains.idea-community
+    tmux
   ];
   nix.settings = {
     experimental-features = [
