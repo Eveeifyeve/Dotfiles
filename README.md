@@ -41,7 +41,6 @@ darwin-rebuild switch --flake ~/.dotfiles/
 ```
 
 
+# Documentation
 
-
-
-Took insperation off: https://github.com/Aylur/dotfiles
+- [Flake Templates](/flakes/README.md)
