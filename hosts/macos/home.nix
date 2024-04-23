@@ -21,6 +21,7 @@
     devenv
     jetbrains.idea-community
     tmux
+    discord
   ];
   nix.settings = {
     experimental-features = [
