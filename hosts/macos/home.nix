@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [ ../../modules/git.nix  ];
+  imports = [ ../../modules/git.nix ../../modules/tmux.nix  ];
 
   # Home-Manager Config
   home.stateVersion = "22.05";
