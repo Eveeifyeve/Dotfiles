@@ -22,6 +22,7 @@
     jetbrains.idea-community
     tmux
     discord
+    gradle
   ];
   nix.settings = {
     experimental-features = [
