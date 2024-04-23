@@ -23,6 +23,7 @@
     tmux
     discord
     gradle
+    iterm2
   ];
   nix.settings = {
     experimental-features = [
