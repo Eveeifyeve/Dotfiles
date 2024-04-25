@@ -3,6 +3,7 @@
         "Devenv",
         "dotfiles",
         "Distro",
-        "Nvim"
+        "Nvim",
+        "NixOS"
     ]
 }
