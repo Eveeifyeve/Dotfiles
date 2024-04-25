@@ -7,6 +7,11 @@
     plugins.lazy.enable = true;
     plugins.dashboard = {
       enable = true;
-    };
+      header =  [
+      "Welcome to NixVim!"
+      "Press ? for help"
+    ];
   };
+  
+ };
 }
