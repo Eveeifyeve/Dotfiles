@@ -4,5 +4,8 @@
     colorschemes.catppuccin.enable = true;
     plugins.lightline.enable = true;
     plugins.lazy.enable = true;
+    plugins.dashboard = {
+      enable = true;
+    };
   };
 }
