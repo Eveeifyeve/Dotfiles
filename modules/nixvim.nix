@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin.enable = true;
@@ -7,13 +8,20 @@
     plugins.lazy.enable = true;
     plugins.dashboard = {
       enable = true;
-      center =  [
-      "Welcome to NixVim!"
-      "Press ? for help"
-    ];
-    hideStatusline = true;
-    hideTabline = true;
+      center = [
+        {
+          desc = "Find project";
+          icon = "📁";
+          command = "Telescope find_files";
+        }
+        {
+          desc = "Comfiguration";
+          icon = "⚙️";
+          command = "Telescope find_files ";
+        }
+      ];
+      hideStatusline = true;
+      hideTabline = true;
+    };
   };
-
- };
 }
