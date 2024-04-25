@@ -7,7 +7,7 @@
     plugins.lazy.enable = true;
     plugins.dashboard = {
       enable = true;
-      header =  [
+      center =  [
       "Welcome to NixVim!"
       "Press ? for help"
     ];
