@@ -25,7 +25,6 @@
     discord
     gradle
     iterm2
-    jetbrains-mono
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
   nix.settings = {
