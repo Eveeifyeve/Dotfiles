@@ -5,12 +5,11 @@
   ...
 }:
 {
-  imports = [ ../../modules/git.nix ../../modules/tmux.nix  ];
+  imports = [../../modules/git.nix ../../modules/tmux.nix ];
 
   # Home-Manager Config
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
-  home.file.".tmux.conf".source = ../../tmux.conf;
   home.packages = with pkgs; [
     git
     vscode
@@ -25,6 +24,7 @@
     discord
     gradle
     iterm2
+    # Fonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
   nix.settings = {
