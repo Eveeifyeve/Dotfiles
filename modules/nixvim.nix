@@ -11,7 +11,9 @@
       "Welcome to NixVim!"
       "Press ? for help"
     ];
+    hideStatusline = true;
+    hideTabline = true;
   };
-  
+
  };
 }
