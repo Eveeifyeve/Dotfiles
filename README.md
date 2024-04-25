@@ -5,8 +5,8 @@ A Configuration for Each Distro/OS
 - Nix Flake Templates with Devenv.
 - Editor Configurations for VsCode and Nvim.
 - HomeBrew installed for MacOS Applications that are not on Nix.
-- Modularly like setup with ability to disable a program easily \.
-- Support for Diffrent Hosts Easily
+- Modularity like setup with ability to disable a program easily.
+- Support for Different Hosts Easily
 And [More](./doc/features.md).
 
 
@@ -17,6 +17,8 @@ And [More](./doc/features.md).
 
 # Installing 
 
+> [!NOTE]
+> NixOS is coming very soon 
 
 ## Macos 
 
