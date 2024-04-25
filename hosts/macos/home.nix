@@ -25,8 +25,8 @@
     discord
     gradle
     iterm2
-    jetbrains-mono # For the font in my development
-    (nerdfonts.override { fonts = [ "JetBrains-Mono" ]; }) # Modify the font for my development to include icons
+    jetbrains-mono
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
   nix.settings = {
     experimental-features = [
