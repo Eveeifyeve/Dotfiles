@@ -13,12 +13,12 @@
           {
             desc = "Find project";
             icon = "📁";
-            command = "Telescope find_files";
+            action = "Telescope find_files";
           }
           {
             desc = "Comfiguration";
             icon = "⚙️";
-            command = "Telescope find_files ";
+            action = "Telescope find_files ";
           }
         ];
         hideStatusline = true;
