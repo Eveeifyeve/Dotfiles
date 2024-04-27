@@ -21,9 +21,9 @@
             command = "Telescope find_files ";
           }
         ];
+        hideStatusline = true;
+        hideTabline = true;
       };
-      hideStatusline = true;
-      hideTabline = true;
     };
   };
 }
