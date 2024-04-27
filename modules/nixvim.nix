@@ -7,6 +7,9 @@
       lightline.enable = true;
       telescope.enable = true;
       lazy.enable = true;
+      direnv.enable = true;
+      neocord.enable = true;
+      treesitter.enable = true;
       dashboard = {
         enable = true;
         center = [
