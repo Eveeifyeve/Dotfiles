@@ -24,6 +24,7 @@
     discord
     gradle
     iterm2
+    btop
     # Fonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
