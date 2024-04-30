@@ -25,6 +25,7 @@
     gradle
     iterm2
     btop
+    audacity
     # Fonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
