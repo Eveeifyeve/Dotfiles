@@ -25,6 +25,7 @@
     iterm2
     btop
     audacity
+    postman
     # Fonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
