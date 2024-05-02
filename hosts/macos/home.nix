@@ -19,7 +19,6 @@
     direnv
     nixd
     devenv
-    jetbrains.idea-community
     tmux
     discord
     gradle
