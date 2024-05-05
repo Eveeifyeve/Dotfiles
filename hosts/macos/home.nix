@@ -23,7 +23,6 @@
     gradle
     btop
 
-
     # Programs
     spotify
     raycast
