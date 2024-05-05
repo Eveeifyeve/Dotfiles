@@ -9,6 +9,9 @@
 
   # Home-Manager Config
   home.stateVersion = "22.05";
+  home.shellAliases = {
+   "nix-rebuild" = "darwin-rebuild switch --flake ~/.dotfiles";
+  };
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
     git
