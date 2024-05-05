@@ -77,6 +77,13 @@
                     home.username = username;
                     home.stateVersion = "22.05";
                     home.homeDirectory = "/Users/${username}";
+
+                    # Special args to pass into HM
+                    home.specialArgs = {
+                      inherit email;
+                    };
+
+
                     programs.home-manager.enable = true;
                     imports = [ ./hosts/macos/home.nix ];
                     nix.settings = {

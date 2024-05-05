@@ -1,4 +1,4 @@
-{ config, pkgs, username, email, ... }:
+{ config, pkgs, email, ... }:
 {
  programs = {
   tmux = {
@@ -11,11 +11,11 @@
     extraConfig = {
       core.editor = "vscode";
       credential.helper = "store";
-      github.user = username;
+      github.user = config.home.username;
       push.autoSetupRemote = true;
     };
     userEmail = email;
-    userName = username;
+    userName = config.home.username;
   };
  };
   home.file = {
