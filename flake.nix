@@ -49,6 +49,7 @@
         "eveeifyeve-macbook" =
           let
             username = "eveeifyeve";
+            email = "eveeg1971@gmail.com";
           in
           nix-darwin.lib.darwinSystem {
             specialArgs = {

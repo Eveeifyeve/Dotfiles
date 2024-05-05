@@ -1,27 +1,33 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
+let
+ excludedModules = [
+    ../../modules/homebrew.nix
+    ../../modules/nixvim.nix
+ ];
+in {
+ config,
+ pkgs,
+ lib,
+ username, 
+ email,
+ ...
 }:
 {
-  imports =
-    builtins.filter (module: module != ../../modules/homebrew.nix && module != ../../modules/nixvim.nix)
+ imports =
+    builtins.filter (module: !(builtins.elem module excludedModules))
       (
         builtins.map (module: ../../modules + "/${module}") (
           builtins.attrNames (builtins.readDir ../../modules)
         )
       );
 
-  home.packages = with pkgs; [
+ home.packages = with pkgs; [
     # Development Tools 
-    git
     vscode
     direnv
     devenv
-    tmux
     gradle
     btop
+    ripgrep
 
     # Programs
     spotify
@@ -38,10 +44,5 @@
 
     # Fonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
-
-  # Shell Aliases to make things easier to type
-  home.shellAliases = {
-    "nix-rebuild" = "darwin-rebuild switch --flake ~/.dotfiles";
-  };
+ ];
 }
