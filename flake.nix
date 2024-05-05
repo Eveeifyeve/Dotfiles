@@ -45,11 +45,6 @@
     }:
     {
       # Macos Config
-
-      formatter = {
-        aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
-      };
-
       darwinConfigurations = {
         "eveeifyeve-macbook" =
           let
@@ -73,16 +68,32 @@
                   home = "/Users/${username}";
                 };
                 home-manager = {
+                  # Uses the global pkgs and user packages
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   users."${username}" = {
+                    # Home Manager needs a bit of information to make HM work.
                     home.username = username;
+                    home.stateVersion = "22.05";
                     home.homeDirectory = "/Users/${username}";
+                    programs.home-manager.enable = true;
                     imports = [ ./hosts/macos/home.nix ];
+                    nix.settings = {
+                      experimental-features = [
+                        "nix-command"
+                        "flakes"
+                      ];
+                      allowed-users = [
+                        "eveeifyeve"
+                        "root"
+                      ];
+                      warn-dirty = false;
+                    };
                   };
                 };
               }
               nix-homebrew.darwinModules.nix-homebrew
+              # Nix-Homebrew Configured in ./modules/homebrew.nix
               { imports = [ ./modules/homebrew.nix ]; }
               nixvim.nixDarwinModules.nixvim
               { imports = [ ./modules/nixvim.nix ]; }
@@ -90,31 +101,14 @@
           };
       };
 
+      # Nix Flake Templates
       templates = {
-        node = {
-          path = ./flakes/node;
-          description = "NodeJS development environment";
-        };
-        rust = {
-          path = ./flakes/rust;
-          description = "Rust development environment";
-        };
-        java = {
-          path = ./flakes/java;
-          description = "Java development environment";
-        };
-        python = {
-          path = ./flakes/python;
-          description = "Python development environment";
-        };
-        tauri = {
-          path = ./flakes/tauri;
-          description = "Tauri development environment";
-        };
-        kotlin = {
-          path = ./flakes/kotlin;
-          description = "Kotlin Dev Enviroment";
-        };
+        node.path = ./flakes/node;
+        rust.path = ./flakes/rust;
+        java.path = ./flakes/java;
+        python.path = ./flakes/python;
+        tauri.path = ./flakes/tauri;
+        kotlin.path = ./flakes/kotlin;
       };
     };
 }

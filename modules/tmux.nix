@@ -1,11 +1,9 @@
-{pkgs, home, ...}: {
- programs.tmux = {
+{ pkgs, home, ... }:
+{
+  programs.tmux = {
     enable = true;
-     plugins = with pkgs;
-      [
-         tmuxPlugins.catppuccin
-      ];
+    plugins = with pkgs; [ tmuxPlugins.catppuccin ];
     extraConfig = builtins.readFile ../tmux.conf;
- };
- home.file.".tmux.conf".source = ../tmux.conf;
+  };
+  home.file.".tmux.conf".source = ../tmux.conf;
 }

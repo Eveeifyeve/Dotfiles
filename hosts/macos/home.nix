@@ -5,42 +5,43 @@
   ...
 }:
 {
-  imports = [../../modules/git.nix ../../modules/tmux.nix ];
+  imports =
+    builtins.filter (module: module != ../../modules/homebrew.nix && module != ../../modules/nixvim.nix)
+      (
+        builtins.map (module: ../../modules + "/${module}") (
+          builtins.attrNames (builtins.readDir ../../modules)
+        )
+      );
 
-  # Home-Manager Config
-  home.stateVersion = "22.05";
-  home.shellAliases = {
-   "nix-rebuild" = "darwin-rebuild switch --flake ~/.dotfiles";
-  };
-  programs.home-manager.enable = true;
   home.packages = with pkgs; [
+    # Development Tools 
     git
     vscode
-    nil
-    spotify
-    raycast
     direnv
-    nixd
     devenv
     tmux
-    discord
     gradle
     iterm2
     btop
+
+    # Programs
+    spotify
+    raycast
+    discord
     audacity
     postman
+
+    # Nix Tools
+    nixd
+    nil
+    nixfmt-rfc-style
+
     # Fonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    allowed-users = [
-      "eveeifyeve"
-      "root"
-    ];
-    warn-dirty = false;
+
+  # Shell Aliases to make things easier to type
+  home.shellAliases = {
+    "nix-rebuild" = "darwin-rebuild switch --flake ~/.dotfiles";
   };
 }

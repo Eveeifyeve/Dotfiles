@@ -1,5 +1,5 @@
 {
-  description = "Project Description"; #TODO: Description
+  description = "Project Description"; # TODO: Description
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -14,17 +14,30 @@
     extra-substituters = "https://devenv.cachix.org";
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, ... }:
+  outputs =
+    inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        inputs.devenv.flakeModule
+      imports = [ inputs.devenv.flakeModule ];
+      systems = [
+        "x86_64-linux"
+        "i686-linux"
+        "x86_64-darwin"
+        "aarch64-linux"
+        "aarch64-darwin"
       ];
-      systems = [ "x86_64-linux" "i686-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
 
-      perSystem = { config, self', inputs', pkgs, system, ... }:
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
         let
-          python-packages = p:
-            with p; [
+          python-packages =
+            p: with p; [
               pip
               python-lsp-server
               importmagic
@@ -32,56 +45,50 @@
               black
               mypy
             ];
-        in {
-        devenv.shells.default = {
-          name = "Project Name"; #TODO: Name
-          difftastic.enable = true;
+        in
+        {
+          devenv.shells.default = {
+            name = "Project Name"; # TODO: Name
+            difftastic.enable = true;
 
-          imports = [];
+            imports = [ ];
 
-          # https://devenv.sh/reference/options/
-          packages = with pkgs;
-            [
+            # https://devenv.sh/reference/options/
+            packages = with pkgs; [
               stdenv.cc.cc.lib # required by Jupyter
               (python3.withPackages python-packages)
             ];
 
-          env = {
-          };
+            env = { };
 
-          # https://devenv.sh/scripts/
-          # scripts.hello.exec = "";
+            # https://devenv.sh/scripts/
+            # scripts.hello.exec = "";
 
-          # enterShell = ''
-          # '';
+            # enterShell = ''
+            # '';
 
-          # https://devenv.sh/languages/
-          languages.python = {
-            enable = true;
-            poetry = {
+            # https://devenv.sh/languages/
+            languages.python = {
               enable = true;
-              activate.enable = true;
-              install.enable = true;
-              install.allExtras = true;
+              poetry = {
+                enable = true;
+                activate.enable = true;
+                install.enable = true;
+                install.allExtras = true;
+              };
             };
+
+            # https://devenv.sh/pre-commit-hooks/
+            pre-commit.hooks = {
+              black.enable = true;
+              nixfmt.enable = true;
+              pyright.enable = true;
+            };
+
+            # https://devenv.sh/integrations/dotenv/
+            dotenv.enable = true;
           };
-
-
-          # https://devenv.sh/pre-commit-hooks/
-          pre-commit.hooks = {
-            black.enable = true;
-            nixfmt.enable = true;
-            pyright.enable = true;
-          };
-
-
-          # https://devenv.sh/integrations/dotenv/
-          dotenv.enable = true;
-
         };
-
-      };
-      flake = {
-      };
+      flake = { };
     };
 }

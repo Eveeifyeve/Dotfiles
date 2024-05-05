@@ -47,27 +47,29 @@
             imports = [ ];
 
             # https://devenv.sh/reference/options/
-packages =
- lib.optionals pkgs.stdenv.isDarwin (
-    with pkgs.darwin.apple_sdk.frameworks;
-    [
-      Security
-      SystemConfiguration
-      AppKit
-      WebKit
-      # Add other Darwin-specific packages here
-    ]
- )
- ++ lib.optionals pkgs.stdenv.isDarwin (with pkgs; [
-    llvmPackages.libcxxStdenv
-    llvmPackages.libcxxClang
-    darwin.libobjc
-    rustup
- ]);
+            packages =
+              lib.optionals pkgs.stdenv.isDarwin (
+                with pkgs.darwin.apple_sdk.frameworks;
+                [
+                  Security
+                  SystemConfiguration
+                  AppKit
+                  WebKit
+                  # Add other Darwin-specific packages here
+                ]
+              )
+              ++ lib.optionals pkgs.stdenv.isDarwin (
+                with pkgs;
+                [
+                  llvmPackages.libcxxStdenv
+                  llvmPackages.libcxxClang
+                  darwin.libobjc
+                  rustup
+                ]
+              );
 
             # Define Enviroment Virables
-            env = {
-            };
+            env = { };
 
             # https://devenv.sh/scripts/
             # scripts.hello.exec = "";
