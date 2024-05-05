@@ -21,8 +21,8 @@
     devenv
     tmux
     gradle
-    iterm2
     btop
+
 
     # Programs
     spotify
@@ -30,6 +30,7 @@
     discord
     audacity
     postman
+    iterm2
 
     # Nix Tools
     nixd
