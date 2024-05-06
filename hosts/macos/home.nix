@@ -1,15 +1,10 @@
-let
-  excludedModules = [
-    ../../modules/homebrew.nix
-    ../../modules/nixvim.nix
-  ];
-in
 {
   config,
   pkgs,
   lib,
   username,
   email,
+  excludedModules,
   ...
 }:
 {

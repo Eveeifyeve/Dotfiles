@@ -42,10 +42,11 @@
           let
             username = "eveeifyeve";
             email = "eveeg1971@gmail.com";
+            excludedModules = [../../modules/homebrew.nix ../../modules/nixvim.nix];
           in
           inputs.nix-darwin.lib.darwinSystem {
             specialArgs = {
-              inherit username;
+              inherit username excludedModules;
               inherit (inputs) 
                 homebrew-cask
                 homebrew-cask-versions
