@@ -1,15 +1,23 @@
-{ config, pkgs, ... }:
 {
-  nix.settings.experimental-features = "nix-command flakes";
+  config,
+  pkgs,
+  username,
+  ...
+}:
+{
+  users.users.${username} = {
+    name = username;
+    home = "/Users/${username}";
+    shell = pkgs.zsh;
+  };
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
   services.nix-daemon.enable = true;
   system.stateVersion = 4;
   programs.nixvim.enable = true;
-  programs.zsh = {
-    enable = true;
-  };
-  environment.shellAliases = {
-    
+  programs.zsh.enable = true;
+
+  environment = {
+    loginShell = pkgs.zsh;
   };
 }

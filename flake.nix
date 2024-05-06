@@ -33,14 +33,6 @@
   outputs =
     inputs@{
       self,
-      nixpkgs,
-      home-manager,
-      nix-darwin,
-      nix-homebrew,
-      nixvim,
-      homebrew-core,
-      homebrew-cask,
-      homebrew-cask-versions,
       ...
     }:
     {
@@ -51,59 +43,31 @@
             username = "eveeifyeve";
             email = "eveeg1971@gmail.com";
           in
-          nix-darwin.lib.darwinSystem {
+          inputs.nix-darwin.lib.darwinSystem {
             specialArgs = {
-              inherit
-                username
+              inherit username;
+              inherit (inputs) 
                 homebrew-cask
                 homebrew-cask-versions
                 homebrew-core
-                ;
+              ;
             };
             modules = [
               ./hosts/macos/darwin.nix
-              home-manager.darwinModules.home-manager
+              inputs.home-manager.darwinModules.home-manager
               {
-                users.users.${username} = {
-                  name = username;
-                  home = "/Users/${username}";
-                };
                 home-manager = {
-                  # Uses the global pkgs and user packages
+                  extraSpecialArgs = {
+                    inherit email username;
+                  };
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  users."${username}" = {
-                    # Home Manager needs a bit of information to make HM work.
-                    home.username = username;
-                    home.stateVersion = "22.05";
-                    home.homeDirectory = "/Users/${username}";
-
-                    # Special args to pass into HM
-                    home.specialArgs = {
-                      inherit email;
-                    };
-
-
-                    programs.home-manager.enable = true;
-                    imports = [ ./hosts/macos/home.nix ];
-                    nix.settings = {
-                      experimental-features = [
-                        "nix-command"
-                        "flakes"
-                      ];
-                      allowed-users = [
-                        "eveeifyeve"
-                        "root"
-                      ];
-                      warn-dirty = false;
-                    };
-                  };
+                  users."${username}".imports = [ ./hosts/macos/home.nix ];
                 };
               }
-              nix-homebrew.darwinModules.nix-homebrew
-              # Nix-Homebrew Configured in ./modules/homebrew.nix
+              inputs.nix-homebrew.darwinModules.nix-homebrew
               { imports = [ ./modules/homebrew.nix ]; }
-              nixvim.nixDarwinModules.nixvim
+              inputs.nixvim.nixDarwinModules.nixvim
               { imports = [ ./modules/nixvim.nix ]; }
             ];
           };
