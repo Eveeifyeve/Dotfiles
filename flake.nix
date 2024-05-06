@@ -39,10 +39,6 @@
           let
             username = "eveeifyeve";
             email = "eveeg1971@gmail.com";
-            excludedModules = [
-              ../../modules/homebrew.nix
-              ../../modules/nixvim.nix
-            ];
           in
           inputs.nix-darwin.lib.darwinSystem {
             specialArgs = {
@@ -79,5 +75,7 @@
         tauri.path = ./flakes/tauri;
         kotlin.path = ./flakes/kotlin;
       };
+
+      formatter = inputs.nixpkgs.nixfmt-rfc-style;
     };
 }
