@@ -8,6 +8,7 @@
 }:
 {
   programs.home-manager.enable = true;
+  imports = [../../modules/programs.nix];
   home = {
     username = username;
     stateVersion = "22.05";
@@ -37,9 +38,6 @@
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
   };
-
-  # Imports all modules from the ./modules directory that are not in the list of excluded modules above and apply's them to this configuration.
-  imports = [../modules/programs.nix];
 
   # Nix Settings
   nix.settings = {
