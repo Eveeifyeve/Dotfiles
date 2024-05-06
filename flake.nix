@@ -31,10 +31,7 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      ...
-    }:
+    inputs@{ self, ... }:
     {
       # Macos Config
       darwinConfigurations = {
@@ -42,16 +39,15 @@
           let
             username = "eveeifyeve";
             email = "eveeg1971@gmail.com";
-            excludedModules = [../../modules/homebrew.nix ../../modules/nixvim.nix];
+            excludedModules = [
+              ../../modules/homebrew.nix
+              ../../modules/nixvim.nix
+            ];
           in
           inputs.nix-darwin.lib.darwinSystem {
             specialArgs = {
-              inherit username excludedModules;
-              inherit (inputs) 
-                homebrew-cask
-                homebrew-cask-versions
-                homebrew-core
-              ;
+              inherit username;
+              inherit (inputs) homebrew-cask homebrew-cask-versions homebrew-core;
             };
             modules = [
               ./hosts/macos/darwin.nix
