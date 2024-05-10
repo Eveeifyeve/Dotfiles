@@ -34,6 +34,9 @@
       nixd
       nil
 
+      # Tools
+      ffmpeg
+
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
