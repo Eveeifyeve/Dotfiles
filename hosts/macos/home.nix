@@ -34,12 +34,6 @@
       nixd
       nil
 
-      # Tools
-      ffmpeg
-
-      # Encoding Librarys
-      libwebp
-
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
