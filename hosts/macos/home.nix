@@ -37,6 +37,10 @@
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
+    shellAliases = {
+      proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
+      nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles";
+    };
   };
 
   # Nix Settings
