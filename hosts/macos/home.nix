@@ -38,7 +38,7 @@
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
-    sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
+    sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin" "/etc/profiles/per-user/eveeifyeve/bin"];
     shellAliases = {
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
     };
