@@ -15,7 +15,6 @@
   services.nix-daemon.enable = true;
   system.stateVersion = 4;
   programs.nixvim.enable = true;
-  programs.zsh.enable = true;
 
   environment = {
     loginShell = pkgs.zsh;

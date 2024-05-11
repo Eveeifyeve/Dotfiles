@@ -8,6 +8,7 @@
 }:
 {
   programs.home-manager.enable = true;
+  programs.zsh.enable = true;
   imports = [../../modules/programs.nix];
   home = {
     username = username;
@@ -37,11 +38,13 @@
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
+    sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
     shellAliases = {
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles";
     };
   };
+
 
   # Nix Settings
   nix.settings = {
