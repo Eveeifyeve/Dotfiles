@@ -2,6 +2,7 @@
   config,
   pkgs,
   username,
+  hostPlatform,
   ...
 }:
 {
@@ -10,7 +11,7 @@
     home = "/Users/${username}";
     shell = pkgs.zsh;
   };
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.hostPlatform = hostPlatform;
   nixpkgs.config.allowUnfree = true;
   services.nix-daemon.enable = true;
   system.stateVersion = 4;

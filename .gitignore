@@ -4,3 +4,7 @@
 .config/direnv/direnvrc
 **/*.devenv
 flake.lock
+
+
+
+# Logs

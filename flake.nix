@@ -32,50 +32,68 @@
 
   outputs =
     inputs@{ self, ... }:
+    let
+      username = "eveeifyeve";
+      email = "eveeg1971@gmail.com";
+      hostPlatform = "aarch64-darwin";
+    in
     {
-      # Macos Config
+      formatter.${hostPlatform} = inputs.nixpkgs.legacyPackages.${hostPlatform}.nixfmt-rfc-style;
+
+      # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
-        "eveeifyeve-macbook" =
-          let
-            username = "eveeifyeve";
-            email = "eveeg1971@gmail.com";
-          in
-          inputs.nix-darwin.lib.darwinSystem {
-            specialArgs = {
-              inherit username;
-              inherit (inputs) homebrew-cask homebrew-cask-versions homebrew-core;
-            };
-            modules = [
-              ./hosts/macos/darwin.nix
-              inputs.home-manager.darwinModules.home-manager
-              {
-                home-manager = {
-                  extraSpecialArgs = {
-                    inherit email username;
-                  };
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  users."${username}".imports = [ ./hosts/macos/home.nix ];
-                };
-              }
-              inputs.nix-homebrew.darwinModules.nix-homebrew
-              { imports = [ ./modules/homebrew.nix ]; }
-              inputs.nixvim.nixDarwinModules.nixvim
-              { imports = [ ./modules/nixvim.nix ]; }
-            ];
+        "eveeifyeve-macbook" = inputs.nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit username hostPlatform;
+            inherit (inputs) homebrew-cask homebrew-cask-versions homebrew-core;
           };
+          modules = [
+            ./hosts/macos/darwin.nix
+            inputs.home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = {
+                  inherit email username;
+                };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users."${username}".imports = [ ./hosts/macos/home.nix ];
+              };
+            }
+            inputs.nix-homebrew.darwinModules.nix-homebrew
+            { imports = [ ./modules/homebrew.nix ]; }
+            inputs.nixvim.nixDarwinModules.nixvim
+            { imports = [ ./modules/nixvim.nix ]; }
+          ];
+        };
       };
 
       # Nix Flake Templates
       templates = {
-        node.path = ./flakes/node;
-        rust.path = ./flakes/rust;
-        java.path = ./flakes/java;
-        python.path = ./flakes/python;
-        tauri.path = ./flakes/tauri;
-        kotlin.path = ./flakes/kotlin;
+        node = {
+          path = ./flakes/node;
+          description = "Template for setting up a Node.js project";
+        };
+        rust = {
+          path = ./flakes/rust;
+          description = "Template for setting up a Rust project";
+        };
+        java = {
+          path = ./flakes/java;
+          description = "Template for setting up a Java project";
+        };
+        python = {
+          path = ./flakes/python;
+          description = "Template for setting up a Python project";
+        };
+        tauri = {
+          path = ./flakes/tauri;
+          description = "Template for setting up a Tauri project";
+        };
+        kotlin = {
+          path = ./flakes/kotlin;
+          description = "Template for setting up a Kotlin project";
+        };
       };
-
-      formatter = inputs.nixpkgs.nixfmt-rfc-style;
     };
 }
