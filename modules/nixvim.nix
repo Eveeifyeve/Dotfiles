@@ -12,17 +12,29 @@
       bufferline.enable = true;
       dashboard = {
         enable = true;
+        header = [
+          ''
+            Eveeifyeve Config
+          ''
+        ];
         center = [
           {
             desc = "Find project";
             icon = "📁";
             action = "Telescope find_files";
+            shortcut = "f";
           }
           {
-            desc = "Configuration";
-            icon = "⚙️";
-            action = "Telescope find_files ";
+            desc = "Git Projects";
+            icon = "";
+            action = "Telescope projects";
+            shortcut = "g";
           }
+        ];
+        footer = [
+          ''
+            &copy 2024 eveeifyeve
+          ''
         ];
         hideStatusline = true;
         hideTabline = true;
@@ -94,13 +106,8 @@
         autoHide = true;
       };
     };
-extraConfigLua = ''
-  vim.api.nvim_exec([[
-    augroup DashboardOnVimEnter
-      autocmd!
-      autocmd VimEnter * Dashboard
-    augroup END
-  ]], false)
-'';
+    extraConfigLua = ''
+    require('telescope').load_extension('projects')
+    '';
   };
 }
