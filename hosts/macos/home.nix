@@ -22,6 +22,7 @@
       gradle
       btop
       ripgrep
+      jd-gui
 
       # Programs
       spotify
