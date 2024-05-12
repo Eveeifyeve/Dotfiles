@@ -41,6 +41,8 @@
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin" "/etc/profiles/per-user/eveeifyeve/bin"];
     shellAliases = {
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
+      nix-rebuid = "darwin-rebuild switch --flake ~/.dotfiles";
+      nix-direnv = "echo use flake . --impure > .envrc && direnv allow";
     };
   };
 
