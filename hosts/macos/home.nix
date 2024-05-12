@@ -9,7 +9,7 @@
 {
   programs.home-manager.enable = true;
   programs.zsh.enable = true;
-  imports = [../../modules/programs.nix];
+  imports = [ ../../modules/programs.nix ];
   home = {
     username = username;
     stateVersion = "22.05";
@@ -39,14 +39,18 @@
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
-    sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin" "/etc/profiles/per-user/eveeifyeve/bin"];
+    sessionPath = [
+      "$HOME/.local/bin"
+      "/usr/local/bin"
+      "/run/current-system/sw/bin"
+      "/etc/profiles/per-user/eveeifyeve/bin"
+    ];
     shellAliases = {
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       nix-rebuid = "darwin-rebuild switch --flake ~/.dotfiles";
       nix-direnv = "echo use flake . --impure > .envrc && direnv allow";
     };
   };
-
 
   # Nix Settings
   nix.settings = {
