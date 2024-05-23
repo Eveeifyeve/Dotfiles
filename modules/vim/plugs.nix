@@ -97,6 +97,7 @@
       autoHide = true;
     };
     lualine = {enable = true;};
+    obsidian.enable = true;
   };
 
 
