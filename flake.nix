@@ -65,7 +65,7 @@
             inputs.nixvim.nixDarwinModules.nixvim
             {
               programs.nixvim.enable = true;
-              imports = [./modules/vim/plugs.nix];
+              imports = [ ./modules/vim/plugs.nix ];
             }
           ];
         };
