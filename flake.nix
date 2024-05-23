@@ -62,8 +62,11 @@
             }
             inputs.nix-homebrew.darwinModules.nix-homebrew
             { imports = [ ./modules/homebrew.nix ]; }
-            inputs.nixvim.nixDarwinModules.nixvim
-            { imports = [ ./modules/nixvim.nix ]; }
+            inputs.nixvim.nixDarwinModules.nixvim.programs.nixvim
+            { 
+              enable = true; 
+              imports = [ ./modules/vim/plugs.nix ./modules/vim/utils.nix ]; 
+            }
           ];
         };
       };
