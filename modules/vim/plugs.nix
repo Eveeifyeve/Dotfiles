@@ -1,5 +1,6 @@
 { pkgs,... }: {
-  plugins = {
+  programs.nixvim = {
+    plugins = {
     nvim-autopairs.enable = true;
     luasnip.enable = true;
     treesitter.enable = true;
@@ -34,18 +35,15 @@
       hideStatusline = true;
       hideTabline = true;
     };
-
     auto-save = {
       enable = true;
       enableAutoSave = true;
     };
     lightline.enable = true;
     telescope.enable = true;
-
     lazy.enable = true;
     direnv.enable = true;
     neocord.enable = true;
-
     lsp = {
       enable = true;
       servers = {
@@ -89,21 +87,21 @@
       enable = true;
       autoEnableSources = true;
     };
-
     ccc.enable = true;
     codeium-nvim.enable = true;
     comment.enable = true;
-
     project-nvim.enable = true;
     todo-comments.enable = true;
     barbar = {
       enable = true;
       autoHide = true;
     };
-
     lualine = {enable = true;};
   };
+
+
   extraConfigLua = ''
-   require('telescope').load_extension('projects')
+    require('telescope').load_extension('projects')
   '';
+ };
 }
