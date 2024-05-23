@@ -48,7 +48,7 @@
     shellAliases = {
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       nix-rebuid = "darwin-rebuild switch --flake ~/.dotfiles";
-      nix-direnv = "echo use flake . --impure > .envrc && direnv allow";
+      nix-direnv = "echo use flake . --impure > .envrc";
     };
   };
 
