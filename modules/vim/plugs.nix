@@ -102,7 +102,7 @@
       };
       obsidian = {
         enable = true;
-        workspaces = [
+        settings.workspaces = [
           {
             name = "Main";
             path = "~/documents/obsidian";
@@ -112,7 +112,7 @@
             path = "~/projects/teaclient/obsidian";
           }
         ];
-        completion = {
+        settings.completion = {
           min_chars = 2;
           nvim_cmp = true;
         };
