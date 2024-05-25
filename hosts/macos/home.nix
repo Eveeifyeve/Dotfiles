@@ -23,6 +23,7 @@
       btop
       ripgrep
       jd-gui
+      docker
 
       # Programs
       spotify
