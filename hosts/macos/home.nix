@@ -28,7 +28,7 @@
       # Command Line Proccesors 
       eza 
       jq 
-      sed
+      gnused
 
       # Programs
       spotify
