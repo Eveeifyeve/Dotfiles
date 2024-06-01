@@ -25,6 +25,11 @@
       jd-gui
       docker
 
+      # Command Line Proccesors 
+      eza 
+      jq 
+      sed
+
       # Programs
       spotify
       raycast
@@ -50,6 +55,16 @@
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       nix-rebuid = "darwin-rebuild switch --flake ~/.dotfiles";
       nix-direnv = "echo use flake . --impure > .envrc";
+      gitr = ''
+      gitr () {
+    for f in $(find . -type d -name .git | awk -F"/.git$" '{print $1}');  do
+    echo
+    echo "................................ (cd $f && git $*) ........................................."
+    echo
+    (cd $f && git $*)
+  done
+}
+      '';
     };
   };
 
