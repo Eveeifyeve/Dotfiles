@@ -1,7 +1,7 @@
 {
   description = "Eveeifyeve Nix/NixOS Configuration";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
