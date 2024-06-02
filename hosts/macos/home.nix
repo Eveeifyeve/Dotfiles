@@ -39,9 +39,6 @@
       postman
       iterm2
 
-      # Command Line Interface(CLI) Tools 
-      starship
-
 
       # Nix Tools
       nixd
@@ -76,9 +73,14 @@
   programs.zsh.oh-my-zsh = {
     enable = true;
     plugins = [];
-    
   };
 
+    programs.starship = {
+      enable = true;
+      settings = {
+
+      };
+    };
   # Nix Settings
   nix.settings = {
     experimental-features = [
