@@ -12,7 +12,7 @@
   imports = [ ../../modules/programs.nix ];
   home = {
     username = username;
-    stateVersion = "22.05";
+    stateVersion = "24.05";
     homeDirectory = "/Users/${username}";
     packages = with pkgs; [
       # Development Tools 
@@ -29,6 +29,7 @@
       eza 
       jq 
       gnused
+      gawk 
 
       # Programs
       spotify
@@ -37,6 +38,10 @@
       audacity
       postman
       iterm2
+
+      # Command Line Interface(CLI) Tools 
+      starship
+
 
       # Nix Tools
       nixd
@@ -66,6 +71,12 @@
 }
       '';
     };
+  };
+
+  programs.zsh.oh-my-zsh = {
+    enable = true;
+    plugins = [];
+    
   };
 
   # Nix Settings
