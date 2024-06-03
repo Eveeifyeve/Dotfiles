@@ -26,10 +26,10 @@
       docker
 
       # Command Line Proccesors 
-      eza 
-      jq 
+      eza
+      jq
       gnused
-      gawk 
+      gawk
 
       # Programs
       spotify
@@ -38,7 +38,6 @@
       audacity
       postman
       iterm2
-
 
       # Nix Tools
       nixd
@@ -58,29 +57,42 @@
       nix-rebuid = "darwin-rebuild switch --flake ~/.dotfiles";
       nix-direnv = "echo use flake . --impure > .envrc";
       gitr = ''
-      gitr () {
-    for f in $(find . -type d -name .git | awk -F"/.git$" '{print $1}');  do
-    echo
-    echo "................................ (cd $f && git $*) ........................................."
-    echo
-    (cd $f && git $*)
-  done
-}
+              gitr () {
+            for f in $(find . -type d -name .git | awk -F"/.git$" '{print $1}');  do
+            echo
+            echo "................................ (cd $f && git $*) ........................................."
+            echo
+            (cd $f && git $*)
+          done
+        }
       '';
     };
   };
 
   programs.zsh.oh-my-zsh = {
     enable = true;
-    plugins = [];
+    plugins = [ ];
   };
 
-    programs.starship = {
-      enable = true;
-      settings = {
-
-      };
+  programs.starship = {
+    enable = true;
+    settings = {
+      # git_status = {
+      #   conflicted = "⚔️ ";
+      #   ahead = "🏎️ 💨 ×${count} ";
+      #   behind = "🐢 ×${count} ";
+      #   diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} ";
+      #   untracked = "🛤️  ×${count} ";
+      #   stashed = "📦 ";
+      #   modified = "📝 ×${count} ";
+      #   staged = "🗃️  ×${count} ";
+      #   renamed = "📛 ×${count} ";
+      #   deleted = "🗑️  ×${count} ";
+      #   style = "bright-white";
+      #   format = "$all_status$ahead_behind";
+      # };
     };
+  };
   # Nix Settings
   nix.settings = {
     experimental-features = [
