@@ -43,6 +43,10 @@
       nixd
       nil
 
+      # MacOS Special Apps
+      aldente
+      bartender
+
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
