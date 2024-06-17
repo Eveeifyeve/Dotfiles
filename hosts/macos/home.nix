@@ -23,7 +23,6 @@
       btop
       ripgrep
       jd-gui
-      docker
 
       # Command Line Proccesors 
       eza
