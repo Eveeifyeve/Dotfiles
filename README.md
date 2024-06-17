@@ -46,3 +46,9 @@ darwin-rebuild switch --flake ~/.dotfiles/
 # Documentation
 
 - [Flake Templates](/flakes/README.md)
+
+
+
+# Updating 
+
+A Simple update can be done by running: `nix flake update`
