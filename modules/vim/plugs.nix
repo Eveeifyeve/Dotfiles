@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs,... }:
 {
   programs.nixvim = {
     plugins = {
@@ -9,32 +9,36 @@
       bufferline.enable = true;
       dashboard = {
         enable = true;
-        header = [
-          ''
-            Eveeifyeve Config
-          ''
-        ];
-        center = [
-          {
-            desc = "Find project";
-            icon = "📁";
-            action = "Telescope find_files";
-            shortcut = "f";
-          }
-          {
-            desc = "Git Projects";
-            icon = "";
-            action = "Telescope projects";
-            shortcut = "g";
-          }
-        ];
-        footer = [
-          ''
-            &copy 2024 eveeifyeve
-          ''
-        ];
-        hideStatusline = true;
-        hideTabline = true;
+        settings = {
+          config = {
+            header = [
+              ''
+                Eveeifyeve Config
+              ''
+            ];
+            center = [
+              {
+                desc = "Find project";
+                icon = "📁";
+                action = "Telescope find_files";
+                shortcut = "f";
+              }
+              {
+                desc = "Git Projects";
+                icon = "";
+                action = "Telescope projects";
+                shortcut = "g";
+              }
+            ];
+            footer = [
+              ''
+                &copy 2024 eveeifyeve
+              ''
+            ];
+            hide.tabline = true;
+            hide.statusline = true;
+          };
+        };
       };
       auto-save = {
         enable = true;
@@ -58,7 +62,7 @@
             enable = true;
             autostart = true;
           };
-          nil_ls = {
+          nil-ls = {
             enable = true;
             autostart = true;
           };
@@ -95,26 +99,30 @@
       todo-comments.enable = true;
       barbar = {
         enable = true;
-        autoHide = true;
+        settings = {
+          auto_hide = false;
+        };
       };
       lualine = {
         enable = true;
       };
       obsidian = {
         enable = true;
-        settings.workspaces = [
-          {
-            name = "Main";
-            path = "~/documents/obsidian";
-          }
-          {
-            name = "TeaClient";
-            path = "~/projects/teaclient/obsidian";
-          }
-        ];
-        settings.completion = {
-          min_chars = 2;
-          nvim_cmp = true;
+        settings = {
+          workspaces = [
+            {
+              name = "Main";
+              path = "~/documents/obsidian";
+            }
+            {
+              name = "TeaClient";
+              path = "~/projects/teaclient/obsidian";
+            }
+          ];
+          completion = {
+            min_chars = 2;
+            nvim_cmp = true;
+          };
         };
       };
     };
