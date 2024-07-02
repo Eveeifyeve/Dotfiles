@@ -17,7 +17,6 @@
     packages = with pkgs; [
       # Development Tools 
       vscode
-      direnv
       devenv
       gradle
       btop
@@ -96,6 +95,9 @@
       # };
     };
   };
+
+
+
   # Nix Settings
   nix.settings = {
     experimental-features = [

@@ -22,6 +22,10 @@
       userEmail = email;
       userName = config.home.username;
     };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
   home.file = {
     ".tmux.conf".source = ../tmux.conf;
