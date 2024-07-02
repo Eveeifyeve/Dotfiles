@@ -96,8 +96,6 @@
     };
   };
 
-
-
   # Nix Settings
   nix.settings = {
     experimental-features = [
