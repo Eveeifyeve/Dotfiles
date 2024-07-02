@@ -33,7 +33,7 @@
       # Programs
       spotify
       raycast
-      discord
+      vesktop
       audacity
       postman
       iterm2
