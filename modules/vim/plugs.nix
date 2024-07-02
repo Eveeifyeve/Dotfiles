@@ -42,7 +42,7 @@
       };
       auto-save = {
         enable = true;
-        enableAutoSave = true;
+        settings.enable = true;
       };
       lightline.enable = true;
       telescope.enable = true;
