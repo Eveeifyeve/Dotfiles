@@ -9,12 +9,7 @@
   };
 
   outputs =
-    inputs@{
-      flake-parts,
-      nixpkgs,
-      nix-vscode-extensions,
-      ...
-    }:
+    inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ inputs.devenv.flakeModule ];
       systems = nixpkgs.lib.systems.flakeExposed;
@@ -31,18 +26,20 @@
         {
           devenv.shells.default = {
             difftastic.enable = true;
-            packages =
-              lib.optionals pkgs.stdenv.isDarwin (
-                with pkgs.darwin.apple_sdk.frameworks;
-                [
-                  Security
-                  SystemConfiguration
-                ]
-              );
-
+            packages = lib.optionals pkgs.stdenv.isDarwin (
+              with pkgs;
+              [
+                darwin.apple_sdk.frameworks.Security
+                darwin.apple_sdk.frameworks.SystemConfiguration
+              ]
+            );
             languages.rust = {
               enable = true;
               channel = "stable"; # or "nightly"
+              toolchain = {
+                rustc = pkgs.rustc-wasm32;
+              };
+              targets = [ "wasm32-unknown-unknown" ];
             };
 
             dotenv = {
