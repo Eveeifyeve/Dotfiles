@@ -108,7 +108,6 @@
     ];
     warn-dirty = false;
   };
-  nix.gc.automatic = true;
   nixpkgs.config = {
     allowUnfree = true;
   };
