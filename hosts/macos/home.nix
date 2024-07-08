@@ -32,7 +32,7 @@
       # Programs
       spotify
       raycast
-      vesktop
+      discord
       audacity
       postman
       iterm2
@@ -108,6 +108,7 @@
     ];
     warn-dirty = false;
   };
+  nix.gc.automatic = true;
   nixpkgs.config = {
     allowUnfree = true;
   };
