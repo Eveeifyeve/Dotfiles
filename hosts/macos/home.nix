@@ -22,7 +22,7 @@
       btop
       ripgrep
       jd-gui
-      darwin.xcode
+      # darwin.xcode
 
       # Command Line Proccesors 
       eza
