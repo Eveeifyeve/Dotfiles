@@ -26,6 +26,8 @@
       enable = true;
       nix-direnv.enable = true;
     };
+    gpg.enable = true;
+    ssh.enable = true;
   };
   home.file = {
     ".tmux.conf".source = ../tmux.conf;

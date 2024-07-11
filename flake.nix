@@ -15,7 +15,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -49,6 +52,7 @@
           };
           modules = [
             ./hosts/macos/darwin.nix
+            inputs.agenix.darwinModules.default
             inputs.home-manager.darwinModules.home-manager
             {
               home-manager = {
