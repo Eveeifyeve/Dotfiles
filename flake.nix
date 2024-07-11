@@ -72,10 +72,10 @@
                 users.${username}.imports = [ ./hosts/macos/home.nix ];
               };
             }
-            # inputs.nixvim.nixDarwinModules.nixvim { 
-            #   programs.nixvim.enable = true;
-            #   imports = [./modules/vim/default.nix]; 
-            # }
+            inputs.nixvim.nixDarwinModules.nixvim { 
+              programs.nixvim.enable = true;
+              imports = [./modules/vim/default.nix]; 
+            }
             inputs.nix-homebrew.darwinModules.nix-homebrew
             {
               nix-homebrew = {
