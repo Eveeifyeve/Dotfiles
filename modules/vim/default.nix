@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs.nixvim = {
+    colorschemes.catppuccin.enable = true;
     plugins = {
       nvim-autopairs.enable = true;
       luasnip.enable = true;

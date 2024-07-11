@@ -52,7 +52,7 @@
           };
           modules = [
             ./hosts/macos/darwin.nix
-            inputs.agenix.darwinModules.default
+            inputs.agenix.darwinModules.default 
             inputs.home-manager.darwinModules.home-manager
             {
               home-manager = {
@@ -61,21 +61,32 @@
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users."${username}".imports = [ ./hosts/macos/home.nix ];
+                users.${username}.imports = [ ./hosts/macos/home.nix ];
               };
             }
-            inputs.nix-homebrew.darwinModules.nix-homebrew
-            { imports = [ ./modules/homebrew.nix ]; }
-            inputs.nixvim.nixDarwinModules.nixvim
-            {
+            inputs.nixvim.nixDarwinModules.nixvim { 
               programs.nixvim.enable = true;
-              imports = [ ./modules/vim/plugs.nix ];
+              imports = [./modules/vim/default.nix]; 
+            }
+            inputs.nix-homebrew.darwinModules.nix-homebrew
+            { 
+              nix-homebrew = {
+                enable = true;
+                enableRosetta = true;
+                taps = {
+                  "homebrew/homebrew-core" = inputs.homebrew-core;
+                  "homebrew/homebrew-cask" = inputs.homebrew-cask;
+                  "homebrew/homebrew-cask-versions" = inputs.homebrew-cask-versions;
+                };
+                mutableTaps = false;
+                autoMigrate = false;
+              };
             }
           ];
         };
       };
 
-      # Nix Flake Templates
+      # Nix Flake Templates for Shell Environments
       templates = {
         node = {
           path = ./flakes/node;

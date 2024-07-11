@@ -7,49 +7,20 @@
   ...
 }:
 {
-  programs.home-manager.enable = true;
-  programs.zsh.enable = true;
-  imports = [ ../../modules/programs.nix ];
+  imports = [ ../../modules/home-manager.nix ../../modules/cachix/default.nix ];
   home = {
     username = username;
     stateVersion = "24.05";
     homeDirectory = "/Users/${username}";
     packages = with pkgs; [
-      # Development Tools 
-      vscode
-      devenv
-      gradle
-      btop
-      ripgrep
-      jd-gui
-      gh
-      # darwin.xcode
+      # Calls Packages that I want to share
+      callPackage ../../modules/packages.nix { }
 
-      # Command Line Proccesors 
-      eza
-      jq
-      gnused
-      gawk
-
-      # Programs
-      spotify
-      raycast
-      discord
-      audacity
-      postman
-      iterm2
-
-      # Nix Tools
-      nixd
-      nil
-      nix-output-monitor
-
-      # MacOS Special Apps
+      # MacOS Specific/Special Apps
       aldente
       bartender
-
-      # Fonts
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      raycast
+      iterm2
     ];
     sessionPath = [
       "$HOME/.local/bin"
@@ -73,45 +44,8 @@
       '';
     };
   };
-
-  programs.zsh.oh-my-zsh = {
-    enable = true;
-    plugins = [ ];
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      # git_status = {
-      #   conflicted = "⚔️ ";
-      #   ahead = "🏎️ 💨 ×${count} ";
-      #   behind = "🐢 ×${count} ";
-      #   diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} ";
-      #   untracked = "🛤️  ×${count} ";
-      #   stashed = "📦 ";
-      #   modified = "📝 ×${count} ";
-      #   staged = "🗃️  ×${count} ";
-      #   renamed = "📛 ×${count} ";
-      #   deleted = "🗑️  ×${count} ";
-      #   style = "bright-white";
-      #   format = "$all_status$ahead_behind";
-      # };
-    };
-  };
-
-  # Nix Settings
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    allowed-users = [
+  nix.settings.allowed-users = [
       "eveeifyeve"
       "root"
     ];
-    warn-dirty = false;
-  };
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
 }
