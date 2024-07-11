@@ -68,20 +68,20 @@
               programs.nixvim.enable = true;
               imports = [./modules/vim/default.nix]; 
             }
-            inputs.nix-homebrew.darwinModules.nix-homebrew
-            { 
-              nix-homebrew = {
-                enable = true;
-                enableRosetta = true;
-                taps = {
-                  "homebrew/homebrew-core" = inputs.homebrew-core;
-                  "homebrew/homebrew-cask" = inputs.homebrew-cask;
-                  "homebrew/homebrew-cask-versions" = inputs.homebrew-cask-versions;
-                };
-                mutableTaps = false;
-                autoMigrate = false;
-              };
-            }
+            # inputs.nix-homebrew.darwinModules.nix-homebrew
+            # { 
+            #   nix-homebrew = {
+            #     enable = true;
+            #     enableRosetta = true;
+            #     taps = {
+            #       "homebrew/homebrew-core" = inputs.homebrew-core;
+            #       "homebrew/homebrew-cask" = inputs.homebrew-cask;
+            #       "homebrew/homebrew-cask-versions" = inputs.homebrew-cask-versions;
+            #     };
+            #     mutableTaps = false;
+            #     autoMigrate = false;
+            #   };
+            # }
           ];
         };
       };
