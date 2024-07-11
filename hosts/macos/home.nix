@@ -12,15 +12,12 @@
     username = username;
     stateVersion = "24.05";
     homeDirectory = "/Users/${username}";
-    packages = with pkgs; [
-      # Calls Packages that I want to share
-      callPackage ../../modules/packages.nix { }
-
+    packages = pkgs.callPackage ../../modules/packages.nix { } ++ [
       # MacOS Specific/Special Apps
-      aldente
-      bartender
-      raycast
-      iterm2
+      pkgs.aldente
+      pkgs.bartender
+      pkgs.raycast
+      pkgs.iterm2
     ];
     sessionPath = [
       "$HOME/.local/bin"
