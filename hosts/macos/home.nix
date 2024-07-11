@@ -22,6 +22,7 @@
       btop
       ripgrep
       jd-gui
+      gh
       # darwin.xcode
 
       # Command Line Proccesors 
@@ -41,6 +42,7 @@
       # Nix Tools
       nixd
       nil
+      nix-output-monitor
 
       # MacOS Special Apps
       aldente
@@ -57,7 +59,7 @@
     ];
     shellAliases = {
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
-      nix-rebuid = "darwin-rebuild switch --flake ~/.dotfiles";
+      nix-rebuid = "sudo darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
       nix-direnv = "echo use flake . --impure > .envrc";
       gitr = ''
               gitr () {
