@@ -11,7 +11,10 @@ with pkgs;
 
       # Command Line Proccesors 
       eza
-      jq
+      jaq # Faster version of jq
+      jq # Sometimes jaq doesn't work so I use jq
+      bat # Better cat
+      ripgrep
       gnused
       gawk
 
