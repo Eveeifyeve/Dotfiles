@@ -28,4 +28,4 @@ with pkgs;
 
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    ];
+    ]
