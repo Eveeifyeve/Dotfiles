@@ -22,7 +22,7 @@
     enable = true;
     casks = [
       "modrinth"
-      "docker"
+      "homebrew/cask/docker"
     ];
     masApps = {
 
