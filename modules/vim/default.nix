@@ -115,10 +115,10 @@
               name = "Main";
               path = "~/documents/obsidian";
             }
-            {
-              name = "TeaClient";
-              path = "~/projects/teaclient/obsidian";
-            }
+            # {
+            #   name = "TeaClient";
+            #   path = "~/projects/teaclient/obsidian";
+            # }
           ];
           completion = {
             min_chars = 2;
