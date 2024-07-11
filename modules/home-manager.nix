@@ -20,7 +20,7 @@
         github.user = config.home.username;
         push.autoSetupRemote = true;
       };
-      userEmail = config.age.secrets.secret1.email;
+      userEmail = email;
       userName = config.home.username;
     };
     direnv = {

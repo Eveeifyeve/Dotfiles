@@ -14,6 +14,7 @@
     homeDirectory = "/Users/${username}";
     packages = pkgs.callPackage ../../modules/packages.nix { } ++ [
       # MacOS Specific/Special Apps
+      pkgs.mas
       pkgs.aldente
       pkgs.bartender
       pkgs.raycast

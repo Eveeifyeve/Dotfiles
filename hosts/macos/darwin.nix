@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  email,
   username,
   hostPlatform,
   ...
@@ -15,6 +16,18 @@
   nixpkgs.config.allowUnfree = true;
   services.nix-daemon.enable = true;
   system.stateVersion = 4;
+
+
+  homebrew = {
+    enable = true;
+    casks = [
+      "modrinth"
+      "docker"
+    ];
+    masApps = {
+
+    };
+  };
 
   environment = {
     loginShell = pkgs.zsh;
