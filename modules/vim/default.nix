@@ -41,9 +41,12 @@
                 &copy 2024 eveeifyeve
               ''
             ];
+            project.enable = false;
             hide.tabline = true;
             hide.statusline = true;
           };
+          theme = "hyper";
+          shortcut_type = "letter";
         };
       };
       auto-save = {
