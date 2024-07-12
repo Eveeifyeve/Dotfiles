@@ -57,7 +57,7 @@
         "eveeifyeve-macbook" = inputs.nix-darwin.lib.darwinSystem {
           specialArgs = {
             inherit username hostPlatform;
-            inherit (inputs) homebrew-cask homebrew-cask-versions homebrew-core;
+            inherit (inputs) homebrew-cask homebrew-cask-versions homebrew-core builtins;
           };
           modules = [
             inputs.agenix.darwinModules.default
@@ -74,7 +74,7 @@
             }
             inputs.nixvim.nixDarwinModules.nixvim { 
               programs.nixvim.enable = true;
-              imports = [./modules/vim/default.nix]; 
+              imports = [ ./modules/vim ./modules/vim/dashboard.nix ./modules/vim/lsp.nix ./modules/vim/obsidian.nix ];
             }
             inputs.nix-homebrew.darwinModules.nix-homebrew
             {
