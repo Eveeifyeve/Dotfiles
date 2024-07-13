@@ -27,6 +27,7 @@ with pkgs;
       # Nix Tools
       nixd
       nil
+      nix-output-monitor
 
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
