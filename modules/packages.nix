@@ -27,10 +27,6 @@ with pkgs;
       # Nix Tools
       nixd
       nil
-      nix-output-monitor
-
-      # Virtualization & Testing
-      qemu
 
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

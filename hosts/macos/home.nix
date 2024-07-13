@@ -17,8 +17,9 @@
       pkgs.mas
       pkgs.aldente
       pkgs.bartender
-      pkgs.raycast
-      pkgs.iterm2
+      pkgs.raycast # MacOS Spotlight Alternative
+      pkgs.iterm2 # MacOS Terminal
+      pkgs.utm # MacOS Qemu
     ];
     sessionPath = [
       "$HOME/.local/bin"
