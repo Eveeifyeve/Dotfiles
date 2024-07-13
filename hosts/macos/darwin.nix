@@ -23,6 +23,7 @@
     casks = [
       "modrinth"
       "homebrew/cask/docker"
+      "vmware-fusion"
     ];
     masApps = {
 
