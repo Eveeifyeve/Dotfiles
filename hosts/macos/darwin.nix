@@ -27,8 +27,10 @@
       "homebrew/cask/docker"
     ];
     masApps = {
-
+      Xcode = 497799835;
+      TestFlight = 899247664;
     };
+    onActivation.cleanup = "uninstall";
   };
 
   environment = {
