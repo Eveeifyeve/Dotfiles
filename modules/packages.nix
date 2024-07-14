@@ -29,6 +29,10 @@ with pkgs;
       nil
       nix-output-monitor
 
+
+      # Private Browsing / DarkWeb Browsers
+      tor
+
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ]
