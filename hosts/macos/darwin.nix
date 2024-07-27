@@ -23,10 +23,11 @@
   homebrew = {
     enable = true;
     casks = [
-      "modrinth"
       "homebrew/cask/docker"
+      "arc"
     ];
     masApps = {
+      GarageBand = 682658836;
       Xcode = 497799835;
       TestFlight = 899247664;
     };

@@ -43,8 +43,15 @@
       '';
     };
   };
-  nix.settings.allowed-users = [
-      "eveeifyeve"
-      "root"
-    ];
+  nix = {
+    settings.allowed-users = [
+        "eveeifyeve"
+        "root"
+      ];
+    gc = {
+      automatic = true;
+      frequency = "weekly";
+      options = "--delete-older-than 14d";
+    };
+  };
 }
