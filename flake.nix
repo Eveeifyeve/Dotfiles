@@ -74,7 +74,7 @@
             }
             inputs.nixvim.nixDarwinModules.nixvim { 
               programs.nixvim.enable = true;
-              imports = [ ./modules/vim ./modules/vim/dashboard.nix ./modules/vim/lsp.nix ./modules/vim/obsidian.nix ];
+              imports = [ ./modules/vim ./modules/vim/lsp.nix ./modules/vim/obsidian.nix ./modules/vim/settings.nix ];
             }
             inputs.nix-homebrew.darwinModules.nix-homebrew
             {
