@@ -24,6 +24,7 @@
     enable = true;
     casks = [
       "homebrew/cask/docker"
+      "obsidian"
       "arc"
     ];
     masApps = {
