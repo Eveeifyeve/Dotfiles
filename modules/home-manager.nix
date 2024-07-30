@@ -20,6 +20,21 @@
         github.user = config.home.username;
         push.autoSetupRemote = true;
       };
+      aliases = {
+        st = "status -s";
+        sta = "status";
+        ci = "commit";
+        co = "checkout";
+        cod = "checkout .";
+        rh = "reset HEAD";
+        aa = "add -A";
+        cdf = "clean -df";
+        pr = "pull --rebase";
+        br = "branch";
+        bra = "branch -a";
+        amend = "commit -a --amend --no-edit";
+        ciam = "commit -a --amend --no-edit";
+      };
       userEmail = email;
       userName = config.home.username;
     };
