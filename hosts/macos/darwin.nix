@@ -26,6 +26,7 @@
       "homebrew/cask/docker"
       "obsidian"
       "arc"
+      "intellij-idea-ce"
     ];
     masApps = {
       GarageBand = 682658836;
