@@ -49,9 +49,7 @@
       email = "eveeg1971@gmail.com";
       hostPlatform = "aarch64-darwin";
     in
-    {
-      packages.${hostPlatform}.gh-combine-prs = inputs.nixpkgs.legacyPackages.${hostPlatform}.callPackage ./overlays/gh-combine-prs.nix {};
-      
+    {      
       formatter.${hostPlatform} = inputs.nixpkgs.legacyPackages.${hostPlatform}.nixfmt-rfc-style;
 
       # Nix on Darwin with Nix-Darwin x HM
