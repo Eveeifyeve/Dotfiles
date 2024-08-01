@@ -13,7 +13,7 @@ let
 in
 stdenvNoCC.mkDerivation {
   pname = "gh-combine-prs";
-  version = "0-unstable-2024-04-24";
+  version = "0-unstable-2022-06-22";
 
   src = fetchFromGitHub {
     owner = "rnorth";
@@ -27,6 +27,7 @@ stdenvNoCC.mkDerivation {
   ];
 
   installPhase = ''
+    ls -la
     install -D -m755 "gh-combine-prs" "$out/bin/gh-combine-prs"
   '';
 

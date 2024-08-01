@@ -74,7 +74,7 @@
   gh = {
     enable = true;
     extensions = with pkgs; [
-      callPackage ../overlays/gh-combine-prs.nix {}
+      (callPackage ../overlays/gh-combine-prs.nix {})
     ];
   };
     gpg.enable = true;
