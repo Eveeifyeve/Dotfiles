@@ -14,6 +14,9 @@
     };
     git = {
       enable = true;
+      delta = {
+        enable = true;
+      };
       extraConfig = {
         core.editor = "vscode";
         credential.helper = "store";
@@ -70,6 +73,9 @@
   };
   gh = {
     enable = true;
+    extensions = with pkgs; [
+      callPackage ../overlays/gh-combine-prs.nix {}
+    ];
   };
     gpg.enable = true;
     ssh.enable = true;
