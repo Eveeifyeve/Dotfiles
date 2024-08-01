@@ -19,7 +19,7 @@ stdenvNoCC.mkDerivation {
     owner = "rnorth";
     repo = "gh-combine-prs";
     rev = "ab066c1d810844c071a661301259cbb470891004";
-    hash = "sha256-AgpNjeRz0RHf8D3ib7x1zixBxh32UUZJleub5W/suuM=";
+    hash = "sha256-Ihg9z4DqqNfuG4zIhi9VoZurWF5fmHQZMIRq5BVazwI=";
   };
 
   nativeBuildInputs = [
