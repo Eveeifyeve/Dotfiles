@@ -28,6 +28,9 @@
       "arc"
       "intellij-idea-ce"
     ];
+    brews = [
+      "brightness" # Adjust Screen Brightness on MacOS using CLI
+    ];
     masApps = {
       GarageBand = 682658836;
       Xcode = 497799835;
