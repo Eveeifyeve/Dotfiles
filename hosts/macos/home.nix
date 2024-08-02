@@ -24,6 +24,7 @@
     sessionPath = [
       "$HOME/.local/bin"
       "/usr/local/bin"
+      "/opt/homebrew/bin"
       "/run/current-system/sw/bin"
       "/etc/profiles/per-user/eveeifyeve/bin"
     ];
