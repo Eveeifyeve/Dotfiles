@@ -123,6 +123,10 @@
           path = ./flakes/kotlin;
           description = "Template for setting up a Kotlin project";
         };
+        zig = {
+          path = ./flakes/zig;
+          description = "Template for setting up a Zig project";
+        };
       };
     };
 }
