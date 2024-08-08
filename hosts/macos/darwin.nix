@@ -33,7 +33,7 @@
     ];
     masApps = {
       GarageBand = 682658836;
-      Xcode = 497799835;
+      # Xcode = 497799835;
       TestFlight = 899247664;
     };
     onActivation.cleanup = "uninstall";
