@@ -8,6 +8,7 @@ with pkgs;
       btop
       ripgrep
       jd-gui
+      tree # File Sizes
 
       # Command Line Proccesors 
       eza
