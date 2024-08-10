@@ -34,6 +34,9 @@ with pkgs;
       # Private Browsing / DarkWeb Browsers
       tor
 
+      # Minecraft
+      prismlauncher-unwrapped
+
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ]
