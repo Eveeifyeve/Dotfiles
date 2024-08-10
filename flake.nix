@@ -46,7 +46,6 @@
     inputs@{ self, ... }:
     let
       username = "eveeifyeve";
-      email = "eveeg1971@gmail.com";
       hostPlatform = "aarch64-darwin";
     in
     {      
@@ -65,7 +64,7 @@
             {
               home-manager = {
                 extraSpecialArgs = {
-                  inherit email username;
+                  inherit username;
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;

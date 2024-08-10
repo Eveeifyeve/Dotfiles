@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  email,
   ...
 }:
 {
@@ -38,7 +37,7 @@
         amend = "commit -a --amend --no-edit";
         ciam = "commit -a --amend --no-edit";
       };
-      userEmail = email;
+      userEmail = "88671402+Eveeifyeve@users.noreply.github.com";
       userName = config.home.username;
     };
     direnv = {
