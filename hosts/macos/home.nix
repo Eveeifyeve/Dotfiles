@@ -6,7 +6,7 @@
   ...
 }:
 {
-  imports = [ ../../modules/homemanager/deafult.nix ../../modules/cachix/default.nix ];
+  imports = [ ../../modules/homemanager/deafult.nix ../../modules/cachix/default.nix ../../modules/homemanager/git.nix ../../modules/homemanager/terminal.nix ];
   home = {
     username = username;
     stateVersion = "24.05";

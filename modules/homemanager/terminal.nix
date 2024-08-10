@@ -1,8 +1,6 @@
 {
-  config,
-  username,
-  lib,
   pkgs,
+  ...
 }: 
 {
   programs = {

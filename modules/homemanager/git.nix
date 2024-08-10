@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  lib,
   ...
 }:
 let 
@@ -45,12 +43,12 @@ in
         ciam = "commit -a --amend --no-edit";
       };
       userEmail = "88671402+Eveeifyeve@users.noreply.github.com";
-      userName = config.home.username;
+      userName = git.name;
     };
   gh = {
     enable = true;
     extensions = with pkgs; [
-      (callPackage ../overlays/gh-combine-prs.nix {})
+      (callPackage ../../overlays/gh-combine-prs.nix {})
     ];
   };
   # home.file.".gitconfig" = {

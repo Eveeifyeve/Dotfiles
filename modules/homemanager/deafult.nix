@@ -5,7 +5,6 @@
   ...
 }:
 {
-  imports = [ ./git.nix ./terminal.nix];
   programs = {
     home-manager.enable = true;
     direnv = {
