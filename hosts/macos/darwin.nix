@@ -27,6 +27,7 @@
       "obsidian"
       "arc"
       "intellij-idea-ce"
+      "curseforge"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI
