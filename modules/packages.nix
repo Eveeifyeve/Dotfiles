@@ -23,11 +23,9 @@ with pkgs;
       spotify
       discord
       audacity
-      postman
 
       # Nix Tools
       nixd
-      nil
       nix-output-monitor
 
 
