@@ -19,7 +19,7 @@
       raycast # MacOS Spotlight Alternative
       iterm2 # MacOS Terminal
       utm # MacOS Qemu
-      darwin.xcode
+      darwin.xcode_15_1
     ]);
     sessionPath = [
       "$HOME/.local/bin"
