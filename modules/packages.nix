@@ -35,8 +35,9 @@ with pkgs;
       # Minecraft
       prismlauncher-unwrapped
 
-      # Video/Photo Editing
+      # Video/Photo/Graphic Editing
       gimp
+      blender
 
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
