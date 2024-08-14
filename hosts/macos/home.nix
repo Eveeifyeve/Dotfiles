@@ -11,15 +11,16 @@
     username = username;
     stateVersion = "24.05";
     homeDirectory = "/Users/${username}";
-    packages = pkgs.callPackage ../../modules/packages.nix { } ++ [
+    packages = pkgs.callPackage ../../modules/packages.nix { } ++ (with pkgs; [
       # MacOS Specific/Special Apps
-      pkgs.mas
-      pkgs.aldente
-      pkgs.bartender
-      pkgs.raycast # MacOS Spotlight Alternative
-      pkgs.iterm2 # MacOS Terminal
-      pkgs.utm # MacOS Qemu
-    ];
+      mas
+      aldente
+      bartender
+      raycast # MacOS Spotlight Alternative
+      iterm2 # MacOS Terminal
+      utm # MacOS Qemu
+      darwin.xcode
+    ]);
     sessionPath = [
       "$HOME/.local/bin"
       "/usr/local/bin"
