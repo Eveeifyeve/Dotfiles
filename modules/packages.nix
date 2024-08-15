@@ -38,6 +38,7 @@ with pkgs;
       # Video/Photo/Graphic Editing
       gimp
       blender
+      ffmpeg
 
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
