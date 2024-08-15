@@ -37,7 +37,7 @@ with pkgs;
 
       # Video/Photo/Graphic Editing
       gimp
-      blender
+      # blender
       ffmpeg
 
       # Fonts
