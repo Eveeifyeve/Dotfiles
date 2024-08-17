@@ -18,6 +18,7 @@ with pkgs;
       ripgrep
       gnused
       gawk
+      fzf # Fuzzy Finder
 
       # Programs
       spotify
@@ -35,7 +36,7 @@ with pkgs;
       # Minecraft
       prismlauncher-unwrapped
 
-      # Video/Photo/Graphic Editing
+      # Video/Photo/Graphic Editingc
       gimp
       # blender
       ffmpeg_7-full
