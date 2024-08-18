@@ -15,6 +15,7 @@ in
       enable = true;
       delta = {
         enable = true;
+        package = pkgs.callPackage ../../overlays/git-delta.nix {};
       };
       extraConfig = {
         core.editor = git.editor;
