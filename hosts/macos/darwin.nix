@@ -28,6 +28,7 @@
       "arc"
       "intellij-idea-ce"
       "curseforge"
+      "element"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI
