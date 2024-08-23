@@ -15,7 +15,7 @@ in
       enable = true;
       delta = {
         enable = true;
-        package = pkgs.callPackage ../../overlays/git-delta.nix {};
+        package = pkgs.callPackage ../../custom-pkgs/git-delta.nix {};
       };
       extraConfig = {
         core.editor = git.editor;
@@ -49,7 +49,7 @@ in
   gh = {
     enable = true;
     extensions = with pkgs; [
-      (callPackage ../../overlays/gh-combine-prs.nix {})
+      (callPackage ../../custom-pkgs/gh-combine-prs.nix {})
     ];
   };
   # home.file.".gitconfig" = {
