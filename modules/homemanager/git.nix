@@ -1,8 +1,5 @@
-{
-  pkgs,
-  ...
-}:
-let 
+{ pkgs, ... }:
+let
   git = {
     email = "88671402+Eveeifyeve@users.noreply.github.com";
     name = "eveeifyeve";
@@ -15,7 +12,7 @@ in
       enable = true;
       delta = {
         enable = true;
-        package = pkgs.callPackage ../../custom-pkgs/git-delta.nix {};
+        package = pkgs.callPackage ../../custom-pkgs/git-delta.nix { };
       };
       extraConfig = {
         core.editor = git.editor;
@@ -46,20 +43,18 @@ in
       userEmail = "88671402+Eveeifyeve@users.noreply.github.com";
       userName = git.name;
     };
-  gh = {
-    enable = true;
-    extensions = with pkgs; [
-      (callPackage ../../custom-pkgs/gh-combine-prs.nix {})
-    ];
+    gh = {
+      enable = true;
+      extensions = with pkgs; [ (callPackage ../../custom-pkgs/gh-combine-prs.nix { }) ];
+    };
+    # home.file.".gitconfig" = {
+    #   text = ''
+    #     [user]
+    #       name = ${git.name}
+    #       email = ${git.email}
+    #     [core]
+    #       autocrlf = input
+    #   '';
+    # };
   };
-  # home.file.".gitconfig" = {
-  #   text = ''
-  #     [user]
-  #       name = ${git.name}
-  #       email = ${git.email}
-  #     [core]
-  #       autocrlf = input
-  #   '';
-  # };
- };
 }

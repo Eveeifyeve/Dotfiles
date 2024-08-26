@@ -21,7 +21,7 @@
         {
           devenv.shells.default = {
             difftastic.enable = true;
-            packages = with pkgs; [];
+            packages = with pkgs; [ ];
             languages = {
               java = {
                 enable = true;

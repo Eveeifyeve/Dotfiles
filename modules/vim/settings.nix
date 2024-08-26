@@ -1,13 +1,13 @@
-
 {
-programs.nixvim = {
+  programs.nixvim = {
 
-opts = {
-  number = true;
-  relativenumber = true;
-  shiftwidth = 2;
+    opts = {
+      number = true;
+      relativenumber = true;
+      shiftwidth = 2;
+    };
+
+    keymaps = [ ];
 
   };
-keymaps = [];
- };
 }

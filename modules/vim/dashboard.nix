@@ -29,7 +29,7 @@
             desc = "📁 Find project";
             group = "String";
             action = "Telescope find_files";
-            ket = "f";
+            key = "f";
           }
           {
             desc = " Git Projects";

@@ -6,21 +6,28 @@
   ...
 }:
 {
-  imports = [ ../../modules/homemanager/deafult.nix ../../modules/cachix/default.nix ../../modules/homemanager/git.nix ../../modules/homemanager/terminal.nix ];
+  imports = [
+    ../../modules/homemanager/deafult.nix
+    ../../modules/cachix/default.nix
+    ../../modules/homemanager/git.nix
+    ../../modules/homemanager/terminal.nix
+  ];
   home = {
     username = username;
     stateVersion = "24.05";
     homeDirectory = "/Users/${username}";
-    packages = pkgs.callPackage ../../modules/packages.nix { } ++ (with pkgs; [
-      # MacOS Specific/Special Apps
-      mas
-      aldente
-      bartender
-      raycast # MacOS Spotlight Alternative
-      iterm2 # MacOS Terminal
-      utm # MacOS Qemu
-      # darwin.xcode_15_1
-    ]);
+    packages =
+      pkgs.callPackage ../../modules/packages.nix { }
+      ++ (with pkgs; [
+        # MacOS Specific/Special Apps
+        mas
+        aldente
+        bartender
+        raycast # MacOS Spotlight Alternative
+        iterm2 # MacOS Terminal
+        utm # MacOS Qemu
+        # darwin.xcode_15_1
+      ]);
     sessionPath = [
       "$HOME/.local/bin"
       "/usr/local/bin"
@@ -46,9 +53,9 @@
   };
   nix = {
     settings.allowed-users = [
-        "eveeifyeve"
-        "root"
-      ];
+      "eveeifyeve"
+      "root"
+    ];
     gc = {
       automatic = true;
       frequency = "weekly";

@@ -1,9 +1,10 @@
-{ lib
-, fetchFromGitHub
-, stdenvNoCC
-, makeWrapper
-, gh
-, jq
+{
+  lib,
+  fetchFromGitHub,
+  stdenvNoCC,
+  makeWrapper,
+  gh,
+  jq,
 }:
 let
   binPath = lib.makeBinPath [
@@ -22,9 +23,7 @@ stdenvNoCC.mkDerivation {
     hash = "sha256-Ihg9z4DqqNfuG4zIhi9VoZurWF5fmHQZMIRq5BVazwI=";
   };
 
-  nativeBuildInputs = [
-    makeWrapper
-  ];
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
     ls -la

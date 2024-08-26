@@ -48,7 +48,7 @@
       username = "eveeifyeve";
       hostPlatform = "aarch64-darwin";
     in
-    {      
+    {
       formatter.${hostPlatform} = inputs.nixpkgs.legacyPackages.${hostPlatform}.nixfmt-rfc-style;
 
       # Nix on Darwin with Nix-Darwin x HM
@@ -56,7 +56,12 @@
         "eveeifyeve-macbook" = inputs.nix-darwin.lib.darwinSystem {
           specialArgs = {
             inherit username hostPlatform;
-            inherit (inputs) homebrew-cask homebrew-cask-versions homebrew-core builtins;
+            inherit (inputs)
+              homebrew-cask
+              homebrew-cask-versions
+              homebrew-core
+              builtins
+              ;
           };
           modules = [
             inputs.agenix.darwinModules.default
@@ -71,9 +76,15 @@
                 users.${username}.imports = [ ./hosts/macos/home.nix ];
               };
             }
-            inputs.nixvim.nixDarwinModules.nixvim { 
+            inputs.nixvim.nixDarwinModules.nixvim
+            {
               programs.nixvim.enable = true;
-              imports = [ ./modules/vim ./modules/vim/lsp.nix ./modules/vim/obsidian.nix ./modules/vim/settings.nix ];
+              imports = [
+                ./modules/vim
+                ./modules/vim/lsp.nix
+                ./modules/vim/obsidian.nix
+                ./modules/vim/settings.nix
+              ];
             }
             inputs.nix-homebrew.darwinModules.nix-homebrew
             {

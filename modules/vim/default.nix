@@ -36,9 +36,9 @@
       lualine = {
         enable = true;
       };
-      };
+    };
     extraConfigLua = ''
       require('telescope').load_extension('projects')
     '';
-    };
-  }
+  };
+}

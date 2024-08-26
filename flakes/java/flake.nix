@@ -22,7 +22,7 @@
         {
           devenv.shells.default = {
             difftastic.enable = true;
-            packages = with pkgs; [];
+            packages = with pkgs; [ ];
             languages.java = {
               enable = true;
               jdk.package = pkgs.jdk8; # Java Version/Package
