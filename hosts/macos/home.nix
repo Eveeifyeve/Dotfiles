@@ -61,5 +61,8 @@
       frequency = "daily";
       options = "--delete-older-than 30d";
     };
+    extraOptions = ''
+    auto-optimise-store = true
+    '';
   };
 }
