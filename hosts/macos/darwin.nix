@@ -46,8 +46,8 @@
     automatic = true;
     interval = [
       {
-        Hour = 3;
-        Minute = 15;
+        Hour = 0;
+        Minute = 0;
         Weekday = 0;
       }
     ];
