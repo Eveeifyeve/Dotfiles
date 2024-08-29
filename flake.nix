@@ -5,6 +5,10 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    eveeifyeve-flake-templates = {
+      url = "github:Eveeifyeve/flake-templates";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -53,14 +57,13 @@
 
       # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
-        "eveeifyeve-macbook" = inputs.nix-darwin.lib.darwinSystem {
+        eveeifyeve-macbook = inputs.nix-darwin.lib.darwinSystem {
           specialArgs = {
             inherit username hostPlatform;
             inherit (inputs)
               homebrew-cask
               homebrew-cask-versions
               homebrew-core
-              builtins
               ;
           };
           modules = [
@@ -108,35 +111,7 @@
       };
 
       # Nix Flake Templates for Shell Environments
-      templates = {
-        node = {
-          path = ./flakes/node;
-          description = "Template for setting up a Node.js project";
-        };
-        rust = {
-          path = ./flakes/rust;
-          description = "Template for setting up a Rust project";
-        };
-        java = {
-          path = ./flakes/java;
-          description = "Template for setting up a Java project";
-        };
-        python = {
-          path = ./flakes/python;
-          description = "Template for setting up a Python project";
-        };
-        tauri = {
-          path = ./flakes/tauri;
-          description = "Template for setting up a Tauri project";
-        };
-        kotlin = {
-          path = ./flakes/kotlin;
-          description = "Template for setting up a Kotlin project";
-        };
-        zig = {
-          path = ./flakes/zig;
-          description = "Template for setting up a Zig project";
-        };
-      };
+      # https://github.com/Eveeifyeve/flake-templates
+      templates = inputs.eveeifyeve-flake-templates.templates;
     };
 }
