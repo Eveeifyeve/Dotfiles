@@ -40,6 +40,20 @@
     onActivation.cleanup = "uninstall";
   };
 
+  # Garbage cleanup
+  nix.gc = {
+    user = "root";
+    automatic = true;
+    interval = [
+      {
+        Hour = 3;
+        Minute = 15;
+        Weekday = 0;
+      }
+    ];
+    options = "--delete-older-than 30d";
+  };
+
   environment = {
     loginShell = pkgs.zsh;
   };

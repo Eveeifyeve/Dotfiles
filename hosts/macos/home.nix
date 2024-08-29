@@ -58,8 +58,8 @@
     ];
     gc = {
       automatic = true;
-      frequency = "weekly";
-      options = "--delete-older-than 14d";
+      frequency = "daily";
+      options = "--delete-older-than 30d";
     };
   };
 }
