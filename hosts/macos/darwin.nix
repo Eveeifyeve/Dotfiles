@@ -23,8 +23,6 @@
     enable = true;
     casks = [
       "homebrew/cask/docker"
-      "obsidian"
-      "arc"
       "intellij-idea-ce"
       "curseforge"
       "element"

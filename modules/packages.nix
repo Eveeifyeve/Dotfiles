@@ -72,6 +72,9 @@ with pkgs;
   # Music Downloaders
   spotdl
 
+  # Note taking app
+  obsidian
+
   # Fonts
   (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 ]
