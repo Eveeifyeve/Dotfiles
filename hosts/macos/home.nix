@@ -38,7 +38,6 @@
     shellAliases = {
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
-      nix-direnv = "echo use flake . --impure > .envrc";
       gitr = ''
               gitr () {
             for f in $(find . -type d -name .git | awk -F"/.git$" '{print $1}');  do
