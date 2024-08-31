@@ -63,6 +63,7 @@ with pkgs;
 
   # Minecraft
   prismlauncher-unwrapped
+  (callPackage ../custom-pkgs/curseforge { })
 
   # Video/Photo/Graphic Editingc
   gimp
@@ -74,6 +75,7 @@ with pkgs;
 
   # Note taking app
   obsidian
+
 
   # Fonts
   (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

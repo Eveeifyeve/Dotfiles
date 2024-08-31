@@ -24,7 +24,6 @@
     casks = [
       "homebrew/cask/docker"
       "intellij-idea-ce"
-      "curseforge"
       "element"
     ];
     brews = [
