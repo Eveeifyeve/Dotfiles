@@ -11,6 +11,8 @@ with pkgs;
 [
   # Development Tools 
   vscode
+  jetbrains.idea-community
+
   # (vscode.overrideAttrs (attrs: {
   #   postInstall = ''
   #     cd $out

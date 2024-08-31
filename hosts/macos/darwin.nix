@@ -23,7 +23,6 @@
     enable = true;
     casks = [
       "homebrew/cask/docker"
-      "intellij-idea-ce"
       "element"
     ];
     brews = [
