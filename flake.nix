@@ -81,7 +81,7 @@
             # }
             ./hosts/macos/darwin.nix
             ./modules/vim/default.nix
-            ./modules/homebrew.nix
+            ./modules/homebrew.nix { inherit inputs; } # Inputs are needed for homebrew
           ];
         };
       };
