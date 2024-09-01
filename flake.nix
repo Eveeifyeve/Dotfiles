@@ -51,7 +51,7 @@
   };
 
   outputs =
-    inputs@{ self, ... }:
+    inputs@{ self, agenix, home-manager, nix-homebrew, nixvim, nixpkgs, ... }:
     let
       username = "eveeifyeve";
       hostPlatform = "aarch64-darwin";
@@ -70,8 +70,8 @@
               ;
           };
           modules = [
-            inputs.agenix.darwinModules.default
-            inputs.home-manager.darwinModules.home-manager
+            agenix.darwinModules.default
+            home-manager.darwinModules.home-manager
             {
               home-manager = {
                 extraSpecialArgs = {
@@ -80,10 +80,9 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.${username}.imports = [ ./hosts/macos/home.nix ];
-                modules = []
               };
             }
-            inputs.nixvim.nixDarwinModules.nixvim
+            nixvim.nixDarwinModules.nixvim
             {
               programs.nixvim.enable = true;
               imports = [
@@ -93,7 +92,12 @@
                 ./modules/vim/settings.nix
               ];
             }
-            inputs.nix-homebrew.darwinModules.nix-homebrew
+            nixpkgs {
+              overlays = [
+                inputs.curseforge-nix.overlay
+              ];
+            }
+            nix-homebrew.darwinModules.nix-homebrew
             {
               nix-homebrew = {
                 user = username;
