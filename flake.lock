@@ -40,6 +40,22 @@
         "type": "github"
       }
     },
+    "curseforge-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725198409,
+        "narHash": "sha256-dDU+2GFyHU9/JlHg13oPoStUD9Pg9749oRykxQz0kgw=",
+        "owner": "eveeifyeve",
+        "repo": "curseforge-nix",
+        "rev": "f2ec31b5bec4de891e2fdb6c849d67b96859de3b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eveeifyeve",
+        "repo": "curseforge-nix",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -530,6 +546,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "curseforge-nix": "curseforge-nix",
         "eveeifyeve-flake-templates": "eveeifyeve-flake-templates",
         "home-manager": "home-manager_2",
         "homebrew-bundle": "homebrew-bundle",

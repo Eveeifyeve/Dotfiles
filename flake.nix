@@ -44,6 +44,10 @@
       url = "github:homebrew/homebrew-cask-versions";
       flake = false;
     };
+    curseforge-nix = {
+      url = "github:eveeifyeve/curseforge-nix";
+      flake = false;
+    };
   };
 
   outputs =
@@ -54,7 +58,6 @@
     in
     {
       formatter.${hostPlatform} = inputs.nixpkgs.legacyPackages.${hostPlatform}.nixfmt-rfc-style;
-
       # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
         eveeifyeve-macbook = inputs.nix-darwin.lib.darwinSystem {
@@ -77,6 +80,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.${username}.imports = [ ./hosts/macos/home.nix ];
+                modules = []
               };
             }
             inputs.nixvim.nixDarwinModules.nixvim
