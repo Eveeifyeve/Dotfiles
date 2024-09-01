@@ -53,67 +53,35 @@
   outputs =
     inputs@{ self, agenix, home-manager, nix-homebrew, nixvim, nixpkgs, ... }:
     let
-      username = "eveeifyeve";
-      hostPlatform = "aarch64-darwin";
+    pkgs = nixpkgs.pkgs;
     in
     {
-      formatter.${hostPlatform} = inputs.nixpkgs.legacyPackages.${hostPlatform}.nixfmt-rfc-style;
+      formatter = pkgs.nixfmt-rfc-style;
       # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
         eveeifyeve-macbook = inputs.nix-darwin.lib.darwinSystem {
-          specialArgs = {
-            inherit username hostPlatform;
-            inherit (inputs)
-              homebrew-cask
-              homebrew-cask-versions
-              homebrew-core
-              ;
-          };
+          # system = "aarch64-darwin";
           modules = [
             agenix.darwinModules.default
+            nixvim.nixDarwinModules.nixvim
+            nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
             {
-              home-manager = {
-                extraSpecialArgs = {
-                  inherit username;
-                };
+              home-manager = 
+              {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.${username}.imports = [ ./hosts/macos/home.nix ];
+                users."eveeifyeve".imports = [ ./hosts/macos/home.nix ];
               };
             }
-            nixvim.nixDarwinModules.nixvim
-            {
-              programs.nixvim.enable = true;
-              imports = [
-                ./modules/vim
-                ./modules/vim/lsp.nix
-                ./modules/vim/obsidian.nix
-                ./modules/vim/settings.nix
-              ];
-            }
-            nixpkgs {
-              overlays = [
-                inputs.curseforge-nix.overlay
-              ];
-            }
-            nix-homebrew.darwinModules.nix-homebrew
-            {
-              nix-homebrew = {
-                user = username;
-                enable = true;
-                enableRosetta = true;
-                taps = {
-                  "homebrew/homebrew-core" = inputs.homebrew-core;
-                  "homebrew/homebrew-cask" = inputs.homebrew-cask;
-                  "homebrew/bundle" = inputs.homebrew-bundle;
-                  "homebrew/homebrew-cask-versions" = inputs.homebrew-cask-versions;
-                };
-                mutableTaps = false;
-                autoMigrate = false;
-              };
-            }
+            # nixpkgs {
+            #   overlays = [
+            #     inputs.curseforge-nix.overlay
+            #   ];
+            # }
             ./hosts/macos/darwin.nix
+            ./modules/vim/default.nix
+            ./modules/homebrew.nix
           ];
         };
       };

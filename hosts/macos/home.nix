@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  username,
   ...
 }:
 {
@@ -12,9 +11,9 @@
     ../../modules/homemanager/terminal.nix
   ];
   home = {
-    username = username;
+    username = "eveeifyeve";
     stateVersion = "24.05";
-    homeDirectory = "/Users/${username}";
+    homeDirectory = "/Users/${config.home.username}";
     packages =
       pkgs.callPackage ../../modules/packages.nix { }
       ++ (with pkgs; [

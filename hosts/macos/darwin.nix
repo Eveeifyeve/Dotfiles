@@ -1,17 +1,18 @@
 {
   config,
   pkgs,
-  username,
-  hostPlatform,
   ...
 }:
+let
+  username = "eveeifyeve";
+in
 {
   users.users.${username} = {
     name = username;
     home = "/Users/${username}";
     shell = pkgs.zsh;
   };
-  nixpkgs.hostPlatform = hostPlatform;
+  nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
   services.nix-daemon.enable = true;
   system.stateVersion = 4;
