@@ -1,11 +1,13 @@
 {
   config,
   pkgs,
+  git,
   lib,
   ...
 }:
 {
-  imports = [
+  imports =
+  [
     ../../modules/homemanager/deafult.nix
     ../../modules/homemanager/git.nix
     ../../modules/homemanager/terminal.nix

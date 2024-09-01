@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, git, ... }:
 {
   programs = {
     git = {
@@ -8,19 +8,15 @@
         package = pkgs.callPackage ../../custom-pkgs/git-delta.nix { };
       };
       extraConfig =
-      let 
-        username = "eveeifyeve";
-        email = "88671402+Eveeifyeve@users.noreply.github.com";
-      in
       {
         core.editor = "vscode";
         credential.helper = "store";
-        github.user = username;
-        github.email = email;
+        github.user = git.username;
+        github.email = git.email;
         push.autoSetupRemote = true;
         user = {
-          name = username;
-          email = email;
+          name = git.username;
+          email = git.email;
         };
       };
       aliases = {
@@ -38,8 +34,8 @@
         amend = "commit -a --amend --no-edit";
         ciam = "commit -a --amend --no-edit";
       };
-      userEmail = "88671402+Eveeifyeve@users.noreply.github.com";
-      userName = "eveeifyeve";
+      userEmail = git.email;
+      userName = git.username;
     };
     gh = {
       enable = true;

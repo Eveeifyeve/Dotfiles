@@ -51,25 +51,37 @@
   };
 
   outputs =
-    inputs@{ self, agenix, home-manager, nix-homebrew, nixvim, nixpkgs, ... }:
-    let
-    pkgs = nixpkgs.pkgs;
-    in
+    inputs@{
+      self,
+      agenix,
+      home-manager,
+      nix-homebrew,
+      nixvim,
+      nixpkgs,
+      ...
+    }:
     {
-      formatter = pkgs.nixfmt-rfc-style;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
       # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
         eveeifyeve-macbook = inputs.nix-darwin.lib.darwinSystem {
           # system = "aarch64-darwin";
-          specialArgs = { inherit inputs; }; # Inputs are needed for homebrew
+          specialArgs = {
+            inherit inputs;
+          }; # Inputs are needed for homebrew
           modules = [
             agenix.darwinModules.default
             nixvim.nixDarwinModules.nixvim
             nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
             {
-              home-manager = 
-              {
+              home-manager = {
+                extraSpecialArgs = {
+                  git = {
+                    username = "eveeifyeve";
+                    email = "88671402+Eveeifyeve@users.noreply.github.com";
+                  };
+                };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users."eveeifyeve".imports = [ ./hosts/eveeifyeve-mac/home.nix ];
