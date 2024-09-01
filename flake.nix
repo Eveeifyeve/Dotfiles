@@ -61,6 +61,7 @@
       darwinConfigurations = {
         eveeifyeve-macbook = inputs.nix-darwin.lib.darwinSystem {
           # system = "aarch64-darwin";
+          specialArgs = { inherit inputs; }; # Inputs are needed for homebrew
           modules = [
             agenix.darwinModules.default
             nixvim.nixDarwinModules.nixvim
@@ -81,7 +82,7 @@
             # }
             ./hosts/macos/darwin.nix
             ./modules/vim/default.nix
-            ./modules/homebrew.nix { inherit inputs; } # Inputs are needed for homebrew
+            ./modules/homebrew.nix
           ];
         };
       };
