@@ -72,7 +72,7 @@
               {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users."eveeifyeve".imports = [ ./hosts/macos/home.nix ];
+                users."eveeifyeve".imports = [ ./hosts/eveeifyeve-mac/home.nix ];
               };
             }
             # nixpkgs {
@@ -80,7 +80,7 @@
             #     inputs.curseforge-nix.overlay
             #   ];
             # }
-            ./hosts/macos/darwin.nix
+            ./hosts/eveeifyeve-mac/darwin.nix
             ./modules/vim/default.nix
             ./modules/homebrew.nix
           ];
