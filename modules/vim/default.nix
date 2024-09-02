@@ -1,8 +1,11 @@
 { pkgs, ... }:
 {
   programs.nixvim = {
+    # Basic Options
     enable = true;
     colorschemes.catppuccin.enable = true;
+
+    # Plugins
     plugins = {
       nvim-autopairs.enable = true;
       luasnip.enable = true;
@@ -44,7 +47,7 @@
   };
   imports = [ 
     ./settings.nix
-    # ./lsp.nix
+    ./lsp.nix
     # ./obsidian.nix 
   ];
 }
