@@ -2,7 +2,6 @@
 {
   programs.nixvim = {
     enable = true;
-    enableMan = true;
     colorschemes.catppuccin.enable = true;
     plugins = {
       nvim-autopairs.enable = true;
@@ -42,17 +41,10 @@
       require('telescope').load_extension('projects')
     '';
 
-    # Settings 
-    opts = {
-      number = true;
-      relativenumber = true;
-      shiftwidth = 2;
-    };
-
-    keymaps = [ ];
   };
-  # imports = [ 
-  #   # ./lsp.nix
-  #   # ./obsidian.nix 
-  # ];
+  imports = [ 
+    ./settings.nix
+    # ./lsp.nix
+    # ./obsidian.nix 
+  ];
 }
