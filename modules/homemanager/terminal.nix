@@ -4,9 +4,16 @@
     zsh = {
       enable = true;
       oh-my-zsh = {
-        enable = true;
-        plugins = [ ];
+	enable = true;
+	plugins = [ ];
       };
+      envExtra = ''
+# Ensure Nix is sourced. Necessary when /etc/zshrc file loses this same code block on macOS upgrades
+	if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+	  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+	    fi
+
+	    '';
     };
     tmux = {
       enable = true;
@@ -16,20 +23,20 @@
     starship = {
       enable = true;
       settings = {
-        # git_status = {
-        #   conflicted = "⚔️ ";
-        #   ahead = "🏎️ 💨 ×${count} ";
-        #   behind = "🐢 ×${count} ";
-        #   diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} ";
-        #   untracked = "🛤️  ×${count} ";
-        #   stashed = "📦 ";
-        #   modified = "📝 ×${count} ";
-        #   staged = "🗃️  ×${count} ";
-        #   renamed = "📛 ×${count} ";
-        #   deleted = "🗑️  ×${count} ";
-        #   style = "bright-white";
-        #   format = "$all_status$ahead_behind";
-        # };
+# git_status = {
+#   conflicted = "⚔️ ";
+#   ahead = "🏎️ 💨 ×${count} ";
+#   behind = "🐢 ×${count} ";
+#   diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} ";
+#   untracked = "🛤️  ×${count} ";
+#   stashed = "📦 ";
+#   modified = "📝 ×${count} ";
+#   staged = "🗃️  ×${count} ";
+#   renamed = "📛 ×${count} ";
+#   deleted = "🗑️  ×${count} ";
+#   style = "bright-white";
+#   format = "$all_status$ahead_behind";
+# };
       };
     };
   };
