@@ -5,7 +5,7 @@
       enable = true;
       oh-my-zsh = {
 	enable = true;
-	plugins = [ ];
+	plugins = ["vi-mode"];
       };
       envExtra = ''
 # Ensure Nix is sourced. Necessary when /etc/zshrc file loses this same code block on macOS upgrades
