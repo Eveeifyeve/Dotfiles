@@ -62,6 +62,15 @@
     }:
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      nixpkgs.overlays =
+        let
+          apc-extension = builtins.fetchGit {
+            url = "https://github.com/drcika/apc-extension.git";
+            rev = "d4cc908bf2869fe354aa0c103bab063aa09fd491";
+          };
+        in
+        [ ./custom-pkgs/vscode-overide.nix { inherit apc-extension; } ];
+
       # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
         eveeifyeve-macbook = inputs.nix-darwin.lib.darwinSystem {
