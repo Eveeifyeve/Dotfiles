@@ -25,6 +25,7 @@ in
     casks = [
       "homebrew/cask/docker"
       "element"
+      "cloudflare-warp"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI
