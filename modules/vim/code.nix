@@ -15,6 +15,16 @@
     autoEnableSources = true;
   };
 
+
+  # Saving 
+  auto-save = {
+    enable = true;
+    settings.enable = true;
+  };
+
+  # Commenting 
+  comment.enable = true;
+
   # Formatter plugins
   conform-nvim = {
     enable = true;

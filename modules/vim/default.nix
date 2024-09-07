@@ -11,10 +11,6 @@
       treesitter.enable = true;
       trouble.enable = true;
       bufferline.enable = true;
-      auto-save = {
-        enable = true;
-        settings.enable = true;
-      };
       lightline.enable = true;
       telescope.enable = true;
       lazy.enable = true;
