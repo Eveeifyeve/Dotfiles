@@ -5,13 +5,20 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    eveeifyeve-flake-templates = {
-      url = "github:Eveeifyeve/flake-templates";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Eveeifyeve Usefull Resources.
+    curseforge-nix = {
+      url = "github:eveeifyeve/curseforge-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    eveeifyeve-flake-templates = {
+      url = "github:Eveeifyeve/flake-templates";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -44,10 +51,6 @@
       url = "github:homebrew/homebrew-cask-versions";
       flake = false;
     };
-    curseforge-nix = {
-      url = "github:eveeifyeve/curseforge-nix";
-      flake = false;
-    };
   };
 
   outputs =
@@ -69,7 +72,7 @@
             rev = "d4cc908bf2869fe354aa0c103bab063aa09fd491";
           };
         in
-        [ ./custom-pkgs/vscode-overide.nix { inherit apc-extension; } ];
+        [ ./custom-pkgs/vscode-overide.nix { inherit apc-extension; }];
 
       # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
@@ -96,11 +99,6 @@
                 users."eveeifyeve".imports = [ ./hosts/eveeifyeve-mac/home.nix ];
               };
             }
-            # nixpkgs {
-            #   overlays = [
-            #     inputs.curseforge-nix.overlay
-            #   ];
-            # }
             ./hosts/eveeifyeve-mac/darwin.nix
             ./modules/vim/default.nix
             ./modules/homebrew.nix
