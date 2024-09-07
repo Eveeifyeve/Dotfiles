@@ -9,6 +9,8 @@
     # Cmp
     cmp-nvim-lsp.enable = true;
     cmp_luasnip.enable = true;
+    dap.enable = true; 
+    cmp-dap.enable = true;
     cmp = {
       enable = true;
       autoEnableSources = true;
@@ -27,6 +29,7 @@
             name = "luasnip"; # snippets
             keywordLength = 3;
           }
+	  { name = "cmp-dap"; }
         ];
       };
     };
@@ -88,6 +91,8 @@
 	rust-analyzer = {
 	  enable = true; 
 	  autostart = true;
+	  installRustc = false; 
+	  installCargo = false;
 	};
       };
     };
