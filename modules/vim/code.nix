@@ -25,6 +25,10 @@
   # Commenting 
   comment.enable = true;
 
+
+  # Highlighting
+  treesitter.enable = true;
+
   # Formatter plugins
   conform-nvim = {
     enable = true;
