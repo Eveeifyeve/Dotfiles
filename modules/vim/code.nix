@@ -12,6 +12,23 @@
     cmp = {
       enable = true;
       autoEnableSources = true;
+      settings = {
+        performance = {
+          debounce = 60;
+          fetchingTimeout = 200;
+          maxViewEntries = 30;
+        };
+        snippet = {
+          expand = "luasnip";
+        };
+        sources = [
+          { name = "nvim_lsp"; }
+          {
+            name = "luasnip"; # snippets
+            keywordLength = 3;
+          }
+        ];
+      };
     };
 
     # Saving 
@@ -37,7 +54,6 @@
     };
 
     # LSP Stuff
-    rustaceanvim.enable = true;
     lsp = {
       enable = true;
       servers = {
@@ -69,6 +85,10 @@
           enable = true;
           autostart = true;
         };
+	rust-analyzer = {
+	  enable = true; 
+	  autostart = true;
+	};
       };
     };
   };
