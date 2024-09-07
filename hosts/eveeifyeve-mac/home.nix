@@ -11,6 +11,12 @@
     ../../modules/homemanager/git.nix
     ../../modules/homemanager/terminal.nix
   ];
+  programs.zsh.envExtra = ''
+    # Ensure Nix is sourced. Necessary when /etc/zshrc file loses this same code block on macOS upgrades
+    if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    fi
+  '';
   home = {
     username = "eveeifyeve";
     stateVersion = "24.05";
