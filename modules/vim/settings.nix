@@ -30,7 +30,7 @@
     # Keymaps
     keymaps = [
       {
-	action = "<cmd>LazyGit";
+	action = "<cmd>LazyGit<CR>";
 	mode = "n";
 	key = "<leader>g";
 	options = { 
