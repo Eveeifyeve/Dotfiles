@@ -8,7 +8,6 @@
     # Plugins
     plugins = {
       nvim-autopairs.enable = true;
-      luasnip.enable = true;
       treesitter.enable = true;
       trouble.enable = true;
       bufferline.enable = true;
