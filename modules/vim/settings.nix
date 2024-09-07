@@ -28,6 +28,15 @@
     };
 
     # Keymaps
-    keymaps = [ ];
+    keymaps = [
+      {
+	action = "<cmd>LazyGit";
+	mode = "n";
+	key = "<leader>g";
+	options = { 
+	  silent = true;
+	};
+      }
+    ];
   };
 }
