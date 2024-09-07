@@ -17,7 +17,7 @@
       todo-comments.enable = true;
     };
   };
-  imports = [ 
+  imports = [
     ./settings.nix
     ./code.nix
     ./ui.nix
