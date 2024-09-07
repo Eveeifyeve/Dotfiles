@@ -1,6 +1,31 @@
 { ... }:
 {
   programs.nixvim.plugins = {
+
+  #  Luasnip
+  luasnip.enable = true;
+  friendly-snippets.enable = true;
+    
+
+  # Cmp
+  cmp-nvim-lsp.enable = true;
+  cmp_luasnip.enable = true;
+  cmp = {
+    enable = true;
+    autoEnableSources = true;
+  };
+
+  # Formatter plugins
+  conform-nvim = {
+    enable = true;
+    settings.formatters_by_ft = {
+      javascript = ["dprint"];
+      typescript = ["dprint"];
+      astro = ["dprint"];
+    };
+  };
+
+  # LSP Stuff
   rustaceanvim.enable = true;
   lsp = {
     enable = true;

@@ -21,10 +21,6 @@
       lazy.enable = true;
       direnv.enable = true;
       neocord.enable = true;
-      cmp = {
-        enable = true;
-        autoEnableSources = true;
-      };
       ccc.enable = true;
       codeium-nvim.enable = true;
       comment.enable = true;
@@ -47,7 +43,7 @@
   };
   imports = [ 
     ./settings.nix
-    ./lsp.nix
+    ./code.nix
     # ./obsidian.nix 
   ];
 }
