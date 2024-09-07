@@ -32,7 +32,7 @@
       {
 	action = "<cmd>LazyGit<CR>";
 	mode = "n";
-	key = "<leader>g";
+	key = "<leader>gg";
 	options = { 
 	  silent = true;
 	};
