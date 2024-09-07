@@ -9,7 +9,7 @@
     plugins = {
       nvim-autopairs.enable = true;
       bufferline.enable = true;
-
+      lazygit.enable = true;
       lazy.enable = true;
       direnv.enable = true;
       neocord.enable = true;
