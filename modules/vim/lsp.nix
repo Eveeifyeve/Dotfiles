@@ -1,14 +1,10 @@
 { ... }:
 {
-  programs.nixvim.plugins.lsp = {
+  programs.nixvim.plugins = {
+  rustaceanvim.enable = true;
+  lsp = {
     enable = true;
     servers = {
-      rust-analyzer = {
-        enable = true;
-        autostart = true;
-        installCargo = false;
-        installRustc = false;
-      };
       kotlin-language-server = {
         enable = true;
         autostart = true;
@@ -37,6 +33,7 @@
         enable = true;
         autostart = true;
       };
+    };
     };
   };
 }
