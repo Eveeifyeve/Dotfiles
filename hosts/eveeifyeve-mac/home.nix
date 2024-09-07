@@ -6,8 +6,7 @@
   ...
 }:
 {
-  imports =
-  [
+  imports = [
     ../../modules/homemanager/deafult.nix
     ../../modules/homemanager/git.nix
     ../../modules/homemanager/terminal.nix
@@ -62,7 +61,7 @@
       options = "--delete-older-than 30d";
     };
     extraOptions = ''
-    auto-optimise-store = true
+      auto-optimise-store = true
     '';
   };
 }

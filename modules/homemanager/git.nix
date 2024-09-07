@@ -7,8 +7,7 @@
         enable = true;
         package = pkgs.callPackage ../../custom-pkgs/git-delta.nix { };
       };
-      extraConfig =
-      {
+      extraConfig = {
         core.editor = "vscode";
         credential.helper = "store";
         github.user = git.username;

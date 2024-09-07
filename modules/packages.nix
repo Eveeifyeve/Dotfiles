@@ -77,7 +77,6 @@ with pkgs;
   # Note taking app
   obsidian
 
-
   # Git UI 
   lazygit
 
