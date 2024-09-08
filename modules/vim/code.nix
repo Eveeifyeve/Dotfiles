@@ -94,6 +94,10 @@
           installRustc = false;
           installCargo = false;
         };
+	ruff = {
+	  enable = true;
+	  autostart = true;
+	};
       };
     };
   };
