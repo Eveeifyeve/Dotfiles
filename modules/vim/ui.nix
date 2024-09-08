@@ -52,15 +52,14 @@
       # Code issues displayed clearly 
       trouble.enable = true;
 
-      # Top files
-      barbar = {
-        enable = true;
-        settings = {
-          auto_hide = false;
-        };
+      harpoon = {
+	enable = true; 
+	enableTelescope = true;
       };
     };
+
+      # Top files
     extraConfigLua = ''
     '';
-  };
+    };
 }
