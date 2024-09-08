@@ -30,12 +30,12 @@
     # Keymaps
     keymaps = [
       {
-	action = "<cmd>LazyGit<CR>";
-	mode = "n";
-	key = "<leader>gg";
-	options = { 
-	  silent = true;
-	};
+        action = "<cmd>LazyGit<CR>";
+        mode = "n";
+        key = "<leader>gg";
+        options = {
+          silent = true;
+        };
       }
     ];
   };

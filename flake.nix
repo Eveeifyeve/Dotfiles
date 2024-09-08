@@ -72,7 +72,10 @@
             rev = "d4cc908bf2869fe354aa0c103bab063aa09fd491";
           };
         in
-        [ ./custom-pkgs/vscode-overide.nix { inherit apc-extension; }];
+        [
+          ./custom-pkgs/vscode-overide.nix
+          { inherit apc-extension; }
+        ];
 
       # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
