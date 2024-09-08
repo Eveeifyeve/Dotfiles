@@ -57,9 +57,5 @@
 	enableTelescope = true;
       };
     };
-
-      # Top files
-    extraConfigLua = ''
-    '';
-    };
+  };
 }
