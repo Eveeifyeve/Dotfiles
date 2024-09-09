@@ -94,8 +94,14 @@
           installRustc = false;
           installCargo = false;
         };
+
+	# Python 
 	ruff = {
 	  enable = true;
+	  autostart = true;
+	};
+	pyright = {
+	  enable = true; 
 	  autostart = true;
 	};
       };
