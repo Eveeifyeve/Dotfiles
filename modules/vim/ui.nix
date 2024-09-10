@@ -2,59 +2,59 @@
 {
   programs.nixvim = {
     plugins = {
-      # File finder
+# File finder
       telescope = {
-        enable = true;
-        extensions = {
-          file-browser.enable = true;
-          fzf-native.enable = true;
-        };
+	enable = true;
+	extensions = {
+	  file-browser.enable = true;
+	  fzf-native.enable = true;
+	};
 
-        keymaps = {
-          "<leader><space>" = {
-            action = "find_files";
-            options = {
-              desc = "Find project files";
-            };
-          };
-          "<leader>:" = {
-            action = "command_history";
-            options = {
-              desc = "Command history";
-            };
-          };
-          "<leader>gf" = {
-            action = "git_files";
-            options = {
-              desc = "Search git files";
-            };
-          };
-          "<leader>gc" = {
-            action = "git_commits";
-            options = {
-              desc = "Commits";
-            };
-          };
-          "<leader>ft" = {
-            action = "live_grep";
-            options = {
-              desc = "Find text";
-            };
-          };
-        };
+	keymaps = {
+	  "<leader><space>" = {
+	    action = "find_files";
+	    options = {
+	      desc = "Find project files";
+	    };
+	  };
+	  "<leader>:" = {
+	    action = "command_history";
+	    options = {
+	      desc = "Command history";
+	    };
+	  };
+	  "<leader>gf" = {
+	    action = "git_files";
+	    options = {
+	      desc = "Search git files";
+	    };
+	  };
+	  "<leader>gc" = {
+	    action = "git_commits";
+	    options = {
+	      desc = "Commits";
+	    };
+	  };
+	  "<leader>ft" = {
+	    action = "live_grep";
+	    options = {
+	      desc = "Find text";
+	    };
+	  };
+	};
       };
 
-      # Line
+# Line
       lualine = {
-        enable = true;
+	enable = true;
       };
 
-      # Code issues displayed clearly 
+# Code issues displayed clearly 
       trouble.enable = true;
 
       harpoon = {
-        enable = true;
-        enableTelescope = true;
+	enable = true;
+	enableTelescope = true;
       };
     };
   };
