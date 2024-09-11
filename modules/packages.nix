@@ -34,7 +34,6 @@ with pkgs;
   #     pkgs.bun
   #   ];
   # }))
-  devenv
   gradle
   btop
   ripgrep
