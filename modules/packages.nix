@@ -10,8 +10,8 @@ in
 with pkgs;
 [
   # Development Tools 
-  vscode
-  jetbrains.idea-community
+  # vscode
+  # jetbrains.idea-community
 
   # (vscode.overrideAttrs (attrs: {
   #   postInstall = ''
