@@ -25,7 +25,6 @@
       smartindent = true; 
       tabstop = 2;
 
-
       # Searching 
       hlsearch = false;
       incsearch = true;
