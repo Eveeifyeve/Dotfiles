@@ -60,18 +60,12 @@
     lsp = {
       enable = true;
       servers = {
-        kotlin-language-server = {
-          enable = true;
-          autostart = true;
-        };
         nil-ls = {
           enable = true;
           autostart = true;
         };
-        java-language-server = {
-          enable = true;
-          autostart = true;
-        };
+
+	# Web Dev
         biome = {
           enable = true;
           autostart = true;
@@ -88,12 +82,25 @@
           enable = true;
           autostart = true;
         };
+
+
+	# System programing
         rust-analyzer = {
           enable = true;
           autostart = true;
           installRustc = false;
           installCargo = false;
         };
+
+	zls = {
+	  enable = true;
+	  autostart = true;
+	};
+
+	gopls = {
+	  enable = true;
+	  autostart = true;
+	};
 
 	# Python 
 	ruff = {
@@ -102,6 +109,18 @@
 	};
 	pyright = {
 	  enable = true; 
+	  autostart = true;
+	};
+
+	# Minecraft Development 
+
+	java-language-server = {
+	  enable = true;
+	  autostart = true;
+	};
+
+	kotlin-language-server = {
+	  enable = true;
 	  autostart = true;
 	};
       };
