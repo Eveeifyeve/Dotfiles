@@ -63,11 +63,16 @@
 # Code issues displayed clearly 
 			trouble.enable = true;
 
+			# Shows keymaps when using leader 
 			which-key = {
 				enable = true;
 				settings.notify = true;
 			};
 
+			# Other
+			indent-blankline.enable = true;
+
+			# Warnings and notifications
 			noice = {
 				enable = true;
 				notify.enabled = true;
@@ -75,6 +80,8 @@
 			};
 
 			notify.enable = true;
+
+			# Very usefull telescope plugin.	
 
 			harpoon = {
 				enable = true;
