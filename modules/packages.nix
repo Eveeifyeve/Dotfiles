@@ -54,6 +54,7 @@ with pkgs;
   spotify
   discord
   audacity
+  tailscale
 
   # Nix Tools
   nixd
