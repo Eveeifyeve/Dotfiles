@@ -17,6 +17,12 @@
 	      desc = "Find project files";
 	    };
 	  };
+	  "<leader>fb" = {
+	    action = "file_browser";
+	    options = {
+	      desc = "Browse Project";
+	    };
+	  };
 	  "<leader>:" = {
 	    action = "command_history";
 	    options = {
