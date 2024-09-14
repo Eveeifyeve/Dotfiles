@@ -26,6 +26,7 @@ in
       "homebrew/cask/docker"
       "element"
       "cloudflare-warp"
+			"logitech-g-hub"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI
