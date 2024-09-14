@@ -34,7 +34,6 @@ with pkgs;
   #     pkgs.bun
   #   ];
   # }))
-  gradle
   btop
   ripgrep
   jd-gui
