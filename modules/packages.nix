@@ -35,8 +35,8 @@ with pkgs;
   #   ];
   # }))
   btop
+	bytecode-viewer
   ripgrep
-  jd-gui
   tree # File Sizes
 
   # Command Line Proccesors 
