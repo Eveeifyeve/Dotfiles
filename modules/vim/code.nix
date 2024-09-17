@@ -65,6 +65,13 @@
           autostart = true;
         };
 
+				# Markdown Lsp
+				marksman = {
+					enable = true;
+					autostart = true;
+				};
+
+
 	# Web Dev
         biome = {
           enable = true;
@@ -74,6 +81,10 @@
           enable = true;
           autostart = true;
         };
+				tailwindcss = {
+					enable = true;
+					autostart = true;
+				}
         tsserver = {
           enable = true;
           autostart = true;
