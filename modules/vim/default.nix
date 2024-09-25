@@ -16,9 +16,9 @@
       todo-comments.enable = true;
     };
 
-    extraPlugins = [ pkgs.vimPlugins.cord-nvim ];
+    extraPlugins = [ (pkgs.callPackage ../../custom-pkgs/cord-nvim.nix { })];
     extraConfigLua = ''
-            require("cord").setup({
+      require("cord").setup({
       	display = {
       	  show_time = true,
       	  swap_fields = false,
@@ -38,7 +38,7 @@
       	  vcs = 'Committing changes in {}',
       	  workspace = 'In {}', 
       	  },
-            })
+      })
     '';
   };
   imports = [
