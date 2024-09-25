@@ -12,6 +12,7 @@
 			cmp_luasnip.enable = true;
 			dap.enable = true;
 			cmp-dap.enable = true;
+			cmp-path.enable = true;
 			cmp = {
 				enable = true;
 				autoEnableSources = true;
@@ -28,9 +29,10 @@
 					{ name = "nvim_lsp"; }
 					{
 						name = "luasnip"; # snippets
-							keywordLength = 3;
+						keywordLength = 3;
 					}
 					{ name = "cmp-dap"; }
+					{ name = "cmp-path"; }
 					];
 				};
 			};
