@@ -1,18 +1,18 @@
-{rustPlatform, lib, fetchFromGithub, vimUtils, stdenv}:
+{rustPlatform, lib, fetchFromGitHub, vimUtils, stdenv}:
 let
 version = "2023-09-25";
-src = fetchFromGithub {
-	owner = "eveeifyeve";
+src = fetchFromGitHub {
+	owner = "vyfor";
 	repo = "cord.nvim";
-	rev = "876e036619a8d7c4dc90f2d4611fc3e23a08a05b";
-	hash = lib.fakeHash;
+	rev = "a26b00d58c42174aadf975917b49cec67650545f";
+	hash = "sha256-jUxBvWnj0+axuw2SZ2zLzlhZS0tu+Bk8+wHtXENofkw=";
 };
 extension = if stdenv.isDarwin then "dylib" else "so";
 rustPackage = rustPlatform.buildRustPackage {
 	pname = "cord.nvim-rust";
 	inherit version src;
 
-	cargoHash = "sha256-6FYf4pHEPxvhKHHPmkjQ40zPxaiypnpDxF8kNH+h+tg=";
+	cargoHash = "sha256-sRqzgzvhyhLYp8I1E1RGelCRxEFWrhFeW8vtdgYZr6c=";
 
 	installPhase = let
 		cargoTarget = stdenv.hostPlatform.rust.cargoShortTarget;
@@ -30,7 +30,7 @@ vimUtils.buildVimPlugin {
 	];
 
 	buildPhase = ''
-	install -D ${rustPackage}/lib/cord.${extension} cord.${extension}
+		install -D ${rustPackage}/lib/cord.${extension} cord.${extension}
 	'';
 
 	installPhase = ''
