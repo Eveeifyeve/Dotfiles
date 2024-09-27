@@ -17,7 +17,25 @@
     };
     tmux = {
       enable = true;
-      plugins = with pkgs; [ tmuxPlugins.catppuccin ];
+      plugins = with pkgs; [ 
+			tmuxPlugins.catppuccin 
+			{
+				plugin = tmuxPlugins.resurrect;
+				extraConfig = ''
+					set -g @resurrect-strategy-nvim 'session'
+					set -g @resurrect-save 'S'
+					set -g @resurrect-restore 'R'
+				'';
+			}
+			{
+				plugin = tmuxPlugins.continuum;
+				extraConfig = ''
+					
+				'';
+			}
+			];
+			disableConfirmationPrompt = true;
+			newSession = true;
       extraConfig = builtins.readFile ./tmux.conf;
     };
     starship = {
