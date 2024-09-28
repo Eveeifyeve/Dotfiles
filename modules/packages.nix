@@ -76,8 +76,9 @@ with pkgs;
   # Note taking app
   obsidian
 
-  # Git UI 
+  # Git Utils/Ui's 
   lazygit
+	git-revive
 
   # Fonts
   (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
