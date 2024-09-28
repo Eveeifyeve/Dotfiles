@@ -8,7 +8,7 @@
         package = pkgs.callPackage ../../custom-pkgs/git-delta.nix { };
       };
       extraConfig = {
-        core.editor = "vscode";
+        core.editor = "nvim";
         credential.helper = "store";
         github.user = git.username;
         github.email = git.email;
