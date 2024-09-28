@@ -12,7 +12,7 @@ rustPackage = rustPlatform.buildRustPackage {
 	pname = "cord.nvim-rust";
 	inherit version src;
 
-	cargoHash = "sha256-sRqzgzvhyhLYp8I1E1RGelCRxEFWrhFeW8vtdgYZr6c=";
+	cargoHash = "sha256-RS+0iLndye4U5eOoHLmwI+yxKAWS3JGHDbOK5jxf14Y=`";
 
 	installPhase = let
 		cargoTarget = stdenv.hostPlatform.rust.cargoShortTarget;
