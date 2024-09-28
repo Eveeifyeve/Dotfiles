@@ -78,7 +78,7 @@ with pkgs;
 
   # Git Utils/Ui's 
   lazygit
-	git-revive
+	git-revise
 
   # Fonts
   (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
