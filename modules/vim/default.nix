@@ -45,6 +45,5 @@
     ./settings.nix
     ./code.nix
     ./ui.nix
-    # ./obsidian.nix 
   ];
 }
