@@ -49,9 +49,6 @@
 # Highlighting
 			treesitter = {
 				enable = true;
-				luaConfig.post = ''
-					local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername ft_to_parser.mdx = "markdown"
-					'';
 			};
 
 # Formatter plugins
@@ -140,17 +137,16 @@
 					require'lspconfig'.mdx_analyzer.setup({})
 					'';
 			};
-
-			extraConfigLua = ''
-				vim.filetype.add({
-						extension = {
-						mdx = 'mdx'
-						}
-						})
-
-			local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
-				ft_to_parser.mdx = "markdown"
-				'';
 		};
+		extraConfigLua = ''
+			vim.filetype.add({
+					extension = {
+					mdx = 'mdx'
+					}
+					})
+
+		local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername();
+			ft_to_parser.mdx = "markdown"
+			'';
 	};
 }
