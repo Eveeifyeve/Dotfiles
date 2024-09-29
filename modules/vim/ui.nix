@@ -87,6 +87,11 @@
 				enable = true;
 				enableTelescope = true;
 			};
+
+			# Web dev icons
+			web-devicons.enable = true;
+
+
 		};
 	};
 }
