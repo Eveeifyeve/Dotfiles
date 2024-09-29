@@ -29,7 +29,7 @@
 					{ name = "nvim_lsp"; }
 					{
 						name = "luasnip"; # snippets
-						keywordLength = 3;
+							keywordLength = 3;
 					}
 					{ name = "cmp-dap"; }
 					{ name = "cmp-path"; }
@@ -47,7 +47,12 @@
 			comment.enable = true;
 
 # Highlighting
-			treesitter.enable = true;
+			treesitter = {
+				enable = true;
+				luaConfig.post = ''
+					local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername ft_to_parser.mdx = "markdown"
+					'';
+			};
 
 # Formatter plugins
 			conform-nvim = {
@@ -131,7 +136,21 @@
 						autostart = true;
 					};
 				};
+				postConfig = ''
+					require'lspconfig'.mdx_analyzer.setup({})
+					'';
 			};
+
+			extraConfigLua = ''
+				vim.filetype.add({
+						extension = {
+						mdx = 'mdx'
+						}
+						})
+
+			local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+				ft_to_parser.mdx = "markdown"
+				'';
 		};
 	};
 }
