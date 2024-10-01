@@ -19,7 +19,7 @@
       enable = true;
       plugins = with pkgs; [
 			{
-				plugin = tmuxPlugins.catppucin;
+				plugin = tmuxPlugins.catppuccin;
 				extraConfig = ''
 					set -g @catppuccin_flavour 'mocha'
 					set -g @catppuccin_window_tabs_enabled on
