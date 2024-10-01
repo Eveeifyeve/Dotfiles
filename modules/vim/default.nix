@@ -16,7 +16,19 @@
       todo-comments.enable = true;
     };
 
-    extraPlugins = [ (pkgs.callPackage ../../custom-pkgs/cord-nvim.nix { })];
+    extraPlugins = [ (pkgs.vimPlugins.cord-nvim.overrideAttrs({
+			version = "unstable-2024-09-26";
+			src = pkgs.fetchFromGitHub {
+				owner = "vyfor";
+				repo = "cord.nvim";
+				rev = "a26b00d58c42174aadf975917b49cec67650545f";
+				hash = "sha256-jUxBvWnj0+axuw2SZ2zLzlhZS0tu+Bk8+wHtXENofkw=";
+			};
+
+			cargoHash = "sha256-YlTmkyEo1ZsBd3fMMFpkWWfWt7CfUP1BI2G/G5UtUwg=";
+			})
+		)
+		];
     extraConfigLua = ''
       require("cord").setup({
       	display = {
