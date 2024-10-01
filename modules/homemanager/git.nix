@@ -5,7 +5,6 @@
       enable = true;
       delta = {
         enable = true;
-        package = pkgs.callPackage ../../custom-pkgs/git-delta.nix { };
       };
       extraConfig = {
         core.editor = "nvim";
