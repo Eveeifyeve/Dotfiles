@@ -17,8 +17,15 @@
     };
     tmux = {
       enable = true;
-      plugins = with pkgs; [ 
-			tmuxPlugins.catppuccin 
+      plugins = with pkgs; [
+			{
+				plugin = tmuxPlugins.catppucin;
+				extraConfig = ''
+					set -g @catppuccin_flavour 'mocha'
+					set -g @catppuccin_window_tabs_enabled on
+					set -g @catppuccin_date_time "%H:%M"
+				'';
+			}
 			{
 				plugin = tmuxPlugins.resurrect;
 				extraConfig = ''
@@ -30,33 +37,26 @@
 			{
 				plugin = tmuxPlugins.continuum;
 				extraConfig = ''
-					
+					set -g @continuum-restore 'on'
+					set -g @continuum-boot 'on'
+					set -g @continuum-save-interval '10'
 				'';
 			}
 			];
 			disableConfirmationPrompt = true;
 			newSession = true;
-      extraConfig = builtins.readFile ./tmux.conf;
+      extraConfig = ''
+				set -g prefix C-s
+				set -g mouse on
+				set-option -g status-position top
+
+				#Basic Vim keybindings
+				bind-key h select-pane -L
+				bind-key j select-pane -D
+				bind-key k select-pane -U
+				bind-key l select-pane -R
+			'';
     };
-    starship = {
-      enable = true;
-      settings = {
-        # git_status = {
-        #   conflicted = "⚔️ ";
-        #   ahead = "🏎️ 💨 ×${count} ";
-        #   behind = "🐢 ×${count} ";
-        #   diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} ";
-        #   untracked = "🛤️  ×${count} ";
-        #   stashed = "📦 ";
-        #   modified = "📝 ×${count} ";
-        #   staged = "🗃️  ×${count} ";
-        #   renamed = "📛 ×${count} ";
-        #   deleted = "🗑️  ×${count} ";
-        #   style = "bright-white";
-        #   format = "$all_status$ahead_behind";
-        # };
-      };
-    };
+    starship.enable = true;
   };
-  home.file.".tmux.conf".source = ./tmux.conf;
 }

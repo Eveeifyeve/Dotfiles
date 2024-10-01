@@ -25,9 +25,4 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
-  home = {
-    file = {
-      ".tmux.conf".source = ./tmux.conf;
-    };
-  };
-}
+ }
