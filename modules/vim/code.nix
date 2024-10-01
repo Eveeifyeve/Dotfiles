@@ -91,6 +91,10 @@
 						enable = true;
 						autostart = true;
 					};
+					marksman = {
+						enable = true;
+						autostart = true;
+					};
 
 
 # System programing
