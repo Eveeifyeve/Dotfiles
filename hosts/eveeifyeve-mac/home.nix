@@ -34,13 +34,13 @@
         utm # MacOS Qemu
         # darwin.xcode_15_1
       ]);
-    sessionPath = [
-      # "$HOME/.local/bin"
-      # "/usr/local/bin"
-      "/opt/homebrew/bin"
-      "/run/current-system/sw/bin"
-      "/etc/profiles/per-user/eveeifyeve/bin"
-    ];
+    # sessionPath = [
+    #   # "$HOME/.local/bin"
+    #   # "/usr/local/bin"
+    #   "/opt/homebrew/bin"
+    #   "/run/current-system/sw/bin"
+    #   "/etc/profiles/per-user/eveeifyeve/bin"
+    # ];
     shellAliases = {
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
