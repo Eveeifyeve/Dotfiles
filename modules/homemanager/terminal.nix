@@ -7,13 +7,13 @@
         enable = true;
         plugins = [ "vi-mode" ];
       };
-      envExtra = ''
-        # Ensure Nix is sourced. Necessary when /etc/zshrc file loses this same code block on macOS upgrades
-        	if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-        	  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-        	    fi
-
-        	    '';
+	initExtra = ''
+	        # Ensure Nix is sourced. Necessary when /etc/zshrc file loses this same code block on macOS upgrades
+                if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+                  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+		. /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+                    fi
+	'';
     };
     tmux = {
       enable = true;

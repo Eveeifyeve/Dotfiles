@@ -20,6 +20,9 @@ in
     softwareupdate --install-rosetta --agree-to-license
   '';
 
+	# Enable nix-darwin Paths. 
+	programs.zsh.enable = true;
+
   homebrew = {
     enable = true;
     casks = [
