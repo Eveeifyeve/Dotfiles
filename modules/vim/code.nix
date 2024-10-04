@@ -62,79 +62,82 @@
 			};
 
 # LSP Stuff
-			lsp = {
+			lsp = let
+				# These are defaults to disable a specific plugin remove the inherit and add it manually
 				enable = true;
+				autostart = true;
+			in
+			{
+				inherit enable;
 				servers = {
+
+
+				# General
 					nil-ls = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
+					};
+					
+					jsonls = {
+						inherit enable autostart;
+					};
+
+					# Yaml lsp
+					yamlls = {
+						inherit enable autostart;
+						settings = {
+							yaml = {
+								schemas = {
+									"https://json.schemastore.org/github-workflow.json" = "/.github/workflows/*";
+								};
+							};
+						};
 					};
 
 # Web Dev
-					biome = {
-						enable = true;
-						autostart = true;
-					};
 					astro = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
 					};
 					tailwindcss = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
 					};
-					tsserver = {
-						enable = true;
-						autostart = true;
-					};
-					html = {
-						enable = true;
-						autostart = true;
+					ts-ls = {
+						inherit enable autostart;
 					};
 					marksman = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
 					};
-
 
 # System programing
 					rust-analyzer = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
 						installRustc = false;
 						installCargo = false;
 					};
 
 					zls = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
 					};
 
 					gopls = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
 					};
 
 # Python 
 					ruff = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
 					};
 					pyright = {
-						enable = true; 
-						autostart = true;
+						inherit enable autostart;
 					};
 
 # Minecraft Development 
 
 					java-language-server = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
 					};
 
 					kotlin-language-server = {
-						enable = true;
-						autostart = true;
+						inherit enable autostart;
 					};
 				};
 				postConfig = ''
@@ -142,13 +145,5 @@
 					'';
 			};
 		};
-		extraConfigLua = ''
-			vim.filetype.add({
-					extension = {
-					mdx = 'mdx'
-					}
-					})
-
-			'';
 	};
 }
