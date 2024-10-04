@@ -61,6 +61,9 @@
 				};
 			};
 
+# JsonSchema store for yaml/json schemas 
+			schemastore.enable = true;
+
 # LSP Stuff
 			lsp = let
 				# These are defaults to disable a specific plugin remove the inherit and add it manually
@@ -84,13 +87,6 @@
 					# Yaml lsp
 					yamlls = {
 						inherit enable autostart;
-						settings = {
-							yaml = {
-								schemas = {
-									"https://json.schemastore.org/github-workflow.json" = "/.github/workflows/*";
-								};
-							};
-						};
 					};
 
 # Web Dev
