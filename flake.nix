@@ -85,6 +85,7 @@
                     username = "eveeifyeve";
                     email = "88671402+Eveeifyeve@users.noreply.github.com";
                   };
+									inherit inputs;
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
