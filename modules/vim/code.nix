@@ -80,6 +80,10 @@
 						inherit enable autostart;
 					};
 					
+					nixd = {
+						inherit enable autostart;
+					};
+					
 					jsonls = {
 						inherit enable autostart;
 					};
