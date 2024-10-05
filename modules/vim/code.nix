@@ -82,6 +82,18 @@
 					
 					nixd = {
 						inherit enable autostart;
+						cmd = ["nixd"];
+						settings = {
+							nixpkgs.expr = "import <nixpkgs> { }";
+							options = let
+								getFlake = ''(builtins.getFlake "./.")'';
+							in {
+								nixvim.expr = ''${getFlake}.packages.${pkgs.system}.nvim.options'';
+								eveeifyeve-darwin.expr = ''${getFlake}.darwinConfigurations."eveeifyeve-macbook".options''; 
+								flake-parts.expr = ''${getFlake}.debug.options'';
+								flake-parts2.expr = ''${getFlake}.currentSystem.options''};
+							};
+						};
 					};
 					
 					jsonls = {
