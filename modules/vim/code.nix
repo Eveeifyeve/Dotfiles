@@ -91,7 +91,7 @@
 								nixvim.expr = ''${getFlake}.packages.${pkgs.system}.nvim.options'';
 								eveeifyeve-darwin.expr = ''${getFlake}.darwinConfigurations."eveeifyeve-macbook".options''; 
 								flake-parts.expr = ''${getFlake}.debug.options'';
-								flake-parts2.expr = ''${getFlake}.currentSystem.options''};
+								flake-parts2.expr = ''${getFlake}.currentSystem.options'';
 							};
 						};
 					};
