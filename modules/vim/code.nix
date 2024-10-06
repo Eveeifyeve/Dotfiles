@@ -151,6 +151,11 @@
 					kotlin-language-server = {
 						inherit enable autostart;
 					};
+
+# This is for helping someone  
+					clojure-lsp = {
+						inherit enable autostart;
+					};
 				};
 				postConfig = ''
 					require'lspconfig'.mdx_analyzer.setup({})
