@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+		disko = {
+			url = "github:nix-community/disko";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
     # Eveeifyeve Usefull Resources.
     curseforge-nix = {
       url = "github:eveeifyeve/curseforge-nix";
@@ -65,6 +70,19 @@
     }:
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+
+			# NixOS
+			nixosConfigurations = {
+				eveeifyeve = {
+					specialArgs = {
+						inherit inputs;
+					};
+					modules = [
+						inputs.disko.nixosModules.disko
+						./hosts/eveeifyeve/disks/default.nix
+					];
+				};
+			};
 
       # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
