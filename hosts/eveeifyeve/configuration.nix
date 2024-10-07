@@ -16,7 +16,6 @@
 
   environment.systemPackages = [
     pkgs.curl
-    pkgs.vim
     pkgs.gh
     pkgs.gitMinimal
   ];
@@ -26,7 +25,7 @@
    users."eveeifyeve" = {
     name = "eveeifyeve";
     isNormalUser = true;
-    hashedPassword = "$y$j9T$mlSYYayPPgLNWeNpoQ2KW/$9vznmgX1fFY.cSEWBLU45K/zCjvflmPoHcqlOOhAJ66";
+    hashedPassword = "$y$j9T$9Zg/83oVXDFMkTw27K2d5/$1SqsLU1.RbN.bPYsRZxL39p.k6F2XGXvJ9Aeq0ad718";
     shell = pkgs.zsh;
     extraGroups = ["nixos-config" "wheel"];
    };

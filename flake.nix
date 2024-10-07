@@ -81,7 +81,14 @@
 					};
 					modules = [
 						disko.nixosModules.disko
+						nixvim.nixosModules.nixvim
 						./hosts/eveeifyeve/configuration.nix
+						./modules/vim/default.nix
+					 	home-manager.nixosModules.home-manager {
+					 	  home-manager.useGlobalPkgs = true;
+					 	  home-manager.useUserPackages = true;
+					 	  home-manager.users.eveeifyeve = import ./hosts/eveeifyeve/home.nix;
+					 	}
 					];
 				};
 			};
