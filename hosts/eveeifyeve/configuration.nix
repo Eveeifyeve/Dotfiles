@@ -25,6 +25,7 @@
    users."eveeifyeve" = {
     name = "eveeifyeve";
     isNormalUser = true;
+    hashedPassword = "$y$j9T$mlSYYayPPgLNWeNpoQ2KW/$9vznmgX1fFY.cSEWBLU45K/zCjvflmPoHcqlOOhAJ66";
     shell = pkgs.zsh;
     extraGroups = ["nixos-config" "wheel"];
    };
