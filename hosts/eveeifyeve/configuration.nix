@@ -17,6 +17,7 @@
   environment.systemPackages = [
     pkgs.curl
     pkgs.vim
+    pkgs.gh
     pkgs.gitMinimal
   ];
   
