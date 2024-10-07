@@ -21,11 +21,14 @@
     pkgs.gitMinimal
   ];
   
-  users.users.eveeifyeve = {
+  users = {
+   mutableUsers = true;
+   users."eveeifyeve" = {
+    name = "eveeifyeve";
     isNormalUser = true;
     shell = pkgs.zsh;
-    hashedPassword = "$y$j9T$1FNXj4e3flI0uJ.paVPFq/$2T/1y0PVRB0Le1h0UAg4pUNyWHG8Kyy0la9sNm86arC";
     extraGroups = ["nixos-config"];
+   };
   };
   programs.zsh.enable = true;
 
