@@ -6,10 +6,9 @@
 {
   imports = [
     ./disk-config.nix
-		./hardware-configuration.nix
   ];
 	boot.loader = {
-		efi.canTouchEfiVaribles = true;
+		efi.canTouchEfiVariables = true;
 		systemd-boot.enable = true;	
 	};
 
