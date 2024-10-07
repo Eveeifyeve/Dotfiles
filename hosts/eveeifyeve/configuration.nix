@@ -45,6 +45,7 @@
     extraGroups = ["nixos-config" "wheel"];
    };
   };
+	nixpkgs.config.allowUnfree = true;
   programs.zsh.enable = true;
 
   users.users.root.openssh.authorizedKeys.keys = [
