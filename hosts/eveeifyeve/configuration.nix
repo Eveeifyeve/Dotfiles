@@ -22,12 +22,11 @@
   ];
   
   users = {
-   mutableUsers = true;
    users."eveeifyeve" = {
     name = "eveeifyeve";
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = ["nixos-config"];
+    extraGroups = ["nixos-config" "wheel"];
    };
   };
   programs.zsh.enable = true;
