@@ -22,6 +22,7 @@
   ];
   
   users = {
+   mutableUsers = false;
    users."eveeifyeve" = {
     name = "eveeifyeve";
     isNormalUser = true;
