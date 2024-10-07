@@ -5,6 +5,15 @@
 	...
 }:
 {
+	imports = [
+		../../modules/homemanager/deafult.nix
+		../../modules/homemanager/terminal.nix
+	];
+	wayland.windowManager.hyprland = {
+		enable = true;
+		xwayland.enable = true;
+		systemd.enable = false;
+	};
 	home = {
 		username = "eveeifyeve";
 		stateVersion = "24.05";

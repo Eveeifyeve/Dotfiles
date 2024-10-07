@@ -19,7 +19,22 @@
     pkgs.gh
     pkgs.gitMinimal
   ];
-  
+
+	hardware.graphics.enable = true;
+
+
+	xdg.portal = {
+		enable = true;
+		wlr.enable = true;
+		extraPortals = with pkgs; [
+			xdg-desktop-portal
+		];
+		configPackages = with pkgs; [
+		  xdg-desktop-portal
+			xdg-desktop-portal-hyprland
+		];
+	};
+
   users = {
    mutableUsers = false;
    users."eveeifyeve" = {
