@@ -105,6 +105,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1728109432,
+        "narHash": "sha256-wmbErh8FG7dRKOtMMpHUqDtFjeqt9Zjx4zssSeTalwU=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "48ebb577855fb2398653f033b3b2208a9249203d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "eveeifyeve-flake-templates": {
       "inputs": {
         "nixpkgs": [
@@ -583,6 +603,7 @@
       "inputs": {
         "agenix": "agenix",
         "curseforge-nix": "curseforge-nix",
+        "disko": "disko",
         "eveeifyeve-flake-templates": "eveeifyeve-flake-templates",
         "home-manager": "home-manager_2",
         "homebrew-bundle": "homebrew-bundle",

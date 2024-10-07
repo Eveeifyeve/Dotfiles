@@ -66,6 +66,7 @@
       nix-homebrew,
       nixvim,
       nixpkgs,
+			disko,
       ...
     }:
     {
@@ -78,8 +79,8 @@
 						inherit inputs;
 					};
 					modules = [
-						inputs.disko.nixosModules.disko
-						./hosts/eveeifyeve/disks/default.nix
+						disko.nixosModules.disko
+						./hosts/eveeifyeve/configuration.nix
 					];
 				};
 			};
