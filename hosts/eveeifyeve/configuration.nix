@@ -1,6 +1,7 @@
 {
 	lib,
   pkgs,
+	config,
   ...
 }:
 {
@@ -30,8 +31,14 @@
 			enable = false;
 			finegrained = false;
 		};
-		open = false;
+		open = true;
 		nvidiaSettings = true;
+		package = config.boot.kernelPackages.nvidiaPackages.mkdriver {
+			version = "368.81";
+			sha256_64bit = lib.fakeHash;
+			openSha256 = lib.fakeHash;
+			persistencedSha256 = lib.fakeHash;
+		};
 	};
 
 	xdg.portal = {
