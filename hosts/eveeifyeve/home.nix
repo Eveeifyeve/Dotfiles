@@ -12,10 +12,7 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
-		systemd = {
-			enable = false;
-			enableXdgAutostart = true;
-		};
+		systemd.enable = false;
 		settings = {
 			"$mod" = "SUPER";
 			bindm = [
