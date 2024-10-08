@@ -22,6 +22,17 @@
 
 	hardware.graphics.enable = true;
 
+# Gpu driver 
+
+	hardware.nvidia = {
+		modesetting.enable = true;
+		powerManagement = {
+			enable = false;
+			finegrained = false;
+		};
+		open = false;
+		nvidiaSettings = true;
+	};
 
 	xdg.portal = {
 		enable = true;
