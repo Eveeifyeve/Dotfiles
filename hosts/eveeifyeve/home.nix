@@ -80,6 +80,7 @@
 		++ (with pkgs; [
 			kitty
 			pciutils
+			firefox
 		]);
 		shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake /root/.dotfiles .#eveeifyeve --json |& nom --json";
 	};
