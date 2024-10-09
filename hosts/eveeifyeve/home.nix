@@ -33,9 +33,9 @@
 					vibrancy = 0.1696;
 				};
 			};
-			animation = {
-				enabled = true;
-			};
+		#	animation = {
+		#		enabled = true;
+		#	};
 			"$mod" = "SUPER";
 			bind = [
 				"$mod SHIFT, L, exec, rofi"
