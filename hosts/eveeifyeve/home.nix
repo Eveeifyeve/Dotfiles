@@ -57,7 +57,7 @@ in
 			);
 		};
 		plugins = [
-			hypr-plugin.hyprlock
+			pkgs.hyprlock
 		];
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 	};

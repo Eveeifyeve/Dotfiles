@@ -541,6 +541,36 @@
         "url": "https://github.com/hyprwm/Hyprland"
       }
     },
+    "hyprland-plugins": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "nixpkgs": [
+          "hyprland-plugins",
+          "hyprland",
+          "nixpkgs"
+        ],
+        "systems": [
+          "hyprland-plugins",
+          "hyprland",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1728383680,
+        "narHash": "sha256-/SeOrMuPEOjngI+MBlzqxQ/sJxkJFIYoef+wJ/PmX2w=",
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "rev": "d05eb1ffba2ebffb5b4e1b407f134a4dcb411a88",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "type": "github"
+      }
+    },
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
@@ -900,6 +930,7 @@
         "homebrew-cask-versions": "homebrew-cask-versions",
         "homebrew-core": "homebrew-core",
         "hyprland": "hyprland",
+        "hyprland-plugins": "hyprland-plugins",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_4",
