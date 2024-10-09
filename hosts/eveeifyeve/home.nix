@@ -38,6 +38,7 @@
 			};
 			"$mod" = "SUPER";
 			bind = [
+				"$mod SHIFT, L, exec, rofi"
 				"$mod, T, exec, kitty"
 				"$mod, C, killactive"
 			] ++ (
@@ -53,6 +54,22 @@
 		};
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 	};
+
+	programs = {
+		rofi = {
+			enable = true;
+# TODO: Theme for rofi 
+			theme = null;
+		};
+		waybar = {
+			enable = true;
+# TODO: Settings and style for waybar
+			settings = [ ];
+			style = null;
+			systemd.enable = false;
+		};
+	};
+
 	home = {
 		username = "eveeifyeve";
 		stateVersion = "24.05";
