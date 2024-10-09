@@ -56,9 +56,6 @@ in
 				9)
 			);
 		};
-		plugins = [
-			pkgs.hyprlock
-		];
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 	};
 
@@ -79,6 +76,9 @@ in
 			enable = true;
 			themeFile = "Catppuccin-Mocha";
 			shellIntegration.enableZshIntegration = true;
+		};
+		hyprlock = {
+			enable = true;
 		};
 	};
 
