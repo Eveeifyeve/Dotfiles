@@ -35,6 +35,7 @@
 		packages = pkgs.callPackage ../../modules/packages.nix { } 
 		++ (with pkgs; [
 			kitty
+			pciutils
 		]);
 		shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake /root/.dotfiles .#eveeifyeve --json |& nom --json";
 	};
