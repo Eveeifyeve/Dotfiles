@@ -31,7 +31,7 @@
 			enable = false;
 			finegrained = false;
 		};
-		open = true;
+		open = false;
 		nvidiaSettings = true;
 		package = config.boot.kernelPackages.nvidiaPackages.mkdriver {
 			version = "368.81";
