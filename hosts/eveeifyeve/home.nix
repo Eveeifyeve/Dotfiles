@@ -15,7 +15,7 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
-		systemd.enable = false;
+		systemd.enable = true;
 		settings = {
 			decoration = {
 				rounding = 10;
@@ -67,7 +67,7 @@
 # TODO: Settings and style for waybar
 			settings = [ ];
 			style = null;
-			systemd.enable = false;
+			systemd.enable = true;
 		};
 		kitty = {
 			enable = true;
