@@ -6,6 +6,9 @@
 	git,
 	...
 }:
+let
+	hypr-plugin = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
+in
 {
 	imports = [
 		../../modules/homemanager/deafult.nix
@@ -53,6 +56,9 @@
 				9)
 			);
 		};
+		plugins = [
+			hypr-plugin.hyprlock
+		];
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 	};
 
