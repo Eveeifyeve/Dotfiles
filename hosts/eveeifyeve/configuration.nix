@@ -24,8 +24,6 @@ in
 
   environment.systemPackages = [
     pkgs.curl
-    pkgs.gh
-    pkgs.gitMinimal
   ];
 
 	hardware.enableRedistributableFirmware = true;

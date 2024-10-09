@@ -3,12 +3,14 @@
 	pkgs,
 	lib,
 	inputs,
+	git,
 	...
 }:
 {
 	imports = [
 		../../modules/homemanager/deafult.nix
 		../../modules/homemanager/terminal.nix
+		../../modules/homemanager/git.nix
 	];
 	wayland.windowManager.hyprland = {
 		enable = true;

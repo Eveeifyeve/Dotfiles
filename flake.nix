@@ -89,6 +89,10 @@
 					 	home-manager.nixosModules.home-manager {
 							home-manager = {
 								extraSpecialArgs = {
+									git = {
+                    username = "eveeifyeve";
+                    email = "88671402+Eveeifyeve@users.noreply.github.com";
+                  };
 									inherit inputs;
 								};
 								useGlobalPkgs = true;
