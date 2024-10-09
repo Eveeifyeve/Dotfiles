@@ -2,6 +2,7 @@
 	config,
 	pkgs,
 	lib,
+	inputs,
 	...
 }:
 {
@@ -15,7 +16,7 @@
 		systemd.enable = false;
 		settings = {
 			"$mod" = "SUPER";
-			bindm = [
+			bind = [
 				"$mod, T, exec kitty"
 			] ++ (
 				builtins.concatLists (builtins.genList (i: 
@@ -28,6 +29,7 @@
 				9)
 			);
 		};
+		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 	};
 	home = {
 		username = "eveeifyeve";

@@ -2,8 +2,12 @@
 	lib,
   pkgs,
 	config,
+	inputs,
   ...
 }:
+let
+	hypr-unstable-pkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   imports = [
     ./disk-config.nix
@@ -27,31 +31,15 @@
 	hardware.enableRedistributableFirmware = true;
 
 	hardware.graphics = {
+		package = hypr-unstable-pkgs.mesa.drivers;
 		enable = true;
-		enable32Bit = true;
-		extraPackages = [
-			pkgs.amdvlk
-		];
+		enable32Bit = true;	
 	};
 
-# Gpu driver 
-	hardware.amdgpu = {
-		initrd.enable = true;
-		amdvlk = {
-			enable = true;
-		};
-	};
-
-	xdg.portal = {
+	programs.hyprland = {
 		enable = true;
-		wlr.enable = true;
-		extraPortals = with pkgs; [
-			xdg-desktop-portal
-		];
-		configPackages = with pkgs; [
-		  xdg-desktop-portal
-			xdg-desktop-portal-hyprland
-		];
+		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+		portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 	};
 
   users = {

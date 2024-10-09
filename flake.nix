@@ -16,6 +16,8 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
+		hyprland.url  = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
     # Eveeifyeve Usefull Resources.
     curseforge-nix = {
       url = "github:eveeifyeve/curseforge-nix";
@@ -85,10 +87,15 @@
 						./hosts/eveeifyeve/configuration.nix
 						./modules/vim/default.nix
 					 	home-manager.nixosModules.home-manager {
-					 	  home-manager.useGlobalPkgs = true;
-					 	  home-manager.useUserPackages = true;
-							home-manager.backupFileExtension = "backup";
-					 	  home-manager.users.eveeifyeve = import ./hosts/eveeifyeve/home.nix;
+							home-manager = {
+								extraSpecialArgs = {
+									inherit inputs;
+								};
+								useGlobalPkgs = true;
+					 	  	useUserPackages = true;
+								backupFileExtension = "backup";
+					 	  	users.eveeifyeve = import ./hosts/eveeifyeve/home.nix;
+							};
 					 	}
 					];
 				};
