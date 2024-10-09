@@ -15,7 +15,7 @@
 
   services = {
 		openssh.enable = true;
-		xserver.videoDrivers = ["nvidia"];
+		xserver.videoDrivers = ["amdgpu"];
 	};
 
   environment.systemPackages = [
@@ -27,16 +27,11 @@
 	hardware.graphics.enable = true;
 
 # Gpu driver 
-
-	hardware.nvidia = {
-		modesetting.enable = true;
-		powerManagement = {
-			enable = false;
-			finegrained = false;
+	hardware.amdgpu = {
+		initrd.enable = true;
+		amdvlk = {
+			enable = true;
 		};
-		open = false;
-		nvidiaSettings = true;
-		package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
 	};
 
 	xdg.portal = {
