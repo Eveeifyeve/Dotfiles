@@ -36,6 +36,7 @@
 		#	animation = {
 		#		enabled = true;
 		#	};
+			
 			"$mod" = "SUPER";
 			bind = [
 				"$mod SHIFT, L, exec, rofi -show run"
@@ -69,6 +70,8 @@
 			systemd.enable = false;
 		};
 	};
+
+	services.cliphist.enable = true;
 
 	home = {
 		username = "eveeifyeve";
