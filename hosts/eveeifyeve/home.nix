@@ -69,6 +69,11 @@
 			style = null;
 			systemd.enable = false;
 		};
+		kitty = {
+			enable = true;
+			themeFile = "Catppuccin-Mocha";
+			shellIntegration.enableZshIntegration = true;
+		};
 	};
 
 	services.cliphist.enable = true;
@@ -78,7 +83,6 @@
 		stateVersion = "24.05";
 		packages = pkgs.callPackage ../../modules/packages.nix { } 
 		++ (with pkgs; [
-			kitty
 			pciutils
 			firefox
 		]);
