@@ -63,7 +63,7 @@
   };
 	nixpkgs.config = {
 		allowUnfree = true;
-		nvidia.acceptLicence = true;
+		nvidia.acceptLicense = true;
 	};
   programs.zsh.enable = true;
 
