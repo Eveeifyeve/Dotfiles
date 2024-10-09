@@ -38,7 +38,7 @@
 		#	};
 			"$mod" = "SUPER";
 			bind = [
-				"$mod SHIFT, L, exec, rofi"
+				"$mod SHIFT, L, exec, rofi -show run"
 				"$mod, T, exec, kitty"
 				"$mod, C, killactive"
 			] ++ (
