@@ -61,7 +61,10 @@
     extraGroups = ["nixos-config" "wheel"];
    };
   };
-	nixpkgs.config.allowUnfree = true;
+	nixpkgs.config = {
+		allowUnfree = true;
+		nvidia.acceptLicence = true;
+	};
   programs.zsh.enable = true;
 
   users.users.root.openssh.authorizedKeys.keys = [
