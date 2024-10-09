@@ -13,7 +13,10 @@
 		systemd-boot.enable = true;	
 	};
 
-  services.openssh.enable = true;
+  services = {
+		openssh.enable = true;
+		xserver.videoDrivers = ["nvidia"];
+	};
 
   environment.systemPackages = [
     pkgs.curl
@@ -33,12 +36,7 @@
 		};
 		open = false;
 		nvidiaSettings = true;
-		package = config.boot.kernelPackages.nvidiaPackages.mkdriver {
-			version = "368.81";
-			sha256_64bit = lib.fakeHash;
-			openSha256 = lib.fakeHash;
-			persistencedSha256 = lib.fakeHash;
-		};
+		package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
 	};
 
 	xdg.portal = {
