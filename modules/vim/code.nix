@@ -64,24 +64,32 @@
 # JsonSchema store for yaml/json schemas 
 			schemastore.enable = true;
 
-# LSP Stuff
-			lsp = let
-				# These are defaults to disable a specific plugin remove the inherit and add it manually
-				enable = true;
-				autostart = true;
-			in
+			lsp = 
 			{
-				inherit enable;
+				enable = true;
 				servers = {
-
-
-				# General
-					nil_ls = {
-						inherit enable autostart;
+					nil_ls.enable = true;					
+					jsonls.enable = true;
+					yamlls.enable = true;
+					astro.enable = true;
+					tailwindcss.enable = true;
+					ts_ls.enable = true;
+					marksman.enable = true;
+					mdx_analyzer.enable = true;
+					zls.enable = true;
+					gopls.enable = true;
+					ruff.enable = true;
+					pyright.enable = true;
+					java_language_server.enable = true;
+					kotlin_language_server.enable = true;
+					clojure_lsp.enable = true;
+					rust_analyzer = {
+						enable = true;
+						installRustc = false;
+						installCargo = false;
 					};
-					
 					nixd = {
-						inherit enable autostart;
+						enable = true;
 						cmd = ["nixd"];
 						settings = {
 							nixpkgs.expr = "import <nixpkgs> { }";
@@ -95,71 +103,7 @@
 							};
 						};
 					};
-					
-					jsonls = {
-						inherit enable autostart;
-					};
-
-					# Yaml lsp
-					yamlls = {
-						inherit enable autostart;
-					};
-
-# Web Dev
-					astro = {
-						inherit enable autostart;
-					};
-					tailwindcss = {
-						inherit enable autostart;
-					};
-					ts_ls = {
-						inherit enable autostart;
-					};
-					marksman = {
-						inherit enable autostart;
-					};
-
-# System programing
-					rust_analyzer = {
-						inherit enable autostart;
-						installRustc = false;
-						installCargo = false;
-					};
-
-					zls = {
-						inherit enable autostart;
-					};
-
-					gopls = {
-						inherit enable autostart;
-					};
-
-# Python 
-					ruff = {
-						inherit enable autostart;
-					};
-					pyright = {
-						inherit enable autostart;
-					};
-
-# Minecraft Development 
-
-					java_language_server = {
-						inherit enable autostart;
-					};
-
-					kotlin_language_server = {
-						inherit enable autostart;
-					};
-
-# This is for helping someone  
-					clojure_lsp = {
-						inherit enable autostart;
-					};
 				};
-				postConfig = ''
-					require'lspconfig'.mdx_analyzer.setup({})
-					'';
 			};
 		};
 	};
