@@ -122,7 +122,6 @@ in
 			pciutils
 			firefox
 			pavucontrol
-			xwaylandvideobridge
 			(vesktop.override {
 				withSystemVencord = false;
 			})
