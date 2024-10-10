@@ -85,7 +85,21 @@ in
 			enable = true;
 # TODO: Settings and style for waybar
 			settings = [ ];
-			style = null;
+			style = ''
+				* {
+					border: none;
+					border-radius: 10px;
+				}
+
+				window#waybar {
+					background: rgba(22,22,28, 0.5);
+					color: #AAB2BF;
+				}
+
+				#workspaces button {
+					padding: 0 5px;
+				}
+			'';
 			systemd.enable = true;
 		};
 		kitty = {
