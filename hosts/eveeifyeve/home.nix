@@ -41,8 +41,14 @@ in
 		#	};
 			
 			"$mod" = "SUPER";
+			"exec-once" = [
+				"wl-paste --type text --watch cliphist store"
+				"wl-paste --type image --watch cliphist store"
+			];
+
 			bind = [
 				"$mod SHIFT, L, exec, rofi -show run"
+				"$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 				"$mod, T, exec, kitty"
 				"$mod, C, killactive"
 			] ++ (
@@ -62,9 +68,7 @@ in
 	programs = {
 		rofi = {
 			enable = true;
-			theme = ''
-				@theme "catppucin-mocha"
-			'';
+			theme = null;
 		};
 		waybar = {
 			enable = true;
