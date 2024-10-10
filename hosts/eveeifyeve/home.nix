@@ -17,7 +17,6 @@ in
 	];
 	wayland.windowManager.hyprland = {
 		enable = true;
-		xwayland.enable = true;
 		systemd.enable = true;
 		settings = {
 			decoration = {
@@ -45,6 +44,7 @@ in
 			"exec-once" = [
 				"wl-paste --type text --watch cliphist store"
 				"wl-paste --type image --watch cliphist store"
+				"dbus-update-activation-enviroment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland"
 			];
 
 			bindl = [
@@ -123,8 +123,11 @@ in
 			firefox
 			pavucontrol
 			xwaylandvideobridge
-			vesktop
+			(vesktop.override {
+				withSystemVencord = false;
+			})
 			playerctl
+			nautilus
 		]);
 		shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
 	};

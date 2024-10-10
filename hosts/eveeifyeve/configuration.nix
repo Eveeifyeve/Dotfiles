@@ -49,6 +49,7 @@ in
 		alsa.enable = true;
 		alsa.support32Bit = true;
 		pulse.enable = true;
+		jack.enable = true;
 	};
 
 	hardware.graphics = {
@@ -60,24 +61,15 @@ in
 
 	xdg.portal = {
 		enable = true;
-		wlr.enable = true;
-
 		extraPortals = with pkgs; [
 			xdg-desktop-portal-gtk
-			xdg-desktop-portal
-		];
-
-		configPackages = with pkgs; [
-			xdg-desktop-portal-gtk
 			xdg-desktop-portal-hyprland
-			xdg-desktop-portal
 		];
 	};
 
 	programs.hyprland = {
 		enable = true;
-		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-		portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+		package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 	};
 
   users = {
