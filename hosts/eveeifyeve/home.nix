@@ -96,6 +96,8 @@ in
 		++ (with pkgs; [
 			pciutils
 			firefox
+			pavucontrol
+			xwaylandvideobridge
 		]);
 		shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake /root/.dotfiles .#eveeifyeve --json |& nom --json";
 	};
