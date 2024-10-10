@@ -29,21 +29,7 @@
 				utm # MacOS Qemu
 # darwin.xcode_15_1
 		]);
-		shellAliases = {
-			proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
-			nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
-			gitr = ''
-				gitr () {
-					for f in $(find . -type d -name .git | awk -F"/.git$" '{print $1}');  do
-						echo
-							echo "................................ (cd $f && git $*) ........................................."
-							echo
-							(cd $f && git $*)
-							done
-				}
-			'';
-			cat = "bat";
-		};
+		shellAliases.nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
 	};
 	nix = {
 		settings.allowed-users = [
