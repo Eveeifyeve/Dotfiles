@@ -62,8 +62,9 @@ in
 	programs = {
 		rofi = {
 			enable = true;
-# TODO: Theme for rofi 
-			theme = null;
+			theme = ''
+				@theme "catppucin-mocha"
+			'';
 		};
 		waybar = {
 			enable = true;
