@@ -76,7 +76,7 @@
 
 
 				# General
-					nil-ls = {
+					nil_ls = {
 						inherit enable autostart;
 					};
 					
@@ -112,7 +112,7 @@
 					tailwindcss = {
 						inherit enable autostart;
 					};
-					ts-ls = {
+					ts_ls = {
 						inherit enable autostart;
 					};
 					marksman = {
@@ -120,7 +120,7 @@
 					};
 
 # System programing
-					rust-analyzer = {
+					rust_analyzer = {
 						inherit enable autostart;
 						installRustc = false;
 						installCargo = false;
@@ -144,16 +144,16 @@
 
 # Minecraft Development 
 
-					java-language-server = {
+					java_language_server = {
 						inherit enable autostart;
 					};
 
-					kotlin-language-server = {
+					kotlin_language_server = {
 						inherit enable autostart;
 					};
 
 # This is for helping someone  
-					clojure-lsp = {
+					clojure_lsp = {
 						inherit enable autostart;
 					};
 				};
