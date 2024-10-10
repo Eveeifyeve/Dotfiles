@@ -126,6 +126,6 @@ in
 			vesktop
 			playerctl
 		]);
-		shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake /root/.dotfiles .#eveeifyeve --json |& nom --json";
+		shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles .#eveeifyeve --json |& nom --json";
 	};
 }
