@@ -22,6 +22,11 @@ in
 		xserver.videoDrivers = ["amdgpu"];
 	};
 
+# Time
+
+	networking.timeServers = ["time.nist.gov" "time.windows.com"];
+	time.timeZone = "Australia/Sydney";
+
 	environment.variables = {
 # OZONE Settings
 		NIXOS_OZONE_WL = "1";
