@@ -123,8 +123,8 @@ in
 			firefox
 			pavucontrol
 			xwaylandvideobridge
-			wireplumber
 			vesktop
+			playerctl
 		]);
 		shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake /root/.dotfiles .#eveeifyeve --json |& nom --json";
 	};
