@@ -41,9 +41,20 @@ in
 		#	};
 			
 			"$mod" = "SUPER";
+			# "$volumeControl" = builtins.readFile ./volume-control.sh;
 			"exec-once" = [
 				"wl-paste --type text --watch cliphist store"
 				"wl-paste --type image --watch cliphist store"
+			];
+
+			bindl = [
+				# ", XF86AudioMute, exec, $volumeControl -o "
+				# ", XF86AudioLowerVolume, exec, $volumeControl -o d"
+				# ", XF86AudioRaiseVolume, exec, $volumeControl -o i"
+				", XF86AudioPlay, exec, playerctl play-pause"
+				", XF86AudioPause, exec, playerctl play-pause"
+				", XF86AudioNext, exec, playerctl next"
+				", XF86AudioPrev, exec, playerctl previous"
 			];
 
 			bind = [
