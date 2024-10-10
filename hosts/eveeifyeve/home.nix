@@ -98,6 +98,7 @@ in
 			firefox
 			pavucontrol
 			xwaylandvideobridge
+			wireplumber
 			vesktop
 		]);
 		shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake /root/.dotfiles .#eveeifyeve --json |& nom --json";

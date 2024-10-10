@@ -22,9 +22,19 @@ in
 		xserver.videoDrivers = ["amdgpu"];
 	};
 
-  environment.systemPackages = [
-    pkgs.curl
-  ];
+	environment.variables = {
+# OZONE Settings
+		NIXOS_OZONE_WL = "1";
+		ELECTRON_OZONE_PLATFORM_HINT = "auto";
+
+		MOZ_ENABLE_WAYLAND = "1";
+
+# xdg settings
+		NIXOS_XDG_OPEN_USE_PORTAL = "1";
+		XDG_CURRENT_DESKTOP = "Hyprland";
+		XDG_SESSION_DESKTOP = "Hyprland";
+		XDG_SESSION_TYPE = "wayland";
+	};
 
 	hardware.enableRedistributableFirmware = true;
 
