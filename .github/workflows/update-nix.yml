@@ -37,9 +37,9 @@ jobs:
           git push
       
       - name: Get PR Body
-        run: echo "PRBody=$(cat .github/UPDATE_NIX_BODY.txt)" >> $GITHUB_ENV
+        run: echo "PR_BODY=$(cat .github/UPDATE_NIX_BODY.txt)" >> $GITHUB_ENV
 
       - name: Make a PR
-        run: gh pr create -B update-nix-${{env.DATE}} -H ${{env.BRANCH}} --title "Update flake lock" --body 
+        run: gh pr create -B update-nix-${{env.DATE}} -H ${{env.BRANCH}} --title "Update flake lock" --body ${{env.PR_BODY}} 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
