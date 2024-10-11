@@ -75,7 +75,6 @@
 					tailwindcss.enable = true;
 					ts_ls.enable = true;
 					marksman.enable = true;
-					mdx_analyzer.enable = true;
 					zls.enable = true;
 					gopls.enable = true;
 					ruff.enable = true;
@@ -83,6 +82,10 @@
 					java_language_server.enable = true;
 					kotlin_language_server.enable = true;
 					clojure_lsp.enable = true;
+					mdx_analyzer = {
+						enable = true;
+						package = null;
+					};
 					rust_analyzer = {
 						enable = true;
 						installRustc = false;
