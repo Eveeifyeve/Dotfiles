@@ -1,7 +1,6 @@
 name: update-nix
 on:
   workflow_dispatch:
-  push:
   schedule:
     - cron: "0 5 * * *" # 5 am UTC
 
@@ -9,20 +8,39 @@ permissions:
   pull-requests: write
   actions: write
 
+env:
+  #TODO: On pr to main please change this.
+  BRANCH: "feat/improve-conf"
 
 jobs:
   lockfile:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-      - name: Update flake.lock
-        uses: DeterminateSystems/update-flake-lock@main
+      - name: Echo date to an env to use
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV 
+      - uses: actions/checkout@v4
         with:
-          pr-title: "Update flake.lock"
-          pr-labels: |
-            dependacies
-          pr-reviewers: eveeifyeve
-          # token: ${{secrets.GITHUB_TOKEN}}
+          ref: update-nix-${{ env.DATE }}
+      - uses: cachix/install-nix-action@v30\
+      - name: Configure git
+        run: |
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions[bot]"
+
+      - name: Update Flake 
+        shell: bash
+        run: nix flake update 
+
+      - name: Commit 
+        run: |
+          git add . 
+          git commit -m "chore: updated flake"
+          git push
+      
+      - name: Get PR Body
+        run: echo "PRBody=$(cat .github/UPDATE_NIX_BODY.txt)" >> $GITHUB_ENV
+
+      - name: Make a PR
+        run: gh pr create -B update-nix-${{env.DATE}} -H ${{env.BRANCH}} --title "Update flake lock" --body 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
