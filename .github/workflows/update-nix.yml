@@ -34,7 +34,7 @@ jobs:
         run: |
           git add . 
           git commit -m "chore: updated flake"
-          git push
+          git push --set-upstream origin ${{ env.BRANCH_NAME }} 
       
       - name: Get PR Body
         run: echo "PR_BODY=$(cat .github/UPDATE_NIX_BODY.txt)" >> $GITHUB_ENV
