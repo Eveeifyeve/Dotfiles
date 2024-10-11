@@ -24,7 +24,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           git branch ${{ env.BRANCH_NAME }}
-          git checkout ${{ env.BRNACH_NAME }}
+          git checkout ${{ env.BRANCH_NAME }}
 
       - name: Update Flake 
         shell: bash
