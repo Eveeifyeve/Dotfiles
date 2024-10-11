@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./disk-config.nix
+		../../modules/nixos/games.nix
   ];
 	boot.loader = {
 		efi.canTouchEfiVariables = true;
@@ -48,6 +49,8 @@ in
 		package = hypr-unstable-pkgs.mesa.drivers;
 		enable = true;
 		enable32Bit = true;	
+  	extraPackages = [ pkgs.amdvlk ];
+  	extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
 	};
 
 
