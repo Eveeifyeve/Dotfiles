@@ -1,0 +1,23 @@
+name: Update Nix
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * *" # 5 am UTC
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@main
+        with:
+          pr-title: "Update flake.lock"
+          pr-labels: |
+            dependacies
+          git-author-email: 'github-actions[bot]@users.noreply.github.com'
+          git-committer-email: 'github-actions[bot]@users.noreply.github.com'
+          pr-reviewers: eveeifyeve
