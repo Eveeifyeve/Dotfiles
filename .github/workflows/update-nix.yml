@@ -38,6 +38,6 @@ jobs:
           git push
       
       - name: Make a PR
-        run: gh pr create -B ${{env.BRANCH_NAME}} -H ${{env.OUT_BRANCH}} --title "Update flake lock" --body-file .github/UPDATE_NIX_BODY.md 
+        run: gh pr create -B ${{env.OUT_BRANCH}} -H ${{env.BRANCH_NAME}} --title "Update flake lock" --body-file .github/UPDATE_NIX_BODY.md 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
