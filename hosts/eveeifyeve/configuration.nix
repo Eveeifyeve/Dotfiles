@@ -5,13 +5,11 @@
 	inputs,
   ...
 }:
-let
-	hypr-unstable-pkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
 {
   imports = [
     ./disk-config.nix
 		../../modules/nixos/games.nix
+		../../modules/nixos/desktop.nix { inherit pkgs inputs;}
   ];
 	boot.loader = {
 		efi.canTouchEfiVariables = true;
@@ -20,7 +18,6 @@ in
 
   services = {
 		openssh.enable = true;
-		xserver.videoDrivers = ["amdgpu"];
 	};
 
 # Time
@@ -28,49 +25,7 @@ in
 	networking.timeServers = ["time.nist.gov" "time.windows.com"];
 	time.timeZone = "Australia/Sydney";
 
-	environment.sessionVariables = {
-# OZONE Settings
-		NIXOS_OZONE_WL = "1";
-		ELECTRON_OZONE_PLATFORM_HINT = "auto";
-	};
-
-	hardware.enableRedistributableFirmware = true;
-
 	security.rtkit.enable = true;
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
-		jack.enable = true;
-	};
-
-	hardware.graphics = {
-		package = hypr-unstable-pkgs.mesa.drivers;
-		enable = true;
-		enable32Bit = true;	
-  	extraPackages = [ pkgs.amdvlk ];
-  	extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
-	};
-
-
-	xdg.portal = {
-		enable = true;
-		config = {
-			common = {
-				default = ["hyprland" "gtk"];
-				hyprland = ["hyprland" "gtk"];
-			};
-		};
-		extraPortals = with pkgs; [
-			xdg-desktop-portal-gtk
-		];
-	};
-
-	programs.hyprland = {
-		enable = true;
-		package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-	};
 
   users = {
    mutableUsers = false;
