@@ -20,10 +20,11 @@ jobs:
         run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV 
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v30
+
       - name: Configure git
         run: |
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.email "github-actions[bot]"
+          git config --global user.name "github-actions[bot]"
           git branch update-nix${{env.DATE}}
 
       - name: Update Flake 
