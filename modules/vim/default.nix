@@ -4,6 +4,7 @@
     # Basic Options
     enable = true;
     colorschemes.catppuccin.enable = true;
+		clipboard.providers.wl-copy.enable = true;
 
     # Plugins
     plugins = {
