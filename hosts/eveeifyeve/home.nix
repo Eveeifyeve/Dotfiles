@@ -89,47 +89,67 @@ in
 			settings = [ ];
 			style = ''
 				* {
-					border: none;
-					border-radius: 10px;
+border: none;
+				border-radius: 10px;
 				}
 
-				window#waybar {
-					background: rgba(22,22,28, 0.5);
-					color: #AAB2BF;
-				}
+			window#waybar {
+background: rgba(22,22,28, 0.5);
+color: #AAB2BF;
+			}
 
-				#workspaces button {
-					padding: 0 5px;
-				}
-			'';
-			systemd.enable = true;
-		};
-		kitty = {
-			enable = true;
-			themeFile = "Catppuccin-Mocha";
-			shellIntegration.enableZshIntegration = true;
-		};
-		hyprlock = {
-			enable = true;
-		};
-	};
+#workspaces button {
+padding: 0 5px;
+}
+'';
+systemd.enable = true;
+};
+kitty = {
+	enable = true;
+	themeFile = "Catppuccin-Mocha";
+	shellIntegration.enableZshIntegration = true;
+};
+hyprlock = {
+	enable = true;
+};
+};
 
-	services.cliphist.enable = true;
+services.cliphist.enable = true;
 
-	home = {
-		username = "eveeifyeve";
-		stateVersion = "24.05";
-		packages = pkgs.callPackage ../../modules/packages.nix { } 
-		++ (with pkgs; [
+home = {
+	username = "eveeifyeve";
+	stateVersion = "24.05";
+	packages = pkgs.callPackage ../../modules/packages.nix { } 
+	++ (with pkgs; [
 			pciutils
 			firefox
 			pavucontrol
-			(vesktop.override {
-				withSystemVencord = false;
+			(vesktop.overrideAttrs {
+			 desktopItems = [
+			 (pkgs.makeDesktopItem {
+				name = "vesktop";
+				desktopName = "Vesktop";
+				exec = "vesktop --enable-features=VaapiIgnoreDriverChecks,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,UseMultiPlaneFormatForHardwareVideo";
+				icon = "discord";
+				startupWMClass = "VesktopDesktop";
+				genericName = "Internet Messenger";
+				keywords = [
+				"discord"
+				"vencord"
+				"electron"
+				"chat"
+				];
+				categories = [
+				"Network"
+				"InstantMessaging"
+				"Chat"
+				];
+				})
+			 ];
 			})
-			playerctl
-			nautilus
+		playerctl
+		nautilus
 		]);
-		shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
-	};
+	shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
+};
 }
