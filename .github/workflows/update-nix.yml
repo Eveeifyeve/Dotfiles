@@ -36,15 +36,7 @@ jobs:
           git commit -m "chore: updated flake"
           git push --set-upstream origin ${{ env.BRANCH_NAME }} 
       
-      - name: Make PR Body as Env
-        run: |
-          if [ ! -f ".github/UPDATE_NIX_BODY.txt" ]; then
-            echo "File not found: .github/UPDATE_NIX_BODY.txt"
-            exit 1
-          fi
-          echo "PR_BODY=$(cat .github/UPDATE_NIX_BODY.txt)" >> $GITHUB_ENV
-
       - name: Make a PR
-        run: gh pr create -B ${{env.BRANCH_NAME}} -H ${{env.OUT_BRANCH}} --title "Update flake lock" --body ${{env.PR_BODY}} 
+        run: gh pr create -B ${{env.BRANCH_NAME}} -H ${{env.OUT_BRANCH}} --title "Update flake lock" --body-file .github/UPDATE_NIX_BODY.md 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
