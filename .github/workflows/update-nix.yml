@@ -25,6 +25,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git branch ${{ env.BRANCH_NAME }}
           git checkout ${{ env.BRANCH_NAME }}
+          git push --set-upstream origin ${{ env.BRANCH_NAME }}  
 
       - name: Update Flake 
         shell: bash
@@ -34,7 +35,7 @@ jobs:
         run: |
           git add . 
           git commit -m "chore: updated flake"
-          git push --set-upstream origin ${{ env.BRANCH_NAME }} 
+          git push
       
       - name: Make a PR
         run: gh pr create -B ${{env.BRANCH_NAME}} -H ${{env.OUT_BRANCH}} --title "Update flake lock" --body-file .github/UPDATE_NIX_BODY.md 
