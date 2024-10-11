@@ -25,4 +25,4 @@ jobs:
           pr-labels: |
             dependacies
           pr-reviewers: eveeifyeve
-          token: ${{secrets.GITHUB_TOKEN}}
+          # token: ${{secrets.GITHUB_TOKEN}}
