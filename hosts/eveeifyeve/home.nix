@@ -38,43 +38,42 @@ in
 					vibrancy = 0.1696;
 				};
 			};
-		#	animation = {
-		#		enabled = true;
-		#	};
-			
+#	animation = {
+#		enabled = true;
+#	};
+
 			"$mod" = "SUPER";
-			# "$volumeControl" = builtins.readFile ./volume-control.sh;
+# "$volumeControl" = builtins.readFile ./volume-control.sh;
 			"exec-once" = [
 				"wl-paste --type text --watch cliphist store"
 				"wl-paste --type image --watch cliphist store"
-				"dbus-update-activation-enviroment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland"
 			];
 
 			bindl = [
-				# ", XF86AudioMute, exec, $volumeControl -o "
-				# ", XF86AudioLowerVolume, exec, $volumeControl -o d"
-				# ", XF86AudioRaiseVolume, exec, $volumeControl -o i"
+# ", XF86AudioMute, exec, $volumeControl -o "
+# ", XF86AudioLowerVolume, exec, $volumeControl -o d"
+# ", XF86AudioRaiseVolume, exec, $volumeControl -o i"
 				", XF86AudioPlay, exec, playerctl play-pause"
-				", XF86AudioPause, exec, playerctl play-pause"
-				", XF86AudioNext, exec, playerctl next"
-				", XF86AudioPrev, exec, playerctl previous"
+					", XF86AudioPause, exec, playerctl play-pause"
+					", XF86AudioNext, exec, playerctl next"
+					", XF86AudioPrev, exec, playerctl previous"
 			];
 
 			bind = [
 				"$mod SHIFT, L, exec, rofi -show run"
-				"$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-				"$mod, T, exec, kitty"
-				"$mod, C, killactive"
+					"$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+					"$mod, T, exec, kitty"
+					"$mod, C, killactive"
 			] ++ (
-				builtins.concatLists (builtins.genList (i: 
-					let ws = i + 1;
-					in [
-						"$mod, code:1${toString i}, workspace, ${toString ws}"
-						"$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-					]
-				)
-				9)
-			);
+					builtins.concatLists (builtins.genList (i: 
+							let ws = i + 1;
+							in [
+							"$mod, code:1${toString i}, workspace, ${toString ws}"
+							"$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+							]
+							)
+						9)
+					);
 		};
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 	};
