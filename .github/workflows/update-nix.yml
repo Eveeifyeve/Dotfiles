@@ -4,9 +4,7 @@ on:
   schedule:
     - cron: "0 5 * * *" # 5 am UTC
 
-permissions:
-  pull-requests: write
-  actions: write
+permissions: write-all
 
 env:
   #TODO: On pr to main please change this.
