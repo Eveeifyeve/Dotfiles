@@ -1,23 +1,26 @@
 {
 	config,
-	pkgs,
-	lib,
-	inputs,
-	git,
-	...
+		pkgs,
+		lib,
+		inputs,
+		git,
+		...
 }:
 let
-	hypr-plugin = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
+hypr-plugin = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
 in
 {
 	imports = [
 		../../modules/homemanager/deafult.nix
-		../../modules/homemanager/terminal.nix
-		../../modules/homemanager/git.nix
+			../../modules/homemanager/terminal.nix
+			../../modules/homemanager/git.nix
 	];
 	wayland.windowManager.hyprland = {
 		enable = true;
-		systemd.enable = true;
+		systemd = {
+			enable = true;
+			variables = ["--all"];
+		};
 		settings = {
 			decoration = {
 				rounding = 10;
