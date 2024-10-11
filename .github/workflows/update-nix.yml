@@ -8,14 +8,14 @@ permissions: write-all
 
 env:
   #TODO: On pr to main please change this.
-  BRANCH: "feat/improve-conf"
+  OUT_BRANCH: "feat/improve-conf"
 
 jobs:
   lockfile:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo date to an env to use
-        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV 
+      - name: Create Branch
+        run: echo "BRANCH_NAME=update-nix-$(date +'%Y-%m-%d')" >> $GITHUB_ENV 
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v30
 
@@ -23,7 +23,8 @@ jobs:
         run: |
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git branch update-nix${{env.DATE}}
+          git branch ${{ env.BRANCH_NAME }}
+          git checkout ${{ env.BRNACH_NAME }}
 
       - name: Update Flake 
         shell: bash
@@ -39,6 +40,6 @@ jobs:
         run: echo "PR_BODY=$(cat .github/UPDATE_NIX_BODY.txt)" >> $GITHUB_ENV
 
       - name: Make a PR
-        run: gh pr create -B update-nix-${{env.DATE}} -H ${{env.BRANCH}} --title "Update flake lock" --body ${{env.PR_BODY}} 
+        run: gh pr create -B ${{env.BRANCH_NAME}} -H ${{env.OUT_BRANCH}} --title "Update flake lock" --body ${{env.PR_BODY}} 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
