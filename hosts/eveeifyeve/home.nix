@@ -146,6 +146,19 @@ in
 
   services.cliphist.enable = true;
 
+  xdg.desktopEntries.vesktop = {
+    name = "Discord";
+    exec = "${lib.getExe pkgs.vesktop} --enable-features=UseOzonePlatform --ozone-platform=wayland";
+    icon = "discord";
+    terminal = false;
+    type = "Application";
+    categories = [
+      "Network"
+      "InstantMessaging"
+      "Chat"
+    ];
+  };
+
   home = {
     username = "eveeifyeve";
     stateVersion = "24.05";
@@ -155,29 +168,6 @@ in
         pciutils
         firefox
         pavucontrol
-        (vesktop.overrideAttrs {
-          desktopItems = [
-            (pkgs.makeDesktopItem {
-              name = "vesktop";
-              desktopName = "Vesktop";
-              exec = "vesktop --enable-features=VaapiIgnoreDriverChecks,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,UseMultiPlaneFormatForHardwareVideo";
-              icon = "discord";
-              startupWMClass = "VesktopDesktop";
-              genericName = "Internet Messenger";
-              keywords = [
-                "discord"
-                "vencord"
-                "electron"
-                "chat"
-              ];
-              categories = [
-                "Network"
-                "InstantMessaging"
-                "Chat"
-              ];
-            })
-          ];
-        })
         playerctl
         nautilus
         modrinth-app

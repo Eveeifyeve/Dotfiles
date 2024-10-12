@@ -51,7 +51,7 @@ with pkgs;
 
   # Programs
   spotify
-  discord
+  vesktop
   audacity
   tailscale
 

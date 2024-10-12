@@ -30,6 +30,7 @@ in
   # Hyprland x wayland
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
     config = {
       common = {
         default = [
@@ -42,9 +43,7 @@ in
         ];
       };
     };
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
   programs.hyprland = {
     enable = true;
