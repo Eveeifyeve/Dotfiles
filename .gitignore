@@ -1,10 +1,5 @@
 .DS_Store
-.devenv.lock
-
-.config/direnv/direnvrc
-**/*.devenv
-flake.lock
-
-
-
-# Logs
+/.pre-commit-config.yaml
+/result*
+./result
+.envrc
