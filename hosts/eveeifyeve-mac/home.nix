@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    ../../modules/homemanager/deafult.nix
+    ../../modules/homemanager
     ../../modules/homemanager/git.nix
     ../../modules/homemanager/terminal.nix
   ];

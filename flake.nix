@@ -101,8 +101,8 @@
           modules = [
             disko.nixosModules.disko
             nixvim.nixosModules.nixvim
-            ./hosts/eveeifyeve/configuration.nix
-            ./modules/vim/default.nix
+            ./hosts/eveeifyeve
+            ./modules/vim
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -149,8 +149,8 @@
                 users.eveeifyeve = import ./hosts/eveeifyeve-mac/home.nix;
               };
             }
-            ./hosts/eveeifyeve-mac/darwin.nix
-            ./modules/vim/default.nix
+            ./hosts/eveeifyeve-mac
+            ./modules/vim
             ./modules/homebrew.nix
           ];
         };

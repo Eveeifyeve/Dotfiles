@@ -10,7 +10,7 @@ let
 in
 {
   imports = [
-    ../../modules/homemanager/deafult.nix
+    ../../modules/homemanager
     ../../modules/homemanager/terminal.nix
     ../../modules/homemanager/git.nix
   ];
