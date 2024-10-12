@@ -64,6 +64,9 @@
       # JsonSchema store for yaml/json schemas 
       schemastore.enable = true;
 
+      # Lsp Formatting 
+      lsp-format.enable = true;
+
       lsp = {
         enable = true;
         servers = {
