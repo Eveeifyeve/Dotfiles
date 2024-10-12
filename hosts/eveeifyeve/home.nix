@@ -171,6 +171,7 @@ in
         playerctl
         nautilus
         modrinth-app
+        element
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
