@@ -1,9 +1,9 @@
-{ rustPlatform
-, lib
-, fetchFromGitHub
-, vimUtils
-, stdenv
-,
+{
+  rustPlatform,
+  lib,
+  fetchFromGitHub,
+  vimUtils,
+  stdenv,
 }:
 let
   version = "2023-09-25";
@@ -33,9 +33,7 @@ vimUtils.buildVimPlugin {
   pname = "cord.nvim";
   inherit version src;
 
-  nativeBuildInputs = [
-    rustPackage
-  ];
+  nativeBuildInputs = [ rustPackage ];
 
   buildPhase = ''
     install -D ${rustPackage}/lib/cord.${extension} cord.${extension}

@@ -1,9 +1,10 @@
-{ config
-, pkgs
-, lib
-, inputs
-, git
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  git,
+  ...
 }:
 let
   hypr-plugin = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
@@ -66,17 +67,16 @@ in
           "$mod, C, killactive"
         ]
         ++ (builtins.concatLists (
-          builtins.genList
-            (
-              i:
-              let
-                ws = i + 1;
-              in
-              [
-                "$mod, code:1${toString i}, workspace, ${toString ws}"
-                "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-              ]
-            ) 9
+          builtins.genList (
+            i:
+            let
+              ws = i + 1;
+            in
+            [
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ]
+          ) 9
         ));
     };
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;

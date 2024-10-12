@@ -67,14 +67,15 @@
   };
 
   outputs =
-    inputs@{ self
-    , agenix
-    , home-manager
-    , nix-homebrew
-    , nixvim
-    , nixpkgs
-    , disko
-    , ...
+    inputs@{
+      self,
+      agenix,
+      home-manager,
+      nix-homebrew,
+      nixvim,
+      nixpkgs,
+      disko,
+      ...
     }:
     let
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;

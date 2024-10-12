@@ -1,9 +1,10 @@
-{ config
-, pkgs
-, git
-, lib
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  git,
+  lib,
+  inputs,
+  ...
 }:
 {
   imports = [
