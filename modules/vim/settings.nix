@@ -22,7 +22,7 @@
 
       # Indenting 
       shiftwidth = 2;
-      smartindent = true; 
+      smartindent = true;
       tabstop = 2;
 
       # Searching 

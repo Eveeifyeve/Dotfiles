@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }:
 let
   username = "eveeifyeve";
@@ -20,17 +19,17 @@ in
     softwareupdate --install-rosetta --agree-to-license
   '';
 
-	# Enable nix-darwin Paths. 
-	programs.zsh.enable = true;
+  # Enable nix-darwin Paths. 
+  programs.zsh.enable = true;
 
   homebrew = {
     enable = true;
     casks = [
       "homebrew/cask/docker"
-			"modrinth"
+      "modrinth"
       "element"
       "cloudflare-warp"
-			"logitech-g-hub"
+      "logitech-g-hub"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI

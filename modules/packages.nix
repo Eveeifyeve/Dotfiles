@@ -35,7 +35,7 @@ with pkgs;
   #   ];
   # }))
   btop
-	bytecode-viewer
+  bytecode-viewer
   ripgrep
   tree # File Sizes
 
@@ -78,7 +78,7 @@ with pkgs;
 
   # Git Utils/Ui's 
   lazygit
-	git-revise
+  git-revise
 
   # Fonts
   (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
