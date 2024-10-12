@@ -14,6 +14,8 @@ in
       jack.enable = true;
     };
     xserver.videoDrivers = [ "amdgpu" ];
+    displayManager.defaultSession = "hyprland";
+    dbus.enable = true;
   };
 
   hardware = {
