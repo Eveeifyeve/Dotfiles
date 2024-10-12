@@ -1,46 +1,45 @@
-{
-	lib,
-  pkgs,
-	config,
-	inputs,
-  ...
+{ lib
+, pkgs
+, config
+, inputs
+, ...
 }:
 {
   imports = [
     ./disk-config.nix
-		../../modules/nixos/games.nix
-		../../modules/nixos/desktop.nix { inherit pkgs inputs;}
+    ../../modules/nixos/games.nix
+    ../../modules/nixos/desktop.nix
   ];
-	boot.loader = {
-		efi.canTouchEfiVariables = true;
-		systemd-boot.enable = true;	
-	};
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
+  };
 
   services = {
-		openssh.enable = true;
-	};
+    openssh.enable = true;
+  };
 
-# Time
+  # Time
 
-	networking.timeServers = ["time.nist.gov" "time.windows.com"];
-	time.timeZone = "Australia/Sydney";
+  networking.timeServers = [ "time.nist.gov" "time.windows.com" ];
+  time.timeZone = "Australia/Sydney";
 
-	security.rtkit.enable = true;
+  security.rtkit.enable = true;
 
   users = {
-   mutableUsers = false;
-   users."eveeifyeve" = {
-    name = "eveeifyeve";
-    isNormalUser = true;
-    hashedPassword = "$y$j9T$9Zg/83oVXDFMkTw27K2d5/$1SqsLU1.RbN.bPYsRZxL39p.k6F2XGXvJ9Aeq0ad718";
-    shell = pkgs.zsh;
-    extraGroups = ["nixos-config" "wheel"];
-   };
+    mutableUsers = false;
+    users."eveeifyeve" = {
+      name = "eveeifyeve";
+      isNormalUser = true;
+      hashedPassword = "$y$j9T$9Zg/83oVXDFMkTw27K2d5/$1SqsLU1.RbN.bPYsRZxL39p.k6F2XGXvJ9Aeq0ad718";
+      shell = pkgs.zsh;
+      extraGroups = [ "nixos-config" "wheel" ];
+    };
   };
-	nixpkgs.config = {
-		allowUnfree = true;
-		nvidia.acceptLicense = true;
-	};
+  nixpkgs.config = {
+    allowUnfree = true;
+    nvidia.acceptLicense = true;
+  };
   programs.zsh.enable = true;
 
   users.users.root.openssh.authorizedKeys.keys = [
