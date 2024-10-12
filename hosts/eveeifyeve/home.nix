@@ -86,9 +86,9 @@ in
     rofi = {
       enable = true;
       theme = null;
-      extraConfig = ''
-        show-icons: true;
-      '';
+      extraConfig = {
+        show-icons = true;
+      };
     };
     waybar = {
       enable = true;
