@@ -26,8 +26,6 @@ in
       enable32Bit = true;
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
-
-      driSupport32Bit = true;
       package32 = hypr-unstable-pkgs.pkgsi8686Linux.mesa.drivers;
     };
     enableRedistributableFirmware = true;
