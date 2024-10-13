@@ -66,6 +66,7 @@ in
           "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           "$mod, T, exec, kitty"
           "$mod, C, killactive"
+          '', Print, exec, grim -g "$(slurp -d)" - | wl-copy''
         ]
         ++ (builtins.concatLists (
           builtins.genList (
@@ -173,6 +174,9 @@ in
         nautilus
         modrinth-app
         element
+        grim
+        slurp
+        wl-clipboard
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
