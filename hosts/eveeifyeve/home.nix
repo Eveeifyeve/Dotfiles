@@ -22,7 +22,7 @@ in
       variables = [ "--all" ];
     };
     settings = {
-      monitor = "eDP-1, 3840x2160@60, 0x0, 1, transform, 1, mirror, DP-2, bitdepth, 8";
+      monitor = "eDP-1, 2880x1800@90, 0x0, 1, transform, 1, mirror, DP-2, bitdepth, 10";
       decoration = {
         rounding = 10;
         active_opacity = 1.0;
@@ -80,7 +80,7 @@ in
           ) 9
         ));
     };
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   programs = {
