@@ -22,6 +22,7 @@ in
       variables = [ "--all" ];
     };
     settings = {
+      monitor = "eDP-1, 3840x2160@60, 0x0, 1, transform, 1, mirror, DP-2, bitdepth 8";
       decoration = {
         rounding = 10;
         active_opacity = 1.0;

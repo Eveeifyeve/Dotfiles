@@ -2,4 +2,7 @@
 /.pre-commit-config.yaml
 /result*
 ./result
+
+# direnv (shell)
+.direnv
 .envrc
