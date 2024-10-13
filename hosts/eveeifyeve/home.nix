@@ -22,7 +22,7 @@ in
       variables = [ "--all" ];
     };
     settings = {
-      monitor = "HDMI-A-1, 1920x1080@60, 0x0, 1, bitdepth, 8";
+      monitor = "HDMI-A-1, preferred, 0x0, 2, bitdepth, 8";
       decoration = {
         rounding = 10;
         active_opacity = 1.0;
