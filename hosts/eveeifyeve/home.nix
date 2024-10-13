@@ -22,7 +22,7 @@ in
       variables = [ "--all" ];
     };
     settings = {
-      monitor = "eDP-1, 2880x1800@90, 0x0, 1, transform, 1, mirror, DP-2, bitdepth, 10";
+      monitor = "eDP-1, 1920x1080@60, 0x0, 1, bitdepth, 8";
       decoration = {
         rounding = 10;
         active_opacity = 1.0;
