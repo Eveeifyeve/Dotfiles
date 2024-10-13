@@ -44,6 +44,7 @@ in
       #	};
 
       "$mod" = "SUPER";
+      "$shiftMod" = "SUPER SHIFT";
       # "$volumeControl" = builtins.readFile ./volume-control.sh;
       "exec-once" = [
         "wl-paste --type text --watch cliphist store"
@@ -70,13 +71,13 @@ in
         ]
         ++ (builtins.concatLists (
           builtins.genList (
-            i:
+            x:
             let
-              ws = i + 1;
+              ws = builtins.toString (x + 1);
             in
             [
-              "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+              "$mod, ${ws}, workspace, ${ws}"
+              "$shiftMod, ${ws}, movetoworkspace, ${toString ws}"
             ]
           ) 9
         ));
