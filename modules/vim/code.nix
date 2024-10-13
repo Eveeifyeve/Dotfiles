@@ -49,6 +49,7 @@
       # Highlighting
       treesitter = {
         enable = true;
+        folding = true;
       };
 
       # Formatter plugins

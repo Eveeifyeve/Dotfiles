@@ -28,6 +28,9 @@
       # Searching 
       hlsearch = false;
       incsearch = true;
+
+      # Folding 
+      foldlevel = 99;
     };
 
     globals = {
