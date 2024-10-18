@@ -22,7 +22,6 @@ in
     graphics = {
       package = hypr-unstable-pkgs.mesa.drivers;
       enable = true;
-
       enable32Bit = true;
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
@@ -35,8 +34,12 @@ in
   xdg.portal = {
     enable = true;
     config.common.default = "*";
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+    ];
   };
+
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
