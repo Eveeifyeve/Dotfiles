@@ -45,7 +45,9 @@ in
 
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER SHIFT";
-      # "$volumeControl" = builtins.readFile ./volume-control.sh;
+      "$volumeControl" = ''
+
+      '';
       "exec-once" = [
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -63,7 +65,7 @@ in
 
       bind =
         [
-          "$mod SHIFT, L, exec, rofi -show run"
+          "$mod, Space, exec, wofi --show drun -I"
           "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           "$mod, T, exec, kitty"
           "$mod, C, killactive"
@@ -86,12 +88,15 @@ in
   };
 
   programs = {
-    rofi = {
+    wofi = {
       enable = true;
-      theme = null;
-      extraConfig = {
-        show-icons = true;
+      settings = {
+        location = "center";
+        alow_markup = true;
+        height = 250;
       };
+      # Style it like catppucin 
+      style = null;
     };
     waybar = {
       enable = true;
