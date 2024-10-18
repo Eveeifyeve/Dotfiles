@@ -89,6 +89,8 @@ in
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
+  systemd.user.startServices = true;
+
   programs = {
     wofi = {
       enable = true;

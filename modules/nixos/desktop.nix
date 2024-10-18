@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 let
   hypr-unstable-pkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.system};
+  hyprpackages = inputs.hyprland.packages.${pkgs.system};
 in
 {
   services = {
@@ -16,6 +17,28 @@ in
     xserver.videoDrivers = [ "amdgpu" ];
     displayManager.defaultSession = "hyprland";
     dbus.enable = true;
+    greetd =
+      let
+        hyprland = "${hyprpackages.hyprland}";
+        tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+      in
+      {
+        enable = true;
+        settings = {
+          inital_session = {
+            command = hyprland;
+            user = "eveeifyeve";
+          };
+          default_session = {
+            command = ''
+              ${tuigreet} \
+              	--greeting "Wellcome to NixOS!" --asterisks --remember \
+              	--remember-user-session --time -cmd ${hyprland}
+            '';
+            user = "greeter";
+          };
+        };
+      };
   };
 
   hardware = {
@@ -36,14 +59,14 @@ in
     config.common.default = "*";
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+      hyprpackages.xdg-desktop-portal-hyprland
     ];
   };
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    package = hyprpackages.hyprland;
+    portalPackage = hyprpackages.xdg-desktop-portal-hyprland;
   };
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
