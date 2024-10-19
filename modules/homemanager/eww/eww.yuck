@@ -117,5 +117,6 @@
 						:width "47px")
 	:monitor 0
 	:stacking "fg"
+	:exclusive false
 (bar))
 
