@@ -65,8 +65,21 @@ in
         ", XF86AudioPrev, exec, playerctl previous"
       ];
 
+      # Window moving and resizing 
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
+
       bind =
         [
+          # Vim keybind to move windows
+          "$mod, H, movefocus, l"
+          "$mod, J, movefocus, d"
+          "$mod, K, movefocus, u"
+          "$mod, L, movefocus, r"
+        ]
+        ++ [
           "$mod, Space, exec, wofi --show drun -I"
           "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           "$mod, T, exec, kitty"
