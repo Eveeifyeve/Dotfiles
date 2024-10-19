@@ -5,8 +5,8 @@
 
 ;; Volume Widgets ;;
 (defwidget volum []
-	(eventbox :onhover "${eww} update volum=true" 		
-			  :onhoverlost "${eww} update volum=false"
+	(eventbox :onhover "eww update volum=true" 		
+			  :onhoverlost "eww update volum=false"
 	(box      :orientation "v" 	  
 			  :space-evenly "false" 
 			  :spacing "2"
@@ -37,16 +37,16 @@
 	(box	:orientation "v" 
 			:class "time" 
 			:valign "end"
-			:class "time-hour" hour)
-			:class "time-min"  min)))
+	(:class "time-hour" hour)
+	(:class "time-min"  min)
+	))
 (defpoll hour	:interval "1s"	"date '+%H'")
 (defpoll min	:interval "1s"	"date '+%M'")
 
-
 ;; Powermenu Widgets ;;
 (defwidget power []
-	(eventbox	:onhover "${eww} update power=true"	
-				:onhoverlost "${eww} update power=false" 
+	(eventbox	:onhover "eww update power=true"	
+				:onhoverlost "eww update power=false" 
 	(box		:orientation "v"					
 				:space-evenly "false" 	 
 				:vexpand "false" 	
