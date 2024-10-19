@@ -80,10 +80,14 @@ in
           "$mod, L, movefocus, r"
         ]
         ++ [
-          "$mod, Space, exec, wofi --show drun -I"
-          "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-          "$mod, T, exec, kitty"
+          "$mod, Q, exec, kitty"
           "$mod, C, killactive"
+          "$mod, E, exec, nautilus"
+          "$mod, V, togglefloating"
+          "$mod, Space, exec, wofi --show drun -I"
+          "$mod, P, pseudo"
+          "$mod, J, togglesplit"
+          "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           '', Print, exec, grim -g "$(slurp -d)" - | wl-copy''
         ]
         ++ (builtins.concatLists (
