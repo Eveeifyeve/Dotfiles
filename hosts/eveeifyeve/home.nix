@@ -46,9 +46,7 @@ in
 
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER SHIFT";
-      "$volumeControl" = ''
-
-      '';
+      "$volumeControl" = pkgs.writeShellScript;
       "exec-once" = [
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -181,30 +179,70 @@ in
     };
   };
 
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        lock_cmd = "hyprlock";
-        before_sleep_cmd = "hyprlock";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-      };
+  services = {
+    hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          lock_cmd = "hyprlock";
+          before_sleep_cmd = "hyprlock";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+        };
 
-      listener = [
-        {
-          timeout = 600;
-          on-timeout = "hyprlock";
+        listener = [
+          {
+            timeout = 600;
+            on-timeout = "hyprlock";
+          }
+          {
+            timeout = 900;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+          {
+            timeout = 1800;
+            on-timeout = "systemctl suspend";
+          }
+        ];
+      };
+    };
+    swaync = {
+      enable = true;
+      settings = {
+        positionX = "right";
+        positionY = "top";
+        layer = "overlay";
+        control-center-layer = "top";
+        layer-shell = true;
+        cssPriority = "application";
+        control-center-margin-top = 0;
+        control-center-margin-bottom = 0;
+        control-center-margin-right = 0;
+        control-center-margin-left = 0;
+        notification-2fa-action = true;
+        notification-inline-replies = false;
+        notification-icon-size = 64;
+        notification-body-image-height = 100;
+        notification-body-image-width = 200;
+      };
+      style = ''
+        .notification-row {
+          outline: none;
         }
-        {
-          timeout = 900;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
+
+        .notification-row:focus,
+        .notification-row:hover {
+          background: @noti-bg-focus;
         }
-        {
-          timeout = 1800;
-          on-timeout = "systemctl suspend";
+
+        .notification {
+          border-radius: 12px;
+          margin: 6px 12px;
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+            0 2px 6px 2px rgba(0, 0, 0, 0.3);
+          padding: 0;
         }
-      ];
+      '';
     };
   };
 
