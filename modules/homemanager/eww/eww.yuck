@@ -37,8 +37,8 @@
 	(box	:orientation "v" 
 			:class "time" 
 			:valign "end"
-	(:class "time-hour" hour)
-	(:class "time-min"  min)
+			(label :class "time-hour" hour)
+			(label :class "time-min"  min)
 	))
 (defpoll hour	:interval "1s"	"date '+%H'")
 (defpoll min	:interval "1s"	"date '+%M'")
