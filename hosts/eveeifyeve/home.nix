@@ -83,7 +83,7 @@ in
           "$mod, Q, exec, kitty"
           "$mod, C, killactive"
           "$mod, E, exec, nautilus"
-          "$mod, V, togglefloating"
+          "$mod, F, togglefloating"
           "$mod, Space, exec, wofi --show drun -I"
           "$mod, P, pseudo"
           "$mod, J, togglesplit"
