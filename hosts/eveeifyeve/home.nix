@@ -51,7 +51,7 @@ in
       "exec-once" = [
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "hyprlock"
+        "eww open bar"
       ];
 
       bindl = [
