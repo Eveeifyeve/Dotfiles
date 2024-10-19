@@ -13,6 +13,7 @@ in
   imports = [
     ../../modules/homemanager
     ../../modules/homemanager/terminal.nix
+    ../../modules/homemanager/eww.nix
     ../../modules/homemanager/git.nix
   ];
   wayland.windowManager.hyprland = {
@@ -46,7 +47,7 @@ in
 
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER SHIFT";
-      "$volumeControl" = pkgs.writeShellScript;
+      # "$volumeControl" = pkgs.writeShellScript;
       "exec-once" = [
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -116,27 +117,6 @@ in
       };
       # Style it like catppucin 
       style = null;
-    };
-    waybar = {
-      enable = true;
-      # TODO: Settings and style for waybar
-      settings = [ ];
-      style = ''
-        				* {
-        border: none;
-        				border-radius: 10px;
-        				}
-
-        			window#waybar {
-        background: rgba(22,22,28, 0.5);
-        color: #AAB2BF;
-        			}
-
-        #workspaces button {
-        padding: 0 5px;
-        }
-      '';
-      systemd.enable = true;
     };
     kitty = {
       enable = true;
@@ -299,6 +279,7 @@ in
         element-desktop
         grim
         slurp
+        libnotify
         wl-clipboard
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
