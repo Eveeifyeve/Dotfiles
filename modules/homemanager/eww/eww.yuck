@@ -116,8 +116,6 @@
 						:height "100%" 
 						:width "47px")
 	:monitor 0
-	:stacking "overlay"
-	:exclusive true
-	:focusable true
+	:stacking "fg"
 (bar))
 
