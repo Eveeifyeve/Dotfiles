@@ -5,6 +5,8 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nh_darwin.url = "github:ToyVo/nh_darwin";
+
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -67,30 +69,32 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      agenix,
-      home-manager,
-      nix-homebrew,
-      nixvim,
-      nixpkgs,
-      disko,
-      ...
-    }:
+    inputs@{ self, nixpkgs, ... }:
     let
-      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
+      forAllSystems =
+        f:
+        nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed (
+          system:
+          f {
+            pkgs = import nixpkgs { inherit system; };
+            inherit system;
+          }
+        );
     in
     {
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forAllSystems ({ pkgs, system }: pkgs.nixfmt-rfc-style);
 
-      checks = forAllSystems (system: {
-        pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {
-            nixfmt-rfc-style.enable = true;
+      checks = forAllSystems (
+        { pkgs, system }:
+        {
+          pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              nixfmt-rfc-style.enable = true;
+            };
           };
-        };
-      });
+        }
+      );
 
       # NixOS
       nixosConfigurations = {
@@ -100,11 +104,11 @@
             inherit inputs;
           };
           modules = [
-            disko.nixosModules.disko
-            nixvim.nixosModules.nixvim
+            inputs.disko.nixosModules.disko
+            inputs.nixvim.nixosModules.nixvim
             ./hosts/eveeifyeve
             ./modules/vim
-            home-manager.nixosModules.home-manager
+            inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
                 extraSpecialArgs = {
@@ -132,10 +136,11 @@
             inherit inputs;
           }; # Inputs are needed for homebrew
           modules = [
-            agenix.darwinModules.default
-            nixvim.nixDarwinModules.nixvim
-            nix-homebrew.darwinModules.nix-homebrew
-            home-manager.darwinModules.home-manager
+            inputs.nh_darwin.nixDarwinModules.default
+            inputs.agenix.darwinModules.default
+            inputs.nixvim.nixDarwinModules.nixvim
+            inputs.nix-homebrew.darwinModules.nix-homebrew
+            inputs.home-manager.darwinModules.home-manager
             {
               home-manager = {
                 extraSpecialArgs = {
@@ -157,12 +162,15 @@
         };
       };
 
-      devShells = forAllSystems (system: {
-        default = nixpkgs.legacyPackages.${system}.mkShell {
-          inherit (self.checks.${system}.pre-commit-check) shellHook;
-          buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
-        };
-      });
+      devShells = forAllSystems (
+        { pkgs, system }:
+        {
+          default = pkgs.mkShell {
+            inherit (self.checks.${system}.pre-commit-check) shellHook;
+            buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+          };
+        }
+      );
 
       # Nix Flake Templates for Shell Environments
       # https://github.com/Eveeifyeve/flake-templates
