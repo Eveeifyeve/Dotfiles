@@ -236,8 +236,8 @@ in
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkset";
+      name = "Adwaita-dark";
+      package = pkgs.gnome.gnome-themes-extra;
     };
     iconTheme = {
       package = pkgs.gnome.adwaita-icon-theme;
@@ -249,6 +249,7 @@ in
     };
   };
 
+  programs.mpv.enable = true;
   services.cliphist.enable = true;
 
   xdg.desktopEntries.vesktop = {
