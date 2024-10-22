@@ -31,6 +31,8 @@
       ]);
     shellAliases.nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
   };
+	programs.obs_studio.enable = true;
+	programs.nh.enable = true;
   nix = {
     settings.allowed-users = [
       "eveeifyeve"
