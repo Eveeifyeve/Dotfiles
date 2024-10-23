@@ -255,6 +255,7 @@ in
 
   services.cliphist.enable = true;
   services.amberol.enable = true;
+  services.mpd-discord-rpc.enable = true;
 
   dconf.settings."org/gnome/desktop/interface" = {
     color-scheme = "prefer-dark";
