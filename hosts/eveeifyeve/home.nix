@@ -256,6 +256,10 @@ in
   services.cliphist.enable = true;
   services.amberol.enable = true;
 
+  dconf.settings."org/gnome/desktop/interface" = {
+    color-scheme = "prefer-dark";
+  };
+
   xdg.desktopEntries.vesktop = {
     name = "Discord";
     exec = "${lib.getExe pkgs.vesktop} --enable-features=UseOzonePlatform --ozone-platform=wayland";
