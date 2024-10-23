@@ -34,7 +34,6 @@
       "flakes"
     ];
     warn-dirty = false;
-    sandbox = true;
   };
   nixpkgs.config = {
     allowUnfree = true;
