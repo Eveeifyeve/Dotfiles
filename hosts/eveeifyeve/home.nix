@@ -224,7 +224,10 @@ in
         }
       '';
     };
-    lorri.enable = true;
+    lorri = {
+      enable = true;
+      enableNotifications = true;
+    };
   };
 
   home.pointerCursor = {
