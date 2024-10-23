@@ -224,6 +224,7 @@ in
         }
       '';
     };
+    lorri.enable = true;
   };
 
   home.pointerCursor = {
