@@ -254,6 +254,7 @@ in
   };
 
   services.cliphist.enable = true;
+  services.amberol.enable = true;
 
   xdg.desktopEntries.vesktop = {
     name = "Discord";
@@ -279,7 +280,6 @@ in
         pavucontrol
         playerctl
         nautilus
-        amberol
         modrinth-app
         element-desktop
         grim
