@@ -253,7 +253,6 @@ in
     };
   };
 
-  programs.mpv.enable = true;
   services.cliphist.enable = true;
 
   xdg.desktopEntries.vesktop = {
@@ -280,6 +279,7 @@ in
         pavucontrol
         playerctl
         nautilus
+        amberol
         modrinth-app
         element-desktop
         grim
