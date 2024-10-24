@@ -6,8 +6,9 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nh_darwin.url = "github:ToyVo/nh_darwin";
-
+    zen_browser_nixpkgs.url = "github:matthewpi/nixpkgs/zen-browser";
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

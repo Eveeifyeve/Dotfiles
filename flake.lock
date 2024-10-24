@@ -1893,7 +1893,8 @@
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_11",
         "nixvim": "nixvim",
-        "pre-commit-hooks": "pre-commit-hooks_5"
+        "pre-commit-hooks": "pre-commit-hooks_5",
+        "zen_browser_nixpkgs": "zen_browser_nixpkgs"
       }
     },
     "rust-overlay": {
@@ -2111,6 +2112,22 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
+        "type": "github"
+      }
+    },
+    "zen_browser_nixpkgs": {
+      "locked": {
+        "lastModified": 1729379018,
+        "narHash": "sha256-lyGz9ul5QzJ40tUNXlHyvVowz3tbCgUPdfoi6ogq+DY=",
+        "owner": "matthewpi",
+        "repo": "nixpkgs",
+        "rev": "d607bf5d03a31601893680192c85eec359649ea2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "matthewpi",
+        "ref": "zen-browser",
+        "repo": "nixpkgs",
         "type": "github"
       }
     }

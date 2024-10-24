@@ -291,6 +291,7 @@ in
         slurp
         libnotify
         wl-clipboard
+        inputs.zen_browser_nixpkgs.zen-browser
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
