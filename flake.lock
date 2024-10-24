@@ -2119,14 +2119,14 @@
       "locked": {
         "lastModified": 1729379018,
         "narHash": "sha256-lyGz9ul5QzJ40tUNXlHyvVowz3tbCgUPdfoi6ogq+DY=",
-        "owner": "matthewpi",
+        "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "d607bf5d03a31601893680192c85eec359649ea2",
         "type": "github"
       },
       "original": {
-        "owner": "matthewpi",
-        "ref": "zen-browser",
+        "owner": "NixOS",
+        "ref": "pull/347222/head",
         "repo": "nixpkgs",
         "type": "github"
       }
