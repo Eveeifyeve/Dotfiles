@@ -279,6 +279,7 @@ in
     stateVersion = "24.05";
     packages =
       pkgs.callPackage ../../modules/packages.nix { }
+      ++ inputs.zen_browser_nixpkgs.zen-browser
       ++ (with pkgs; [
         pciutils
         firefox
@@ -291,7 +292,6 @@ in
         slurp
         libnotify
         wl-clipboard
-        inputs.zen_browser_nixpkgs.zen-browser
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
