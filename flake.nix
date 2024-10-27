@@ -1,30 +1,66 @@
 {
   description = "Eveeifyeve Nix/NixOS Configuration";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nh_darwin.url = "github:ToyVo/nh_darwin";
+    zen_browser_nixpkgs.url = "github:NixOS/nixpkgs/pull/347222/head";
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # HyprLand 
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    # Eveeifyeve Usefull Resources.
+    curseforge-nix = {
+      url = "github:eveeifyeve/curseforge-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    eveeifyeve-flake-templates = {
+      url = "github:Eveeifyeve/flake-templates";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Vim
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Secrets
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Home Brew
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
     homebrew-cask-versions = {
@@ -34,73 +70,111 @@
   };
 
   outputs =
-    inputs@{ self, ... }:
+    inputs@{ self, nixpkgs, ... }:
     let
-      username = "eveeifyeve";
-      email = "eveeg1971@gmail.com";
-      hostPlatform = "aarch64-darwin";
+      forAllSystems =
+        f:
+        nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed (
+          system:
+          f {
+            pkgs = import nixpkgs { inherit system; };
+            inherit system;
+          }
+        );
     in
     {
-      formatter.${hostPlatform} = inputs.nixpkgs.legacyPackages.${hostPlatform}.nixfmt-rfc-style;
+      formatter = forAllSystems ({ pkgs, system }: pkgs.nixfmt-rfc-style);
 
-      # Nix on Darwin with Nix-Darwin x HM
-      darwinConfigurations = {
-        "eveeifyeve-macbook" = inputs.nix-darwin.lib.darwinSystem {
+      checks = forAllSystems (
+        { pkgs, system }:
+        {
+          pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              nixfmt-rfc-style.enable = true;
+            };
+          };
+        }
+      );
+
+      # NixOS
+      nixosConfigurations = {
+        eveeifyeve = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
           specialArgs = {
-            inherit username hostPlatform;
-            inherit (inputs) homebrew-cask homebrew-cask-versions homebrew-core;
+            inherit inputs;
           };
           modules = [
-            ./hosts/macos/darwin.nix
-            inputs.agenix.darwinModules.default
-            inputs.home-manager.darwinModules.home-manager
+            inputs.disko.nixosModules.disko
+            inputs.nixvim.nixosModules.nixvim
+            ./hosts/eveeifyeve
+            ./modules/vim
+            inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
                 extraSpecialArgs = {
-                  inherit email username;
+                  git = {
+                    username = "eveeifyeve";
+                    email = "88671402+Eveeifyeve@users.noreply.github.com";
+                  };
+                  inherit inputs;
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users."${username}".imports = [ ./hosts/macos/home.nix ];
+                backupFileExtension = "backup";
+                users.eveeifyeve = import ./hosts/eveeifyeve/home.nix;
               };
-            }
-            inputs.nix-homebrew.darwinModules.nix-homebrew
-            { imports = [ ./modules/homebrew.nix ]; }
-            inputs.nixvim.nixDarwinModules.nixvim
-            {
-              programs.nixvim.enable = true;
-              imports = [ ./modules/vim/plugs.nix ];
             }
           ];
         };
       };
 
-      # Nix Flake Templates
-      templates = {
-        node = {
-          path = ./flakes/node;
-          description = "Template for setting up a Node.js project";
-        };
-        rust = {
-          path = ./flakes/rust;
-          description = "Template for setting up a Rust project";
-        };
-        java = {
-          path = ./flakes/java;
-          description = "Template for setting up a Java project";
-        };
-        python = {
-          path = ./flakes/python;
-          description = "Template for setting up a Python project";
-        };
-        tauri = {
-          path = ./flakes/tauri;
-          description = "Template for setting up a Tauri project";
-        };
-        kotlin = {
-          path = ./flakes/kotlin;
-          description = "Template for setting up a Kotlin project";
+      # Nix on Darwin with Nix-Darwin x HM
+      darwinConfigurations = {
+        eveeifyeve-macbook = inputs.nix-darwin.lib.darwinSystem {
+          # system = "aarch64-darwin";
+          specialArgs = {
+            inherit inputs;
+          }; # Inputs are needed for homebrew
+          modules = [
+            inputs.nh_darwin.nixDarwinModules.default
+            inputs.agenix.darwinModules.default
+            inputs.nixvim.nixDarwinModules.nixvim
+            inputs.nix-homebrew.darwinModules.nix-homebrew
+            inputs.home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = {
+                  git = {
+                    username = "eveeifyeve";
+                    email = "88671402+Eveeifyeve@users.noreply.github.com";
+                  };
+                  inherit inputs;
+                };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.eveeifyeve = import ./hosts/eveeifyeve-mac/home.nix;
+              };
+            }
+            ./hosts/eveeifyeve-mac
+            ./modules/vim
+            ./modules/homebrew.nix
+          ];
         };
       };
+
+      devShells = forAllSystems (
+        { pkgs, system }:
+        {
+          default = pkgs.mkShell {
+            inherit (self.checks.${system}.pre-commit-check) shellHook;
+            buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+          };
+        }
+      );
+
+      # Nix Flake Templates for Shell Environments
+      # https://github.com/Eveeifyeve/flake-templates
+      templates = inputs.eveeifyeve-flake-templates.templates;
     };
 }

@@ -1,0 +1,43 @@
+name: update-nix
+on:
+  schedule:
+    - cron: '0 5 * * *' # run at 5 AM UTC
+  workflow_dispatch:
+
+permissions: write-all
+
+env:
+  #TODO: On pr to main please change this.
+  OUT_BRANCH: "master"
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Branch
+        run: echo "BRANCH_NAME=update-nix-$(date +'%Y-%m-%d')" >> $GITHUB_ENV 
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v30
+
+      - name: Configure git
+        run: |
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git branch ${{ env.BRANCH_NAME }}
+          git checkout ${{ env.BRANCH_NAME }}
+          git push --set-upstream origin ${{ env.BRANCH_NAME }}  
+
+      - name: Update Flake 
+        shell: bash
+        run: nix flake update 
+
+      - name: Commit 
+        run: |
+          git add . 
+          git commit -m "chore: updated flake"
+          git push
+      
+      - name: Make a PR
+        run: gh pr create -B ${{env.OUT_BRANCH}} -H ${{env.BRANCH_NAME}} --title "Update flake lock" --body-file .github/UPDATE_NIX_BODY.md 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,21 +1,16 @@
-{
-  homebrew-cask,
-  homebrew-core,
-  homebrew-cask-versions,
-  username,
-  ...
-}:
+{ inputs, ... }:
 {
   nix-homebrew = {
-    user = "${username}";
+    user = "eveeifyeve";
     enable = true;
-    enableRosetta = false;
+    enableRosetta = true;
     taps = {
-      "homebrew/homebrew-core" = homebrew-core;
-      "homebrew/homebrew-cask" = homebrew-cask;
-      "homebrew/homebrew-cask-versions" = homebrew-cask-versions;
+      "homebrew/homebrew-core" = inputs.homebrew-core;
+      "homebrew/homebrew-cask" = inputs.homebrew-cask;
+      "homebrew/bundle" = inputs.homebrew-bundle;
+      "homebrew/homebrew-cask-versions" = inputs.homebrew-cask-versions;
     };
     mutableTaps = false;
-    autoMigrate = false; # Already have homebrew use this to migrate to the nix version.
+    autoMigrate = false;
   };
 }
