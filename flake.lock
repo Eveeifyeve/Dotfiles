@@ -76,16 +76,16 @@
     "cachix": {
       "inputs": {
         "devenv": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix"
         ],
         "flake-compat": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix"
         ],
         "nixpkgs": "nixpkgs_2",
         "pre-commit-hooks": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix"
         ]
       },
@@ -107,18 +107,18 @@
     "cachix_2": {
       "inputs": {
         "devenv": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable"
         ],
         "flake-compat": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable"
         ],
         "nixpkgs": "nixpkgs_3",
         "pre-commit-hooks": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable"
         ]
@@ -141,20 +141,20 @@
     "cachix_3": {
       "inputs": {
         "devenv": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable"
         ],
         "flake-compat": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable"
         ],
         "nixpkgs": "nixpkgs_4",
         "pre-commit-hooks": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable"
@@ -319,7 +319,7 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -344,7 +344,7 @@
       "inputs": {
         "flake-utils": "flake-utils_3",
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "nixpkgs"
@@ -368,7 +368,7 @@
       "inputs": {
         "flake-utils": "flake-utils_4",
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "nixpkgs"
         ]
@@ -390,7 +390,7 @@
     "devshell_4": {
       "inputs": {
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "nixpkgs"
         ]
       },
@@ -578,7 +578,7 @@
     "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -602,7 +602,7 @@
     "flake-parts_3": {
       "inputs": {
         "nixpkgs-lib": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "nixpkgs"
@@ -625,7 +625,7 @@
     "flake-parts_4": {
       "inputs": {
         "nixpkgs-lib": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "nixpkgs"
         ]
@@ -647,7 +647,7 @@
     "flake-parts_5": {
       "inputs": {
         "nixpkgs-lib": [
-          "nh_darwin",
+          "nh-darwin",
           "nixpkgs"
         ]
       },
@@ -867,7 +867,7 @@
     "gitignore_2": {
       "inputs": {
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -892,7 +892,7 @@
     "gitignore_3": {
       "inputs": {
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "pre-commit-hooks",
@@ -916,7 +916,7 @@
     "gitignore_4": {
       "inputs": {
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "pre-commit-hooks",
           "nixpkgs"
@@ -1325,7 +1325,7 @@
         "type": "github"
       }
     },
-    "nh_darwin": {
+    "nh-darwin": {
       "inputs": {
         "crate2nix": "crate2nix",
         "devshell": "devshell_4",
@@ -1777,7 +1777,7 @@
     "pre-commit-hooks_2": {
       "inputs": {
         "flake-compat": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -1785,14 +1785,14 @@
         ],
         "gitignore": "gitignore_2",
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -1816,20 +1816,20 @@
     "pre-commit-hooks_3": {
       "inputs": {
         "flake-compat": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "flake-compat"
         ],
         "gitignore": "gitignore_3",
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "crate2nix_stable",
           "nixpkgs"
@@ -1852,19 +1852,19 @@
     "pre-commit-hooks_4": {
       "inputs": {
         "flake-compat": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "flake-compat"
         ],
         "flake-utils": "flake-utils_5",
         "gitignore": "gitignore_4",
         "nixpkgs": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "nh_darwin",
+          "nh-darwin",
           "crate2nix",
           "nixpkgs"
         ]
@@ -1917,7 +1917,7 @@
         "homebrew-core": "homebrew-core",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
-        "nh_darwin": "nh_darwin",
+        "nh-darwin": "nh-darwin",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_11",

@@ -5,7 +5,7 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nh_darwin.url = "github:ToyVo/nh_darwin";
+    nh-darwin.url = "github:ToyVo/nh_darwin";
     zen_browser_nixpkgs.url = "github:NixOS/nixpkgs/pull/347222/head";
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
 
@@ -137,7 +137,7 @@
             inherit inputs;
           }; # Inputs are needed for homebrew
           modules = [
-            inputs.nh_darwin.nixDarwinModules.default
+            inputs.nh-darwin.nixDarwinModules.prebuiltin
             inputs.agenix.darwinModules.default
             inputs.nixvim.nixDarwinModules.nixvim
             inputs.nix-homebrew.darwinModules.nix-homebrew
