@@ -291,6 +291,7 @@ in
         slurp
         libnotify
         wl-clipboard
+        wl-screenrec
       ])
       ++ [
         # inputs.zen_browser_nixpkgs.legacyPackages.${pkgs.system}.zen-browser
