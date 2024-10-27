@@ -8,7 +8,7 @@ permissions: write-all
 
 env:
   #TODO: On pr to main please change this.
-  OUT_BRANCH: "feat/improve-conf"
+  OUT_BRANCH: "master"
 
 jobs:
   lockfile:
