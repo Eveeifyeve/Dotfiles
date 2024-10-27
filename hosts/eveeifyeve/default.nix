@@ -10,6 +10,7 @@
     ./disk-config.nix
     ../../modules/nixos/games.nix
     ../../modules/nixos/desktop.nix
+    ../../modules/nixos/nh.nix
   ];
   boot.loader = {
     efi.canTouchEfiVariables = true;

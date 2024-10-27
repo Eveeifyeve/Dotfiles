@@ -158,6 +158,7 @@
             }
             ./hosts/eveeifyeve-mac
             ./modules/vim
+            ./modules/nix-darwin/nh.nix
             ./modules/homebrew.nix
           ];
         };
