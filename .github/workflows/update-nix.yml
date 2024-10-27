@@ -1,7 +1,7 @@
 name: update-nix
 on:
   schedule:
-    - cron: "0 5 * * *" # 5 am UTC
+    - cron: '0 5 * * *' # run at 5 AM UTC
   workflow_dispatch:
 
 permissions: write-all
