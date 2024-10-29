@@ -107,6 +107,7 @@
           modules = [
             inputs.disko.nixosModules.disko
             inputs.nixvim.nixosModules.nixvim
+            inputs.agenix.nixosModules.default
             ./hosts/eveeifyeve
             ./modules/vim
             inputs.home-manager.nixosModules.home-manager

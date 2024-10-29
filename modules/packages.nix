@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 let
   apc-extension = pkgs.fetchFromGitHub {
     owner = "drcika";
@@ -79,6 +84,9 @@ with pkgs;
   # Git Utils/Ui's 
   lazygit
   git-revise
+
+  # Secrets
+  inputs.agenix.packages."${system}".default
 
   # Fonts
   (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

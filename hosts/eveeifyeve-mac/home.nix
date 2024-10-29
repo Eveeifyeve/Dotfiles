@@ -19,7 +19,6 @@
     packages =
       pkgs.callPackage ../../modules/packages.nix { }
       ++ (with pkgs; [
-        inputs.agenix.packages."${system}".default
         mas
         aldente
         bartender
