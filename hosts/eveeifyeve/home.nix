@@ -262,7 +262,7 @@ in
   };
 
   xdg.desktopEntries.vesktop = {
-    name = "Discord";
+    name = "discord";
     exec = "${lib.getExe pkgs.vesktop} --enable-features=UseOzonePlatform --ozone-platform=wayland";
     icon = "discord";
     terminal = false;
@@ -278,7 +278,7 @@ in
     username = "eveeifyeve";
     stateVersion = "24.05";
     packages =
-      pkgs.callPackage ../../modules/packages.nix { }
+      pkgs.callPackage ../../modules/packages.nix { inherit inputs; }
       ++ (with pkgs; [
         pciutils
         firefox
