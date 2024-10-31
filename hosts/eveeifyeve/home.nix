@@ -287,7 +287,6 @@ in
         pavucontrol
         playerctl
         nautilus
-        modrinth-app
         element-desktop
         grim
         slurp
