@@ -40,8 +40,7 @@ with pkgs;
   #   ];
   # }))
 
-  #TODO: Removed this once skeditor is in nixpkgs-unstable
-  (callPackage ../custom-pkgs/skeditor.nix { })
+  skeditor
   btop
   bytecode-viewer
   ripgrep
