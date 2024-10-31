@@ -30,18 +30,8 @@
       ]);
     shellAliases.nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
   };
-  nix = {
-    settings.allowed-users = [
-      "eveeifyeve"
-      "root"
-    ];
-    gc = {
-      automatic = true;
-      frequency = "daily";
-      options = "--delete-older-than 30d";
-    };
-    extraOptions = ''
-      auto-optimise-store = true
-    '';
-  };
+  nix.settings.allowed-users = [
+    "eveeifyeve"
+    "root"
+  ];
 }

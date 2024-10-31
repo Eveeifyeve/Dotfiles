@@ -47,7 +47,6 @@ in
 
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER SHIFT";
-      # "$volumeControl" = pkgs.writeShellScript;
       "exec-once" = [
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -55,9 +54,12 @@ in
       ];
 
       bindl = [
-        # ", XF86AudioMute, exec, $volumeControl -o "
-        # ", XF86AudioLowerVolume, exec, $volumeControl -o d"
-        # ", XF86AudioRaiseVolume, exec, $volumeControl -o i"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%- -l 1.0"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+ -l 1.0"
+        "SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+        "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%-"
+        "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPause, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
@@ -206,23 +208,23 @@ in
         notification-body-image-width = 200;
       };
       style = ''
-        .notification-row {
-          outline: none;
-        }
+        				.notification-row {
+        outline: none;
+        				}
 
-        .notification-row:focus,
-        .notification-row:hover {
-          background: @noti-bg-focus;
-        }
+        			.notification-row:focus,
+        				.notification-row:hover {
+        background: @noti-bg-focus;
+        				}
 
-        .notification {
-          border-radius: 12px;
-          margin: 6px 12px;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
-            0 2px 6px 2px rgba(0, 0, 0, 0.3);
-          padding: 0;
-        }
-      '';
+        			.notification {
+        				border-radius: 12px;
+        margin: 6px 12px;
+        				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+        					0 2px 6px 2px rgba(0, 0, 0, 0.3);
+        padding: 0;
+        			}
+        			'';
     };
     lorri = {
       enable = true;
@@ -232,20 +234,20 @@ in
 
   home.pointerCursor = {
     gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
+    package = pkgs.rose-pine-cursor;
+    name = "BreezeX-RosePine-Linux";
     size = 16;
   };
 
   gtk = {
     enable = true;
     theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome.gnome-themes-extra;
+      name = "rose-pine";
+      package = pkgs.rose-pine-gtk-theme;
     };
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.rose-pine-icon-theme;
+      name = "rose-pine";
     };
     font = {
       name = "Sans";

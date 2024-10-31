@@ -3,7 +3,9 @@
   programs.nh = {
     enable = true;
     clean = {
-      enable = false; # TODO:Enable this when switching over from gc
+      enable = true;
+      dates = "weekly";
+      extraArgs = "--keep 5 --keep-since 3d";
     };
   };
 }

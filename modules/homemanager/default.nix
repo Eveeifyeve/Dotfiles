@@ -33,6 +33,7 @@
       "nix-command"
       "flakes"
     ];
+    auto-optimise-store = true;
     warn-dirty = false;
   };
   nixpkgs.config = {
