@@ -71,6 +71,7 @@ with pkgs;
 
   # Minecraft
   prismlauncher-unwrapped
+  # modrinth-app
 
   # Video/Photo/Graphic Editingc
   gimp
