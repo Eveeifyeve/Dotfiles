@@ -11,6 +11,7 @@
     ../../modules/nixos/games.nix
     ../../modules/nixos/desktop.nix
     ../../modules/nixos/nh.nix
+    ../../modules/stylix.nix
   ];
   boot.loader = {
     efi.canTouchEfiVariables = true;

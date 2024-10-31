@@ -8,6 +8,7 @@
     nh-darwin.url = "github:ToyVo/nh_darwin";
     zen_browser_nixpkgs.url = "github:NixOS/nixpkgs/pull/347222/head";
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    stylix.url = "github:danth/stylix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -108,6 +109,7 @@
             inputs.disko.nixosModules.disko
             inputs.nixvim.nixosModules.nixvim
             inputs.agenix.nixosModules.default
+            inputs.stylix.nixosModules.stylix
             ./hosts/eveeifyeve
             ./modules/vim
             inputs.home-manager.nixosModules.home-manager
@@ -143,6 +145,7 @@
             inputs.nixvim.nixDarwinModules.nixvim
             inputs.nix-homebrew.darwinModules.nix-homebrew
             inputs.home-manager.darwinModules.home-manager
+            inputs.stylix.darwinModules.stylix
             {
               home-manager = {
                 extraSpecialArgs = {

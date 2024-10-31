@@ -117,12 +117,9 @@ in
         alow_markup = true;
         height = 250;
       };
-      # Style it like catppucin 
-      style = null;
     };
     kitty = {
       enable = true;
-      themeFile = "Catppuccin-Mocha";
       shellIntegration.enableZshIntegration = true;
     };
     hyprlock = {
@@ -188,43 +185,17 @@ in
         ];
       };
     };
-    swaync = {
+    dunst = {
       enable = true;
       settings = {
-        positionX = "right";
-        positionY = "top";
-        layer = "overlay";
-        control-center-layer = "top";
-        layer-shell = true;
-        cssPriority = "application";
-        control-center-margin-top = 0;
-        control-center-margin-bottom = 0;
-        control-center-margin-right = 0;
-        control-center-margin-left = 0;
-        notification-2fa-action = true;
-        notification-inline-replies = false;
-        notification-icon-size = 64;
-        notification-body-image-height = 100;
-        notification-body-image-width = 200;
+        global = {
+          width = 400;
+          height = 300;
+          offset = "20x40";
+          origin = "top-right";
+          transparency = 10;
+        };
       };
-      style = ''
-        				.notification-row {
-        outline: none;
-        				}
-
-        			.notification-row:focus,
-        				.notification-row:hover {
-        background: @noti-bg-focus;
-        				}
-
-        			.notification {
-        				border-radius: 12px;
-        margin: 6px 12px;
-        				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
-        					0 2px 6px 2px rgba(0, 0, 0, 0.3);
-        padding: 0;
-        			}
-        			'';
     };
     lorri = {
       enable = true;
@@ -232,36 +203,14 @@ in
     };
   };
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.rose-pine-cursor;
-    name = "BreezeX-RosePine-Linux";
-    size = 16;
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-gtk-theme;
-    };
-    iconTheme = {
-      package = pkgs.rose-pine-icon-theme;
-      name = "rose-pine";
-    };
-    font = {
-      name = "Sans";
-      size = 11;
-    };
+  gtk.iconTheme = {
+    package = pkgs.rose-pine-icon-theme;
+    name = "rose-pine";
   };
 
   services.cliphist.enable = true;
   services.amberol.enable = true;
   services.mpd-discord-rpc.enable = true;
-
-  dconf.settings."org/gnome/desktop/interface" = {
-    color-scheme = "prefer-dark";
-  };
 
   xdg.desktopEntries.vesktop = {
     name = "discord";
@@ -276,6 +225,8 @@ in
     ];
   };
 
+  programs.firefox.enable = true;
+
   home = {
     username = "eveeifyeve";
     stateVersion = "24.05";
@@ -283,7 +234,6 @@ in
       pkgs.callPackage ../packages.nix { inherit inputs; }
       ++ (with pkgs; [
         pciutils
-        firefox
         pavucontrol
         playerctl
         nautilus
