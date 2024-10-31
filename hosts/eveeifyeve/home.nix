@@ -280,7 +280,7 @@ in
     username = "eveeifyeve";
     stateVersion = "24.05";
     packages =
-      pkgs.callPackage ../../modules/packages.nix { inherit inputs; }
+      pkgs.callPackage ../packages.nix { inherit inputs; }
       ++ (with pkgs; [
         pciutils
         firefox

@@ -17,7 +17,7 @@
     stateVersion = "24.05";
     homeDirectory = "/Users/${config.home.username}";
     packages =
-      pkgs.callPackage ../../modules/packages.nix { inherit inputs; }
+      pkgs.callPackage ../packages.nix { inherit inputs; }
       ++ (with pkgs; [
         mas
         aldente
