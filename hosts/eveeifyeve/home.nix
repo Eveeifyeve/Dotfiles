@@ -54,12 +54,12 @@ in
       ];
 
       bindl = [
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%- -l 1.0"
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+ -l 1.0"
-        "SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-        "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%-"
-        "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+"
+        ", XF86AudioMute, exec, hyprvolume mute-volume --select output"
+        ", XF86AudioLowerVolume, exec, hyprvolume set-volume --select output --volume 5%-"
+        ", XF86AudioRaiseVolume, exec, hyprvolume set-volume --select output --volume 5%+"
+        "SHIFT, XF86AudioMute, exec, hyprvolume mute-volume --select input"
+        "SHIFT, XF86AudioLowerVolume, exec, hyprvolume set-volume --select input --volume 5%-"
+        "SHIFT, XF86AudioRaiseVolume, exec, hyprvolume set-volume --select input --volume 5%+"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPause, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
@@ -295,6 +295,7 @@ in
         wl-screenrec
       ])
       ++ [
+        inputs.hyprvolume.packages.${pkgs.system}.default
         # inputs.zen_browser_nixpkgs.legacyPackages.${pkgs.system}.zen-browser
       ];
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";

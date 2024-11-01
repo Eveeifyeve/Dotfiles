@@ -33,6 +33,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprvolume = {
+      url = "github:eveeifyeve/hyprvolume";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     eveeifyeve-flake-templates = {
       url = "github:Eveeifyeve/flake-templates";
       inputs.nixpkgs.follows = "nixpkgs";
