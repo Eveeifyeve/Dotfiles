@@ -70,7 +70,7 @@ with pkgs;
   tor
 
   # Minecraft
-  prismlauncher-unwrapped
+  prismlauncher
   # modrinth-app
 
   # Video/Photo/Graphic Editingc
