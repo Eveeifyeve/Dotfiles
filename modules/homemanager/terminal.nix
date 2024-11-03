@@ -15,8 +15,10 @@
                             fi
         	'';
     };
+    nushell.enable = true;
     tmux = {
       enable = true;
+      shell = "${pkgs.nushell}/bin/nushell";
       plugins = with pkgs; [
         {
           plugin = tmuxPlugins.catppuccin;
