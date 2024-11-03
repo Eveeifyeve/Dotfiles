@@ -120,7 +120,6 @@ in
     };
     kitty = {
       enable = true;
-      shellIntegration.enableZshIntegration = true;
     };
     hyprlock = {
       enable = true;
@@ -226,7 +225,6 @@ in
   };
 
   programs.firefox.enable = true;
-
   home = {
     username = "eveeifyeve";
     stateVersion = "24.05";

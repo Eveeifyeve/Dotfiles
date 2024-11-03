@@ -38,7 +38,7 @@
       name = "eveeifyeve";
       isNormalUser = true;
       hashedPassword = "$y$j9T$9Zg/83oVXDFMkTw27K2d5/$1SqsLU1.RbN.bPYsRZxL39p.k6F2XGXvJ9Aeq0ad718";
-      shell = pkgs.zsh;
+      shell = pkgs.nushell;
       extraGroups = [
         "nixos-config"
         "wheel"
@@ -48,7 +48,6 @@
       ];
     };
   };
-  programs.zsh.enable = true;
   #TODO: Remove this and use suggested roadmap
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05";
