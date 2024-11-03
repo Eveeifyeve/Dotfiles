@@ -225,6 +225,7 @@ in
   };
 
   programs.firefox.enable = true;
+  programs.obs-studio.enable = true;
   home = {
     username = "eveeifyeve";
     stateVersion = "24.05";
