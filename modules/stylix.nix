@@ -4,7 +4,7 @@ let
     catppucin = {
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       cursor = {
-        name = "rose-pine";
+        name = "BreezeX-RosePine-Linux";
         package = pkgs.rose-pine-cursor;
       };
       wallpapers = {
