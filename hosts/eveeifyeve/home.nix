@@ -35,10 +35,10 @@ in
         shadow_render_power = 3;
 
         blur = {
-          enabled = true;
-          size = 3;
-          passes = 1;
-          vibrancy = 0.1696;
+          enabled = false;
+          #  size = 3;
+          #  passes = 1;
+          #  vibrancy = 0.1696;
         };
       };
       #	animation = {
