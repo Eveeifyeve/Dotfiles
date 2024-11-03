@@ -47,12 +47,8 @@ with pkgs;
   tree # File Sizes
 
   # Command Line Proccesors 
-  eza
-  jaq # Faster version of jq
-  jq # Sometimes jaq doesn't work so I use jq
   bat # Better cat
   ripgrep
-  gnused
   gawk
   fzf # Fuzzy Finder
 
