@@ -3,7 +3,6 @@ let
   username = "eveeifyeve";
 in
 {
-  imports = [ ../../modules/stylix.nix ];
   users.users.${username} = {
     name = username;
     home = "/Users/${username}";

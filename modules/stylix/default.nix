@@ -20,12 +20,13 @@ let
     };
     #TODO: Add more themes here
   };
+  theme = themes.catppucin;
 in
 {
   stylix = {
     enable = true;
     polarity = "dark";
-    image = themes.catppucin.wallpapers.byrotek;
-    inherit (themes.catppucin) cursor base16Scheme;
+    image = theme.wallpapers.byrotek;
+    inherit (theme) cursor base16Scheme;
   };
 }
