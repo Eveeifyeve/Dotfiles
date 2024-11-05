@@ -292,7 +292,7 @@ in
         slurp
         libnotify
         wl-clipboard
-        wl-screenrec
+        # wl-screenrec
       ])
       ++ [
         inputs.hyprvolume.packages.${pkgs.system}.default
