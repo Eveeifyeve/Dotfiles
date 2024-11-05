@@ -21,14 +21,6 @@
       shell = "${pkgs.nushell}/bin/nushell";
       plugins = with pkgs; [
         {
-          plugin = tmuxPlugins.catppuccin;
-          extraConfig = ''
-            set -g @catppuccin_flavour 'mocha'
-            set -g @catppuccin_window_tabs_enabled on
-            set -g @catppuccin_date_time "%H:%M"
-          '';
-        }
-        {
           plugin = tmuxPlugins.resurrect;
           extraConfig = ''
             set -g @resurrect-strategy-nvim 'session'
