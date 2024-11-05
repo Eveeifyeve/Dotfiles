@@ -16,7 +16,7 @@ with pkgs;
 [
   # Development Tools 
   # vscode
-  # jetbrains.idea-community
+  jetbrains.idea-community # For java colab
 
   # (vscode.overrideAttrs (attrs: {
   #   postInstall = ''
