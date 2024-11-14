@@ -6,7 +6,7 @@ in
   users.users.${username} = {
     name = username;
     home = "/Users/${username}";
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
@@ -15,9 +15,6 @@ in
   system.activationScripts.extraActivation.text = ''
     softwareupdate --install-rosetta --agree-to-license
   '';
-
-  # Enable nix-darwin Paths. 
-  programs.zsh.enable = true;
 
   homebrew = {
     enable = true;
@@ -50,9 +47,5 @@ in
       }
     ];
     options = "--delete-older-than 14d";
-  };
-
-  environment = {
-    loginShell = pkgs.zsh;
   };
 }
