@@ -31,9 +31,15 @@
         {
           plugin = tmuxPlugins.continuum;
           extraConfig = ''
-            set -g @continuum-restore 'on'
-            set -g @continuum-boot 'on'
-            set -g @continuum-save-interval '10'
+                        set -g @continuum-restore 'on'
+                        set -g @continuum-boot 'on'
+            						${
+                    if pkgs.stdenv.hostPlatform.isDarwin then
+                      "set -g @continuum-boot-options 'iterm'"
+                    else
+                      "set -g @continuum-boot-options 'kitty'"
+                  }
+                        set -g @continuum-save-interval '10'
           '';
         }
       ];
