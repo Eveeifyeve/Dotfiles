@@ -63,7 +63,6 @@ with pkgs;
   nix-output-monitor
 
   # Private Browsing / DarkWeb Browsers
-  tor-browser
 
   # Minecraft
   prismlauncher
