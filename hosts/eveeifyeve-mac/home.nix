@@ -23,6 +23,7 @@
         aldente
         bartender
         arc-browser
+        stats
         raycast # MacOS Spotlight Alternative
         iterm2 # MacOS Terminal
         utm # MacOS Qemu
