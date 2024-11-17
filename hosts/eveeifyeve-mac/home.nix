@@ -12,6 +12,9 @@
     ../../modules/homemanager/git.nix
     ../../modules/homemanager/terminal.nix
   ];
+  programs.alacritty = {
+    enable = true;
+  };
   home = {
     username = "eveeifyeve";
     stateVersion = "24.05";
@@ -25,7 +28,6 @@
         arc-browser
         stats
         raycast # MacOS Spotlight Alternative
-        iterm2 # MacOS Terminal
         utm # MacOS Qemu
         # darwin.xcode_15_1
       ]);

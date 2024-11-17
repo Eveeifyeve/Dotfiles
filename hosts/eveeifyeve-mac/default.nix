@@ -12,6 +12,7 @@ in
   nixpkgs.config.allowUnfree = true;
   services.nix-daemon.enable = true;
   system.stateVersion = 4;
+  environment.systemPackages = [ pkgs.nushell ];
   system.activationScripts.extraActivation.text = ''
     softwareupdate --install-rosetta --agree-to-license
   '';
