@@ -17,7 +17,7 @@
   };
   home = {
     username = "eveeifyeve";
-    stateVersion = "24.05";
+    stateVersion = "25.05";
     homeDirectory = "/Users/${config.home.username}";
     packages =
       pkgs.callPackage ../packages.nix { inherit inputs; }
