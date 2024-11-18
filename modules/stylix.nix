@@ -26,6 +26,6 @@ in
     enable = true;
     polarity = "dark";
     image = themes.catppucin.wallpapers.byrotek;
-    inherit (themes.catppucin) cursor base16Scheme;
+    inherit (themes.catppucin) base16Scheme;
   };
 }
