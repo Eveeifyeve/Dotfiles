@@ -78,7 +78,7 @@
           tailwindcss.enable = true;
           ts_ls.enable = true;
           marksman.enable = true;
-          zls.enable = true;
+          zls.enable = false;
           gopls.enable = true;
           ruff.enable = true;
           pyright.enable = true;
