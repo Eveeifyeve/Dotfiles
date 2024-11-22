@@ -20,4 +20,7 @@ jobs:
 
       - name: Update Flake 
         shell: bash
-        run: 'nix flake update --commit-lock-file --option --commit-lockfile-summary "chore: updated flake lock"' 
+        run: 'nix flake update --commit-lock-file --commit-lockfile-summary "chore: updated flake lock"'
+
+      - name: Pusn 
+        run: git push
