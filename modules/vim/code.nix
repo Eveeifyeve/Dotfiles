@@ -28,12 +28,21 @@
           sources = [
             { name = "nvim_lsp"; }
             {
-              name = "luasnip"; # snippets
+              name = "luasnip";
               keywordLength = 3;
             }
             { name = "cmp-dap"; }
             { name = "cmp-path"; }
           ];
+          mapping = {
+            "<C-Space>" = "cmp.mapping.complete()";
+            "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+            "<C-f>" = "cmp.mapping.scroll_docs(4)";
+            "<C-e>" = "cmp.mapping.abort()";
+            "<CR>" = "cmp.mapping.confirm({ select = true })";
+            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+            "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          };
         };
       };
 
@@ -70,6 +79,20 @@
 
       lsp = {
         enable = true;
+        inlayHints = true;
+        keymaps = {
+          diagnostic = {
+            "<leader>j" = "goto_next";
+            "<leader>k" = "goto_prev";
+          };
+          lspBuf = {
+            K = "hover";
+            gD = "references";
+            gd = "definition";
+            gi = "implementation";
+            gt = "type_definition";
+          };
+        };
         servers = {
           nil_ls.enable = true;
           jsonls.enable = true;
