@@ -55,6 +55,7 @@ with pkgs;
   # Programs
   spotify
   vesktop
+  element-desktop
   audacity
   tailscale
 
