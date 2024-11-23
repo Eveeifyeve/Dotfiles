@@ -22,8 +22,6 @@ in
     enable = true;
     casks = [
       "homebrew/cask/docker"
-      "modrinth"
-      "element"
       "cloudflare-warp"
       "logitech-g-hub"
     ];
