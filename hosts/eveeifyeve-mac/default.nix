@@ -32,6 +32,7 @@ in
     masApps = {
       GarageBand = 682658836;
       TestFlight = 899247664;
+      CrystalFetch = 6454431289;
     };
     onActivation.cleanup = "uninstall";
   };
