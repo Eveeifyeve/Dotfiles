@@ -38,8 +38,13 @@ nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch 
 # Rebuilding 
 
 ## Macos
+use the following command to rebuild the configuration:
 ```bash
-darwin-rebuild switch --flake ~/.dotfiles/   
+nix-rebuild  
+```
+if this shell alias is not working, use the following command:
+```bash
+darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom
 ```
 
 
