@@ -49,4 +49,5 @@
     #   '';
     # };
   };
+  home.packages = [ pkgs.codeberg-cli ];
 }
