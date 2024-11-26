@@ -166,11 +166,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1732482708,
-        "narHash": "sha256-B1MQLiWi4bbeNiRXKxEkpztnKyWae4x0LyK32v3DjLk=",
+        "lastModified": 1732540163,
+        "narHash": "sha256-5EYzmoTpem2IB9JWzd41sL98pz3lyyCSTiCjv08i4Uk=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "47bc8dfb6f48d5f66a3cb3a4cece83d8ace1f61a",
+        "rev": "2ed5e30fc7e34adf455db8b02b9151d3922a54ea",
         "type": "github"
       },
       "original": {
@@ -186,11 +186,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731973059,
-        "narHash": "sha256-m7q+TEHcVd/RCAerG3+/GZFvKvB5SJnJ+F76LNPXZZE=",
+        "lastModified": 1732594110,
+        "narHash": "sha256-PQYLXewYUMt6r1P4Bfk6OdaZ7lN2l8SuFCEZsYkEXR0=",
         "owner": "Eveeifyeve",
         "repo": "flake-templates",
-        "rev": "b501067dd6e4a987273fbd67b0d9acb8a937ff0b",
+        "rev": "46d9d6c3ffb9995564647160b14a8b247ad372e3",
         "type": "github"
       },
       "original": {
@@ -576,11 +576,11 @@
     "homebrew-bundle": {
       "flake": false,
       "locked": {
-        "lastModified": 1732386024,
-        "narHash": "sha256-Otx4lyRkS4r5TqpqlS4J75tJ0hLdc8sDxTjz0zWzTuY=",
+        "lastModified": 1732523084,
+        "narHash": "sha256-ZG8W82eGFMM6+PEK3vHC4YmzXYWAoTXLULJcE9fPWmE=",
         "owner": "homebrew",
         "repo": "homebrew-bundle",
-        "rev": "8fb98123dcfd97fa3d3fd85f6b72d634fd285faf",
+        "rev": "8ae4e7f364bf8736e15914a3b6c76cd157deccb8",
         "type": "github"
       },
       "original": {
@@ -592,11 +592,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1732508817,
-        "narHash": "sha256-7R7okaNRxM97CIYklMOKNV7hZYPDDM3zNE3ZwWdEW6Q=",
+        "lastModified": 1732594227,
+        "narHash": "sha256-asftQtgI2od8SSz6mTyMJU7bfk/6LZz/byjP70iG9AA=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "4df1fa05e48cc35f6b32de0088555be40a12a991",
+        "rev": "05dab5133ce6b388aee1995e5ff5f3ac1cc46ea5",
         "type": "github"
       },
       "original": {
@@ -624,11 +624,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1732510017,
-        "narHash": "sha256-/Esdzr3BDRT9PUfX89e+lG+pceP/ECUoA1irs6sKC5E=",
+        "lastModified": 1732597070,
+        "narHash": "sha256-JesNmvIszgIunc+C3guw0pQpBy0i3VTx4qSgTYBpmAk=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "eb0419f992e759bb34c4593dd1d5dc45ebea9d46",
+        "rev": "f4bd66c0b783e811a10cac6d095f7ae6a1ac415d",
         "type": "github"
       },
       "original": {
@@ -680,11 +680,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1732495835,
-        "narHash": "sha256-oYYRexPAQ5XpqpwQbr0yU14+UJqEsDHQeBuLEVLx4Bg=",
+        "lastModified": 1732545731,
+        "narHash": "sha256-nRit2lb7kha7bcNB6pwhySbpI7Tjc1PLnkJvayBiJr8=",
         "ref": "refs/heads/main",
-        "rev": "1930a95000d336b76d18c0c95ef77e138c9a4cd0",
-        "revCount": 5495,
+        "rev": "268778823676ef2bbda42050d78946e1fc27fc31",
+        "revCount": 5497,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1345,11 +1345,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1732328983,
-        "narHash": "sha256-RHt12f/slrzDpSL7SSkydh8wUE4Nr4r23HlpWywed9E=",
+        "lastModified": 1732588352,
+        "narHash": "sha256-J2/hxOO1VtBA/u+a+9E+3iJpWT3xsBdghgYAVfoGCJo=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "ed8aa5b64f7d36d9338eb1d0a3bb60cf52069a72",
+        "rev": "414e748aae5c9e6ca63c5aafffda03e5dad57ceb",
         "type": "github"
       },
       "original": {
