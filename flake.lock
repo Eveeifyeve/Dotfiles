@@ -497,11 +497,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733389730,
-        "narHash": "sha256-KZMu4ddMll5khS0rYkJsVD0hVqjMNHlhTM3PCQar0Ag=",
+        "lastModified": 1733484277,
+        "narHash": "sha256-i5ay20XsvpW91N4URET/nOc0VQWOAd4c4vbqYtcH8Rc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "65912bc6841cf420eb8c0a20e03df7cbbff5963f",
+        "rev": "d00c6f6d0ad16d598bf7e2956f52c1d9d5de3c3a",
         "type": "github"
       },
       "original": {
@@ -550,11 +550,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1733458718,
-        "narHash": "sha256-R5/xWJvr5ScUuwOlRNED0nyzq24MeBQ56qeUzgDZAEM=",
+        "lastModified": 1733491678,
+        "narHash": "sha256-5t11LKR+1VzQFZ36wiPGuh9YuSeB9v7DT/ZMYsp0a1M=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "735bb410f5b75d6bb21132cc1d517c929242d102",
+        "rev": "45c8c72f49c5eb5b59f545b866ad95bf5d998e26",
         "type": "github"
       },
       "original": {
@@ -582,11 +582,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1733461213,
-        "narHash": "sha256-WNN2iYHh9BErrouQ3+kKW71jLlTpb0Hoz2rOLvNuoNU=",
+        "lastModified": 1733493278,
+        "narHash": "sha256-s7H7Uz9Otma20eoPF5PWh8/5YxTvpPkhXFYoUQXOMHk=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "9752cb5e545d9b51f950d3f599d0187da7029004",
+        "rev": "ab1c5d8c51069fe0fa8580e6bfc34129eb0bf1fa",
         "type": "github"
       },
       "original": {
@@ -668,11 +668,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1733427350,
-        "narHash": "sha256-rQAAASSBa+K6Ahvy/HOqq8oFRnQa6EkPGgdRCCuDTj8=",
+        "lastModified": 1733472978,
+        "narHash": "sha256-hxjaXMbyhhiBm7wHcaA6q+UY2oH8EyrfGo/MT9gRyhI=",
         "ref": "refs/heads/main",
-        "rev": "a7a6eedc2139564abc1fe09feee1ff32b53e1081",
-        "revCount": 5517,
+        "rev": "10a4365f7d2674d0e9180a3bddf535acb95eae70",
+        "revCount": 5518,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
