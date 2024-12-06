@@ -88,5 +88,5 @@ with pkgs;
   inputs.agenix.packages."${system}".default
 
   # Fonts
-  (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  nerd-fonts.jetbrains-mono
 ]
