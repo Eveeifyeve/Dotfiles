@@ -83,6 +83,7 @@ in
           "$mod, L, movefocus, r"
         ]
         ++ [
+          "$mod, ESC, exit"
           "$mod, Q, exec, kitty"
           "$mod, C, killactive"
           "$mod, E, exec, nautilus"
