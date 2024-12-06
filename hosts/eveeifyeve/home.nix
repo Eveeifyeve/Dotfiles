@@ -31,7 +31,7 @@ in
         inactive_opacity = 1.0;
 
         shadow = {
-          enable = true;
+          enabled = true;
           range = 4;
           render_power = 4;
         };
