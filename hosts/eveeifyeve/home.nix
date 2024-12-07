@@ -176,7 +176,8 @@ in
           height = 300;
           offset = "20x40";
           origin = "top-right";
-          transparency = 10;
+          transparency = 15;
+          corner_radius = 7;
         };
       };
     };
