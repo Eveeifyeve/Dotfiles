@@ -31,6 +31,11 @@
 
   security.rtkit.enable = true;
 
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
+
   users = {
     mutableUsers = false;
     users."eveeifyeve" = {
