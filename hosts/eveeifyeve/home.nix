@@ -143,6 +143,15 @@ in
       enable = true;
       enableNushellIntegration = true;
     };
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      extensions = with pkgs.vscode-extensions; [
+        ms-vsliveshare.vsliveshare
+        astro-build.astro-vscode
+        vscodevim.vim
+      ];
+    };
   };
 
   services = {

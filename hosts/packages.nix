@@ -15,7 +15,6 @@ in
 with pkgs;
 [
   # Development Tools 
-  # vscode
   jetbrains.idea-community # For java colab
 
   # (vscode.overrideAttrs (attrs: {
