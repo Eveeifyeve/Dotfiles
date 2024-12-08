@@ -1,3 +1,11 @@
+;; Launcher Widgets ;;
+(defwidget launcher []
+	(box :orientation "v" 
+		 :space-evenly "false" 
+		 :spacing -15
+  	(button :class "launcher_icon" 
+		   	:onclick "wofi --show drun -I"  "")))
+
 ;; Workspaces Widgets ;;
 (defwidget workspaces []
 	(literal :content workspace))
@@ -5,8 +13,8 @@
 
 ;; Volume Widgets ;;
 (defwidget volum []
-	(eventbox :onhover "eww update volum=true" 		
-			  :onhoverlost "eww update volum=false"
+	(eventbox :onhover "${eww} update volum=true" 		
+			  :onhoverlost "${eww} update volum=false"
 	(box      :orientation "v" 	  
 			  :space-evenly "false" 
 			  :spacing "2"
@@ -20,9 +28,9 @@
 			  :tooltip "Volume: ${current-volume}%" 
 			  :max 101 
 			  :min 0 
-			  :onchange "wpctl set-volume @DEFAULT_SINK@ {}%" ))
-	(button   :onclick "pavucontrol"   :class "volume-icon" ""))))
-(defpoll current-volume :interval "1s" "wpctl get-volume @DEFAULT_SINK@ | grep 'Volume:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+			  :onchange "amixer -D pulse sset Master {}%" ))
+	(button   :onclick "scripts/popup audio"   :class "volume-icon" ""))))
+(defpoll current-volume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defvar volum false)
 
 ;; Control Panel Widgets ;;	
@@ -37,16 +45,16 @@
 	(box	:orientation "v" 
 			:class "time" 
 			:valign "end"
-			(label :class "time-hour" hour)
-			(label :class "time-min"  min)
-	))
+	(:class "time-hour" hour)
+	(:class "time-min"  min)))
 (defpoll hour	:interval "1s"	"date '+%H'")
 (defpoll min	:interval "1s"	"date '+%M'")
 
+
 ;; Powermenu Widgets ;;
 (defwidget power []
-	(eventbox	:onhover "eww update power=true"	
-				:onhoverlost "eww update power=false" 
+	(eventbox	:onhover "${eww} update power=true"	
+				:onhoverlost "${eww} update power=false" 
 	(box		:orientation "v"					
 				:space-evenly "false" 	 
 				:vexpand "false" 	
@@ -56,8 +64,8 @@
 				:duration "550ms"
 	(box		:orientation "v"					
 				:space-evenly "false"
-  	
-		(button		:class "button-reb"					
+
+  	(button		:class "button-reb"					
 	  			:tooltip "Reboot"		 
 				:onclick "reboot"	"")
 
@@ -67,7 +75,7 @@
 
 	(button		:class "button-lock" 				
 				:tooltip "Lock Screen"	 
-				:onclick "hyprlock"	"")))
+				:onclick "betterlockscreen -l"	"")))
 
 	(button		:class "button-off"					
 				:tooltip "Shutdown"		 
@@ -79,6 +87,7 @@
 	(box	:orientation "v" 
 			:space-evenly "false" 
 			:valign "start" 
+(launcher)
 (workspaces)))
 
 ;; Bottom Widgets ;;
@@ -116,7 +125,10 @@
 						:height "100%" 
 						:width "47px")
 	:monitor 0
-	:stacking "fg"
-	:exclusive false
+	:reserve (struts :distance "35px" 
+					 :side "left")
+	:wm-ignore false
+	:hexpand "false"
+	:vexpand "false"
 (bar))
 
