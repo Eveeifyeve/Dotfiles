@@ -18,6 +18,11 @@
     systemd-boot.enable = true;
   };
 
+  virtualisation = {
+    docker.enable = true;
+    podman.enable = true;
+  };
+
   services = {
     openssh.enable = true;
   };
