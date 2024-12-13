@@ -16,13 +16,30 @@ in
   system.activationScripts.extraActivation.text = ''
     softwareupdate --install-rosetta --agree-to-license
   '';
+  programs.zsh.enable = true;
+
+	system.defaults.dock = {
+		autohide = true;
+		show-recents = false;
+		mineffect = "scale";
+		launchanim = false;
+		tilesize = 16;
+		minimize-to-application = true;
+		persistent-apps = [
+			"${pkgs.arc-browser}/Applications/Arc.app"
+			"${pkgs.alacritty}/Applications/Alacritty.app"
+			"${pkgs.obsidian}/Applications/Obsidian.app"
+			"/System/Applications/Music.app"
+		];
+	};
+
 
   homebrew = {
     enable = true;
     casks = [
       "homebrew/cask/docker"
       "cloudflare-warp"
-      "logitech-g-hub"
+      # "logitech-g-hub"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI
