@@ -23,7 +23,7 @@ in
 		show-recents = false;
 		mineffect = "scale";
 		launchanim = false;
-		tilesize = 16;
+		tilesize = 54;
 		minimize-to-application = true;
 		persistent-apps = [
 			"${pkgs.arc-browser}/Applications/Arc.app"
