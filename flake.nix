@@ -143,7 +143,7 @@
             inherit inputs;
           }; # Inputs are needed for homebrew
           modules = [
-            inputs.nh-darwin.nixDarwinModules.prebuiltin
+            # inputs.nh-darwin.nixDarwinModules.prebuiltin
             inputs.agenix.darwinModules.default
             inputs.nixvim.nixDarwinModules.nixvim
             inputs.nix-homebrew.darwinModules.nix-homebrew
@@ -164,7 +164,7 @@
             }
             ./hosts/eveeifyeve-mac
             ./modules/vim
-            ./modules/nix-darwin/nh.nix
+            # ./modules/nix-darwin/nh.nix
             ./modules/homebrew.nix
           ];
         };
