@@ -77,6 +77,11 @@
       # Lsp Formatting 
       lsp-format.enable = true;
 
+			nvim-jdtls = {
+				enable = true;
+				data = "/.";
+			};
+
       lsp = {
         enable = true;
         inlayHints = true;
