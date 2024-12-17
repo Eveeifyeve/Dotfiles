@@ -40,6 +40,9 @@ in
       "homebrew/cask/docker"
       "cloudflare-warp"
       # "logitech-g-hub"
+			"zen-browser@twilight"
+      "gimp@dev"
+			# "logitech-g-hub"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI
