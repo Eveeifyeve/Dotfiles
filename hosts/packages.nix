@@ -39,7 +39,7 @@ with pkgs;
   #   ];
   # }))
 
-  # skeditor
+  skeditor
   btop
   bytecode-viewer
   ripgrep
