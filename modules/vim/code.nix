@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.nixvim = {
     plugins = {
@@ -79,7 +79,10 @@
 
 			nvim-jdtls = {
 				enable = true;
-				data = "/.";
+				data = "~/.cache/jdtls/workspace";
+      	cmd = [
+        	"${lib.getExe pkgs.jdt-language-server}"
+      	];
 			};
 
       lsp = {
@@ -110,7 +113,6 @@
           gopls.enable = true;
           ruff.enable = true;
           pyright.enable = true;
-          java_language_server.enable = true;
           kotlin_language_server.enable = true;
           clojure_lsp.enable = true;
           mdx_analyzer = {
