@@ -46,7 +46,7 @@
     users."eveeifyeve" = {
       name = "eveeifyeve";
       isNormalUser = true;
-      hashedPassword = "$y$j9T$9Zg/83oVXDFMkTw27K2d5/$1SqsLU1.RbN.bPYsRZxL39p.k6F2XGXvJ9Aeq0ad718";
+      hashedPassword = "$y$j9T$el54ntrvfuizFVgxHYJhr.$HE0tdKIH0FOXHdTBeq.txlLcN90cauacPQwh4y81iI3";
       shell = pkgs.nushell;
       extraGroups = [
         "nixos-config"
