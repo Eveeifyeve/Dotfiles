@@ -15,7 +15,10 @@
                             fi
         	'';
     };
-    nushell.enable = true;
+    nushell = {
+      enable = true;
+      plugins = [ (pkgs.callPackage ../../custom-pkgs/nushell_port_list.nix { }) ];
+    };
     tmux = {
       enable = true;
       shell = "${pkgs.nushell}/bin/nushell";
