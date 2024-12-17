@@ -25,7 +25,6 @@
         mas
         aldente
         bartender
-        arc-browser
         stats
         raycast # MacOS Spotlight Alternative
         utm # MacOS Qemu
