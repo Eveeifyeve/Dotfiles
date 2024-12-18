@@ -16,22 +16,34 @@ in
   system.activationScripts.extraActivation.text = ''
     softwareupdate --install-rosetta --agree-to-license
   '';
-  programs.zsh.enable = true;
 
-	system.defaults.dock = {
-		autohide = true;
-		show-recents = false;
-		mineffect = "scale";
-		launchanim = false;
-		tilesize = 54;
-		minimize-to-application = true;
-		persistent-apps = [
+	security.pam.enableSudoTouchIdAuth = true;
+
+	system.defaults = {
+		dock.autohide = true;
+		dock.mru-spaces = false;
+		dock.show-recents = false;
+		dock.mineffect = "scale";
+		dock.launchanim = false;
+		dock.tilesize = 54;
+		dock.minimize-to-application = true;
+		finder.AppleShowAllExtensions = true;
+		finder.FXPreferredViewStyle = "clmv";
+		loginwindow.LoginwindowText = "Welcome, Please login.";
+		screencapture.location = "~/Pictures/screenshots";
+		dock.persistent-apps = [
 			"${pkgs.arc-browser}/Applications/Arc.app"
 			"${pkgs.alacritty}/Applications/Alacritty.app"
 			"${pkgs.obsidian}/Applications/Obsidian.app"
 			"/System/Applications/Music.app"
 		];
 	};
+
+	nix.extraOptions = ''
+  	extra-platforms = x86_64-darwin aarch64-darwin
+	'';
+
+	nix.linux-builder.enable = true;
 
 
   homebrew = {
