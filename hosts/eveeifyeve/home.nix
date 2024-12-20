@@ -56,12 +56,12 @@ in
       ];
 
       bindl = [
-        ", XF86AudioMute, exec, hyprvolume mute-volume --select output"
-        ", XF86AudioLowerVolume, exec, hyprvolume set-volume --select output --volume 5%-"
-        ", XF86AudioRaiseVolume, exec, hyprvolume set-volume --select output --volume 5%+"
-        "SHIFT, XF86AudioMute, exec, hyprvolume mute-volume --select input"
-        "SHIFT, XF86AudioLowerVolume, exec, hyprvolume set-volume --select input --volume 5%-"
-        "SHIFT, XF86AudioRaiseVolume, exec, hyprvolume set-volume --select input --volume 5%+"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        "SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%-" 
+        "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPause, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
