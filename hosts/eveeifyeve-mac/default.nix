@@ -51,7 +51,8 @@ in
       # "logitech-g-hub"
 			"zen-browser@twilight"
       "gimp@dev"
-			# "logitech-g-hub"
+			"obs"
+			"sony-ps-remote-play"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs = {
     zsh = {
@@ -17,6 +17,7 @@
     };
     nushell = {
       enable = true;
+			shellAliases = config.home.shellAliases;
       plugins = [ (pkgs.callPackage ../../custom-pkgs/nushell_port_list.nix { }) ];
     };
     tmux = {
