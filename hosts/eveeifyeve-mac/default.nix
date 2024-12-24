@@ -60,6 +60,7 @@ in
       GarageBand = 682658836;
       TestFlight = 899247664;
       CrystalFetch = 6454431289;
+			DaVinciResolve = 571213070; 
     };
     onActivation.cleanup = "uninstall";
   };
