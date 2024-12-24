@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 let
+  inherit (lib) types;
+  cfg = config.stylix;
+  
   themes = {
     catppucin = {
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -22,10 +25,27 @@ let
   };
 in
 {
+options.stylix = {
+	enable = {
+		type = types.bool;
+		default = true;
+	};
+  polarity = {
+    type = types.enum [ "either" "light" "dark" ];
+    default = "dark";
+  };
+  image = {
+    type = with lib.types; coercedTo package toString path;
+    default = {};
+  };
+  base16Scheme = {
+    type = with lib.types; oneOf [ path lines attrs ];
+    default = "";
+  };
+
+};
+ 
   stylix = {
-    enable = true;
-    polarity = "dark";
-    image = themes.catppucin.wallpapers.byrotek;
-    inherit (themes.catppucin) base16Scheme;
+    inherit (cfg) enable base16Scheme image polarity;
   };
 }
