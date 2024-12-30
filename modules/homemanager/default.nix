@@ -15,17 +15,17 @@
     ssh.enable = true;
   };
   home.shellAliases = {
-    proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
-    gitr = ''
-      	gitr () {
-      		for f in $(find . -type d -name .git | awk -F"/.git$" '{print $1}');  do
-      			echo
-      			echo "................................ (cd $f && git $*) ........................................."
-      			echo
-      			(cd $f && git $*)
-      		done
-      }
-    '';
+    # proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
+		#  gitr = ''
+		#    	gitr () {
+		#    		for f in $(find . -type d -name .git | awk -F"/.git$" '{print $1}');  do
+		#    			echo
+		#    			echo "................................ (cd $f && git $*) ........................................."
+		#    			echo
+		#    			(cd $f && git $*)
+		#    		done
+		#    }
+		#  '';
     cat = "bat";
   };
   nix.settings = {
