@@ -11,7 +11,7 @@
       nvim-autopairs.enable = true;
       lazygit.enable = true;
       lazy.enable = true;
-			lx-n.enable = true;
+			lz-n.enable = true;
       direnv.enable = true;
       ccc.enable = true;
       todo-comments.enable = true;
