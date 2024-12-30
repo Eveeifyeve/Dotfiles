@@ -75,9 +75,12 @@
       # Warnings and notifications
       noice = {
         enable = true;
-        notify.enabled = true;
-        messages.enabled = true;
-      };
+				lazyLoad.settings.event = "VeryLazy";
+        settings = {
+					notify.enabled = true;
+        	messages.enabled = true;
+      	};
+			};
 
       notify.enable = true;
 
