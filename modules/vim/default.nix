@@ -10,7 +10,7 @@
     plugins = {
       nvim-autopairs.enable = true;
       lazygit.enable = true;
-      lazy.enable = true;
+      # lazy.enable = true;
 			lz-n.enable = true;
       direnv.enable = true;
       ccc.enable = true;
