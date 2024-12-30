@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 {
   programs.nixvim = {
+		editorconfig.enable = true;
     plugins = {
 
       #  Luasnip
