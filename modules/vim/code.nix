@@ -93,7 +93,6 @@
 
       lsp = {
         enable = true;
-				lazyLoad.settings.event = ["BufReadPost" "BufNewFile"];
         inlayHints = true;
         keymaps = {
           diagnostic = {
