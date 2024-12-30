@@ -86,6 +86,11 @@
       	];
 			};
 
+			crates = {
+				enable = true;
+				lazyLoad.settings.event = "BufRead Cargo.toml";
+			};
+
       lsp = {
         enable = true;
         inlayHints = true;
