@@ -55,6 +55,7 @@ with pkgs;
   spotify
   vesktop
   element-desktop
+	zrythm
   audacity
   tailscale
 
