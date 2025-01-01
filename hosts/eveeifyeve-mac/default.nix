@@ -10,6 +10,7 @@ in
   };
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
+	nixpkgs.config.allowBroken = true;
   services.nix-daemon.enable = true;
   system.stateVersion = 4;
   environment.systemPackages = [ pkgs.nushell ];
