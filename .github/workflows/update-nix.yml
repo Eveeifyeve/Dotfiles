@@ -1,26 +1,50 @@
-name: update-nix
+name: update-flake-lock
 on:
+  workflow_dispatch:  
   schedule:
-    - cron: '0 5 * * *' # run at 5 AM UTC
-  workflow_dispatch:
+    - cron: '0 0 * * 0'
 
-permissions: write-all
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   lockfile:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v30
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Configure git
-        run: |
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@main
+        with:
+          pr-title: "Update flake.lock"
+          commit-msg: chore: flake.lock update
+          pr-assignees: eveeifyeve
+          pr-reviewers: eveeifyeve
+          pr-labels: |
+            dependencies
+          pr-body: |
+            Automated changes by the [update-flake-lock](https://github.com/DeterminateSystems/update-flake-lock) GitHub Action.
 
-      - name: Update Flake 
-        shell: bash
-        run: 'nix flake update --commit-lock-file --commit-lockfile-summary "chore: updated flake lock"'
+            ### Update Info
+            ```
+            {{ env.GIT_COMMIT_MESSAGE }}
+            ```
 
-      - name: Pusn 
-        run: git push
+            ### Running GitHub Actions on this PR
+
+            GitHub Actions will not run workflows on pull requests which are opened by a GitHub Action.
+
+            To run GitHub Actions workflows on this PR, run:
+
+            ```sh
+            git branch -D update_flake_lock_action
+            git fetch origin
+            git checkout update_flake_lock_action
+            git commit --amend --no-edit
+            git push origin update_flake_lock_action --force
+            ```
