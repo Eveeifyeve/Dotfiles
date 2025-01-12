@@ -22,7 +22,7 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@main
         with:
           pr-title: "Update flake.lock"
-          commit-msg: chore: flake.lock update
+          commit-msg: "chore: flake.lock update"
           pr-assignees: eveeifyeve
           pr-reviewers: eveeifyeve
           pr-labels: |
