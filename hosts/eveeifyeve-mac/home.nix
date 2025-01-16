@@ -14,9 +14,9 @@
   ];
   programs.alacritty = {
     enable = true;
-		settings = {
-			window.option_as_alt = "OnlyLeft";
-		};
+    settings = {
+      window.option_as_alt = "OnlyLeft";
+    };
   };
   home = {
     username = "eveeifyeve";
@@ -31,6 +31,7 @@
         stats
         raycast # MacOS Spotlight Alternative
         utm # MacOS Qemu
+        arc-browser # Only here until zen browser is stable
         # darwin.xcode_15_1
       ]);
     shellAliases.nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
