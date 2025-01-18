@@ -10,6 +10,9 @@
             enable = true;
             settings = {
               hijack_netrw = true;
+              hidden = true;
+              grouped = true;
+              collapse_dirs = true;
             };
           };
           fzf-native.enable = true;
@@ -75,12 +78,12 @@
       # Warnings and notifications
       noice = {
         enable = true;
-				lazyLoad.settings.event = "VeryLazy";
+        lazyLoad.settings.event = "VeryLazy";
         settings = {
-					notify.enabled = true;
-        	messages.enabled = true;
-      	};
-			};
+          notify.enabled = true;
+          messages.enabled = true;
+        };
+      };
 
       notify.enable = true;
 
