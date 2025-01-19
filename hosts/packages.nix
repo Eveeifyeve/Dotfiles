@@ -55,7 +55,6 @@ with pkgs;
   spotify
   vesktop
   element-desktop
-	reaper
   audacity
   tailscale
 

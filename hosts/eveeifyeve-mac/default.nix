@@ -58,6 +58,7 @@ in
       "zen-browser@twilight"
       "tor-browser"
       "gimp@dev"
+      "lmms"
       # "logitech-g-hub"
     ];
     brews = [

@@ -286,6 +286,7 @@ in
         libnotify
         wl-clipboard
         # wl-screenrec
+        lmms
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
