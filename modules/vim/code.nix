@@ -203,7 +203,7 @@
           gopls.enable = true;
           ruff.enable = true;
           pyright.enable = true;
-          kotlin_language_server.enable = true;
+          kotlin_language_server.enable = false;
           clojure_lsp.enable = true;
           mdx_analyzer = {
             enable = true;
