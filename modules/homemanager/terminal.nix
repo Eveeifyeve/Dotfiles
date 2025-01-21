@@ -17,7 +17,6 @@
     };
     nushell = {
       enable = true;
-      plugins = [ (pkgs.callPackage ../../custom-pkgs/nushell_port_list.nix { }) ];
     };
     tmux = {
       enable = true;

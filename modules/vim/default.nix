@@ -11,24 +11,14 @@
       nvim-autopairs.enable = true;
       lazygit.enable = true;
       # lazy.enable = true;
-			lz-n.enable = true;
+      lz-n.enable = true;
       direnv.enable = true;
       ccc.enable = true;
       todo-comments.enable = true;
     };
 
     extraPlugins = [
-      (pkgs.vimPlugins.cord-nvim.overrideAttrs ({
-        version = "unstable-2024-09-26";
-        src = pkgs.fetchFromGitHub {
-          owner = "vyfor";
-          repo = "cord.nvim";
-          rev = "a26b00d58c42174aadf975917b49cec67650545f";
-          hash = "sha256-jUxBvWnj0+axuw2SZ2zLzlhZS0tu+Bk8+wHtXENofkw=";
-        };
-
-        cargoHash = "sha256-YlTmkyEo1ZsBd3fMMFpkWWfWt7CfUP1BI2G/G5UtUwg=";
-      }))
+      (pkgs.vimPlugins.cord-nvim)
     ];
     extraConfigLua = ''
       require("cord").setup({
