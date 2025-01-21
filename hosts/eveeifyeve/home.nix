@@ -84,8 +84,8 @@ in
         ]
         ++ [
           "$mod, ESC, exit"
-          "$mod, Q, exec, kitty"
-          "$mod, C, killactive"
+          "$mod, T, exec, kitty"
+          "$mod, Q, killactive"
           "$mod, E, exec, nautilus"
           "$mod, F, togglefloating"
           "$mod, Space, exec, wofi --show drun -I"
