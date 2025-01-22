@@ -73,6 +73,8 @@ in
     onActivation.cleanup = "uninstall";
   };
 
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Garbage cleanup
   nix.gc = {
     user = "root";

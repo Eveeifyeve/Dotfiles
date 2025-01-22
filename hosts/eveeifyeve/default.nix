@@ -42,7 +42,7 @@
   time.timeZone = "Australia/Sydney";
 
   security.rtkit.enable = true;
-
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [
     "root"
     "@wheel"
