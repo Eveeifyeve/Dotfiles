@@ -24,7 +24,7 @@ in
 {
   stylix = {
     enable = true;
-    targets.hyprpaper.enable = true;
+    autoEnable = true;
     polarity = "dark";
     image = themes.catppucin.wallpapers.byrotek;
     inherit (themes.catppucin) base16Scheme;
