@@ -17,6 +17,8 @@
     systemd-boot.enable = true;
   };
 
+  programs.regreet.enable = true;
+
   virtualisation = {
     docker.enable = true;
     podman.enable = true;

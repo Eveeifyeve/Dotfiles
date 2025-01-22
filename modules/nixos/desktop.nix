@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 let
   hypr-unstable-pkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.system};
   hyprpackages = inputs.hyprland.packages.${pkgs.system};
@@ -17,28 +22,14 @@ in
     xserver.videoDrivers = [ "amdgpu" ];
     displayManager.defaultSession = "hyprland";
     dbus.enable = true;
-    greetd =
-      let
-        hyprland = "${hyprpackages.hyprland}";
-        tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-      in
-      {
-        enable = true;
-        settings = {
-          inital_session = {
-            command = hyprland;
-            user = "eveeifyeve";
-          };
-          default_session = {
-            command = ''
-              ${tuigreet} \
-              	--greeting "Wellcome to NixOS!" --asterisks --remember \
-              	--remember-user-session --time -cmd ${hyprland}
-            '';
-            user = "greeter";
-          };
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          user = "eveeifyeve";
         };
       };
+    };
   };
 
   hardware = {
