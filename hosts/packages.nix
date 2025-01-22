@@ -57,6 +57,7 @@ with pkgs;
   element-desktop
   audacity
   tailscale
+	gparted # Partision
 
   # Nix Tools
   nixd
