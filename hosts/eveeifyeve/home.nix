@@ -219,6 +219,7 @@ in
         			}
         			'';
     };
+    hyprpaper.enable = true;
     lorri = {
       enable = true;
       enableNotifications = true;
