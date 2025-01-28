@@ -128,17 +128,7 @@ in
       themeFile = "Catppuccin-Mocha";
       shellIntegration.enableZshIntegration = true;
     };
-    hyprlock = {
-      enable = true;
-      settings = {
-        general = {
-          disable_loading_bar = true;
-          grace = 300;
-          hide_cursor = true;
-          no_fade_in = false;
-        };
-      };
-    };
+    hyprlock.enable = true;
     carapace = {
       enable = true;
       enableNushellIntegration = true;
