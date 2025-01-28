@@ -81,8 +81,9 @@ in
           "$mod, Space, exec, wofi --show drun -I"
           "$mod, P, pseudo"
           "$mod, J, togglesplit"
-          "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+          "$mod, V, exec, cliphist list | wofi -show drun -I | cliphist decode | wl-copy"
           '', Print, exec, grim -g "$(slurp -d)" - | wl-copy''
+					''SHIFT, PRINT, exec wl-screenrec -g "$(slurp -d)" - | wl-copy''
         ]
         ++ (builtins.concatLists (
           builtins.genList (
