@@ -1,51 +1,49 @@
 {
   description = "Eveeifyeve Nix/NixOS Configuration";
 
-	inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-	inputs.nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-	inputs.nix-darwin.url = "github:LnL7/nix-darwin";
+	inputs = {
+		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+		nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+		nix-darwin.url = "github:LnL7/nix-darwin";
 
-  inputs.nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.pre-commit-hooks.url = "github:cachix/git-hooks.nix";
-  inputs.stylix.url = "github:danth/stylix";
+		hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+  	hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+  	hyprland-plugins.inputs.hyprland.follows = "hyprland";
 
-	inputs.disko.url = "github:nix-community/disko";
-	inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
-	inputs.hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-	
-	inputs.nixvim.url = "github:nix-community/nixvim";
-	inputs.nixvim.inputs.nixpkgs.follows = "nixpkgs";
-	inputs.eveeifyeve-flake-templates.url = "github:Eveeifyeve/flake-templates";
+		nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+		pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+		stylix.url = "github:danth/stylix";
 
-	inputs.agenix.url = "github:ryantm/agenix";
-	inputs.agenix.inputs.nixpkgs.follows = "nixpkgs";
+		disko.url = "github:nix-community/disko";
+		disko.inputs.nixpkgs.follows = "nixpkgs";
 
-	inputs.home-manager = {
-    url = "github:nix-community/home-manager";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-  inputs.hyprland-plugins = {
-    url = "github:hyprwm/hyprland-plugins";
-    inputs.hyprland.follows = "hyprland";
-  };
+		nixvim.url = "github:nix-community/nixvim";
+		nixvim.inputs.nixpkgs.follows = "nixpkgs";
+		eveeifyeve-flake-templates.url = "github:Eveeifyeve/flake-templates";
 
-  inputs.homebrew-core = {
-    url = "github:homebrew/homebrew-core";
-    flake = false;
-  };
-  inputs.homebrew-cask = {
-    url = "github:homebrew/homebrew-cask";
-    flake = false;
-  };
-  inputs.homebrew-bundle = {
-    url = "github:homebrew/homebrew-bundle";
-    flake = false;
-  };
-  inputs.homebrew-cask-versions = {
-    url = "github:homebrew/homebrew-cask-versions";
-    flake = false;
-  };
+		agenix.url = "github:ryantm/agenix";
+		agenix.inputs.nixpkgs.follows = "nixpkgs";
 
+		home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+		homebrew-core = {
+			url = "github:homebrew/homebrew-core";
+			flake = false;
+		};
+		homebrew-cask = {
+			url = "github:homebrew/homebrew-cask";
+			flake = false;
+		};
+		homebrew-bundle = {
+			url = "github:homebrew/homebrew-bundle";
+			flake = false;
+		};
+		homebrew-cask-versions = {
+			url = "github:homebrew/homebrew-cask-versions";
+			flake = false;
+		};
+	};
   outputs =
     inputs@{ self, nixpkgs, ... }:
     let
