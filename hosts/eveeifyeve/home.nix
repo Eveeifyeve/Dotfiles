@@ -276,7 +276,7 @@ in
         slurp
         libnotify
         wl-clipboard
-        # wl-screenrec
+        wl-screenrec
         lmms
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
