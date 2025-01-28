@@ -27,7 +27,7 @@ in
     enable = true;
     autoEnable = true;
     polarity = "dark";
-    inherit (themes.catppucin) base16Scheme;
     image = config.lib.stylix.pixel "base0A";
+    inherit (themes.catppucin) cursor base16Scheme;
   };
 }
