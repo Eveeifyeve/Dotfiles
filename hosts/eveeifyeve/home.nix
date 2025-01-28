@@ -27,20 +27,10 @@ in
       monitor = "HDMI-A-1, preferred, 0x0, 1, bitdepth, 8";
       decoration = {
         rounding = 10;
-        active_opacity = 1.0;
-        inactive_opacity = 1.0;
-
         shadow = {
           enabled = true;
           range = 4;
           render_power = 4;
-        };
-
-        blur = {
-          enabled = false;
-          #  size = 3;
-          #  passes = 1;
-          #  vibrancy = 0.1696;
         };
       };
       #	animation = {
@@ -127,6 +117,33 @@ in
 				gtk-titlebar = false;
 				gtk-adwaita = false;
 			};
+		};
+		waybar = {
+			enable = true;
+			settings = {
+				mainBar = {
+					layer = "top";
+					position = "top";
+					height = 30;
+					output = [
+						"HDMI-A-1"
+					];
+
+					modules-left = ["hyprland/workspaces" "hyprland/submap" "wlr/taskbar"];
+					modules-center = ["hyprland/window"];
+					modules-right = ["mpd" "wireplumber" "clock"];
+
+					"hyprland/workspaces" = {
+						format = "{icon}";
+						on-scoll-up = "hyprctl dispatch workspace e+1";
+						on-scroll-down = "hyprctl dispatch workspace e-1";
+					};
+
+
+
+				};
+			};
+			systemd.enable = true;
 		};
     hyprlock.enable = true;
     carapace = {
@@ -220,7 +237,20 @@ in
 
   services.cliphist.enable = true;
   services.amberol.enable = true;
-  services.mpd-discord-rpc.enable = true;
+	services.mpd.enable = true;
+	xdg.userDirs.enable = true;
+	services.mpd-mpris.enable = true;
+  services.mpd-discord-rpc = {
+		enable = true;
+		settings = {
+			hosts = [ "localhost:6600" ];
+			format = {
+				details = "$title";
+				state = "$artist";
+				timestamp = "elapsed";
+			};
+		};
+	};
 
   xdg.desktopEntries.vesktop = {
     name = "discord";
