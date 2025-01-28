@@ -36,7 +36,4 @@
     auto-optimise-store = true;
     warn-dirty = false;
   };
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
 }
