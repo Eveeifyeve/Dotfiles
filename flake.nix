@@ -85,8 +85,10 @@
             inputs.disko.nixosModules.disko
             inputs.nixvim.nixosModules.nixvim
             inputs.agenix.nixosModules.default
+						inputs.stylix.nixosModules.stylix
             ./hosts/eveeifyeve
             ./modules/vim
+						./modules/stylix.nix
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -119,6 +121,7 @@
             inputs.nixvim.nixDarwinModules.nixvim
             inputs.nix-homebrew.darwinModules.nix-homebrew
             inputs.home-manager.darwinModules.home-manager
+						inputs.stylix.darwinModules.stylix
             {
               home-manager = {
                 extraSpecialArgs = {
@@ -135,7 +138,7 @@
             }
             ./hosts/eveeifyeve-mac
             ./modules/vim
-            # ./modules/nix-darwin/nh.nix
+						./modules/stylix.nix
             ./modules/homebrew.nix
           ];
         };

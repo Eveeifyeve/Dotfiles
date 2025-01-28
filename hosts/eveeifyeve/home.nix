@@ -84,7 +84,7 @@ in
         ]
         ++ [
           "$mod, ESC, exit"
-          "$mod, T, exec, kitty"
+          "$mod, T, exec, ghostty"
           "$mod, Q, killactive"
           "$mod, E, exec, nautilus"
           "$mod, F, togglefloating"
@@ -120,14 +120,14 @@ in
         alow_markup = true;
         height = 250;
       };
-      # Style it like catppucin 
-      style = null;
     };
-    kitty = {
-      enable = true;
-      themeFile = "Catppuccin-Mocha";
-      shellIntegration.enableZshIntegration = true;
-    };
+    ghostty = {
+			enable = true;
+			settings = {
+				gtk-titlebar = false;
+				gtk-adwaita = false;
+			};
+		};
     hyprlock.enable = true;
     carapace = {
       enable = true;
@@ -216,36 +216,11 @@ in
     };
   };
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.rose-pine-cursor;
-    name = "BreezeX-RosePine-Linux";
-    size = 16;
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-gtk-theme;
-    };
-    iconTheme = {
-      package = pkgs.rose-pine-icon-theme;
-      name = "rose-pine";
-    };
-    font = {
-      name = "Sans";
-      size = 11;
-    };
-  };
+  gtk.enable = true;
 
   services.cliphist.enable = true;
   services.amberol.enable = true;
   services.mpd-discord-rpc.enable = true;
-
-  dconf.settings."org/gnome/desktop/interface" = {
-    color-scheme = "prefer-dark";
-  };
 
   xdg.desktopEntries.vesktop = {
     name = "discord";
