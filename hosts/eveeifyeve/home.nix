@@ -85,7 +85,7 @@ in
           "$mod, V, exec, cliphist list | wofi -show drun -I | cliphist decode | wl-copy"
           '', Print, exec, grim -g "$(slurp -d)" - | wl-copy''
 					''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f $XDG_VIDEOS_DIR/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
-					''$altmod, S, exec pkill --signal wl-screenrec''
+					''$altmod, S, exec, pkill --signal wl-screenrec''
         ]
         ++ (builtins.concatLists (
           builtins.genList (
