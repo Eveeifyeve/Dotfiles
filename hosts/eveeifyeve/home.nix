@@ -39,6 +39,7 @@ in
 
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER SHIFT";
+			"$altmod" = "SUPER ALT";
       "exec-once" = [
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -83,8 +84,8 @@ in
           "$mod, J, togglesplit"
           "$mod, V, exec, cliphist list | wofi -show drun -I | cliphist decode | wl-copy"
           '', Print, exec, grim -g "$(slurp -d)" - | wl-copy''
-					''$mod, ALT, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f $XDG_VIDEOS_DIR/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
-					''$mod, ALT, S, exec pkill --signal wl-screenrec''
+					''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f $XDG_VIDEOS_DIR/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
+					''$altmod, S, exec pkill --signal wl-screenrec''
         ]
         ++ (builtins.concatLists (
           builtins.genList (
