@@ -71,6 +71,7 @@ with pkgs;
 
   # Video/Photo/Graphic Editingc
   gimp
+	obs
   # blender
   ffmpeg_7-full
 
