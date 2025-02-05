@@ -328,3 +328,7 @@ in
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
 }
+          "$shiftmod, H, movewindow, l"
+          "$shiftmod, J, movewindow, d"
+          "$shiftmod, K, movewindow, u"
+          "$shiftmod, L, movewindow, r"
