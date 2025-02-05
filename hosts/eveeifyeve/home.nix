@@ -72,6 +72,10 @@ in
           "$mod, J, movefocus, d"
           "$mod, K, movefocus, u"
           "$mod, L, movefocus, r"
+          "$shiftmod, H, movewindow, l"
+          "$shiftmod, J, movewindow, d"
+          "$shiftmod, K, movewindow, u"
+          "$shiftmod, L, movewindow, r"
         ]
         ++ [
           "$mod, ESC, exit"
@@ -95,7 +99,8 @@ in
             in
             [
               "$mod, ${ws}, workspace, ${ws}"
-              "$shiftMod, ${ws}, movetoworkspace, ${toString ws}"
+              "$shiftMod, ${ws}, movetoworkspace, ${ws}"
+							"$altmod, ${ws}, movetoworkspacesilent, ${ws}"
             ]
           ) 9
         ));
@@ -328,7 +333,3 @@ in
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
 }
-          "$shiftmod, H, movewindow, l"
-          "$shiftmod, J, movewindow, d"
-          "$shiftmod, K, movewindow, u"
-          "$shiftmod, L, movewindow, r"
