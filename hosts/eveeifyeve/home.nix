@@ -87,8 +87,8 @@ in
           "$mod, P, pseudo"
           "$mod, J, togglesplit"
           "$mod, V, exec, cliphist list | wofi -show drun -I | cliphist decode | wl-copy"
-          '', Print, exec, grim -g "$(slurp -d)" - | wl-copy''
-					''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f $XDG_VIDEOS_DIR/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
+          '', Print, exec, ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -d)" - | wl-copy''
+					''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f ~/Video/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
 					''$altmod, S, exec, pkill --signal wl-screenrec''
         ]
         ++ (builtins.concatLists (
@@ -324,11 +324,10 @@ in
         playerctl
         nautilus
         element-desktop
-        grim
-        slurp
         libnotify
         wl-clipboard
         lmms
+				obs-studio
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
