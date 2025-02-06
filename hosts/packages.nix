@@ -57,7 +57,7 @@ with pkgs;
   element-desktop
   audacity
   tailscale
-	gparted # Partision
+  gparted # Partision
 
   # Nix Tools
   nixd
@@ -71,7 +71,6 @@ with pkgs;
 
   # Video/Photo/Graphic Editingc
   gimp
-	obs
   # blender
   ffmpeg_7-full
 
