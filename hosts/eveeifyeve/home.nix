@@ -83,10 +83,10 @@ in
           "$mod, Q, killactive"
           "$mod, E, exec, nautilus"
           "$mod, F, togglefloating"
-          "$mod, Space, exec, wofi --show drun -I"
+          "$mod, Space, exec, rofi -show drun"
           "$mod, P, pseudo"
           "$mod, J, togglesplit"
-          "$mod, V, exec, cliphist list | wofi -show drun -I | cliphist decode | wl-copy"
+          "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           '', Print, exec, ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -d)" - | wl-copy''
 					''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f ~/Video/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
 					''$altmod, S, exec, pkill --signal wl-screenrec''
@@ -111,13 +111,9 @@ in
   systemd.user.startServices = true;
 
   programs = {
-    wofi = {
+    rofi = {
       enable = true;
-      settings = {
-        location = "center";
-        alow_markup = true;
-        height = 250;
-      };
+      location = "center";
     };
     ghostty = {
 			enable = true;
