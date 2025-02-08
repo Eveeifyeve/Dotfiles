@@ -1,9 +1,7 @@
 {
-  config,
   pkgs,
   lib,
   inputs,
-  git,
   ...
 }:
 let
@@ -114,6 +112,9 @@ in
     rofi = {
       enable = true;
       location = "center";
+			extraConfig = {
+				show-icons = true;
+			};
     };
     ghostty = {
 			enable = true;
