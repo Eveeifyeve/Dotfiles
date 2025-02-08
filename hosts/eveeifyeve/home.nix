@@ -72,10 +72,10 @@ in
           "$mod, J, movefocus, d"
           "$mod, K, movefocus, u"
           "$mod, L, movefocus, r"
-          "$shiftmod, H, movewindow, l"
-          "$shiftmod, J, movewindow, d"
-          "$shiftmod, K, movewindow, u"
-          "$shiftmod, L, movewindow, r"
+          "$altmod, H, movewindow, l"
+          "$altmod, J, movewindow, d"
+          "$altmod, K, movewindow, u"
+          "$altmod, L, movewindow, r"
         ]
         ++ [
           "$mod, ESC, exit"
