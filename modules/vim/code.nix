@@ -79,6 +79,13 @@
         settings.enable = true;
       };
 
+
+			# Tailwind
+			tailwind-tools.enable = true;
+
+			# Term colors 
+			colorizer.enable = true;
+
       # Commenting 
       comment.enable = true;
 
