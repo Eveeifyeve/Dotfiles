@@ -22,14 +22,14 @@
       enable = true;
       shell = "${pkgs.nushell}/bin/nushell";
       plugins = with pkgs; [
-        {
-          plugin = tmuxPlugins.resurrect;
-          extraConfig = ''
-            set -g @resurrect-strategy-nvim 'session'
-            set -g @resurrect-save 'S'
-            set -g @resurrect-restore 'R'
-          '';
-        }
+       # {
+       #   plugin = tmuxPlugins.resurrect;
+       #   extraConfig = ''
+       #     set -g @resurrect-strategy-nvim 'session'
+       #     set -g @resurrect-save 'S'
+       #     set -g @resurrect-restore 'R'
+       #   '';
+       # }
         {
           plugin = tmuxPlugins.continuum;
           extraConfig = ''
