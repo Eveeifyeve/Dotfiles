@@ -1,49 +1,49 @@
 {
   description = "Eveeifyeve Nix/NixOS Configuration";
 
-	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-		nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-		nix-darwin.url = "github:LnL7/nix-darwin";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-darwin.url = "github:LnL7/nix-darwin";
 
-		hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-  	hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-  	hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
 
-		nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-		pre-commit-hooks.url = "github:cachix/git-hooks.nix";
-		stylix.url = "github:danth/stylix";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    stylix.url = "github:eveeifyeve/stylix/jankyborders/init";
 
-		disko.url = "github:nix-community/disko";
-		disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
-		nixvim.url = "github:nix-community/nixvim";
-		nixvim.inputs.nixpkgs.follows = "nixpkgs";
-		eveeifyeve-flake-templates.url = "github:Eveeifyeve/flake-templates";
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    eveeifyeve-flake-templates.url = "github:Eveeifyeve/flake-templates";
 
-		agenix.url = "github:ryantm/agenix";
-		agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-		home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-		homebrew-core = {
-			url = "github:homebrew/homebrew-core";
-			flake = false;
-		};
-		homebrew-cask = {
-			url = "github:homebrew/homebrew-cask";
-			flake = false;
-		};
-		homebrew-bundle = {
-			url = "github:homebrew/homebrew-bundle";
-			flake = false;
-		};
-		homebrew-cask-versions = {
-			url = "github:homebrew/homebrew-cask-versions";
-			flake = false;
-		};
-	};
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
+    homebrew-cask-versions = {
+      url = "github:homebrew/homebrew-cask-versions";
+      flake = false;
+    };
+  };
   outputs =
     inputs@{ self, nixpkgs, ... }:
     let
@@ -83,10 +83,10 @@
             inputs.disko.nixosModules.disko
             inputs.nixvim.nixosModules.nixvim
             inputs.agenix.nixosModules.default
-						inputs.stylix.nixosModules.stylix
+            inputs.stylix.nixosModules.stylix
             ./hosts/eveeifyeve
             ./modules/vim
-						./modules/stylix.nix
+            ./modules/stylix.nix
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -119,7 +119,7 @@
             inputs.nixvim.nixDarwinModules.nixvim
             inputs.nix-homebrew.darwinModules.nix-homebrew
             inputs.home-manager.darwinModules.home-manager
-						inputs.stylix.darwinModules.stylix
+            inputs.stylix.darwinModules.stylix
             {
               home-manager = {
                 extraSpecialArgs = {
@@ -136,7 +136,8 @@
             }
             ./hosts/eveeifyeve-mac
             ./modules/vim
-						./modules/stylix.nix
+            ./modules/nix-darwin/rice.nix
+            ./modules/stylix.nix
             ./modules/homebrew.nix
           ];
         };
