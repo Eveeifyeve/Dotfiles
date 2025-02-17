@@ -52,12 +52,11 @@ with pkgs;
   fzf # Fuzzy Finder
 
   # Programs
-  spotify
+  # spotify
   vesktop
   element-desktop
   audacity
   tailscale
-  gparted # Partision
 
   # Nix Tools
   nixd

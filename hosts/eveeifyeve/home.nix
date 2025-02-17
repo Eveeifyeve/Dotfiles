@@ -37,7 +37,7 @@ in
 
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER SHIFT";
-			"$altmod" = "SUPER ALT";
+      "$altmod" = "SUPER ALT";
       "exec-once" = [
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -98,7 +98,7 @@ in
             [
               "$mod, ${ws}, workspace, ${ws}"
               "$shiftMod, ${ws}, movetoworkspace, ${ws}"
-							"$altmod, ${ws}, movetoworkspacesilent, ${ws}"
+              "$altmod, ${ws}, movetoworkspacesilent, ${ws}"
             ]
           ) 9
         ));
@@ -117,78 +117,87 @@ in
 			};
     };
     ghostty = {
-			enable = true;
-			settings = {
-				gtk-titlebar = false;
-				gtk-adwaita = false;
-			};
-		};
-		waybar = {
-			enable = true;
-			settings = {
-				mainBar = {
-					layer = "top";
-					position = "top";
-					height = 30;
-					output = [
-						"HDMI-A-1"
-					];
+      enable = true;
+      settings = {
+        gtk-titlebar = false;
+        gtk-adwaita = false;
+      };
+    };
+    waybar = {
+      enable = true;
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
+          height = 30;
+          output = [
+            "HDMI-A-1"
+          ];
 
-					modules-left = ["hyprland/workspaces" "hyprland/submap" "wlr/taskbar"];
-					modules-center = ["hyprland/window"];
-					modules-right = ["mpd" "wireplumber" "clock" "custom/power"];
+          modules-left = [
+            "hyprland/workspaces"
+            "hyprland/submap"
+            "wlr/taskbar"
+          ];
+          modules-center = [ "hyprland/window" ];
+          modules-right = [
+            "mpd"
+            "wireplumber"
+            "clock"
+            "custom/power"
+          ];
 
-					"hyprland/workspaces" = {
-						format = "{icon}";
-						on-scoll-up = "hyprctl dispatch workspace e+1";
-						on-scroll-down = "hyprctl dispatch workspace e-1";
-					};
+          "hyprland/workspaces" = {
+            format = "{icon}";
+            on-scoll-up = "hyprctl dispatch workspace e+1";
+            on-scroll-down = "hyprctl dispatch workspace e-1";
+          };
 
-					"custom/power" = {
-						format = "";
-						tooltip = false;
-						menu = "on-click";
-						menu-file = ''
-							<?xml version="1.0" encoding="UTF-8"?>
-							<interface>
-								<object class="GtkMenu" id="menu">
-								<child>
-									<object class="GtkMenuItem" id="suspend">
-										<property name="label">Suspend</property>
-											</object>
-								</child>
-								<child>
-											<object class="GtkMenuItem" id="hibernat">
-										<property name="label">Hibernate</property>
-											</object>
-								</child>
-									<child>
-											<object class="GtkMenuItem" id="shutdown">
-										<property name="label">Shutdown</property>
-											</object>
-									</child>
-									<child>
-										<object class="GtkSeparatorMenuItem" id="delimiter1"/>
-									</child>
-									<child>
-									<object class="GtkMenuItem" id="reboot">
-										<property name="label">Reboot</property>
-									</object>
-									</child>
-								</object>
-							</interface>
-						'';
-						menu-actions = {
-							shutdown = "shutdown";
-							reboot = "reboot";
-							suspend = "systemctl suspend";
-							hibernate = "systemctl hibernate";
-						};
-					};
-				};
-			};
-			systemd.enable = true;
-		};
+          "custom/power" = {
+            format = "";
+            tooltip = false;
+            menu = "on-click";
+            menu-file = ''
+              <?xml version="1.0" encoding="UTF-8"?>
+              <interface>
+              	<object class="GtkMenu" id="menu">
+              	<child>
+              		<object class="GtkMenuItem" id="suspend">
+              			<property name="label">Suspend</property>
+              				</object>
+              	</child>
+              	<child>
+              				<object class="GtkMenuItem" id="hibernat">
+              			<property name="label">Hibernate</property>
+              				</object>
+              	</child>
+              		<child>
+              				<object class="GtkMenuItem" id="shutdown">
+              			<property name="label">Shutdown</property>
+              				</object>
+              		</child>
+              		<child>
+              			<object class="GtkSeparatorMenuItem" id="delimiter1"/>
+              		</child>
+              		<child>
+              		<object class="GtkMenuItem" id="reboot">
+              			<property name="label">Reboot</property>
+              		</object>
+              		</child>
+              	</object>
+              </interface>
+            '';
+            menu-actions = {
+              shutdown = "shutdown";
+              reboot = "reboot";
+              suspend = "systemctl suspend";
+              hibernate = "systemctl hibernate";
+            };
+          };
+        };
+      };
+      systemd.enable = true;
+    };
     hyprlock.enable = true;
     carapace = {
       enable = true;
@@ -281,20 +290,20 @@ in
 
   services.cliphist.enable = true;
   services.amberol.enable = true;
-	services.mpd.enable = true;
-	xdg.userDirs.enable = true;
-	services.mpd-mpris.enable = true;
+  services.mpd.enable = true;
+  xdg.userDirs.enable = true;
+  services.mpd-mpris.enable = true;
   services.mpd-discord-rpc = {
-		enable = true;
-		settings = {
-			hosts = [ "localhost:6600" ];
-			format = {
-				details = "$title";
-				state = "$artist";
-				timestamp = "elapsed";
-			};
-		};
-	};
+    enable = true;
+    settings = {
+      hosts = [ "localhost:6600" ];
+      format = {
+        details = "$title";
+        state = "$artist";
+        timestamp = "elapsed";
+      };
+    };
+  };
 
   xdg.desktopEntries.vesktop = {
     name = "discord";
@@ -325,6 +334,7 @@ in
         wl-clipboard
         lmms
 				obs-studio
+        gparted
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
