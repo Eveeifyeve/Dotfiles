@@ -53,7 +53,7 @@ in
     casks = [
       "homebrew/cask/docker"
       "cloudflare-warp"
-      # "logitech-g-hub"
+      "obs"
       "zen-browser@twilight"
       "tor-browser"
       "gimp@dev"
