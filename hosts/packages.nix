@@ -53,7 +53,9 @@ with pkgs;
 
   # Programs
   # spotify
-  vesktop
+  (vesktop.override {
+		electron = electron_32;
+	})
   element-desktop
   audacity
   tailscale
