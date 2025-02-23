@@ -37,9 +37,9 @@ in
     loginwindow.LoginwindowText = "Welcome, Please login.";
     screencapture.location = "~/Pictures/screenshots";
     dock.persistent-apps = [
-      "${pkgs.arc-browser}/Applications/Arc.app"
-      "${pkgs.alacritty}/Applications/Alacritty.app"
-      "${pkgs.obsidian}/Applications/Obsidian.app"
+      "${lib.getExe pkgs.arc-browser}"
+      "${lib.getExe pkgs.alacritty}"
+      "${lib.getExe pkgs.obsidian}"
       "/System/Applications/Music.app"
     ];
   };
