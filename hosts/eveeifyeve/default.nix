@@ -33,6 +33,8 @@
     };
   };
 
+	programs.gnupg.agent.enable = true;
+
   # Time
 
   networking.timeServers = [
