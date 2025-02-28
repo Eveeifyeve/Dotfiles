@@ -206,7 +206,7 @@ in
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-      extensions = with pkgs.vscode-extensions; [
+			profiles.default.extensions = with pkgs.vscode-extensions; [
         ms-vsliveshare.vsliveshare
         astro-build.astro-vscode
         vscodevim.vim
