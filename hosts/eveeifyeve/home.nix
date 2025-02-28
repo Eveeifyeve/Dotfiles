@@ -305,6 +305,7 @@ in
     };
   };
 
+	xdg.enable = true;
   xdg.desktopEntries.vesktop = {
     name = "discord";
     exec = "${lib.getExe pkgs.vesktop} --enable-features=UseOzonePlatform --ozone-platform=wayland";
