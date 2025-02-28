@@ -12,6 +12,13 @@
       nix-direnv.enable = true;
     };
     gpg.enable = true;
+		password-store = {
+			enable = true;
+			settings = {
+				PASSWORD_STORE_DIR = "$XDG_DATA_HOME/password-store";
+				PASSWORD_STORE_KEY = "EBA9DF00EE9717990BC39BDCBAA8C2C616D55AB3";
+			};
+		};
     ssh.enable = true;
   };
   home.shellAliases = {
