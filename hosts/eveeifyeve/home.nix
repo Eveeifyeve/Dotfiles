@@ -308,7 +308,7 @@ in
   xdg.desktopEntries.vesktop = {
     name = "discord";
     exec = "${lib.getExe pkgs.vesktop} --enable-features=UseOzonePlatform --ozone-platform=wayland";
-    icon = "discord";
+    icon = "${pkgs.discord}/share/icons/hicolor/256x256/apps/discord.png";
     terminal = false;
     type = "Application";
     categories = [
