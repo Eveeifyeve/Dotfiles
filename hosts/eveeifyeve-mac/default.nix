@@ -23,6 +23,7 @@ in
   '';
 
   security.pam.services.sudo_local.touchIdAuth = true;
+  programs.gnupg.agent.enable = true;
 
   system.defaults = {
     dock.autohide = true;
