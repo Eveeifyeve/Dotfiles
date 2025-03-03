@@ -54,12 +54,12 @@ with pkgs;
   # Programs
   # spotify
   (vesktop.override {
-		electron = electron_32;
-	})
+    electron = electron_32;
+  })
   element-desktop
   audacity
   tailscale
-	blender
+  blender
 
   # Nix Tools
   nixd
@@ -84,7 +84,8 @@ with pkgs;
 
   # Git Utils/Ui's 
   lazygit
-  git-revise
+  #TODO: Wait until git-revice is fixed for macos.
+  # git-revise
 
   # Secrets
   inputs.agenix.packages."${system}".default
