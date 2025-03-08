@@ -59,7 +59,6 @@ with pkgs;
   element-desktop
   audacity
   tailscale
-  blender
 
   # Nix Tools
   nixd

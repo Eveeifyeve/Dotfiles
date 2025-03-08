@@ -86,8 +86,8 @@ in
           "$mod, J, togglesplit"
           "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           '', Print, exec, ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -d)" - | wl-copy''
-					''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f ~/Video/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
-					''$altmod, S, exec, pkill --signal wl-screenrec''
+          ''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f ~/Video/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
+          ''$altmod, S, exec, pkill --signal wl-screenrec''
         ]
         ++ (builtins.concatLists (
           builtins.genList (
@@ -112,9 +112,9 @@ in
     rofi = {
       enable = true;
       location = "center";
-			extraConfig = {
-				show-icons = true;
-			};
+      extraConfig = {
+        show-icons = true;
+      };
     };
     ghostty = {
       enable = true;
@@ -206,7 +206,7 @@ in
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-			profiles.default.extensions = with pkgs.vscode-extensions; [
+      profiles.default.extensions = with pkgs.vscode-extensions; [
         ms-vsliveshare.vsliveshare
         astro-build.astro-vscode
         vscodevim.vim
@@ -305,7 +305,7 @@ in
     };
   };
 
-	xdg.enable = true;
+  xdg.enable = true;
   xdg.desktopEntries.vesktop = {
     name = "discord";
     exec = "${lib.getExe pkgs.vesktop} --enable-features=UseOzonePlatform --ozone-platform=wayland";
@@ -334,8 +334,9 @@ in
         libnotify
         wl-clipboard
         lmms
-				obs-studio
+        obs-studio
         gparted
+        blender
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
