@@ -337,6 +337,7 @@ in
         obs-studio
         gparted
         blender
+				tor-browser
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
