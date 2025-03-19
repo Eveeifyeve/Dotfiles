@@ -11,6 +11,10 @@
       enable = true;
       nix-direnv.enable = true;
     };
+		chromium = {
+			enable = true;
+			
+		};
     gpg.enable = true;
     password-store = {
       enable = true;
