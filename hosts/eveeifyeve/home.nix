@@ -338,6 +338,7 @@ in
         gparted
         blender
 				tor-browser
+				lunar-client
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
