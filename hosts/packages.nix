@@ -66,7 +66,7 @@ with pkgs;
 
   # Minecraft
   prismlauncher
-  modrinth-app
+  # modrinth-app
 
   # Video/Photo/Graphic Editingc
   gimp
