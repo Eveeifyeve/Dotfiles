@@ -13,6 +13,7 @@ in
     home = "/Users/${username}";
     shell = pkgs.nushell;
   };
+  ids.gids.nixbld = 350;
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;

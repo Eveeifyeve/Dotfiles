@@ -69,7 +69,7 @@
         "wheel"
       ];
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOjXW/SwJGY8IjMi9u238xhN7njeruqtDuDeaUy00wPM eveeifyeve@eveeifyeve-macbook"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA4+rTHpcB+TbPZeofrqnEtoduSPqlH1IAV5AsM1DIkU eveeifyeve@eveeifyeve-macbook"
       ];
     };
   };
