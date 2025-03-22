@@ -62,6 +62,7 @@ in
       "lmms"
       "mixxx"
       "lunar-client"
+      "anydesk"
       # "logitech-g-hub"
     ];
     brews = [
