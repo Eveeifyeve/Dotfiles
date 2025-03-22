@@ -60,6 +60,7 @@ in
       "tor-browser"
       "gimp@dev"
       "lmms"
+			"mixxx"
       # "logitech-g-hub"
     ];
     brews = [
