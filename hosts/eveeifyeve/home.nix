@@ -203,15 +203,6 @@ in
       enable = true;
       enableNushellIntegration = true;
     };
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-      profiles.default.extensions = with pkgs.vscode-extensions; [
-        ms-vsliveshare.vsliveshare
-        astro-build.astro-vscode
-        vscodevim.vim
-      ];
-    };
   };
 
   services = {
@@ -337,9 +328,9 @@ in
         obs-studio
         gparted
         blender
-				tor-browser
-				anydesk
-				lunar-client
+        tor-browser
+        anydesk
+        lunar-client
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };

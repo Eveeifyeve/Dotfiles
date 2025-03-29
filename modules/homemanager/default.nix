@@ -11,8 +11,17 @@
       enable = true;
       nix-direnv.enable = true;
     };
-   
-  gpg.enable = true;
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      profiles.default.extensions = with pkgs.vscode-extensions; [
+        ms-vsliveshare.vsliveshare
+        astro-build.astro-vscode
+        vscodevim.vim
+      ];
+    };
+
+    gpg.enable = true;
     password-store = {
       enable = true;
       settings = {
