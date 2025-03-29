@@ -18,6 +18,70 @@
       window.option_as_alt = "OnlyLeft";
     };
   };
+
+  programs.aerospace = {
+    enable = true;
+    userSettings = {
+      start-at-login = true;
+
+      enable-normalization-flatten-containers = true;
+      automatically-unhide-macos-hidden-apps = true;
+      enable-normalization-opposite-orientation-for-nested-containers = true;
+      accordion-padding = 30;
+      default-root-container-layout = "tiles";
+      default-root-container-orientation = "auto";
+
+      gaps =
+        let
+          generalgap = 15;
+        in
+        {
+          inner = {
+            horizontal = generalgap;
+            vertical = generalgap;
+          };
+          outer = {
+            left = generalgap;
+            bottom = generalgap;
+            top = generalgap;
+            right = generalgap;
+          };
+        };
+
+      mode.main.binding =
+        {
+          alt-t = "exec-and-forget alacritty";
+          alt-shift-h = "move left";
+          alt-shift-j = "move down";
+          alt-shift-k = "move up";
+          alt-shift-l = "move right";
+          alt-h = "focus left";
+          alt-j = "focus down";
+          alt-k = "focus up";
+          alt-l = "focus right";
+        }
+        // builtins.listToAttrs (
+          builtins.concatLists (
+            builtins.genList (
+              i:
+              let
+                ws = toString i;
+              in
+              [
+                {
+                  name = "alt-${ws}";
+                  value = "workspace ${ws}";
+                }
+                {
+                  name = "alt-shift-${ws}";
+                  value = "move-node-to-workspace ${ws}";
+                }
+              ]
+            ) 9
+          )
+        );
+    };
+  };
   home = {
     username = "eveeifyeve";
     stateVersion = "25.05";
