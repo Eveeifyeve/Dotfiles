@@ -23,6 +23,11 @@ in
     softwareupdate --install-rosetta --agree-to-license
   '';
 
+  nix.linux-builder = {
+    enable = true;
+    ephemeral = true;
+    maxJobs = 4;
+  };
   security.pam.services.sudo_local.touchIdAuth = true;
   programs.gnupg.agent.enable = true;
 
@@ -39,7 +44,7 @@ in
     loginwindow.LoginwindowText = "Welcome, Please login.";
     screencapture.location = "~/Pictures/screenshots";
     dock.persistent-apps = [
-      "${lib.getExe pkgs.arc-browser}"
+      "${pkgs.arc-browser}/Applications/Arc.app"
       "${lib.getExe pkgs.alacritty}"
       "${lib.getExe pkgs.obsidian}"
       "/System/Applications/Music.app"
@@ -47,8 +52,8 @@ in
   };
 
   nix.extraOptions = ''
-      	extra-platforms = x86_64-darwin aarch64-darwin
-    	'';
+    extra-platforms = x86_64-darwin aarch64-darwin aarch64_linux
+  '';
 
   homebrew = {
     enable = true;
