@@ -79,12 +79,11 @@
         settings.enable = true;
       };
 
+      # Tailwind
+      tailwind-tools.enable = true;
 
-			# Tailwind
-			tailwind-tools.enable = true;
-
-			# Term colors 
-			colorizer.enable = true;
+      # Term colors 
+      colorizer.enable = true;
 
       # Commenting 
       comment.enable = true;
@@ -113,8 +112,8 @@
 
       nvim-jdtls = {
         enable = true;
-				data = "~/.cache/jdtls/workspace";
-				configuration = "~/.cache/jdtls/configurations";
+        data = "~/.cache/jdtls/workspace";
+        configuration = "~/.cache/jdtls/configurations";
         initOptions = {
           bundles.__raw = "_M.jdtls.bundles";
         };
