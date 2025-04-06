@@ -77,7 +77,7 @@
                   value = "move-node-to-workspace ${ws}";
                 }
               ]
-            ) 9
+            ) 10
           )
         );
     };
