@@ -70,7 +70,6 @@ with pkgs;
 
   # Video/Photo/Graphic Editingc
   gimp
-  # blender
   ffmpeg_7-full
 
   # Music Downloaders
