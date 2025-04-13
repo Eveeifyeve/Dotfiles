@@ -58,7 +58,8 @@ in
   homebrew = {
     enable = true;
     casks = [
-      "homebrew/cask/docker"
+      "podman-desktop"
+      "podman"
       "cloudflare-warp"
       "obs"
       "zen-browser@twilight"

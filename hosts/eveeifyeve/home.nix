@@ -57,7 +57,7 @@ in
         ", XF86AudioPrev, exec, playerctl previous"
       ];
 
-      # Window moving and resizing 
+      # Window moving and resizing
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
@@ -316,6 +316,7 @@ in
     packages =
       pkgs.callPackage ../packages.nix { inherit inputs; }
       ++ (with pkgs; [
+        podman-desktop
         pciutils
         firefox
         pavucontrol
