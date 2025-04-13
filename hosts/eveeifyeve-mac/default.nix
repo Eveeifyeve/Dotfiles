@@ -70,6 +70,7 @@ in
       "mixxx"
       "lunar-client"
       "anydesk"
+      "blender"
       "roblox"
       "logitech-g-hub"
     ];
