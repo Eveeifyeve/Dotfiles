@@ -70,7 +70,7 @@ in
       "mixxx"
       "lunar-client"
       "anydesk"
-      # "logitech-g-hub"
+      "logitech-g-hub"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI
