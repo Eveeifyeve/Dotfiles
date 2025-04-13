@@ -70,6 +70,7 @@ in
       "mixxx"
       "lunar-client"
       "anydesk"
+      "roblox"
       "logitech-g-hub"
     ];
     brews = [
