@@ -43,7 +43,8 @@ with pkgs;
   btop
   bytecode-viewer
   ripgrep
-  tree # File Sizes
+  tree
+  codeberg-cli # File Sizes
 
   # Command Line Proccesors 
   bat # Better cat
