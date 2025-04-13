@@ -61,6 +61,7 @@ in
       "podman-desktop"
       "podman"
       "cloudflare-warp"
+      "curseforge"
       "obs"
       "zen-browser@twilight"
       "tor-browser"
