@@ -8,11 +8,7 @@ let
   username = "eveeifyeve";
 in
 {
-  users.users.${username} = {
-    name = username;
-    home = "/Users/${username}";
-    shell = pkgs.nushell;
-  };
+  users.users.${username}.home = "/Users/${username}";
   ids.gids.nixbld = 350;
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
@@ -59,7 +55,6 @@ in
     enable = true;
     casks = [
       "podman-desktop"
-      "podman"
       "cloudflare-warp"
       "curseforge"
       "obs"
