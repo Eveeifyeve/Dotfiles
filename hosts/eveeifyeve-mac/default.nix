@@ -67,7 +67,7 @@ in
       "anydesk"
       "blender"
       "roblox"
-      "logitech-g-hub"
+      # "logitech-g-hub"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI
