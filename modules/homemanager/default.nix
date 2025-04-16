@@ -21,6 +21,28 @@
       ];
     };
 
+    nixcord = {
+      enable = true;
+
+      # Disable other discords and only use vesktop 
+      discord.enable = false;
+
+      vesktop.enable = true;
+      config = {
+        useQuickCss = true;
+        frameless = true;
+        plugins = {
+          silentTyping = {
+            enable = true;
+            showIcon = true;
+          };
+          readAllNotificationsButton.enable = true;
+          appleMusicRichPresence.enable = true;
+          hideAttachments.enable = true;
+        };
+      };
+    };
+
     gpg.enable = true;
     password-store = {
       enable = true;

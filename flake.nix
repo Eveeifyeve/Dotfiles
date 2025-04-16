@@ -19,6 +19,9 @@
 
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixcord.url = "github:kaylorben/nixcord";
+
     eveeifyeve-flake-templates.url = "github:Eveeifyeve/flake-templates";
 
     agenix.url = "github:ryantm/agenix";
@@ -101,6 +104,9 @@
                 useUserPackages = true;
                 backupFileExtension = "backup";
                 users.eveeifyeve = import ./hosts/eveeifyeve/home.nix;
+                sharedModules = [
+                  inputs.nixcord.homeManagerModules.nixcord
+                ];
               };
             }
           ];
@@ -131,7 +137,11 @@
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                backupFileExtension = "backup";
                 users.eveeifyeve = import ./hosts/eveeifyeve-mac/home.nix;
+                sharedModules = [
+                  inputs.nixcord.homeManagerModules.nixcord
+                ];
               };
             }
             ./hosts/eveeifyeve-mac
