@@ -4,11 +4,8 @@
   lib,
   ...
 }:
-let
-  username = "eveeifyeve";
-in
 {
-  users.users.${username}.home = "/Users/${username}";
+  users.users.eveeifyeve.home = "/Users/eveeifyeve";
   ids.gids.nixbld = 350;
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
