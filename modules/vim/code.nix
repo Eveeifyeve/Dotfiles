@@ -112,8 +112,11 @@
 
       nvim-jdtls = {
         enable = true;
-        data = "~/.cache/jdtls/workspace";
-        configuration = "~/.cache/jdtls/configurations";
+        cmd = [
+          "java"
+          "--data ~/.cache/jdtls/workspace"
+          "--configuration ~/.cache/jdtls/configurations"
+        ];
         initOptions = {
           bundles.__raw = "_M.jdtls.bundles";
         };
