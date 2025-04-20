@@ -11,7 +11,11 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
   system.stateVersion = 4;
-  environment.systemPackages = [ pkgs.nushell ];
+  environment.systemPackages = with pkgs; [
+    nushell
+    podman
+    podman-compose
+  ];
   system.activationScripts.extraActivation.text = ''
     softwareupdate --install-rosetta --agree-to-license
   '';
