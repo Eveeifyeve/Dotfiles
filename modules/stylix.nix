@@ -33,5 +33,15 @@ in
     polarity = "dark";
     image = config.lib.stylix.pixel "base00";
     inherit (themes.catppucin) base16Scheme;
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
+      };
+
+      serif = config.stylix.fonts.monospace;
+      sansSerif = config.stylix.fonts.monospace;
+      emoji = config.stylix.fonts.monospace;
+    };
   };
 }

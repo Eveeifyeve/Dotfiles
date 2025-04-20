@@ -14,11 +14,16 @@
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-      profiles.default.extensions = with pkgs.vscode-extensions; [
-        ms-vsliveshare.vsliveshare
-        astro-build.astro-vscode
-        vscodevim.vim
-      ];
+      profiles.default = {
+        userSettings = {
+          editor.fontFamily = "JetBrains Mono";
+        };
+        extensions = with pkgs.vscode-extensions; [
+          ms-vsliveshare.vsliveshare
+          astro-build.astro-vscode
+          vscodevim.vim
+        ];
+      };
     };
 
     nixcord = {
