@@ -1286,15 +1286,16 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1745618823,
-        "narHash": "sha256-WGKSI0+CY3Ep2YnRASmBRU8oMIvTW4ngFyjA0dVcKgQ=",
-        "owner": "danth",
+        "lastModified": 1744969671,
+        "narHash": "sha256-8uNPS9DeBML2D8HA0TVEvMKfT5gF7FRDivPsQf4BszI=",
+        "owner": "eveeifyeve",
         "repo": "stylix",
-        "rev": "11ceb2fde1901dc227421bbbef2d0800339f5126",
+        "rev": "bf91d8e358f03149d80697893d0f5459b3f5f2dc",
         "type": "github"
       },
       "original": {
-        "owner": "danth",
+        "owner": "eveeifyeve",
+        "ref": "jankyborders/init",
         "repo": "stylix",
         "type": "github"
       }
