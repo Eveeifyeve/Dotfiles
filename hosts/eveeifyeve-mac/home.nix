@@ -16,6 +16,7 @@
     enable = true;
     settings = {
       window.option_as_alt = "OnlyLeft";
+      window.decorations = "None";
     };
   };
 
