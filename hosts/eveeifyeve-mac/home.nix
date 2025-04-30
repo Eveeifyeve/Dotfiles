@@ -41,7 +41,7 @@
             vertical = generalgap;
           };
           outer = {
-            left = generalgap;
+            left = generalgap + 55;
             bottom = generalgap;
             top = generalgap;
             right = generalgap;
