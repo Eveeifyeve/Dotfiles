@@ -19,6 +19,10 @@
   system.activationScripts.extraActivation.text = ''
     softwareupdate --install-rosetta --agree-to-license
   '';
+  system.defaults.NSGlobalDomain = {
+    NSWindowShouldDragOnGesture = true;
+    ApplePressAndHoldEnabled = false;
+  };
 
   nix.linux-builder = {
     enable = true;
