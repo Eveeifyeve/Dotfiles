@@ -34,7 +34,7 @@
 
       vesktop.enable = true;
       config = {
-        useQuickCss = true;
+        useQuickCss = false;
         frameless = true;
         plugins = {
           silentTyping = {
