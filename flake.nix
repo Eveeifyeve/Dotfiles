@@ -105,7 +105,7 @@
                 backupFileExtension = "backup";
                 users.eveeifyeve = import ./hosts/eveeifyeve/home.nix;
                 sharedModules = [
-                  inputs.nixcord.homeManagerModules.nixcord
+                  inputs.nixcord.homeModules.nixcord
                 ];
               };
             }
@@ -140,7 +140,7 @@
                 backupFileExtension = "backup";
                 users.eveeifyeve = import ./hosts/eveeifyeve-mac/home.nix;
                 sharedModules = [
-                  inputs.nixcord.homeManagerModules.nixcord
+                  inputs.nixcord.homeModules.nixcord
                 ];
               };
             }
