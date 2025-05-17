@@ -23,12 +23,6 @@
     NSWindowShouldDragOnGesture = true;
     ApplePressAndHoldEnabled = false;
   };
-
-  nix.linux-builder = {
-    enable = true;
-    ephemeral = true;
-    maxJobs = 4;
-  };
   security.pam.services.sudo_local.touchIdAuth = true;
   programs.gnupg.agent.enable = true;
 
