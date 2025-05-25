@@ -38,6 +38,15 @@
     gh = {
       enable = true;
       extensions = with pkgs; [ (callPackage ../../custom-pkgs/gh-combine-prs.nix { }) ];
+			settings = {
+				git_protocol = "ssh";
+				prompt = "enabled";
+
+				aliases = {
+					co = "pr checkout";
+					pv = "pr view";
+				};
+			};
     };
     # home.file.".gitconfig" = {
     #   text = ''
