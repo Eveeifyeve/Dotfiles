@@ -146,6 +146,8 @@
             }
             ./hosts/eveeifyeve-mac
             ./modules/vim
+						#TODO: wait for pr to come out https://github.com/nix-darwin/nix-darwin/pull/942
+						#./modules/nix-darwin/nh.nix
             ./modules/nix-darwin/rice.nix
             ./modules/stylix.nix
             ./modules/homebrew.nix
