@@ -69,10 +69,10 @@
         enable = true;
       };
 
-      # Code issues displayed clearly 
+      # Code issues displayed clearly
       trouble.enable = true;
 
-      # Shows keymaps when using leader 
+      # Shows keymaps when using leader
       which-key = {
         enable = true;
         settings.notify = true;
@@ -93,7 +93,7 @@
 
       notify.enable = true;
 
-      # Very usefull telescope plugin.	
+      # Very usefull telescope plugin.
 
       harpoon = {
         enable = true;

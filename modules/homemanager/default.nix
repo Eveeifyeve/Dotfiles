@@ -29,7 +29,7 @@
     nixcord = {
       enable = true;
 
-      # Disable other discords and only use vesktop 
+      # Disable other discords and only use vesktop
       discord.enable = false;
 
       vesktop.enable = true;

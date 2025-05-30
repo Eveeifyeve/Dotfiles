@@ -14,7 +14,7 @@ let
 in
 with pkgs;
 [
-  # Development Tools 
+  # Development Tools
   jetbrains.idea-community # For java colab
 
   # (vscode.overrideAttrs (attrs: {
@@ -46,7 +46,7 @@ with pkgs;
   tree
   codeberg-cli # File Sizes
 
-  # Command Line Proccesors 
+  # Command Line Proccesors
   bat # Better cat
   ripgrep
   gawk
@@ -75,10 +75,10 @@ with pkgs;
   # Music Downloaders
   spotdl
 
-  # Note taking app
+  # Productivity
   obsidian
 
-  # Git Utils/Ui's 
+  # Git Utils/Ui's
   lazygit
   #TODO: Wait until git-revice is fixed for macos.
   # git-revise

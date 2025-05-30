@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  # Steam 
+  # Steam
   programs = {
     steam = {
       enable = true;

@@ -6,6 +6,7 @@
 }:
 let
   hypr-plugin = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
+  nixpkgs-ndi = inputs.nixpkgs-ndi.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   imports = [
@@ -123,8 +124,16 @@ in
         gtk-adwaita = false;
       };
     };
-    waybar = {
+    obs-studio = {
       enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-ndi
+        obs-pipewire-audio-capture
+        # nixpkgs-ndi.obs-studio-plugins.distroav
+      ];
+    };
+    waybar = {
+      enable = false;
       settings = {
         mainBar = {
           layer = "top";
@@ -326,12 +335,12 @@ in
         libnotify
         wl-clipboard
         lmms
-        obs-studio
         gparted
         blender
         tor-browser
         anydesk
         lunar-client
+        streamdeck-ui
       ]);
     shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };

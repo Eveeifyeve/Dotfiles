@@ -73,7 +73,7 @@
         };
       };
 
-      # Saving 
+      # Saving
       auto-save = {
         enable = true;
         settings.enable = true;
@@ -82,10 +82,10 @@
       # Tailwind
       tailwind-tools.enable = true;
 
-      # Term colors 
+      # Term colors
       colorizer.enable = true;
 
-      # Commenting 
+      # Commenting
       comment.enable = true;
 
       # Highlighting
@@ -104,21 +104,23 @@
         };
       };
 
-      # JsonSchema store for yaml/json schemas 
+      # JsonSchema store for yaml/json schemas
       schemastore.enable = true;
 
-      # Lsp Formatting 
+      # Lsp Formatting
       lsp-format.enable = true;
 
-      nvim-jdtls = {
+      jdtls = {
         enable = true;
-        cmd = [
-          "java"
-          "--data ~/.cache/jdtls/workspace"
-          "--configuration ~/.cache/jdtls/configurations"
-        ];
-        initOptions = {
-          bundles.__raw = "_M.jdtls.bundles";
+        settings = {
+          cmd = [
+            "java"
+            "--data ~/.cache/jdtls/workspace"
+            "--configuration ~/.cache/jdtls/configurations"
+          ];
+          initOptions = {
+            bundles.__raw = "_M.jdtls.bundles";
+          };
         };
       };
 

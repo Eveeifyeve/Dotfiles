@@ -19,6 +19,7 @@
   system.activationScripts.extraActivation.text = ''
     softwareupdate --install-rosetta --agree-to-license
   '';
+  system.primaryUser = "eveeifyeve";
   system.defaults.NSGlobalDomain = {
     NSWindowShouldDragOnGesture = true;
     ApplePressAndHoldEnabled = false;
@@ -52,12 +53,13 @@
 
   homebrew = {
     enable = true;
+    user = "eveeifyeve";
     casks = [
       "podman-desktop"
       "cloudflare-warp"
       "curseforge"
       "obs"
-      "zen-browser@twilight"
+      "zen@twilight"
       "tor-browser"
       "gimp@dev"
       "lmms"

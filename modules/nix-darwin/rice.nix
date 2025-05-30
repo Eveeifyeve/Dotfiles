@@ -25,8 +25,8 @@ in
       '';
     };
 
-  system.activationScripts.postUserActivation.text = ''
-    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"${config.stylix.image}\""
+  system.activationScripts.postActivation.text = ''
+    sudo osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"${config.stylix.image}\""
   '';
 
 }

@@ -20,16 +20,16 @@
       wrap = false; # Wrapping that makes code a pain to know what line it is on.
       smartcase = true; # Ignore what case in search and just search the thing.
 
-      # Indenting 
+      # Indenting
       shiftwidth = 2;
       smartindent = true;
       tabstop = 2;
 
-      # Searching 
+      # Searching
       hlsearch = false;
       incsearch = true;
 
-      # Folding 
+      # Folding
       foldlevel = 99;
     };
 

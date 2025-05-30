@@ -11,7 +11,7 @@
         credential.helper = "store";
         github.user = git.username;
         github.email = git.email;
-        push.autoSetupRemote = true;
+        # push.autoSetupRemote = true;
         user = {
           name = git.username;
           email = git.email;
@@ -38,15 +38,15 @@
     gh = {
       enable = true;
       extensions = with pkgs; [ (callPackage ../../custom-pkgs/gh-combine-prs.nix { }) ];
-			settings = {
-				git_protocol = "ssh";
-				prompt = "enabled";
+      settings = {
+        git_protocol = "ssh";
+        prompt = "enabled";
 
-				aliases = {
-					co = "pr checkout";
-					pv = "pr view";
-				};
-			};
+        aliases = {
+          co = "pr checkout";
+          pv = "pr view";
+        };
+      };
     };
     # home.file.".gitconfig" = {
     #   text = ''

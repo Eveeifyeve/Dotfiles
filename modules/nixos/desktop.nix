@@ -34,12 +34,12 @@ in
 
   hardware = {
     graphics = {
-      package = hypr-unstable-pkgs.mesa.drivers;
+      package = hypr-unstable-pkgs.mesa;
       enable = true;
       enable32Bit = true;
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
-      package32 = hypr-unstable-pkgs.pkgsi686Linux.mesa.drivers;
+      package32 = hypr-unstable-pkgs.pkgsi686Linux.mesa;
     };
     enableRedistributableFirmware = true;
   };

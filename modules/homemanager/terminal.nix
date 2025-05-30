@@ -7,7 +7,7 @@
         enable = true;
         plugins = [ "vi-mode" ];
       };
-      initExtra = ''
+      initContent = ''
         	        # Ensure Nix is sourced. Necessary when /etc/zshrc file loses this same code block on macOS upgrades
                         if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
                           . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
@@ -22,14 +22,14 @@
       enable = true;
       shell = "${pkgs.nushell}/bin/nushell";
       plugins = with pkgs; [
-       # {
-       #   plugin = tmuxPlugins.resurrect;
-       #   extraConfig = ''
-       #     set -g @resurrect-strategy-nvim 'session'
-       #     set -g @resurrect-save 'S'
-       #     set -g @resurrect-restore 'R'
-       #   '';
-       # }
+        # {
+        #   plugin = tmuxPlugins.resurrect;
+        #   extraConfig = ''
+        #     set -g @resurrect-strategy-nvim 'session'
+        #     set -g @resurrect-save 'S'
+        #     set -g @resurrect-restore 'R'
+        #   '';
+        # }
         {
           plugin = tmuxPlugins.continuum;
           extraConfig = ''
