@@ -1,0 +1,3 @@
+{
+  programs.element.enable = true;
+}

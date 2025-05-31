@@ -1,0 +1,7 @@
+{ inputs, lib, ... }:
+{
+
+  flake.nixosConfigurations = {
+
+  };
+}

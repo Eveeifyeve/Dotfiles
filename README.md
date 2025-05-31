@@ -9,12 +9,6 @@ A Configuration for Each Distro/OS
 - Support for Different Hosts Easily
 And [More](./doc/features.md).
 
-
-
-
-
-
-
 # Installing 
 
 > [!NOTE]
@@ -32,9 +26,6 @@ And [More](./doc/features.md).
 nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.dotfiles/
 ```
 
-
-
-
 # Rebuilding 
 
 ## Macos
@@ -47,12 +38,42 @@ if this shell alias is not working, use the following command:
 darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom
 ```
 
+# Flake templates
 
-# Documentation
+## Available templates
 
-- [Flake Templates](/flakes/README.md)
+* Node: node
+* Rust: rust
+* Fenix (Rust): rust.fenix
+* Rust Overlay: rust.rust-overlay
+* Poetry: python.poetry
+* Python: python
+* uv: python.uv
+* Zig: zig
 
+### Install template using cli
+Get started by using the cli to install a template from github.
+Replace `<template-name>` with the [name of the template](#available-templates) you want to install.
+```bash
+nix flake init -t github:eveeifyeve/dotfiles#<template-name>
+```
 
+### Adding it to your config using flake
+```nix
+{
+    inputs = {
+        eveeifyeve-flake-templates = {
+            url = "github:eveeifyeve/dotfiles";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+    };
+
+    outputs = { self, nixpkgs, eveeifyeve-flake-templates, ... }:
+    {
+        templates = inputs.eveeifyeve-flake-templates.templates;
+    }
+}
+```
 
 # Updating 
 
