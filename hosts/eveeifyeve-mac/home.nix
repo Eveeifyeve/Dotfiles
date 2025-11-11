@@ -30,6 +30,12 @@
     };
   };
 
+  #TODO: fix https://github.com/nix-community/home-manager/pull/8031#issuecomment-3514652984
+  targets.darwin = {
+    linkApps.enable = true;
+    copyApps.enable = false;
+  };
+
   programs.aerospace = {
     enable = true;
     userSettings = {
