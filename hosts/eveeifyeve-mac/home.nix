@@ -4,6 +4,7 @@
   git,
   lib,
   inputs,
+  masterPkgs,
   ...
 }:
 {
@@ -12,11 +13,20 @@
     ../../modules/homemanager/git.nix
     ../../modules/homemanager/terminal.nix
   ];
-  programs.alacritty = {
+  # programs.alacritty = {
+  #   enable = true;
+  #   settings = {
+  #     window.option_as_alt = "OnlyLeft";
+  #     window.decorations = "None";
+  #   };
+  # };
+
+  programs.ghostty = {
     enable = true;
+    package = pkgs.ghostty-bin;
     settings = {
-      window.option_as_alt = "OnlyLeft";
-      window.decorations = "None";
+      window-decoration = "none";
+      macos-option-as-alt = true;
     };
   };
 
@@ -31,6 +41,9 @@
       accordion-padding = 30;
       default-root-container-layout = "tiles";
       default-root-container-orientation = "auto";
+
+      on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
+      on-focus-changed = [ "move-mouse window-lazy-center" ];
 
       gaps =
         let
@@ -49,54 +62,53 @@
           };
         };
 
-      mode.main.binding =
-        {
-          alt-t = "exec-and-forget alacritty";
-          alt-shift-h = "move left";
-          alt-shift-j = "move down";
-          alt-shift-k = "move up";
-          alt-shift-l = "move right";
-          alt-h = "focus left";
-          alt-j = "focus down";
-          alt-k = "focus up";
-          alt-l = "focus right";
-        }
-        // builtins.listToAttrs (
-          builtins.concatLists (
-            builtins.genList (
-              i:
-              let
-                ws = toString i;
-              in
-              [
-                {
-                  name = "alt-${ws}";
-                  value = "workspace ${ws}";
-                }
-                {
-                  name = "alt-shift-${ws}";
-                  value = "move-node-to-workspace ${ws}";
-                }
-              ]
-            ) 10
-          )
-        );
+      mode.main.binding = {
+        alt-t = "exec-and-forget ghostty";
+        alt-shift-h = "move left";
+        alt-shift-j = "move down";
+        alt-shift-k = "move up";
+        alt-shift-l = "move right";
+        alt-h = "focus left";
+        alt-j = "focus down";
+        alt-k = "focus up";
+        alt-l = "focus right";
+        alt-shift-minus = "resize smart -50";
+        alt-shift-equal = "resize smart +50";
+        alt-shift-f = "fullscreen";
+      }
+      // builtins.listToAttrs (
+        builtins.concatLists (
+          builtins.genList (
+            i:
+            let
+              ws = toString i;
+            in
+            [
+              {
+                name = "alt-${ws}";
+                value = "workspace ${ws}";
+              }
+              {
+                name = "alt-shift-${ws}";
+                value = "move-node-to-workspace ${ws}";
+              }
+            ]
+          ) 10
+        )
+      );
     };
   };
   home = {
     username = "eveeifyeve";
-    stateVersion = "25.05";
+    stateVersion = "25.11";
     homeDirectory = "/Users/${config.home.username}";
     packages =
-      pkgs.callPackage ../packages.nix { inherit inputs; }
+      pkgs.callPackage ../packages.nix { inherit inputs masterPkgs; }
       ++ (with pkgs; [
-        mas
         aldente
-        bartender
-        stats
         raycast # MacOS Spotlight Alternative
         utm # MacOS Qemu
-        arc-browser # Only here until zen browser is stable
+        libreoffice-bin
         # darwin.xcode_15_1
       ]);
     shellAliases.nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";

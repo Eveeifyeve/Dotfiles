@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  masterPkgs,
   lib,
   ...
 }:
@@ -56,20 +57,22 @@ with pkgs;
   # spotify
   element-desktop
   audacity
-  tailscale
+  google-chrome
+  # tailscale
 
   # Nix Tools
   nixd
   nix-output-monitor
-
+  inputs.compose.packages.${system}.default
   # Private Browsing / DarkWeb Browsers
 
   # Minecraft
   prismlauncher
   modrinth-app
 
-  # Video/Photo/Graphic Editingc
-  gimp
+  # Video/Photo/Graphic Editing/Creating Fonts
+  #gimp TODO: fix darwin
+  fontforge
   ffmpeg_7-full
 
   # Music Downloaders
@@ -79,13 +82,19 @@ with pkgs;
   obsidian
 
   # Git Utils/Ui's
-  lazygit
   #TODO: Wait until git-revice is fixed for macos.
   # git-revise
+  nh
+  mpv
+  youtube-tui
+
+  # Local AI
+  #masterPkgs.ollama
 
   # Secrets
   inputs.agenix.packages."${system}".default
 
   # Fonts
+  roboto
   nerd-fonts.jetbrains-mono
 ]

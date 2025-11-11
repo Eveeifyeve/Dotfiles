@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.nixvim = {
     plugins = {
@@ -23,6 +23,10 @@
           };
           fzf-native.enable = true;
         };
+
+        luaConfig.pre = ''
+          					require("telescope").load_extension "pomodori"	
+          				'';
 
         keymaps = {
           "<leader><space>" = {
@@ -59,6 +63,12 @@
             action = "live_grep";
             options = {
               desc = "Find text";
+            };
+          };
+          "<leader>pt" = {
+            action = "function() require('telescope').extensions.pomodori.timers()";
+            options = {
+              desc = "Manage Pomodori Timers";
             };
           };
         };
@@ -104,5 +114,21 @@
       web-devicons.enable = true;
 
     };
+
+    extraPlugins = with pkgs.vimPlugins; [ pomo-nvim ];
+    extraConfigLua = ''
+      			require("pomo").setup({
+        sessions = {
+          pomodoro = {
+            { name = "Work", duration = "25m" },
+            { name = "Short Break", duration = "5m" },
+            { name = "Work", duration = "25m" },
+            { name = "Short Break", duration = "5m" },
+            { name = "Work", duration = "25m" },
+            { name = "Long Break", duration = "15m" },
+          },
+        },
+      })
+      		'';
   };
 }

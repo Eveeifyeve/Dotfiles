@@ -8,7 +8,7 @@
       "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
       "homebrew/bundle" = inputs.homebrew-bundle;
-      "homebrew/homebrew-cask-versions" = inputs.homebrew-cask-versions;
+      "deskflow/homebrew-tap" = inputs.deskflow-homebrew-tap;
     };
     mutableTaps = false;
     autoMigrate = false;

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   username,
   ...
 }:
@@ -26,13 +27,27 @@
       };
     };
 
+    lazygit = {
+      enable = true;
+      settings = {
+        gui.switchTabsWithPanelJumpKeys = true;
+      };
+    };
+
     nixcord = {
       enable = true;
 
-      # Disable other discords and only use vesktop
+      # Disable other discords and only use vesktop (Linux)
       discord.enable = false;
 
-      vesktop.enable = true;
+      userPlugins = {
+        #vimMotion = "github:404-5971/vimMotion/85da8d7d756c87b91bf0e794c52785fa6f13bb61";
+      };
+
+      vesktop = {
+        enable = true;
+        settings.arRPC = true;
+      };
       config = {
         useQuickCss = false;
         frameless = true;
@@ -41,9 +56,11 @@
             enable = true;
             showIcon = true;
           };
+          noBlockedMessages.enable = true;
           readAllNotificationsButton.enable = true;
           appleMusicRichPresence.enable = true;
-          hideAttachments.enable = true;
+          hideMedia.enable = true;
+          volumeBooster.enable = true;
         };
       };
     };
@@ -85,5 +102,6 @@
     ];
     auto-optimise-store = true;
     warn-dirty = false;
+    #access-tokens = "github.com=$(gh auth token)";
   };
 }

@@ -40,7 +40,7 @@
     loginwindow.LoginwindowText = "Welcome, Please login.";
     screencapture.location = "~/Pictures/screenshots";
     dock.persistent-apps = [
-      "${pkgs.arc-browser}/Applications/Arc.app"
+      "/System/Applications/Twilight.app"
       "${lib.getExe pkgs.alacritty}"
       "${lib.getExe pkgs.obsidian}"
       "/System/Applications/Music.app"
@@ -51,6 +51,27 @@
     extra-platforms = x86_64-darwin aarch64-darwin aarch64_linux
   '';
 
+  # WORK!
+  nix.linux-builder = {
+    enable = true;
+    ephemeral = true;
+    maxJobs = 4;
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+    config = {
+      boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+      nix.settings.experimental-features = "nix-command flakes";
+      users.users."builder".extraGroups = [ "wheel" ];
+      security.sudo.wheelNeedsPassword = false;
+    };
+  };
+
+  environment.variables = {
+    EDITOR = "nvim";
+  };
+
   homebrew = {
     enable = true;
     user = "eveeifyeve";
@@ -59,16 +80,22 @@
       "cloudflare-warp"
       "curseforge"
       "obs"
+      "streamlabs"
       "zen@twilight"
+      "gimp"
       "tor-browser"
-      "gimp@dev"
       "lmms"
       "mixxx"
       "lunar-client"
       "anydesk"
       "blender"
       "roblox"
-      # "logitech-g-hub"
+      "logitech-g-hub"
+      "elgato-stream-deck"
+      "wireshark-app"
+      "libndi"
+      "ndi-tools"
+      "deskflow"
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI
@@ -78,6 +105,7 @@
       TestFlight = 899247664;
       CrystalFetch = 6454431289;
       DaVinciResolve = 571213070;
+      Perplexity = 6714467650;
     };
     onActivation.cleanup = "uninstall";
   };

@@ -64,45 +64,44 @@ in
         "$mod, mouse:273, resizewindow"
       ];
 
-      bind =
-        [
-          # Vim keybind to move windows
-          "$mod, H, movefocus, l"
-          "$mod, J, movefocus, d"
-          "$mod, K, movefocus, u"
-          "$mod, L, movefocus, r"
-          "$altmod, H, movewindow, l"
-          "$altmod, J, movewindow, d"
-          "$altmod, K, movewindow, u"
-          "$altmod, L, movewindow, r"
-        ]
-        ++ [
-          "$mod, ESC, exit"
-          "$mod, T, exec, ghostty"
-          "$mod, Q, killactive"
-          "$mod, E, exec, nautilus"
-          "$mod, F, togglefloating"
-          "$mod, Space, exec, rofi -show drun"
-          "$mod, P, pseudo"
-          "$mod, J, togglesplit"
-          "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-          '', Print, exec, ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -d)" - | wl-copy''
-          ''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f ~/Video/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
-          ''$altmod, S, exec, pkill --signal wl-screenrec''
-        ]
-        ++ (builtins.concatLists (
-          builtins.genList (
-            x:
-            let
-              ws = builtins.toString (x + 1);
-            in
-            [
-              "$mod, ${ws}, workspace, ${ws}"
-              "$shiftMod, ${ws}, movetoworkspace, ${ws}"
-              "$altmod, ${ws}, movetoworkspacesilent, ${ws}"
-            ]
-          ) 9
-        ));
+      bind = [
+        # Vim keybind to move windows
+        "$mod, H, movefocus, l"
+        "$mod, J, movefocus, d"
+        "$mod, K, movefocus, u"
+        "$mod, L, movefocus, r"
+        "$altmod, H, movewindow, l"
+        "$altmod, J, movewindow, d"
+        "$altmod, K, movewindow, u"
+        "$altmod, L, movewindow, r"
+      ]
+      ++ [
+        "$mod, ESC, exit"
+        "$mod, T, exec, ghostty"
+        "$mod, Q, killactive"
+        "$mod, E, exec, nautilus"
+        "$mod, F, togglefloating"
+        "$mod, Space, exec, rofi -show drun"
+        "$mod, P, pseudo"
+        "$mod, J, togglesplit"
+        "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        '', Print, exec, ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -d)" - | wl-copy''
+        ''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f ~/Video/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
+        ''$altmod, S, exec, pkill --signal wl-screenrec''
+      ]
+      ++ (builtins.concatLists (
+        builtins.genList (
+          x:
+          let
+            ws = builtins.toString (x + 1);
+          in
+          [
+            "$mod, ${ws}, workspace, ${ws}"
+            "$shiftMod, ${ws}, movetoworkspace, ${ws}"
+            "$altmod, ${ws}, movetoworkspacesilent, ${ws}"
+          ]
+        ) 9
+      ));
     };
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
@@ -321,7 +320,7 @@ in
 
   home = {
     username = "eveeifyeve";
-    stateVersion = "24.05";
+    stateVersion = "25.11";
     packages =
       pkgs.callPackage ../packages.nix { inherit inputs; }
       ++ (with pkgs; [

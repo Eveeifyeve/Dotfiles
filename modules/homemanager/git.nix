@@ -3,37 +3,43 @@
   programs = {
     git = {
       enable = true;
-      delta = {
-        enable = true;
-      };
-      extraConfig = {
+      settings = {
+        aliases = {
+          st = "status -s";
+          sta = "status";
+          ci = "commit";
+          co = "checkout";
+          cod = "checkout .";
+          rh = "reset HEAD";
+          aa = "add -A";
+          cdf = "clean -df";
+          pr = "pull --rebase";
+          br = "branch";
+          bra = "branch -a";
+          amend = "commit -a --amend --no-edit";
+          ciam = "commit -a --amend --no-edit";
+
+          ei = "add --intent-to-add";
+          eu = "update-index --assume-unchanged";
+        };
+
         core.editor = "nvim";
         credential.helper = "store";
         github.user = git.username;
         github.email = git.email;
-        # push.autoSetupRemote = true;
+        merge.tool = "nvim";
+        mergetool.nvim.cmd = ''nvim "$MERGED"'';
+        mergetool.prompt = false;
+        push.autoSetupRemote = true;
         user = {
           name = git.username;
           email = git.email;
         };
       };
-      aliases = {
-        st = "status -s";
-        sta = "status";
-        ci = "commit";
-        co = "checkout";
-        cod = "checkout .";
-        rh = "reset HEAD";
-        aa = "add -A";
-        cdf = "clean -df";
-        pr = "pull --rebase";
-        br = "branch";
-        bra = "branch -a";
-        amend = "commit -a --amend --no-edit";
-        ciam = "commit -a --amend --no-edit";
-      };
-      userEmail = git.email;
-      userName = git.username;
+    };
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
     };
     gh = {
       enable = true;

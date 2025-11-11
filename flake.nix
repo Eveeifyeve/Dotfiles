@@ -2,8 +2,9 @@
   description = "Eveeifyeve Nix/NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-		nixpkgs-ndi.url = "github:globule655/nixpkgs/ndi-tools-obs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs-ndi.url = "github:globule655/nixpkgs/ndi-tools-obs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-darwin.url = "github:LnL7/nix-darwin";
 
@@ -43,10 +44,12 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
-    homebrew-cask-versions = {
-      url = "github:homebrew/homebrew-cask-versions";
+    deskflow-homebrew-tap = {
+      url = "github:deskflow/homebrew-tap";
       flake = false;
     };
+
+    compose.url = "github:digitalbrewstudios/nixos-compose";
   };
   outputs =
     inputs@{ self, nixpkgs, ... }:
@@ -117,7 +120,7 @@
       # Nix on Darwin with Nix-Darwin x HM
       darwinConfigurations = {
         eveeifyeve-macbook = inputs.nix-darwin.lib.darwinSystem {
-          # system = "aarch64-darwin";
+          system = "aarch64-darwin";
           specialArgs = {
             inherit inputs;
           }; # Inputs are needed for homebrew
@@ -135,6 +138,10 @@
                     email = "88671402+Eveeifyeve@users.noreply.github.com";
                   };
                   inherit inputs;
+
+                  masterPkgs = import inputs.nixpkgs-master {
+                    system = "aarch64-darwin";
+                  };
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
@@ -147,8 +154,8 @@
             }
             ./hosts/eveeifyeve-mac
             ./modules/vim
-						#TODO: wait for pr to come out https://github.com/nix-darwin/nix-darwin/pull/942
-						#./modules/nix-darwin/nh.nix
+            #TODO: wait for pr to come out https://github.com/nix-darwin/nix-darwin/pull/942
+            #./modules/nix-darwin/nh.nix
             ./modules/nix-darwin/rice.nix
             ./modules/stylix.nix
             ./modules/homebrew.nix
