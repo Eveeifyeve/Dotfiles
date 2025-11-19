@@ -14,7 +14,7 @@
 
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
-    stylix.url = "github:Eveeifyeve/stylix/jankyborders/init";
+    stylix.url = "github:nix-community/stylix/master";
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";

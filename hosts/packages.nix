@@ -56,6 +56,7 @@ with pkgs;
   # Programs
   # spotify
   element-desktop
+	deskflow
   audacity
   google-chrome
   # tailscale

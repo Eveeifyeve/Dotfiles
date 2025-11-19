@@ -6,7 +6,10 @@
 }:
 let
   hypr-plugin = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
-  nixpkgs-ndi = inputs.nixpkgs-ndi.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  nixpkgs-ndi = import inputs.nixpkgs-ndi {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
 in
 {
   imports = [
@@ -126,9 +129,8 @@ in
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
-        obs-ndi
         obs-pipewire-audio-capture
-        # nixpkgs-ndi.obs-studio-plugins.distroav
+        nixpkgs-ndi.obs-studio-plugins.distroav
       ];
     };
     waybar = {
@@ -325,6 +327,7 @@ in
       pkgs.callPackage ../packages.nix { inherit inputs; }
       ++ (with pkgs; [
         podman-desktop
+        podman-compose
         pciutils
         firefox
         pavucontrol

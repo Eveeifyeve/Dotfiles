@@ -50,6 +50,7 @@ in
     config.common.default = "*";
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      libportal
       hyprpackages.xdg-desktop-portal-hyprland
     ];
   };
