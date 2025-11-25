@@ -18,7 +18,6 @@
   };
 
   programs.regreet.enable = true;
-
   virtualisation = {
     podman = {
       enable = true;
@@ -27,6 +26,10 @@
     };
     libvirtd.enable = true;
   };
+
+  services.fwupd.enable = true;
+
+  environment.variables.AMD_VULKAN_ICD = "RADV";
 
   programs.virt-manager.enable = true;
 
@@ -121,5 +124,5 @@
   #TODO: Remove this and use suggested roadmap
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 }

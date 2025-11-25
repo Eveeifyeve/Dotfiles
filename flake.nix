@@ -3,12 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-ndi.url = "github:globule655/nixpkgs/ndi-tools-obs";
+    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-25.05";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-darwin.url = "github:LnL7/nix-darwin";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
 
@@ -40,13 +39,23 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
-      flake = false;
-    };
+
     deskflow-homebrew-tap = {
       url = "github:deskflow/homebrew-tap";
       flake = false;
+    };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     compose.url = "github:digitalbrewstudios/nixos-compose";
@@ -149,6 +158,7 @@
                 users.eveeifyeve = import ./hosts/eveeifyeve-mac/home.nix;
                 sharedModules = [
                   inputs.nixcord.homeModules.nixcord
+                  inputs.zen-browser.homeModules.beta
                 ];
               };
             }

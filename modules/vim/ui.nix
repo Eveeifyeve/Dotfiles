@@ -76,7 +76,7 @@
 
       # Line
       lualine = {
-        enable = true;
+        enable = false;
       };
 
       # Code issues displayed clearly

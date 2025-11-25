@@ -105,7 +105,7 @@
       };
 
       # JsonSchema store for yaml/json schemas
-      schemastore.enable = true;
+      schemastore.enable = false;
 
       # Lsp Formatting
       lsp-format.enable = true;

@@ -1,18 +1,17 @@
 {
   pkgs,
   inputs,
-  masterPkgs,
   lib,
   ...
 }:
-let
-  apc-extension = pkgs.fetchFromGitHub {
-    owner = "drcika";
-    repo = "apc-extension";
-    rev = "d4cc908bf2869fe354aa0c103bab063aa09fd491";
-    hash = "sha256-RfzaP+a7ukLCqL2+Ty6xFGnmgkc8lcpd1G2Xy4sr8IE=";
-  };
-in
+# let
+#   apc-extension = pkgs.fetchFromGitHub {
+#     owner = "drcika";
+#     repo = "apc-extension";
+#     rev = "d4cc908bf2869fe354aa0c103bab063aa09fd491";
+#     hash = "sha256-RfzaP+a7ukLCqL2+Ty6xFGnmgkc8lcpd1G2Xy4sr8IE=";
+#   };
+# in
 with pkgs;
 [
   # Development Tools
@@ -56,20 +55,20 @@ with pkgs;
   # Programs
   # spotify
   element-desktop
-	deskflow
+  deskflow
   audacity
-  google-chrome
+  #google-chrome
   # tailscale
 
   # Nix Tools
   nixd
   nix-output-monitor
-  inputs.compose.packages.${system}.default
+  #inputs.compose.packages.${system}.default
   # Private Browsing / DarkWeb Browsers
 
   # Minecraft
   prismlauncher
-  modrinth-app
+  #modrinth-app
 
   # Video/Photo/Graphic Editing/Creating Fonts
   #gimp TODO: fix darwin
@@ -83,14 +82,11 @@ with pkgs;
   obsidian
 
   # Git Utils/Ui's
-  #TODO: Wait until git-revice is fixed for macos.
-  # git-revise
+  git-revise
+
   nh
   mpv
   youtube-tui
-
-  # Local AI
-  #masterPkgs.ollama
 
   # Secrets
   inputs.agenix.packages."${system}".default

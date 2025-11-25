@@ -6,10 +6,6 @@
 }:
 let
   hypr-plugin = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
-  nixpkgs-ndi = import inputs.nixpkgs-ndi {
-    system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
-  };
 in
 {
   imports = [
@@ -26,7 +22,7 @@ in
       variables = [ "--all" ];
     };
     settings = {
-      monitor = "HDMI-A-1, preferred, 0x0, 1, bitdepth, 8";
+      monitor = "HDMI-A-1, highres, 0x0, 1, bitdepth, 8";
       decoration = {
         rounding = 10;
         shadow = {
@@ -119,6 +115,17 @@ in
         show-icons = true;
       };
     };
+
+    # zen-browser = {
+    #   enable = true;
+    #   profiles."default" = {
+    #     extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+    #       ublock-origin
+    #       #dark-reader
+    #       wappalyzer
+    #     ];
+    #   };
+    # };
     ghostty = {
       enable = true;
       settings = {
@@ -130,7 +137,7 @@ in
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
         obs-pipewire-audio-capture
-        nixpkgs-ndi.obs-studio-plugins.distroav
+        distroav
       ];
     };
     waybar = {
@@ -329,7 +336,6 @@ in
         podman-desktop
         podman-compose
         pciutils
-        firefox
         pavucontrol
         playerctl
         nautilus
