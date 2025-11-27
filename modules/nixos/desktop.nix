@@ -4,10 +4,6 @@
   lib,
   ...
 }:
-let
-  hypr-unstable-pkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.system};
-  hyprpackages = inputs.hyprland.packages.${pkgs.system};
-in
 {
   services = {
     pipewire = {
@@ -20,7 +16,7 @@ in
       jack.enable = true;
     };
     xserver.videoDrivers = [ "amdgpu" ];
-    displayManager.defaultSession = "hyprland";
+    displayManager.defaultSession = "niri";
     dbus.enable = true;
     greetd = {
       enable = true;
@@ -36,29 +32,25 @@ in
     enableAllFirmware = true;
     amdgpu.initrd.enable = true;
     graphics = {
-      package = hypr-unstable-pkgs.mesa;
       enable = true;
       enable32Bit = true;
-      package32 = hypr-unstable-pkgs.pkgsi686Linux.mesa;
     };
   };
 
-  # Hyprland x wayland
   xdg.portal = {
     enable = true;
     config.common.default = "*";
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gnome
       libportal
-      hyprpackages.xdg-desktop-portal-hyprland
     ];
   };
 
-  programs.hyprland = {
-    enable = true;
-    package = hyprpackages.hyprland;
-    portalPackage = hyprpackages.xdg-desktop-portal-hyprland;
-  };
+  programs.niri.enable = true;
+  niri-flake.cache.enable = true;
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";

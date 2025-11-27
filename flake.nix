@@ -6,10 +6,7 @@
     nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-25.05";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-darwin.url = "github:LnL7/nix-darwin";
-
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    niri.url = "github:sodiboo/niri-flake";
 
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
@@ -100,6 +97,7 @@
             inputs.nixvim.nixosModules.nixvim
             inputs.agenix.nixosModules.default
             inputs.stylix.nixosModules.stylix
+            inputs.niri.nixosModules.niri
             ./hosts/eveeifyeve
             ./modules/vim
             ./modules/stylix.nix
@@ -119,7 +117,7 @@
                 users.eveeifyeve = import ./hosts/eveeifyeve/home.nix;
                 sharedModules = [
                   inputs.nixcord.homeModules.nixcord
-									inputs.zen-browser.homeModules.beta
+                  inputs.zen-browser.homeModules.beta
                 ];
               };
             }

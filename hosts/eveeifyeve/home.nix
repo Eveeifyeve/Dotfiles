@@ -2,11 +2,9 @@
   pkgs,
   lib,
   inputs,
+  config,
   ...
 }:
-let
-  hypr-plugin = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
-in
 {
   imports = [
     ../../modules/homemanager
@@ -14,98 +12,140 @@ in
     ../../modules/homemanager/eww.nix
     ../../modules/homemanager/git.nix
   ];
-  wayland.windowManager.hyprland = {
-    enable = true;
-    systemd = {
+
+  programs.niri.settings = with config.lib.niri.actions; {
+    # Monitor configuration
+    layout.border.width = 1;
+    outputs."HDMI-A-1" = {
       enable = true;
-      enableXdgAutostart = true;
-      variables = [ "--all" ];
     };
-    settings = {
-      monitor = "HDMI-A-1, highres, 0x0, 1, bitdepth, 8";
-      decoration = {
-        rounding = 10;
-        shadow = {
-          enabled = true;
-          range = 4;
-          render_power = 4;
-        };
+
+    workspaces = {
+      "main" = {
+        open-on-output = "HDMI-A-1"; # "HDMI-A-1" (external)
       };
-      #	animation = {
-      #		enabled = true;
-      #	};
-
-      "$mod" = "SUPER";
-      "$shiftMod" = "SUPER SHIFT";
-      "$altmod" = "SUPER ALT";
-      "exec-once" = [
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
-        "eww open bar"
-      ];
-
-      bindl = [
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        "SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%-"
-        "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPrev, exec, playerctl previous"
-      ];
-
-      # Window moving and resizing
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
-
-      bind = [
-        # Vim keybind to move windows
-        "$mod, H, movefocus, l"
-        "$mod, J, movefocus, d"
-        "$mod, K, movefocus, u"
-        "$mod, L, movefocus, r"
-        "$altmod, H, movewindow, l"
-        "$altmod, J, movewindow, d"
-        "$altmod, K, movewindow, u"
-        "$altmod, L, movewindow, r"
-      ]
-      ++ [
-        "$mod, ESC, exit"
-        "$mod, T, exec, ghostty"
-        "$mod, Q, killactive"
-        "$mod, E, exec, nautilus"
-        "$mod, F, togglefloating"
-        "$mod, Space, exec, rofi -show drun"
-        "$mod, P, pseudo"
-        "$mod, J, togglesplit"
-        "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-        '', Print, exec, ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -d)" - | wl-copy''
-        ''$altmod, R, exec, ${lib.getExe pkgs.wl-screenrec} -g "$(${lib.getExe pkgs.slurp})" -f ~/Video/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio''
-        ''$altmod, S, exec, pkill --signal wl-screenrec''
-      ]
-      ++ (builtins.concatLists (
-        builtins.genList (
-          x:
-          let
-            ws = builtins.toString (x + 1);
-          in
-          [
-            "$mod, ${ws}, workspace, ${ws}"
-            "$shiftMod, ${ws}, movetoworkspace, ${ws}"
-            "$altmod, ${ws}, movetoworkspacesilent, ${ws}"
-          ]
-        ) 9
-      ));
     };
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
 
-  systemd.user.startServices = true;
+    spawn-at-startup = [
+      {
+        argv = [
+          "wl-paste"
+          "--type"
+          "text"
+          "watch"
+          "cliphist"
+          "store"
+        ];
+      }
+      {
+        argv = [
+          "wl-paste"
+          "--type"
+          "image"
+          "watch"
+          "cliphist"
+          "store"
+        ];
+      }
+      {
+        argv = [
+          "eww"
+          "open"
+          "bar"
+        ];
+      }
+    ];
+
+    window-rules = [
+      {
+        geometry-corner-radius =
+          let
+            corners = [
+              "bottom-left"
+              "bottom-right"
+              "top-left"
+              "top-right"
+            ];
+            radius = 10.0;
+          in
+          lib.genAttrs corners (lib.const radius);
+        clip-to-geometry = true;
+        draw-border-with-background = false;
+      }
+      { shadow.enable = true; }
+      {
+        matches = [
+          { app-id = "vesktop"; }
+        ];
+        block-out-from = "screencast";
+      }
+    ];
+
+    binds =
+      let
+        workspaces = builtins.genList (i: {
+          key = builtins.toString (lib.trivial.mod (i + 1) 10);
+          index = i + 1;
+        }) 10;
+
+        workspaceBindings =
+          # Focus workspace (e.g. Mod+1, Mod+2)
+          (map (w: {
+            name = "Mod+" + w.key;
+            value = {
+              action.focus-workspace = w.index;
+            };
+          }) workspaces)
+          ++
+            # Move windows to workspace (e.g. Mod+Shift+1, Mod+Shift+2)
+            (map (w: {
+              name = "Mod+Shift+" + w.key;
+              value = {
+                action.move-window-to-workspace = w.index;
+              };
+            }) workspaces);
+      in
+      lib.mergeAttrsList [
+        {
+          "XF86AudioPlay".action = spawn "playerctl" "play-pause";
+          "XF86AudioPause".action = spawn "playerctl" "pause";
+          "XF86AudioNext".action = spawn "playerctl" "next";
+          "XF86AudioPrev".action = spawn "playerctl" "previous";
+          "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+          "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
+          "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
+        }
+        (builtins.listToAttrs workspaceBindings)
+        {
+          "Mod+Escape".action = quit;
+          "Mod+H".action = focus-column-or-monitor-left;
+          "Mod+J".action = focus-window-or-workspace-down;
+          "Mod+K".action = focus-window-or-workspace-up;
+          "Mod+L".action = focus-column-or-monitor-right;
+          "Mod+Shift+H".action = move-column-left;
+          "Mod+Shift+J".action = move-column-to-workspace-down;
+          "Mod+Shift+K".action = move-column-to-workspace-up;
+          "Mod+Shift+L".action = move-column-right;
+        }
+        {
+          "Mod+T".action = spawn "ghostty";
+          "Mod+E".action = spawn "nautilus";
+          "Mod+Space".action = spawn "rofi" "-show" "drun";
+          "Mod+F".action = toggle-window-floating;
+          "Mod+Shift+F".action = fullscreen-window;
+          "Print".action =
+            spawn-sh ''${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp} -d)\" - | wl-copy'';
+          "Alt+R".action =
+            spawn-sh ''${lib.getExe pkgs.wl-screenrec} -g \"$(${lib.getExe pkgs.slurp})\" -f ~/Video/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio'';
+          "Alt+S".action = spawn "pkill" "--signal" "wl-screenrec";
+          "Mod+Q" = {
+            repeat = false;
+            action = close-window;
+          };
+        }
+      ];
+
+  };
 
   systemd.user.startServices = true;
   stylix.targets.zen-browser.profileNames = [ "default" ];
@@ -142,82 +182,6 @@ in
         distroav
       ];
     };
-    waybar = {
-      enable = false;
-      settings = {
-        mainBar = {
-          layer = "top";
-          position = "top";
-          height = 30;
-          output = [
-            "HDMI-A-1"
-          ];
-
-          modules-left = [
-            "hyprland/workspaces"
-            "hyprland/submap"
-            "wlr/taskbar"
-          ];
-          modules-center = [ "hyprland/window" ];
-          modules-right = [
-            "mpd"
-            "wireplumber"
-            "clock"
-            "custom/power"
-          ];
-
-          "hyprland/workspaces" = {
-            format = "{icon}";
-            on-scoll-up = "hyprctl dispatch workspace e+1";
-            on-scroll-down = "hyprctl dispatch workspace e-1";
-          };
-
-          "custom/power" = {
-            format = "";
-            tooltip = false;
-            menu = "on-click";
-            menu-file = ''
-              <?xml version="1.0" encoding="UTF-8"?>
-              <interface>
-              	<object class="GtkMenu" id="menu">
-              	<child>
-              		<object class="GtkMenuItem" id="suspend">
-              			<property name="label">Suspend</property>
-              				</object>
-              	</child>
-              	<child>
-              				<object class="GtkMenuItem" id="hibernat">
-              			<property name="label">Hibernate</property>
-              				</object>
-              	</child>
-              		<child>
-              				<object class="GtkMenuItem" id="shutdown">
-              			<property name="label">Shutdown</property>
-              				</object>
-              		</child>
-              		<child>
-              			<object class="GtkSeparatorMenuItem" id="delimiter1"/>
-              		</child>
-              		<child>
-              		<object class="GtkMenuItem" id="reboot">
-              			<property name="label">Reboot</property>
-              		</object>
-              		</child>
-              	</object>
-              </interface>
-            '';
-            menu-actions = {
-              shutdown = "shutdown";
-              reboot = "reboot";
-              suspend = "systemctl suspend";
-              hibernate = "systemctl hibernate";
-            };
-          };
-        };
-      };
-      systemd.enable = true;
-    };
-    hyprlock.enable = true;
     carapace = {
       enable = true;
       enableNushellIntegration = true;

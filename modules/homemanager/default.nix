@@ -54,7 +54,7 @@
         plugins = {
           silentTyping = {
             enable = true;
-            showIcon = true;
+            chatIcon = true;
           };
           noBlockedMessages.enable = true;
           readAllNotificationsButton.enable = true;
