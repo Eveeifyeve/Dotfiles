@@ -119,6 +119,7 @@
                 users.eveeifyeve = import ./hosts/eveeifyeve/home.nix;
                 sharedModules = [
                   inputs.nixcord.homeModules.nixcord
+									inputs.zen-browser.homeModules.beta
                 ];
               };
             }

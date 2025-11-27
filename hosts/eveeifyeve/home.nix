@@ -107,6 +107,8 @@ in
 
   systemd.user.startServices = true;
 
+  systemd.user.startServices = true;
+  stylix.targets.zen-browser.profileNames = [ "default" ];
   programs = {
     rofi = {
       enable = true;
@@ -116,16 +118,16 @@ in
       };
     };
 
-    # zen-browser = {
-    #   enable = true;
-    #   profiles."default" = {
-    #     extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-    #       ublock-origin
-    #       #dark-reader
-    #       wappalyzer
-    #     ];
-    #   };
-    # };
+    zen-browser = {
+      enable = true;
+      profiles."default" = {
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+          ublock-origin
+          #dark-reader
+          #wappalyzer
+        ];
+      };
+    };
     ghostty = {
       enable = true;
       settings = {
