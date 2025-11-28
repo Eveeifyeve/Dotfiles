@@ -1,8 +1,5 @@
 {
-  lib,
   pkgs,
-  config,
-  inputs,
   ...
 }:
 {
@@ -18,14 +15,7 @@
   };
 
   programs.regreet.enable = true;
-  virtualisation = {
-    podman = {
-      enable = true;
-      dockerSocket.enable = true;
-      dockerCompat = true;
-    };
-    libvirtd.enable = true;
-  };
+  virtualisation.libvirtd.enable = true;
 
   services.fwupd.enable = true;
 
