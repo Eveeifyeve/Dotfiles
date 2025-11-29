@@ -135,9 +135,9 @@
           "Mod+Shift+F".action = fullscreen-window;
           "Print".action =
             spawn-sh ''${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp} -d)\" - | wl-copy'';
-          "Alt+R".action =
+          "Mod+Alt+R".action =
             spawn-sh ''${lib.getExe pkgs.wl-screenrec} -g \"$(${lib.getExe pkgs.slurp})\" -f ~/Video/Recording-$(date +%Y-%m-%d_%H-%S).mp4 --audio'';
-          "Alt+S".action = spawn "pkill" "--signal" "wl-screenrec";
+          "Mod+Alt+S".action = spawn "pkill" "--signal" "wl-screenrec";
           "Mod+Q" = {
             repeat = false;
             action = close-window;
