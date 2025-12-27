@@ -284,6 +284,7 @@
         blender
         tor-browser
         anydesk
+        deskflow
         lunar-client
         streamdeck-ui
       ]);

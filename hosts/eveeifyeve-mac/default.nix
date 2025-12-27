@@ -25,6 +25,7 @@
     ApplePressAndHoldEnabled = false;
   };
   security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.reattach = true;
   programs.gnupg.agent.enable = true;
 
   system.defaults = {
@@ -55,7 +56,6 @@
   nix.linux-builder = {
     enable = true;
     ephemeral = true;
-    maxJobs = 4;
     systems = [
       "x86_64-linux"
       "aarch64-linux"
@@ -65,6 +65,7 @@
       nix.settings.experimental-features = "nix-command flakes";
       users.users."builder".extraGroups = [ "wheel" ];
       security.sudo.wheelNeedsPassword = false;
+      virtualisation.cores = 8;
     };
   };
 
@@ -96,6 +97,7 @@
       "libndi"
       "ndi-tools"
       "deskflow"
+      "modrinth" # Until modrinth is fixed in nixpkgs.
     ];
     brews = [
       "brightness" # Adjust Screen Brightness on MacOS using CLI

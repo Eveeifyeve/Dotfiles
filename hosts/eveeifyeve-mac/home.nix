@@ -38,9 +38,8 @@
 
   programs.aerospace = {
     enable = true;
+    launchd.enable = true;
     userSettings = {
-      start-at-login = true;
-
       enable-normalization-flatten-containers = true;
       automatically-unhide-macos-hidden-apps = true;
       enable-normalization-opposite-orientation-for-nested-containers = true;
@@ -115,7 +114,7 @@
         raycast # MacOS Spotlight Alternative
         utm # MacOS Qemu
         libreoffice-bin
-        # darwin.xcode_15_1
+        #darwin.xcode_16_2
       ]);
     shellAliases.nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
   };

@@ -37,8 +37,12 @@
     nixcord = {
       enable = true;
 
-      # Disable other discords and only use vesktop (Linux)
-      discord.enable = false;
+      # Disable other discords and only use equicord
+      discord = {
+        enable = false;
+        vencord.enable = false;
+        equicord.enable = true;
+      };
 
       userPlugins = {
         #vimMotion = "github:404-5971/vimMotion/85da8d7d756c87b91bf0e794c52785fa6f13bb61";

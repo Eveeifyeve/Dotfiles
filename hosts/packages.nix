@@ -15,7 +15,7 @@
 with pkgs;
 [
   # Development Tools
-  jetbrains.idea-community # For java colab
+  jetbrains.idea # For java colab
 
   # (vscode.overrideAttrs (attrs: {
   #   postInstall = ''
@@ -55,7 +55,6 @@ with pkgs;
   # Programs
   # spotify
   element-desktop
-  deskflow
   audacity
   #google-chrome
   # tailscale
@@ -87,6 +86,7 @@ with pkgs;
   nh
   mpv
   youtube-tui
+  google-chrome
 
   # Secrets
   inputs.agenix.packages."${system}".default

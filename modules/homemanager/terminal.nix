@@ -22,41 +22,37 @@
       enable = true;
       shell = "${pkgs.nushell}/bin/nushell";
       plugins = with pkgs; [
-        # {
-        #   plugin = tmuxPlugins.resurrect;
-        #   extraConfig = ''
-        #     set -g @resurrect-strategy-nvim 'session'
-        #     set -g @resurrect-save 'S'
-        #     set -g @resurrect-restore 'R'
-        #   '';
-        # }
+        {
+          plugin = tmuxPlugins.resurrect;
+          extraConfig = ''
+            set -g @resurrect-strategy-nvim 'session'
+            set -g @resurrect-save 'S'
+            set -g @resurrect-restore 'R'
+          '';
+        }
         {
           plugin = tmuxPlugins.continuum;
           extraConfig = ''
-                        set -g @continuum-restore 'on'
-                        set -g @continuum-boot 'on'
-            						${
-                    if pkgs.stdenv.hostPlatform.isDarwin then
-                      "set -g @continuum-boot-options 'iterm'"
-                    else
-                      "set -g @continuum-boot-options 'kitty'"
-                  }
-                        set -g @continuum-save-interval '10'
+                          set -g @continuum-restore 'on'
+                          set -g @continuum-boot 'on'
+            						set -g @continuum-boot-options 'ghostty'
+            						set -g @continuum-save-interval '10'
           '';
         }
       ];
       disableConfirmationPrompt = true;
       newSession = true;
       extraConfig = ''
-        set -g prefix C-s
-        set -g mouse on
-        set-option -g status-position top
+                set -g prefix C-s
+                set -g mouse on
+                set-option -g status-position top
+        				setw -g mode-keys vi
 
-        #Basic Vim keybindings
-        bind-key h select-pane -L
-        bind-key j select-pane -D
-        bind-key k select-pane -U
-        bind-key l select-pane -R
+                #Basic Vim keybindings
+                bind-key h select-pane -L
+                bind-key j select-pane -D
+                bind-key k select-pane -U
+                bind-key l select-pane -R
       '';
     };
     starship.enable = true;
