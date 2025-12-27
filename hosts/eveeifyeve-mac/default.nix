@@ -97,6 +97,7 @@
       "libndi"
       "ndi-tools"
       "deskflow"
+      "tradingview"
       "modrinth" # Until modrinth is fixed in nixpkgs.
     ];
     brews = [
