@@ -39,7 +39,7 @@
   programs.aerospace = {
     enable = true;
     launchd.enable = true;
-    userSettings = {
+    settings = {
       enable-normalization-flatten-containers = true;
       automatically-unhide-macos-hidden-apps = true;
       enable-normalization-opposite-orientation-for-nested-containers = true;
