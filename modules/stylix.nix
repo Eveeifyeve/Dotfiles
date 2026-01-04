@@ -7,10 +7,10 @@
 let
   themes = {
     catppucin = {
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
       cursor = {
-        name = "Catppuccin-Mocha-Blue";
-        package = pkgs.catppuccin-cursors.mochaBlue;
+        name = "Catppuccin-Latte-Blue";
+        package = pkgs.catppuccin-cursors.latteBlue;
       };
     };
     rose-pine = {
@@ -33,7 +33,7 @@ in
   stylix = {
     enable = true;
     autoEnable = true;
-    polarity = "dark";
+    polarity = "light";
     image = config.lib.stylix.pixel "base00";
     inherit (themes.tokyo-night) base16Scheme;
     fonts = {
