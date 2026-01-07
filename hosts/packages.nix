@@ -84,7 +84,6 @@ with pkgs;
   git-revise
 
   nh
-  mpv
   youtube-tui
   google-chrome
 

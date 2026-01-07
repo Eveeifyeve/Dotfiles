@@ -12,6 +12,13 @@
       enable = true;
       nix-direnv.enable = true;
     };
+    mpv = {
+      enable = true;
+      scripts = with pkgs.mpvScripts; [
+        mpv-discord
+        modernz
+      ];
+    };
     vscode = {
       enable = true;
       package = pkgs.vscodium;
