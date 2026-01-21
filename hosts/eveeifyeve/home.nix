@@ -288,6 +288,5 @@
         lunar-client
         streamdeck-ui
       ]);
-    shellAliases.nix-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#eveeifyeve --json |& nom --json";
   };
 }

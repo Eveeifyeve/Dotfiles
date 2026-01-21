@@ -116,7 +116,6 @@
         libreoffice-bin
         #darwin.xcode_16_2
       ]);
-    shellAliases.nix-rebuild = "darwin-rebuild switch --flake ~/.dotfiles --verbose |& nom";
   };
   nix.settings.allowed-users = [
     "eveeifyeve"
