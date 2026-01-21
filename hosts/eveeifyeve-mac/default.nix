@@ -16,9 +16,6 @@
     podman
     podman-compose
   ];
-  system.activationScripts.extraActivation.text = ''
-    softwareupdate --install-rosetta --agree-to-license
-  '';
   system.primaryUser = "eveeifyeve";
   system.defaults.NSGlobalDomain = {
     NSWindowShouldDragOnGesture = true;
