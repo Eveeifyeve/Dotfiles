@@ -105,6 +105,7 @@
     #    }
     #  '';
     cat = "bat";
+    lg = "lazygit";
   };
   nix.settings = {
     experimental-features = [
