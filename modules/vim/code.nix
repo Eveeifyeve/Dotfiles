@@ -146,6 +146,7 @@
           };
         };
         servers = {
+          clangd.enable = true;
           nil_ls.enable = true;
           jsonls.enable = true;
           yamlls.enable = true;
@@ -154,13 +155,10 @@
           ts_ls.enable = true;
           marksman.enable = true;
           zls.enable = true;
-          gleam.enable = true;
-          asm_lsp.enable = true;
           gopls.enable = true;
           ruff.enable = true;
           pyright.enable = true;
           kotlin_language_server.enable = true;
-          clojure_lsp.enable = true;
           mdx_analyzer = {
             enable = true;
             package = null;
