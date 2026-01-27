@@ -21,6 +21,11 @@ let
       };
     };
 
+    tokyo-night = {
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
+      cursor = null;
+    };
+
     #TODO: Add more themes here
   };
 in
@@ -30,7 +35,7 @@ in
     autoEnable = true;
     polarity = "dark";
     image = config.lib.stylix.pixel "base00";
-    inherit (themes.catppucin) base16Scheme;
+    inherit (themes.tokyo-night) base16Scheme;
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
