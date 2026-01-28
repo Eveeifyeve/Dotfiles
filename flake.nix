@@ -123,6 +123,32 @@
             }
           ];
         };
+        recovery = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            (
+              { pkgs, modulesPath, ... }:
+              {
+                imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+                environment.systemPackages = with pkgs; [
+                  neovim
+                  disko
+                  curl
+                  git
+                ];
+
+                nix.settings.experimental-features = [
+                  "nix-command"
+                  "flakes"
+                ];
+
+                networking.hostName = "recovery-iso";
+                services.openssh.enable = true;
+                services.openssh.settings.PermitRootLogin = "yes";
+              }
+            )
+          ];
+        };
       };
 
       # Nix on Darwin with Nix-Darwin x HM
