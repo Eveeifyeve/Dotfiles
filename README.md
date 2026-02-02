@@ -1,6 +1,12 @@
 # Dotfiles 
-A Configuration for Each Distro/OS
 
+> [!WARNING]
+> This config is in low-maintance mode and probably not suited for new configs. Use at your own risks. 
+
+> [!NOTE]
+> An experimental rewrite of this Configuration is happening under https://github.com/Eveeifyeve/Dotfiles/tree/dendritic
+
+A Configuration for Each Distro/OS
 # Features
 - Nix Flake Templates with Devenv.
 - Editor Configurations for VsCode and Nvim.
