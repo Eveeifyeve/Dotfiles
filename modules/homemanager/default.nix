@@ -43,7 +43,6 @@
 
     nixcord = {
       enable = true;
-
       # Disable other discords and only use equicord
       discord = {
         enable = false;
@@ -60,6 +59,7 @@
         settings.arRPC = true;
       };
       config = {
+        enableReactDevtools = true;
         useQuickCss = false;
         frameless = true;
         plugins = {
