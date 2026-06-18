@@ -1,50 +1,81 @@
 {
-  pkgs,
   lib,
-  config,
+  inputs,
+  stylix,
   ...
 }:
-let
-  themes = {
-    catppucin = {
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-      cursor = {
-        name = "Catppuccin-Latte-Blue";
-        package = pkgs.catppuccin-cursors.latteBlue;
-      };
-    };
-    rose-pine = {
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-      cursor = {
-        name = "BreezeX-RosePine-Linux";
-        package = pkgs.rose-pine-cursor;
-      };
-    };
-
-    tokyo-night = {
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
-      cursor = null;
-    };
-
-    #TODO: Add more themes here
-  };
-in
 {
-  stylix = {
-    enable = true;
-    autoEnable = true;
-    polarity = "light";
-    image = config.lib.stylix.pixel "base00";
-    inherit (themes.tokyo-night) base16Scheme;
-    fonts = {
-      monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
-      };
+  flake-file.inputs.stylix.url = "github:nix-community/stylix";
 
-      serif = config.stylix.fonts.monospace;
-      sansSerif = config.stylix.fonts.monospace;
-      emoji = config.stylix.fonts.monospace;
+  _module.args.stylix = inputs.stylix;
+
+  nixos.modules.gui =
+    nixosArgs:
+    let
+      defaults = nixosArgs.config.home-manager.users.eveeifyeve.stylix;
+    in
+    {
+      imports = [ stylix.nixosModules.stylix ];
+
+      stylix = lib.mkMerge [
+        {
+          enable = true;
+          homeManagerIntegration.autoImport = false;
+        }
+
+        (lib.mkDefault {
+          inherit (defaults)
+            icons
+            base16Scheme
+            cursor
+            polarity
+            ;
+
+          fonts = {
+            inherit (defaults.fonts)
+              sansSerif
+              serif
+              monospace
+              emoji
+              sizes
+              ;
+          };
+        })
+      ];
     };
+
+  darwin.modules.gui =
+    darwinArgs:
+    let
+      defaults = darwinArgs.config.home-manager.users.eveeifyeve.stylix;
+    in
+    {
+      imports = [ stylix.darwinModules.stylix ];
+
+      stylix = lib.mkMerge [
+        {
+          enable = true;
+          homeManagerIntegration.autoImport = false;
+        }
+
+        (lib.mkDefault {
+          inherit (defaults) base16Scheme polarity;
+
+          fonts = {
+            inherit (defaults.fonts)
+              sansSerif
+              serif
+              monospace
+              emoji
+              sizes
+              ;
+          };
+        })
+      ];
+    };
+
+  homeManager.modules.gui = {
+    imports = [ stylix.homeModules.stylix ];
+    stylix.enable = true;
   };
 }

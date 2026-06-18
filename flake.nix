@@ -1,215 +1,88 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
-  description = "Eveeifyeve Nix/NixOS Configuration";
+  outputs = inputs: import ./outputs.nix inputs;
+
+  nixConfig = {
+    extra-experimental-features = [ "pipe-operators" ];
+  };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    niri.url = "github:sodiboo/niri-flake";
-
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
-    stylix.url = "github:nix-community/stylix/master";
-
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixcord.url = "github:kaylorben/nixcord";
-
-    eveeifyeve-flake-templates.url = "github:Eveeifyeve/flake-templates";
-
-    agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
-
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
+    caveman = {
+      url = "github:juliusbrussee/caveman";
       flake = false;
+    };
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    direnv-instant = {
+      url = "github:Mic92/direnv-instant";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    files = {
+      url = "github:mightyiam/files";
+      flake = false;
+    };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-compat = {
+      url = "github:NixOS/flake-compat";
+      flake = false;
+    };
+    flake-file.url = "github:denful/flake-file";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-
-    deskflow-homebrew-tap = {
-      url = "github:deskflow/homebrew-tap";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
       flake = false;
     };
-
+    import-tree.url = "github:vic/import-tree";
+    llm-agents.url = "github:numtide/llm-agents.nix";
+    nix-darwin.url = "github:nix-darwin/nix-darwin";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs-nixcord.follows = "nixpkgs";
+    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-kotlin-lsp.url = "github:bew/nixpkgs/init-kotlin-lsp";
+    nixvim.url = "github:nix-community/nixvim";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix.url = "github:nix-community/stylix";
+    systems.url = "github:nix-systems/default/future-26.11";
+    treefmt = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
       };
     };
-
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    compose.url = "github:digitalbrewstudios/nixos-compose";
   };
-  outputs =
-    inputs@{ self, nixpkgs, ... }:
-    let
-      forAllSystems =
-        f:
-        nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed (
-          system:
-          f {
-            pkgs = import nixpkgs { inherit system; };
-            inherit system;
-          }
-        );
-    in
-    {
-      formatter = forAllSystems ({ pkgs, system }: pkgs.nixfmt-rfc-style);
-
-      checks = forAllSystems (
-        { pkgs, system }:
-        {
-          pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-            src = ./.;
-            hooks = {
-              nixfmt-rfc-style.enable = true;
-            };
-          };
-        }
-      );
-
-      # NixOS
-      nixosConfigurations = {
-        eveeifyeve = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            inputs.disko.nixosModules.disko
-            inputs.nixvim.nixosModules.nixvim
-            inputs.agenix.nixosModules.default
-            inputs.stylix.nixosModules.stylix
-            inputs.niri.nixosModules.niri
-            ./hosts/eveeifyeve
-            ./modules/vim
-            ./modules/stylix.nix
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                extraSpecialArgs = {
-                  git = {
-                    username = "eveeifyeve";
-                    email = "88671402+Eveeifyeve@users.noreply.github.com";
-                  };
-                  inherit inputs;
-                };
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "backup";
-                users.eveeifyeve = import ./hosts/eveeifyeve/home.nix;
-                sharedModules = [
-                  inputs.nixcord.homeModules.nixcord
-                  inputs.zen-browser.homeModules.beta
-                ];
-              };
-            }
-          ];
-        };
-        recovery = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            (
-              { pkgs, modulesPath, ... }:
-              {
-                imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
-                environment.systemPackages = with pkgs; [
-                  neovim
-                  disko
-                  curl
-                  git
-                ];
-
-                nix.settings.experimental-features = [
-                  "nix-command"
-                  "flakes"
-                ];
-
-                networking.hostName = "recovery-iso";
-                services.openssh.enable = true;
-                services.openssh.settings.PermitRootLogin = "yes";
-              }
-            )
-          ];
-        };
-      };
-
-      # Nix on Darwin with Nix-Darwin x HM
-      darwinConfigurations = {
-        eveeifyeve-macbook = inputs.nix-darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          specialArgs = {
-            inherit inputs;
-          }; # Inputs are needed for homebrew
-          modules = [
-            inputs.agenix.darwinModules.default
-            inputs.nixvim.nixDarwinModules.nixvim
-            inputs.nix-homebrew.darwinModules.nix-homebrew
-            inputs.home-manager.darwinModules.home-manager
-            inputs.stylix.darwinModules.stylix
-            {
-              home-manager = {
-                extraSpecialArgs = {
-                  git = {
-                    username = "eveeifyeve";
-                    email = "88671402+Eveeifyeve@users.noreply.github.com";
-                  };
-                  inherit inputs;
-
-                  masterPkgs = import inputs.nixpkgs-master {
-                    system = "aarch64-darwin";
-                  };
-                };
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "backup";
-                users.eveeifyeve = import ./hosts/eveeifyeve-mac/home.nix;
-                sharedModules = [
-                  inputs.nixcord.homeModules.nixcord
-                  inputs.zen-browser.homeModules.beta
-                ];
-              };
-            }
-            ./hosts/eveeifyeve-mac
-            ./modules/vim
-            #TODO: wait for pr to come out https://github.com/nix-darwin/nix-darwin/pull/942
-            #./modules/nix-darwin/nh.nix
-            ./modules/nix-darwin/rice.nix
-            ./modules/stylix.nix
-            ./modules/homebrew.nix
-          ];
-        };
-      };
-
-      devShells = forAllSystems (
-        { pkgs, system }:
-        {
-          default = pkgs.mkShell {
-            inherit (self.checks.${system}.pre-commit-check) shellHook;
-            buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
-          };
-        }
-      );
-
-      # Nix Flake Templates for Shell Environments
-      # https://github.com/Eveeifyeve/flake-templates
-      templates = inputs.eveeifyeve-flake-templates.templates;
-    };
 }

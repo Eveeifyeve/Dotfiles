@@ -1,8 +1,9 @@
-.DS_Store
 /.pre-commit-config.yaml
-/result*
-./result
+result*
+result
+
+# Os
+.DS_Store
 
 # direnv (shell)
 .direnv
-.envrc
