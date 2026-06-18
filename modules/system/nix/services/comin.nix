@@ -8,7 +8,6 @@ let
         name = "origin";
         url = "https://github.com/eveeifeyve/dotfiles.git";
         branches = {
-          main.name = "dendritic"; # TODO: remove this when when a pr
           testing.name = "";
         };
       }
