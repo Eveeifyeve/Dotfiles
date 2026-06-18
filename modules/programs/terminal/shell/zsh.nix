@@ -1,5 +1,9 @@
 { lib, ... }:
 {
+  nixos.modules.base = {
+    programs.zsh.enable = true;
+  };
+
   homeManager.modules.base =
     { pkgs, ... }:
     {

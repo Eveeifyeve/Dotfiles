@@ -1,17 +1,18 @@
 name: CI
 on:
   push:
-    branches: [dendritic]
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
   checks: write
+  id-token: write
 
 jobs:
   Atelier:
     uses: stepbrobd/atelier/.github/workflows/discover.yaml@master
-    with: 
+    with:
       extra-conf: |
         extra-experimental-features = pipe-operator

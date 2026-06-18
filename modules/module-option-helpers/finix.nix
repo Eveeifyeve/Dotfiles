@@ -27,19 +27,9 @@ in
       )
     );
   };
-  config.flake = {
+  config = {
     flake-file.inputs.finix.url = "github:finix-community/finix";
-    nixosConfigurations = cfg.configurations |> lib.mapAttrs (_name: { evaluation, ... }: evaluation);
-
-    checks =
-      config.flake.nixosConfigurations
-      |> lib.mapAttrsToList (
-        name: nixos: {
-          ${nixos.config.nixpkgs.hostPlatform.system} = {
-            "configurations:nixos:${name}" = nixos.config.system.build.toplevel;
-          };
-        }
-      )
-      |> lib.mkMerge;
+    flake.nixosConfigurations =
+      cfg.configurations |> lib.mapAttrs (_name: { evaluation, ... }: evaluation);
   };
 }

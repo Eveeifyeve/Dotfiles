@@ -5,7 +5,12 @@
   ...
 }:
 {
-  flake-file.inputs.stylix.url = "github:nix-community/stylix";
+  flake-file.inputs.stylix = {
+    url = "github:nix-community/stylix";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.flake-parts.follows = "flake-parts";
+    inputs.systems.follows = "systems";
+  };
 
   _module.args.stylix = inputs.stylix;
 

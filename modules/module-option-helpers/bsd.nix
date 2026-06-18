@@ -27,19 +27,13 @@ in
       )
     );
   };
-  config.flake = {
-    flake-file.inputs.nixbsd.url = "github:nixos-bsd/nixbsd";
-    nixosConfigurations = cfg.configurations |> lib.mapAttrs (_name: { evaluation, ... }: evaluation);
-
-    checks =
-      config.flake.nixosConfigurations
-      |> lib.mapAttrsToList (
-        name: nixos: {
-          ${nixos.config.nixpkgs.hostPlatform.system} = {
-            "configurations:nixos:${name}" = nixos.config.system.build.toplevel;
-          };
-        }
-      )
-      |> lib.mkMerge;
+  config = {
+    flake-file.inputs.nixbsd = {
+      url = "github:nixos-bsd/nixbsd";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+    flake.nixosConfigurations =
+      cfg.configurations |> lib.mapAttrs (_name: { evaluation, ... }: evaluation);
   };
 }

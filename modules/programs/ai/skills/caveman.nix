@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake-file.inputs.caveman = {
-    url = "github:juliusbrussee/caveman";
+    url = "github:JuliusBrussee/caveman";
     flake = false;
   };
 

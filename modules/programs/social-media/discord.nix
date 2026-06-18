@@ -2,7 +2,12 @@
 {
   flake-file.inputs.nixcord = {
     url = "github:kaylorben/nixcord";
-    inputs.nixpkgs-nixcord.follows = "nixpkgs";
+    inputs = {
+      nixpkgs-nixcord.follows = "nixpkgs";
+      nixpkgs.follows = "nixpkgs";
+      flake-parts.follows = "flake-parts";
+      flake-compat.follows = "flake-compat";
+    };
   };
 
   homeManager.modules.gui =

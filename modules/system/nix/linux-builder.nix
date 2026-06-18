@@ -3,14 +3,10 @@
   darwin.modules.base =
     { pkgs, ... }:
     {
-      nix.settings.system-features = [
-        "nixos-test"
-        "apple-virt"
-      ];
       nix.linux-builder = {
-        enable = false;
-        ephemeral = true;
+        enable = true;
         package = pkgs.darwin.linux-builder;
+        ephemeral = true;
         mandatoryFeatures = [ "nixos-test" ];
         config = {
           boot.binfmt.emulatedSystems = [ "x86_64-linux" ]; # Allows to emulated for building for more archtechures

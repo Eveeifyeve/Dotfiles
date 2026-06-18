@@ -1,6 +1,3 @@
 {
-  flake-file.inputs.flake-compat = {
-    url = "github:NixOS/flake-compat";
-    flake = false;
-  };
+  flake-file.inputs.flake-compat.url = "github:NixOS/flake-compat";
 }

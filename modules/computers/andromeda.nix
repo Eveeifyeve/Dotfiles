@@ -2,7 +2,10 @@
 {
   nixos.configurations.andromeda.module = {
     system.stateVersion = "26.05";
-    disk.main = {
+    nixpkgs.hostPlatform = "x86_64-linux";
+
+    disko.devices.disk.main = {
+      device = "/dev/disk/by-id/ata-ST2000DM008-2FR102_ZFL3HCWY";
       type = "disk";
       content = {
         type = "gpt";
@@ -39,7 +42,6 @@
           };
         };
       };
-
     };
 
     imports = with config.nixos.modules; [

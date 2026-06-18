@@ -61,7 +61,11 @@
       };
     })
     // {
-      flake-file.inputs.nixvim.url = "github:nix-community/nixvim";
+      flake-file.inputs.nixvim = {
+        url = "github:nix-community/nixvim";
+        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.systems.follows = "systems";
+      };
 
       _module.args.nixvim = inputs.nixvim.lib.overlay |> lib.extend |> lib.getAttr "nixvim";
 

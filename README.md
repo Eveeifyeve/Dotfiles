@@ -1,7 +1,6 @@
 # Dotfiles
 System configuration for my machines using the [Dendritic pattern][Dendritic] — a structured way to organise NixOS/nix configurations as reusable modules that anyone can adopt.
 
-A Configuration for Each Distro/OS
 # Features
 
 * A devshell with handy hooks to keep your config orgnised,
@@ -76,4 +75,4 @@ git add flake.lock && git commit -m "chore: update flake inputs"
 [renovate]: https://github.com/renovatebot/renovate
 [dependabot]: https://github.com/dependabot/dependabot-core
 [issues]: https://github.com/eveeifyeve/dotfiles/issues
-[flake-file]: https://github.com/vic/flake-file
+[flake-file]: https://github.com/denful/flake-file
