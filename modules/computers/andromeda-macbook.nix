@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  darwin.configurations.andromeda-laptop.module = {
+  darwin.configurations.andromeda-macbook.module = {
     nixpkgs.hostPlatform.system = "aarch64-darwin";
     system.stateVersion = 7;
     imports = with config.darwin.modules; [
