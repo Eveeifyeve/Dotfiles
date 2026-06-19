@@ -4,7 +4,7 @@
     { pkgs, ... }:
     {
       nix.linux-builder = {
-        enable = true;
+        enable = false;
         package = pkgs.darwin.linux-builder;
         ephemeral = true;
         mandatoryFeatures = [ "nixos-test" ];
