@@ -53,7 +53,7 @@
       };
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:eveeifyeve/home-manager/targets-darwin-persist";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     homebrew-cask = {
@@ -63,6 +63,22 @@
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        pre-commit-hooks.follows = "git-hooks";
+        systems.follows = "systems";
+      };
+    };
+    hyprland-scroll-overview = {
+      url = "github:yayuuu/hyprland-scroll-overview";
+      inputs = {
+        flake-parts.follows = "nixpkgs";
+        hyprland.follows = "hyprland";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     import-tree.url = "github:denful/import-tree";
     llm-agents = {
@@ -101,7 +117,13 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-kotlin-lsp.url = "github:bew/nixpkgs/init-kotlin-lsp";
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
