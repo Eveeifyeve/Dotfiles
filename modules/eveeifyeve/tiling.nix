@@ -24,7 +24,7 @@ let
 in
 {
   home.gui =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     lib.mkIf pkgs.stdenv.isDarwin {
       #TODO: switch to rift: https://github.com/acsandmann/rift
       programs.aerospace.settings = {
@@ -57,7 +57,7 @@ in
 
         mode.main.binding = lib.mkMerge [
           {
-            alt-t = "exec-and-forget ghostty";
+            alt-t = "exec-and-forget ${config.programs.ghostty.package}";
             alt-shift-h = "move left";
             alt-shift-j = "move down";
             alt-shift-k = "move up";
@@ -106,7 +106,7 @@ in
         input.follow_mouse = 1;
         bind = lib.mkMerge [
           [
-            "$mainMod, T, exec, ghostty"
+            "$mainMod, T, exec, ${config.programs.ghostty.package}"
 
             "$mainMod, H, movefocus, l"
             "$mainMod, J, movefocus, d"

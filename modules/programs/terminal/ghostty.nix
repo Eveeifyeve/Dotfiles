@@ -1,6 +1,6 @@
 {
   homeManager.modules.gui =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       programs.ghostty = {
         enable = true;
@@ -12,6 +12,6 @@
         };
       };
 
-      programs.tmux.extraConfig = "set -g @continuum-boot-options 'ghostty'";
+      programs.tmux.extraConfig = "set -g @continuum-boot-options '${config.programs.ghostty.package}'";
     };
 }
