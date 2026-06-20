@@ -62,14 +62,9 @@ in
             };
           };
 
-          config.home.base =
-            { pkgs, ... }:
-            {
-              sops.age.keyFile = lib.mkMerge [
-                (lib.mkIf pkgs.stdenv.isLinux "/home/${userArgs.config.username}")
-                (lib.mkIf pkgs.stdenv.isDarwin "/Users/${userArgs.config.username}")
-              ];
-            };
+          config.home.base = hmArgs: {
+            sops.age.keyFile = "${hmArgs.config.xdg.configHome}/sops/age/keys.txt";
+          };
 
         })
       );
