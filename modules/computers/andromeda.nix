@@ -46,6 +46,7 @@
 
     imports = with config.nixos.modules; [
       base
+      nixos
       gui
     ];
   };

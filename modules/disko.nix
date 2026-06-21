@@ -9,7 +9,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  nixos.modules.base = {
+  nixos.modules.nixos = {
     imports = [ inputs.disko.nixosModules.disko ];
   };
 }
