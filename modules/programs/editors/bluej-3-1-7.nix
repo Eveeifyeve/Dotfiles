@@ -3,7 +3,7 @@
   #   { pkgs, ... }:
   #   {
   #     home.packages = [
-  #       (pkgs.callPackage ../../../packages/bluej-317.nix { })
+  #       (pkgs.callPackage ../_packages/bluej-3-1-7.pkg.nix { })
   #     ];
   #   };
 }
