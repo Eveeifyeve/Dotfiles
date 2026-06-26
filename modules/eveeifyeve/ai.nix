@@ -1,7 +1,7 @@
 {
   home.base = hmArgs: {
     sops.secrets.openrouter-apikey = {
-      sopsFile = ../../secrets/openrouter-apikey.eveeifyeve;
+      sopsFile = ./openrouter-apikey;
       format = "binary";
     };
 
