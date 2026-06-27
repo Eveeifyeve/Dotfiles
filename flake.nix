@@ -35,10 +35,6 @@
       flake = false;
     };
     finix.url = "github:finix-community/finix";
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     flake-compat.url = "github:NixOS/flake-compat";
     flake-file.url = "github:denful/flake-file";
     flake-parts = {
@@ -77,6 +73,13 @@
       inputs = {
         flake-parts.follows = "nixpkgs";
         hyprland.follows = "hyprland";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs = {
+        home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
       };
     };
@@ -122,6 +125,13 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
+      };
+    };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
       };
     };
     sops-nix = {
