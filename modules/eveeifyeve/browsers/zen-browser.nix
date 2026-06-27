@@ -1,24 +1,31 @@
-{ inputs, ... }:
 {
-  flake-file.inputs.firefox-addons = {
-    url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+  nixpkgs.config.allowUnfreePackages = [ "tampermonkey" ];
   home.gui =
     { pkgs, ... }:
     {
       programs.zen-browser.profiles.default = {
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-          darkreader
-          zen-internet
-          ublock-origin
-          indie-wiki-buddy
-          vimium
-          refined-github
-          youtube-nonstop
-          return-youtube-dislikes
-          violentmonkey
-        ];
+        extensions = {
+          force = true;
+          packages = with pkgs.nur.repos.rycee.firefox-addons; [
+            darkreader
+            zen-internet
+            ublock-origin
+            indie-wiki-buddy
+            vimium
+            refined-github
+            youtube-nonstop
+            return-youtube-dislikes
+            tampermonkey
+          ];
+          settings."firefoxbeta@tampermonkey.net".settings.jsonImport = [
+            {
+              hash = "";
+              url = "https://github.com/Eveeifyeve/nixpkgs-review-gha/raw/refs/heads/main/shortcut.user.js";
+              haltOnError = true;
+              installAsSystemScripts = true;
+            }
+          ];
+        };
         containersForce = true;
         containers = {
           Personal = {
