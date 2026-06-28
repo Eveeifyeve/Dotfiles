@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   homeManager.modules.gui =
     { pkgs, config, ... }:
@@ -6,8 +7,9 @@
         enable = true;
         package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
         settings = {
-          window-decoration = "none";
-          macos-option-as-alt = true;
+          window-decoration = lib.optionalString pkgs.stdenv.isDarwin "none";
+          macos-titlebar-style = lib.optionalString pkgs.stdenv.isDarwin "hidden";
+          macos-option-as-alt = lib.optional pkgs.stdenv.isDarwin true;
           background-blur = true;
         };
       };
