@@ -67,6 +67,7 @@
 
           mods = [
             "642854b5-88b4-4c40-b256-e035532109df" # Transparent Zen
+            "ad97bb70-0066-4e42-9b5f-173a5e42c6fc" # SuperPins
           ];
         };
 
