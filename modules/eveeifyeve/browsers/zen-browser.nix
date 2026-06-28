@@ -64,6 +64,10 @@
             return-youtube-dislikes
             tampermonkey
           ];
+
+          mods = [
+            "642854b5-88b4-4c40-b256-e035532109df" # Transparent Zen
+          ];
         };
 
         policies."3rdparty".Extensions."firefox@tampermonkey.net".jsonImport = [
