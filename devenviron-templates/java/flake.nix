@@ -2,30 +2,30 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    systems.url = "github:nix-systems/default/future-26.11";
+    flake-compat = {
+      url = "github:NixOS/flake-compat";
+      flake = false;
+    };
   };
 
   outputs =
-    inputs@{ nixpkgs, flake-parts, ... }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = nixpkgs.lib.systems.flakeExposed;
+      systems = import inputs.systems;
       perSystem =
         {
           pkgs,
-          system,
           ...
         }:
         let
           jdk = pkgs.jdk8;
         in
         {
-          _module.args.pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnsupportedSystem = true;
-          };
           devShells.default = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [
+            nativeBuildInputs = [
               jdk
-              (gradle.override {
+              (pkgs.gradle.override {
                 java = jdk;
               })
             ];
