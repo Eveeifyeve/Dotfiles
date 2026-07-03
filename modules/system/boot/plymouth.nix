@@ -1,6 +1,6 @@
 {
   nixos.modules.base = {
-    boot.loader.plymouth = {
+    boot.plymouth = {
       enable = true;
     };
   };
