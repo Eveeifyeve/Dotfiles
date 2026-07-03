@@ -19,14 +19,6 @@ in
                 type = lib.types.singleLineStr;
                 default = name;
               };
-              name = lib.mkOption {
-                type = lib.types.singleLineStr;
-                default = name;
-              };
-              email = lib.mkOption {
-                type = lib.types.nullOr lib.types.singleLineStr;
-                default = null;
-              };
               home = {
                 base = lib.mkOption {
                   type = lib.types.deferredModuleWith {
