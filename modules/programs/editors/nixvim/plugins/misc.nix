@@ -1,6 +1,7 @@
 {
   nixvim.modules.base = {
     plugins = {
+      transparent.enable = true;
       cord.enable = true;
       lualine.enable = true;
       notify.enable = true;
