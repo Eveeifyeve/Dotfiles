@@ -118,7 +118,7 @@
         nixpkgs-nixcord.follows = "nixpkgs";
       };
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     nixpkgs-kotlin-lsp.url = "github:bew/nixpkgs/init-kotlin-lsp";
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -139,7 +139,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:nix-community/stylix";
+      url = "github:nix-community/stylix/combined-pr-testing";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";

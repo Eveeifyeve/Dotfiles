@@ -41,7 +41,7 @@ in
   };
 
   config = {
-    flake-file.inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    flake-file.inputs.nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
 
     perSystem =
       { system, ... }:
