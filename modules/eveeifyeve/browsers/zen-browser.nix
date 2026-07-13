@@ -23,6 +23,20 @@
           spaces = {
             "Personal" = {
               id = "6c0667d1-cef1-4fff-897f-2b5ca5073574";
+              liveFolders = {
+                "Pull-Requests" = {
+                  id = "e5b81c39-7f42-4d0a-96e3-2a8c50d17b64";
+                  kind = "github:pull-requests";
+                  position = 400;
+                  github.reviewRequested = true;
+                };
+                "Issues" = {
+                  id = "3c9e1f7a-5b24-4d80-9a6c-e2f4b8d10c57";
+                  kind = "github:issues";
+                  position = 402;
+                  github.authorMe = true;
+                };
+              };
               container = 1;
             };
             "School" = {
@@ -30,6 +44,26 @@
               position = 2000;
               container = 2;
               icon = "📚";
+            };
+            "Business" = {
+              id = "c6b5915b-be12-44b4-9856-e1ff900187d6";
+              position = 3000;
+              container = 3;
+              icon = "💼";
+              liveFolders = {
+                "Pull-Requests" = {
+                  id = "a585dfd3-02d3-4ae7-8521-f2a37f23f85f";
+                  kind = "github:pull-requests";
+                  position = 400;
+                  github.reviewRequested = true;
+                };
+                "Issues" = {
+                  id = "482edb96-f1c7-49a4-8e31-b0aac1dd8a31";
+                  kind = "github:issues";
+                  position = 402;
+                  github.reviewRequested = true;
+                };
+              };
             };
           };
 
