@@ -6,7 +6,7 @@
 }:
 {
   flake-file.inputs.stylix = {
-    url = "github:nix-community/stylix/combined-pr-testing";
+    url = "github:eveeifyeve/stylix/combined-pr-testing";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.flake-parts.follows = "flake-parts";
     inputs.systems.follows = "systems";

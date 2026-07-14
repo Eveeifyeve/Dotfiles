@@ -16,9 +16,8 @@
         treefmt.enable = true;
         deadnix.enable = true;
         flake-checker.enable = true;
-
-        commitizen.enable = true;
         check-merge-conflicts.enable = true;
+        convco.enable = true;
       };
 
       devShells.default = pkgs.mkShell {

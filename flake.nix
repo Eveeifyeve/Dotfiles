@@ -139,7 +139,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:nix-community/stylix/combined-pr-testing";
+      url = "github:eveeifyeve/stylix/combined-pr-testing";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
