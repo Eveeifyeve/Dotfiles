@@ -1,7 +1,13 @@
+{ inputs, ... }:
 {
-  home.gui = hmArgs: {
+  flake-file.inputs.catppuccin-wallpapers = {
+    url = "github:zhichaoh/catppuccin-wallpapers";
+    flake = false;
+  };
+
+  home.gui = {
     stylix = {
-      image = hmArgs.config.lib.stylix.pixel "base0A";
+      image = "${inputs.catppuccin-wallpapers}/catppuccin/mocha/kurzgesagt/Cloudy_Quasar_1-Catppuccin_Mocha.png";
     };
   };
 }

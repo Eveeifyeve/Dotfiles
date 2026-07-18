@@ -5,9 +5,9 @@
     {
       stylix.icons = lib.mkIf pkgs.stdenv.isLinux {
         enable = true;
-        dark = "rose-pine-icons";
-        light = "rose-pine-dawn-icons";
-        package = pkgs.rose-pine-icon-theme;
+        dark = "catppuccin-mocha";
+        light = "catppuccin-latte";
+        package = pkgs.catppuccin-icon-theme;
       };
     };
 }

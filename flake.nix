@@ -8,6 +8,10 @@
   };
 
   inputs = {
+    catppuccin-wallpapers = {
+      url = "github:zhichaoh/catppuccin-wallpapers";
+      flake = false;
+    };
     caveman = {
       url = "github:JuliusBrussee/caveman";
       flake = false;
