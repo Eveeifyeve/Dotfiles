@@ -31,6 +31,30 @@
       modules = lib.mkOption {
         type = lib.types.lazyAttrsOf lib.types.deferredModule;
       };
+
+      dap-config = lib.mkOption {
+        type = lib.types.lazyAttrsOf (
+          lib.types.listOf (
+            lib.types.submoduleWith {
+              modules = [
+                (_: {
+                  freeformType = lib.types.attrsOf lib.types.anything;
+                  config = {
+                    program = lib.mkDefault {
+                      __raw = "function() return vim.fn.input('Path of the executable: ', vim.fn.getcwd() .. '/', 'file') end";
+                    };
+                    cwd = lib.mkDefault {
+                      __raw = ''"''${workspaceFolder}"'';
+                    };
+                  };
+                })
+              ];
+            }
+          )
+        );
+        default = { };
+      };
+
     };
   };
 
@@ -61,6 +85,7 @@
       };
     })
     // {
+      nixvim.modules.base.plugins.dap.configurations = config.nixvim.dap-config;
       flake-file.inputs.nixvim = {
         url = "github:nix-community/nixvim";
         inputs.nixpkgs.follows = "nixpkgs";
