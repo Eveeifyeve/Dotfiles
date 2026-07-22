@@ -35,6 +35,7 @@ in
     darwin.modules.base = {
       imports = [ inputs.nix-homebrew.darwinModules.nix-homebrew ];
       homebrew.enable = true;
+      homebrew.onActivation.cleanup = "none";
       system.primaryUser = lib.mkDefault "eveeifyeve";
       homebrew.taps = builtins.attrNames cfg.taps;
 
