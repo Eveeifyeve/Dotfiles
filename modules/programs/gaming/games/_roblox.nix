@@ -20,5 +20,4 @@
     {
       home.packages = lib.mkIf pkgs.stdenv.isDarwin [ nixpkgs-491420.roblox ];
     };
-
 }
