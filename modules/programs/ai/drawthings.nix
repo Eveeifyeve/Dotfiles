@@ -1,5 +1,5 @@
 {
   darwin.modules.gui = {
-    # homebrew.masApps."Draw Things" = 6444050820;
+    homebrew.masApps."Draw Things" = 6444050820;
   };
 }
