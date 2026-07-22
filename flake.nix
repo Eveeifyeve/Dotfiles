@@ -122,7 +122,7 @@
         nixpkgs-nixcord.follows = "nixpkgs";
       };
     };
-    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable-small/nixexprs.tar.xz";
     nixpkgs-kotlin-lsp.url = "github:bew/nixpkgs/init-kotlin-lsp";
     nixvim = {
       url = "github:nix-community/nixvim";
