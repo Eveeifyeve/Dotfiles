@@ -97,10 +97,6 @@
         treefmt-nix.follows = "treefmt";
       };
     };
-    nix-comfyui = {
-      url = "github:utensils/comfyui-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
