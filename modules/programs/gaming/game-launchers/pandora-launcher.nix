@@ -1,9 +1,9 @@
 {
-  # homeManager.modules.gui =
-  #   { pkgs, ... }:
-  #   {
-  #     home.packages = [
-  #       pkgs.pandora-launcher
-  #     ];
-  #   };
+  homeManager.modules.gui =
+    { pkgs, ... }:
+    {
+      home.packages = [
+        pkgs.pandora-launcher
+      ];
+    };
 }
