@@ -330,11 +330,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1788667371,
-        "narHash": "sha256-lUb4YTADY8rxog/1/30mxJ6+26mPFFyVtCDTJ/KdKgM=",
+        "lastModified": 1788753789,
+        "narHash": "sha256-fF3kADy1rDKsDUB393y7z4ft9wu4Hw5vAOYk1VYH/ak=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "f27bc5e99fcd1660b1fb77027b5d28c97c883f63",
+        "rev": "3edc116eae1af5c2cc785691f5fdc129073bef1a",
         "type": "gitlab"
       },
       "original": {
@@ -915,11 +915,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786156682,
-        "narHash": "sha256-SEa8XQtrNg90AUeZFE9+lGvYEWd0T2ht/+sKx+kWUak=",
+        "lastModified": 1788036845,
+        "narHash": "sha256-DrCNWfA1fkZ9Ey3FCIfIkf2DhtsAPEulkhmczvUIuCI=",
         "owner": "yayuuu",
         "repo": "hyprland-scroll-overview",
-        "rev": "f9248ab6bee770e9d68813b48cc6ca12b3271254",
+        "rev": "d5ff760040d51bf7b0257f7c995142fd5ceb6acf",
         "type": "github"
       },
       "original": {
@@ -1178,11 +1178,11 @@
         "nixpkgs-regression": "nixpkgs-regression"
       },
       "locked": {
-        "lastModified": 1788541574,
-        "narHash": "sha256-DOOEK3GgurYhPmFkKxNsNLHRwp2zv6c5LrvsaA+Zdl8=",
+        "lastModified": 1788542338,
+        "narHash": "sha256-ISWmW5WwOJNID+lhw2A+qFQzqWZNrLrTpG0N8Qz4uUI=",
         "owner": "NixOS",
         "repo": "nix",
-        "rev": "534f199c9a34ace17d4db26fa3d377ee904bdf03",
+        "rev": "f8233f32b7e7371995ec4e8b4d41fd0bbfc6ec02",
         "type": "github"
       },
       "original": {
