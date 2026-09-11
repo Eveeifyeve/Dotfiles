@@ -26,7 +26,7 @@
     darwin.modules.base =
       { pkgs, ... }:
       {
-        home-manager.backupCommand = lib.getExe' pkgs.trash-cli "trash-put";
+        home-manager.backupCommand = lib.getExe' pkgs.darwin.trash "trash";
       };
   };
 }
