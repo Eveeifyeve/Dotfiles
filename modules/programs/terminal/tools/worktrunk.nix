@@ -1,7 +1,10 @@
 {
-  homeManager.modules.gui =
-    { pkgs, ... }:
-    {
-      home.packages = [ pkgs.worktrunk ];
+  homeManager.modules.gui = {
+    programs.worktrunk = {
+      enable = true;
+      settings = {
+        skip-shell-integration-prompt = true;
+      };
     };
+  };
 }
