@@ -12,7 +12,7 @@
 
   config = {
     flake-file.inputs.home-manager = {
-      url = "github:eveeifyeve/home-manager/targets-darwin-persist";
+      url = "github:eveeifyeve/home-manager/test";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

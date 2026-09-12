@@ -691,16 +691,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1789217422,
-        "narHash": "sha256-Y2MvEudkjSXXJ11ylCddVkGSRmpTbQmb0h5vda/GgUQ=",
+        "lastModified": 1789219005,
+        "narHash": "sha256-3AyGLt0t0wxIBZPWnbyh5RgVWKIPkcByznZ2PU1H/pQ=",
         "owner": "eveeifyeve",
         "repo": "home-manager",
-        "rev": "44e74b9e7982f60cb4000fc713654c390899faa2",
+        "rev": "65e3c04b143c4cfaf5fa2c89552c8caabaa9e6ce",
         "type": "github"
       },
       "original": {
         "owner": "eveeifyeve",
-        "ref": "targets-darwin-persist",
+        "ref": "test",
         "repo": "home-manager",
         "type": "github"
       }

@@ -61,7 +61,7 @@
       };
     };
     home-manager = {
-      url = "github:eveeifyeve/home-manager/targets-darwin-persist";
+      url = "github:eveeifyeve/home-manager/test";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     homebrew-cask = {
