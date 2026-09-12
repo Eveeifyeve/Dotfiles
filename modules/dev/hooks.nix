@@ -12,12 +12,18 @@
   perSystem =
     psArgs@{ pkgs, ... }:
     {
-      pre-commit.settings.hooks = {
-        treefmt.enable = true;
-        deadnix.enable = true;
-        flake-checker.enable = true;
-        check-merge-conflicts.enable = true;
-        convco.enable = true;
+      pre-commit.settings = {
+        default_stage = [
+          "manual"
+          "pre-push"
+        ];
+        hooks = {
+          treefmt.enable = true;
+          deadnix.enable = true;
+          flake-checker.enable = true;
+          check-merge-conflicts.enable = true;
+          convco.enable = true;
+        };
       };
 
       devShells.default = pkgs.mkShell {
