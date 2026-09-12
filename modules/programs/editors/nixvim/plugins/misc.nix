@@ -9,6 +9,7 @@
       harpoon.enable = true;
       web-devicons.enable = true;
       lazygit.enable = true;
+      jj.enable = true;
       which-key = {
         enable = true;
         settings.notify = true;
