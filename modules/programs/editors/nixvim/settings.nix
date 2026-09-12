@@ -43,6 +43,14 @@
           silent = true;
         };
       }
+      {
+        action = "<cmd>LazyJJ<CR>";
+        mode = "n";
+        key = "<leader>j";
+        options = {
+          silent = true;
+        };
+      }
     ];
   };
 }
